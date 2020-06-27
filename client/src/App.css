@@ -1,0 +1,38 @@
+h1, h3, h5 {
+    font-family: 'Press Start 2P', cursive;
+    color: #6da7b8;
+}
+
+.card {
+    border-radius: 8px;
+    border-color: #99cad7;
+}
+
+.btn {
+    border-radius: 3px;
+    border-color: #b56262;
+    margin: 2px;
+    background-color: #d38888;
+    color: #9b5051;
+}
+
+
+.btn:hover {
+    border-radius: 3px;
+    border-color: #99cad7;
+    margin: 2px;
+    background-color: #b6e4f5;
+    color: white;
+}
+
+.btn:active {
+    border-radius: 3px;
+    border-color: #c46341;
+    margin: 2px;
+    background-color: #dd794d;
+    color:	#9e503c;
+}
+
+.special {
+    font-family: 'Orbitron', sans-serif;
+}
