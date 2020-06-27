@@ -2,7 +2,7 @@
 const canvasWidth = 650;
 const canvasHeight = 300;
 
-//Position where fram will be drawn
+//Position where frame will be drawn
 const xAxis = 200;
 const yAxis = 200;
 
