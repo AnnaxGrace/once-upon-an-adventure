@@ -48,7 +48,7 @@ function drawImage(){
     context.drawImage(character, srcX, srcY, width, height, xAxis, yAxis, width, height);
 }
 
-//sets the speed of animation
+//sets the speed of animation!
 setInterval(function(){
     drawImage();
 }, 120);
