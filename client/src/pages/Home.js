@@ -4,6 +4,7 @@ import Banner from "../components/Banner/Banner"
 import SignUpModal from "../components/Modals/SignUpModal"
 import About from "../components/About/About"
 import { Container } from "../components/Grid";
+import Battle from "../components/Battle/battle"
 
 const styles={
     bookImg: {
@@ -14,6 +15,7 @@ const styles={
 
 function Home() {
     return (
+        
         <Container>
             <div className="row">
                 <div className="col-md-7 text-center">
@@ -47,6 +49,7 @@ function Home() {
                                     </p>
                                 </form>
                     </div>
+                    
                 </div>
                 <About />
                 <SignUpModal />
