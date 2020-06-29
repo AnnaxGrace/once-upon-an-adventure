@@ -1,0 +1,28 @@
+#login-page {
+    height: 1000px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* display: none; */
+    display: block;
+    z-index: 3;
+    opacity: 3;
+}
+
+.beige{
+    /* background-color: gray; */
+    background-color:rgba(0,0,0,0.4);
+    /* background-color: hsla(60, 20%, 99%, 0.9); */
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+canvas {
+    background-color: black;
+    border: 5px white solid;
+    position: absolute;
+    left: 32%;
+    /* margin-left: -50px; */
+    top: 20%;
+    /* margin-top: -50px; */
+}

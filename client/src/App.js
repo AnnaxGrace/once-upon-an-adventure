@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import "./App.css"
+import Nav from "./components/Nav/Nav";
+import Home from "./pages/Home"
+import BattleExample from "./pages/BattleExample"
 
 function App() {
   return (
@@ -11,14 +11,11 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
+          <Route exact path={["/", "/react-rpg"]}>
+            <Home />
           </Route>
-          <Route exact path="/books/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
+          <Route exact path={["/battle", "/react-rpg"]}>
+            <BattleExample />
           </Route>
         </Switch>
       </div>

@@ -1,0 +1,12 @@
+.nav-bg {
+    background-color: #99cad7;
+    color: white;
+}
+
+.nav-brand {
+    color: white;
+}
+
+.nav-brand:hover {
+    color: #b6e4f5;
+}
