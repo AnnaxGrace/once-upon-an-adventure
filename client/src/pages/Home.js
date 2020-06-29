@@ -1,33 +1,52 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner/Banner";
 import SignUpModal from "../components/Modals/SignUpModal";
 import About from "../components/About/About";
 import { Container } from "../components/Grid";
-import Login from "../components/Login/Login"
+import Login from "../components/Login/Login";
+import API from "../utils/API";
 
 class Home extends Component {
     state = {
+        // signUp: {email: "",
+        // password: "",},
+        // login: {
         email: "",
-        password: ""
+        password: "",
+        // }
     }
+    
 
     handleInputChange = event => {
-        let value = event.target.value;
-        const name = event.target.name;
-    
+        const{ name, value} = event.target
+    console.log(value)
         this.setState({
           [name]: value
         });
       };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
+    // HandleLoginSubmit = event => {
+    //     event.preventDefault();
+    //     const user = this.state.login
+    //     console.log("working")
+    //     API.getUser({
+    //         email: user.email,
+    //         password: user.password
+    //     }).then()
+    // }
 
-        this.setState({
-            email: "",
-            password: ""
-        })
+    handleSignUpSubmit = event => {
+        event.preventDefault();
+        const user = this.state
+        console.log(user)
+
+
+        API.saveUser({
+            email: user.email,
+            password: user.password
+        }).then()
+
     }
 
     render() {
@@ -40,12 +59,12 @@ class Home extends Component {
                     <div className="col-md-5 text-center">
                         <Login
                             handleInputChange={this.handleInputChange}
-                            handleFormSubmit={this.handleFormSubmit} />
+                            HandleLoginSubmit={this.HandleLoginSubmit} />
                     </div>
                     <About />
                     <SignUpModal
                         handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit} />
+                        handleSignUpSubmit={this.handleSignUpSubmit} />
                 </div>
             </Container>
         )
