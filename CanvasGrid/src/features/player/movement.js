@@ -1,5 +1,5 @@
 import store from '../../config/store'
-import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
+import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 
 export default function handleMovement(player) {
 
@@ -17,21 +17,31 @@ export default function handleMovement(player) {
         }
     }
 
-    // 512px 70px = kneel half mask
-    // 700px 70px = dead sprite
-    // 835px 0px = facing north
-    // 2px 70px = facing south
+    // //Position on the image to be animated
+let srcX;
+let srcY;
+//Defines the row to use to animate coresponding movement.
+let trackLeft = 9;
+let trackRight = 11;
+let trackUp = 8;
+let trackDown = 10;
+let movingLeft = false;
+let movingRight = false;
+let movingUp = false;
+let movingDown = true;
+// Frame that will be rendered frist (measured by the position on x-axis)
+let curretFrame = 0;
 
     function getSpriteLocation(direction) {
         switch(direction) {
             case 'WEST':
-                return `512px 70px`
+                return `0px 768px`
             case 'EAST':
-                return `700px 70px`
+                return `0px 640px`
             case 'NORTH':
-                return `835px 0px`
+                return `0px 576px`
             case 'SOUTH':
-                return `2px 70px`
+                return `0px 704px`
         }
     }
 
