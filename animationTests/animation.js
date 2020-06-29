@@ -36,7 +36,7 @@ let curretFrame = 0;
 const tree = new Image()
 tree.src = "../assets/sprites/tree.png"
 const character = new Image();
-character.src = "../assets/sprites/erik.png";
+character.src = "../assets/sprites/anna.png";
 
 //defines element on html to render the animations
 const canvas = document.getElementById('canvas');
