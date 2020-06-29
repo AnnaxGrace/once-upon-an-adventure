@@ -1,0 +1,16 @@
+.tile {
+    display: inline-flex;
+    background-color: olivedrab;
+}
+
+.grass {
+    background-color: olivedrab;
+}
+
+.rock {
+    background-image: url('/tiles/rock.png')
+}
+
+.castle {
+    background-image: url('/tiles/castle.png')
+}
