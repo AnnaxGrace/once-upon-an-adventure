@@ -36,7 +36,7 @@ let curretFrame = 0;
 const tree = new Image()
 tree.src = "../assets/sprites/tree.png"
 const character = new Image();
-character.src = "../assets/sprites/anna.png";
+character.src = "../assets/sprites/jace.png";
 
 //defines element on html to render the animations
 const canvas = document.getElementById('canvas');
@@ -95,7 +95,7 @@ function charMove(event) {
 
 //updates the displayed frame and removes the preiously displayed frame
 function updateFrame() {
-    context.clearRect(xAxis, yAxis, width, height);
+    context.clearRect(xAxis, yAxis+10, width, height);
     curretFrame = ++curretFrame % 9; //9 is the number of columns to be animated
     srcX = curretFrame * width;
     if (movingLeft === true) {
