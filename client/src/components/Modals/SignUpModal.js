@@ -1,31 +1,7 @@
-import React, { Component} from "react";
+import React from "react";
 
-class SignUpModal extends Component {
-    state = {
-        email: "",
-        password: ""
-    }
-
-    handleInputChange = event => {
-        let value = event.target.value;
-        const name = event.target.name;
-    
-        this.setState({
-          [name]: value
-        });
-      };
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-
-        this.setState({
-            email: "",
-            password: ""
-        })
-    }
-
-    render() {
-        return (
+function SignUpModal(props) {
+      return (
           <div
             className="modal fade"
             id="loginModal"
@@ -52,8 +28,8 @@ class SignUpModal extends Component {
                 <div className="modal-body">
                   <form className="signup">
                     <input
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
+                      value={props.email}
+                      onChange={props.handleInputChange}
                       type="email"
                       className="form-control special"
                       id="email-input"
@@ -62,8 +38,8 @@ class SignUpModal extends Component {
                     <br />
 
                     <input
-                      value={this.state.password}
-                      onChange={this.handleInputChange}
+                      value={props.password}
+                      onChange={props.handleInputChange}
                       type="password"
                       className="form-control special"
                       id="password-input"
@@ -83,7 +59,7 @@ class SignUpModal extends Component {
                   <button
                     type="submit"
                     className="btn special"
-                    onClick={this.handleFormSubmit}
+                    onClick={props.handleFormSubmit}
                   >
                     Register!
                   </button>
@@ -92,7 +68,6 @@ class SignUpModal extends Component {
             </div>
           </div>
         );
-    }
 }
 
 export default SignUpModal;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const styles={
     bookImg: {
@@ -7,41 +7,17 @@ const styles={
     }
 }
 
-class Login extends Component {
-    state = {
-        email: "",
-        password: ""
-    }
-
-    handleInputChange = event => {
-        let value = event.target.value;
-        const name = event.target.name;
-    
-        this.setState({
-          [name]: value
-        });
-      };
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-
-        this.setState({
-            email: "",
-            password: ""
-        })
-    }
-
-    render() {
-        return (
+function Login(props) {
+    return (
         <div className="card">
             <div className="card-body">
             <h1>Welcome!</h1>
             <br />
             <form className="login">
                 <input
-                value={this.state.email}
+                value={props.email}
                 type="email"
-                onChange={this.handleInputChange}
+                onChange={props.handleInputChange}
                 className="form-control special"
                 id="email-input"
                 placeholder="Email"
@@ -49,16 +25,16 @@ class Login extends Component {
                 <br />
 
                 <input
-                value={this.state.password}
+                value={props.password}
                 type="password"
-                onChange={this.handleInputChange}
+                onChange={props.handleInputChange}
                 className="form-control special"
                 id="password-input"
                 placeholder="Password"
                 />
                 <br />
 
-                <button className="btn special" onClick={this.handleFormSubmit}>Log In!</button>
+                <button className="btn special" onClick={props.handleFormSubmit}>Log In!</button>
 
                 <p>
                 or
@@ -82,7 +58,6 @@ class Login extends Component {
             </div>
         </div>
         );
-    }
 }
 
 export default Login;
