@@ -1,19 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import "./battle.css"
+import CanvasSnake from "../CanvasSnake"
+// import SnakeGame from "../SnakeGame/index"
 
 
-function Battle () {
+class Battle extends Component {
 
-    // function handleNewScreen {
-
-    // }
+    render() {
     return (
         // <button type="button" class="btn btn-primary battleBtn" onClick={handleNewScreen}></button>
-    <div id="login-page" class="beige">
+    <div id="login-page" className="beige">
       Hello world!
-      
+
+      <CanvasSnake />
+     
     </div>
     )
+    }
 }
 
 export default Battle;
