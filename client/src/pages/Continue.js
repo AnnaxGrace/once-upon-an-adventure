@@ -2,19 +2,13 @@ import React from "react";
 import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 
-const styles={
-    img: {
-        margin: 20
-    }
-}
-
 function Continue() {
     return(
         <Container>
                 <h1 className="text-center">Continue Your Adventure</h1>
 
                 <div>
-                    <img src={require("../images/open-book-board.png")} style={styles.img} />
+                    <img src={require("../images/open-book-board.png")} />
 
                     <div>
                         <TextBox />
