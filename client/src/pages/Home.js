@@ -7,67 +7,73 @@ import Login from "../components/Login/Login";
 import API from "../utils/API";
 
 class Home extends Component {
-    state = {
-        // signUp: {email: "",
-        // password: "",},
-        // login: {
-        email: "",
-        password: "",
-        // }
-    }
-    
+  state = {  
+        email: "", 
+        password: "" 
+  };
 
-    handleInputChange = event => {
-        const{ name, value} = event.target
-    console.log(value)
-        this.setState({
-          [name]: value
-        });
-      };
-
-    // HandleLoginSubmit = event => {
-    //     event.preventDefault();
-    //     const user = this.state.login
-    //     console.log("working")
-    //     API.getUser({
-    //         email: user.email,
-    //         password: user.password
-    //     }).then()
-    // }
-
-    handleSignUpSubmit = event => {
-        event.preventDefault();
-        const user = this.state
-        console.log(user)
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log(value);
+    this.setState({
+      [name]: value,
+    });
+  };
 
 
-        API.saveUser({
-            email: user.email,
-            password: user.password
-        }).then()
+  HandleLoginSubmit = event => {
+      event.preventDefault();
+      const user = this.state;
+      console.log("working")
+      API.getUser({
+          email: user.email,
+          password: user.password
+      }).then(function() {
+        // window.location.replace("/members");
+        // If there's an error, log the error
+      }).catch(function(err){
+        alert("Please enter correct email")
+      })
+  }
 
-    }
+  handleSignUpSubmit = (event) => {
+    event.preventDefault();
+    const user = this.state;
+    console.log(user);
 
-    render() {
-        return (
-            <Container>
-                <div className="row">
-                    <div className="col-md-7 text-center">
-                        <Banner />
-                    </div>
-                    <div className="col-md-5 text-center">
-                        <Login
-                            handleInputChange={this.handleInputChange}
-                            HandleLoginSubmit={this.HandleLoginSubmit} />
-                    </div>
-                    <About />
-                    <SignUpModal
-                        handleInputChange={this.handleInputChange}
-                        handleSignUpSubmit={this.handleSignUpSubmit} />
-                </div>
-            </Container>
-        )
-    }
+    API.saveUser({
+      email: user.email,
+      password: user.password,
+    }).then(function() {
+        // window.location.replace("/members");
+        // If there's an error, log the error
+      }).catch(function(err){
+        alert("This email already exists")
+      })
+  };
+
+  render() {
+    return (
+      <Container>
+        <div className="row">
+          <div className="col-md-7 text-center">
+            <Banner />
+          </div>
+          <div className="col-md-5 text-center">
+            <Login
+              handleInputChange={this.handleInputChange}
+              HandleLoginSubmit={this.HandleLoginSubmit}
+            />
+          </div>
+          <About />
+          <SignUpModal
+            handleInputChange={this.handleInputChange}
+            handleSignUpSubmit={this.handleSignUpSubmit}
+          />
+        </div>
+      </Container>
+    );
+  }
 }
 
 export default Home;
