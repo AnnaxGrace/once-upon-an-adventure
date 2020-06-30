@@ -8,10 +8,16 @@ function getTileSprite(type) {
     switch (type) {
         case 0:
             return 'grass'
+        case 1:
+            return 'dirt'
         case 5:
             return 'rock'
         case 6:
             return 'castle'
+        case 7:
+            return 'tree'
+        case 8:
+            return 'shop'
     }
 }
 
@@ -23,7 +29,6 @@ function MapTile(props) {
         width: SPRITE_SIZE
     }}
     />
-
 }
 
 function MapRow(props) {
@@ -44,9 +49,9 @@ function Map(props) {
             position: 'relative',
             top: '0px',
             left: '0px',
-            width:'700px',
-            height: '350px',
-            border: '4px solid white',
+            width:'640px',
+            height: '640px',
+            border: '4px solid black',
         }}
         >
             {

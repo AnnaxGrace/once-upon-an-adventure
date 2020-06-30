@@ -1,10 +1,9 @@
 import store from '../../config/store'
-import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
+import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 
 export default function handleMovement(player) {
 
     function getNewPosition(oldPos, direction) {
-
         switch(direction) {
             case 'WEST':
                 return [ oldPos[0]-SPRITE_SIZE, oldPos[1] ]
@@ -17,22 +16,25 @@ export default function handleMovement(player) {
         }
     }
 
-    // 512px 70px = kneel half mask
-    // 700px 70px = dead sprite
-    // 835px 0px = facing north
-    // 2px 70px = facing south
 
-    function getSpriteLocation(direction) {
+    function getSpriteLocation(direction, walkIndex) {
+        console.log("getspritelocation", walkIndex)
         switch(direction) {
-            case 'WEST':
-                return `512px 70px`
+            case 'WEST':                                        //rows are selected from bottom up...
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 3}px` //768px
             case 'EAST':
-                return `700px 70px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 1}px`//640px
             case 'NORTH':
-                return `835px 0px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 0}px`//576px
             case 'SOUTH':
-                return `2px 70px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 2}px`//704px
         }
+    }
+    
+    function getWalkIndex(){
+        const walkIndex = store.getState().player.walkIndex
+        console.log("walkIndex", walkIndex)
+        return walkIndex >= 8 ? 0 : walkIndex + 1
     }
 
     function observeBoundaries(oldPos, newPos) {
@@ -49,14 +51,18 @@ export default function handleMovement(player) {
     }
 
     function dispatchMove(direction, newPos) {
+        const walkIndex = getWalkIndex()
+        console.log("dispatchMove", walkIndex,direction)
         store.dispatch({
             type: 'MOVE_PLAYER',
             payload: {
                 position: newPos,
                 direction,
-                spriteLocation: getSpriteLocation(direction),
+                walkIndex,
+                spriteLocation: getSpriteLocation(direction, walkIndex),
             }
-        })
+           
+        }) 
     }
 
     function attemptMove(direction) {

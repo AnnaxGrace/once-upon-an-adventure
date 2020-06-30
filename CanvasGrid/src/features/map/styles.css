@@ -7,6 +7,18 @@
     background-color: olivedrab;
 }
 
+.dirt {
+    background-color: lightsalmon;
+}
+
+.shop {
+    background-image: url('/tiles/erikstore2.png');
+}
+
+.tree {
+    background-image: url('/tiles/tree.png');
+}
+
 .rock {
     background-image: url('/tiles/rock.png')
 }

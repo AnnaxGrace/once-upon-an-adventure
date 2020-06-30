@@ -15,6 +15,7 @@ function Login(props) {
             <br />
             <form className="login">
                 <input
+                name="email"
                 value={props.email}
                 type="email"
                 onChange={props.handleInputChange}
@@ -25,6 +26,7 @@ function Login(props) {
                 <br />
 
                 <input
+                name="password"
                 value={props.password}
                 type="password"
                 onChange={props.handleInputChange}
@@ -34,7 +36,7 @@ function Login(props) {
                 />
                 <br />
 
-                <button className="btn special" onClick={props.handleFormSubmit}>Log In!</button>
+                <button className="btn special" onClick={props.HandleLoginSubmit}>Log In!</button>
 
                 <p>
                 or
@@ -52,6 +54,7 @@ function Login(props) {
                 <img
                     src={require("../../images/Book-Pile.png")}
                     style={styles.bookImg}
+                    alt="books"                   
                 />
                 </p>
             </form>
