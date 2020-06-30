@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "../components/Grid";
 
 const styles = {
     sprites: {
@@ -19,57 +18,53 @@ const styles = {
     }
 }
 
+const teamInfo = [
+    {
+        id: 1,
+        img: require("../images/teamAnna.png"),
+        name: "Anna Conover",
+        roles: "Mini Games, Story Logic, Thief"
+    },
+    {
+        id: 2,
+        img: require("../images/teamJace.png"),
+        name: "Jace Clements",
+        roles: "Front-end Appearance, Math Wizard"
+    },
+    {
+        id: 3,
+        img: require("../images/teamVinnie.png"),
+        name: "Vinnie Lopez",
+        roles: "Back-End Development, Authentication, Heart-giving Orc"
+    },
+    {
+        id: 4,
+        img: require("../images/teamTony.png"),
+        name: "Tony Garces",
+        roles: "Canvas grid, Castle Guard"
+    },
+    {
+        id: 5,
+        img: require("../images/teamErik.png"),
+        name: "Erik Hirsch",
+        roles: "Sprite Animation, Shopkeeper"
+    }
+]
+
 function Team() {
     return(
         <div style={styles.divPos}>
             <h1 className="text-center">The Team</h1>
                 <div className="row">
-                    <div className="col-md-2 card" style={styles.devCard}>
-                        <img src={require("../images/teamAnna.png")} style={styles.teamImg} alt="Anna" />
-                        <h5 className="text-center">Anna Conover</h5>
-                        <ul>
-                            <li>Mini-Games</li>
-                            <li>Story Logic</li>
-                            <li>Thief</li>
-                        </ul>
-                    </div>
-
-                    <div className="col-md-2 card" style={styles.devCard}>
-                        <img src={require("../images/teamJace.png")} style={styles.teamImg} alt="Jace" />
-                        <h5 className="text-center">Jace Clements</h5>
-                        <ul>
-                            <li>Front-End Appearence</li>
-                            <li>Math Wizard</li>
-                        </ul>
-                    </div>
-
-                    <div className="col-md-2 card" style={styles.devCard}>
-                        <img src={require("../images/teamVinnie.png")} style={styles.teamImg} alt="Vinnie" />
-                        <h5 className="text-center">Vinnie Lopez</h5>
-                        <ul>
-                            <li>Back-End</li>
-                            <li>Authentication</li>
-                            <li>Heart-Giving Orc</li>
-                        </ul>
-                    </div>
-
-                    <div className="col-md-2 card" style={styles.devCard}>
-                        <img src={require("../images/teamTony.png")} style={styles.teamImg} alt="Tony" />
-                        <h5 className="text-center">Tony Garces</h5>
-                        <ul>
-                            <li>Canvas Grid</li>
-                            <li>Castle Guard</li>
-                        </ul>
-                    </div>
-
-                    <div className="col-md-2 card" style={styles.devCard}>
-                        <img src={require("../images/teamErik.png")} style={styles.teamImg} alt="Erik" />
-                        <h5 className="text-center">Erik Hirsch</h5>
-                        <ul>
-                            <li>Sprite Animation</li>
-                            <li>Shopkeeper</li>
-                        </ul>
-                    </div>
+                    {teamInfo.map(item => (
+                        <div className="col-md-2 card text-center" style={styles.devCard} key={item.id}>
+                            <img src={item.img} style={styles.teamImg} alt={item.name} />
+                                <h5>{item.name}</h5>
+                                    <p className="special">
+                                        {item.roles}
+                                    </p>
+                        </div>
+                    ))}
                 </div>
         </div>
     )
