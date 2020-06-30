@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/battle">
             <BattleExample />
           </Route>
-          <Route exact-path="/team">
+          <Route exact path="/team">
             <Team />
           </Route>
         </Switch>
