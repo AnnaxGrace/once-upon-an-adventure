@@ -54,6 +54,7 @@ function Login(props) {
                 <img
                     src={require("../../images/Book-Pile.png")}
                     style={styles.bookImg}
+                    alt="books"                   
                 />
                 </p>
             </form>
