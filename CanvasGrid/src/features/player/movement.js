@@ -4,7 +4,6 @@ import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HE
 export default function handleMovement(player) {
 
     function getNewPosition(oldPos, direction) {
-
         switch(direction) {
             case 'WEST':
                 return [ oldPos[0]-SPRITE_SIZE, oldPos[1] ]
@@ -17,32 +16,25 @@ export default function handleMovement(player) {
         }
     }
 
-    // //Position on the image to be animated
-let srcX;
-let srcY;
-//Defines the row to use to animate coresponding movement.
-let trackLeft = 9;
-let trackRight = 11;
-let trackUp = 8;
-let trackDown = 10;
-let movingLeft = false;
-let movingRight = false;
-let movingUp = false;
-let movingDown = true;
-// Frame that will be rendered frist (measured by the position on x-axis)
-let curretFrame = 0;
 
-    function getSpriteLocation(direction) {
+    function getSpriteLocation(direction, walkIndex) {
+        console.log("getspritelocation", walkIndex)
         switch(direction) {
-            case 'WEST':
-                return `0px 768px`
+            case 'WEST':                                        //rows are selected from bottom up...
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 3}px` //768px
             case 'EAST':
-                return `0px 640px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 1}px`//640px
             case 'NORTH':
-                return `0px 576px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 0}px`//576px
             case 'SOUTH':
-                return `0px 704px`
+                return `${SPRITE_SIZE * walkIndex}px ${SPRITE_SIZE * 2}px`//704px
         }
+    }
+    
+    function getWalkIndex(){
+        const walkIndex = store.getState().player.walkIndex
+        console.log("walkIndex", walkIndex)
+        return walkIndex >= 8 ? 0 : walkIndex + 1
     }
 
     function observeBoundaries(oldPos, newPos) {
@@ -59,14 +51,18 @@ let curretFrame = 0;
     }
 
     function dispatchMove(direction, newPos) {
+        const walkIndex = getWalkIndex()
+        console.log("dispatchMove", walkIndex,direction)
         store.dispatch({
             type: 'MOVE_PLAYER',
             payload: {
                 position: newPos,
                 direction,
-                spriteLocation: getSpriteLocation(direction),
+                walkIndex,
+                spriteLocation: getSpriteLocation(direction, walkIndex),
             }
-        })
+           
+        }) 
     }
 
     function attemptMove(direction) {
