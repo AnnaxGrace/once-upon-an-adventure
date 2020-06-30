@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-=======
 import React, { Component} from "react";
 import { Link } from "react-router-dom";
->>>>>>> master
 import Banner from "../components/Banner/Banner";
 import SignUpModal from "../components/Modals/SignUpModal";
 import About from "../components/About/About";
