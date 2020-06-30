@@ -28,6 +28,7 @@ function SignUpModal(props) {
                 <div className="modal-body">
                   <form className="signup">
                     <input
+                      name="email"
                       value={props.email}
                       onChange={props.handleInputChange}
                       type="email"
@@ -38,6 +39,7 @@ function SignUpModal(props) {
                     <br />
 
                     <input
+                      name="password"
                       value={props.password}
                       onChange={props.handleInputChange}
                       type="password"
@@ -59,7 +61,7 @@ function SignUpModal(props) {
                   <button
                     type="submit"
                     className="btn special"
-                    onClick={props.handleFormSubmit}
+                    onClick={props.handleSignUpSubmit}
                   >
                     Register!
                   </button>
