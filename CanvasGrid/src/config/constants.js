@@ -1,7 +1,7 @@
 export const SPRITE_SIZE = 64
 export const HALF_GRID = SPRITE_SIZE/2
 
-export const MAP_HEIGHT = SPRITE_SIZE * 10
+export const MAP_HEIGHT = SPRITE_SIZE * 20
 export const MAP_WIDTH = SPRITE_SIZE * 20
 
 
