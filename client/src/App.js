@@ -18,6 +18,7 @@ function App() {
           <Route exact path={["/", "/react-rpg"]}>
             <Home />
           </Route>
+
             <Route exact path="/battle">
               <BattleExample />
             </Route>

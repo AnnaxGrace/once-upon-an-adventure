@@ -25,30 +25,32 @@ class Home extends Component {
       event.preventDefault();
       const user = this.state;
       console.log("working")
-      API.getUser({
+      API.findUser({
           email: user.email,
           password: user.password
       }).then(function() {
-        // window.location.replace("/members");
+        // window.location.replace("/battle");
         // If there's an error, log the error
-      }).catch(function(err){
-        alert("Please enter correct email")
       })
+      // .catch(function(err){
+      //   alert("Please enter correct email")
+      // })
   }
 
   handleSignUpSubmit = (event) => {
     event.preventDefault();
     const user = this.state;
-    console.log(user);
+    // console.log(user);
 
     API.saveUser({
       email: user.email,
       password: user.password,
     }).then(function() {
-        // window.location.replace("/members");
+        window.location.replace("/battle");
         // If there's an error, log the error
-      }).catch(function(err){
-        alert("This email already exists")
+      })
+      .catch(function(err){
+        alert("Try Again!")
       })
   };
 
