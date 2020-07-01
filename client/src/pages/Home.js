@@ -59,15 +59,19 @@ class Home extends Component {
       <Container>
         <div className="row">
           <div className="col-md-7 text-center">
+            {/* Opening splash image */}
             <Banner />
           </div>
           <div className="col-md-5 text-center">
+            {/* Login Card */}
             <Login
               handleInputChange={this.handleInputChange}
               HandleLoginSubmit={this.HandleLoginSubmit}
             />
           </div>
+          {/* An About Section */}
           <About />
+          {/* Renders the sign-Up Modal */}
           <SignUpModal
             handleInputChange={this.handleInputChange}
             handleSignUpSubmit={this.handleSignUpSubmit}
