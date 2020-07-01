@@ -29,12 +29,12 @@ class Home extends Component {
           email: user.email,
           password: user.password
       }).then(function() {
-        // window.location.replace("/battle");
+        window.location.replace("/user");
         // If there's an error, log the error
       })
-      // .catch(function(err){
-      //   alert("Please enter correct email")
-      // })
+      .catch(function(err){
+        alert("Please enter correct email")
+      })
   }
 
   handleSignUpSubmit = (event) => {
@@ -46,7 +46,7 @@ class Home extends Component {
       email: user.email,
       password: user.password,
     }).then(function() {
-        window.location.replace("/battle");
+        window.location.replace("/user");
         // If there's an error, log the error
       })
       .catch(function(err){
