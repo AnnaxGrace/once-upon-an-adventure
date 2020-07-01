@@ -12,9 +12,55 @@ const styles={
         marginBottom: 10
     },
     input: {
-        marginLeft: 35
+        marginLeft: 40
     }
 }
+
+const characters1 = [
+    {
+        id: 1,
+        img: require("../images/option1.png")
+    },
+    {
+        id: 2,
+        img: require("../images/option2.png")
+    },
+    {
+        id: 3,
+        img: require("../images/option3.png")
+    },
+    {
+        id: 4,
+        img: require("../images/option4.png")
+    },
+    {
+        id: 5,
+        img: require("../images/option5.png")
+    }
+]
+
+const characters2 = [
+    {
+        id: 6,
+        img: require("../images/option6.png")
+    },
+    {
+        id: 7,
+        img: require("../images/option7.png")
+    },
+    {
+        id: 8,
+        img: require("../images/option8.png")
+    },
+    {
+        id: 9,
+        img: require("../images/option9.png")
+    },
+    {
+        id: 10,
+        img: require("../images/option10.png")
+    }
+]
 
 function New() {
     return(
@@ -27,87 +73,27 @@ function New() {
                         <h5>Select a Character!</h5>
                         <form className="characterSelect special">
                             <div className="row">
-                                <div className="col-md-2 text-center">
-                                    <img src={require("../images/placeholder.png")} alt="option 1" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input className="text-center" name="option" type="radio" aria-label="option1"></input>
+                                {characters1.map(item => (
+                                    <div className="col-md-2 text-center" key={item.id}>
+                                        <img src={item.img} alt={item.id} style={styles.option} />
+                                        <br />
+                                        <div style={styles.input}>
+                                            <input name="option" type="radio" aria-label={item.id}></input>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 2" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option2"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 3" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option3"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 4" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option4"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 5" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option5"></input>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
 
                             <div className="row">
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 6" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option6"></input>
+                                {characters2.map(item => (
+                                    <div className="col-md-2 text-center" key={item.id}>
+                                        <img src={item.img} alt={item.id} style={styles.option} />
+                                        <br />
+                                        <div style={styles.input}>
+                                            <input name="option" type="radio" aria-label={item.id}></input>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 7" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option7"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 8" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option8"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 9" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option9"></input>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-2">
-                                    <img src={require("../images/placeholder.png")} alt="option 10" style={styles.option} />
-                                    <br />
-                                    <div style={styles.input}>
-                                        <input name="option" type="radio" aria-label="option10"></input>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </form>
                     </div>
