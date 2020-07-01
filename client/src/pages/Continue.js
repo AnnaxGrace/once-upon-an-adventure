@@ -3,6 +3,7 @@ import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
 import GameTextModal from "../components/Modals/GameTextModal";
+import World from '../features/world/index';
 
 const styles= {
     bookImg: {
@@ -22,7 +23,7 @@ function Continue() {
                 <div>
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-
+                        <World />
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox />
