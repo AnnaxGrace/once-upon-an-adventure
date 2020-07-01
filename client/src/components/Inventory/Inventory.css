@@ -5,9 +5,19 @@
     border-radius: 5px;
     padding: 10px;
     position: absolute;
-    top: 300px;
-    width: 800px;
+    top: 100px;
+    width: 870px;
     height: 50px;
     margin: 10px;
     margin-left: 120px;
+}
+
+.heart {
+    width: 30px;
+    margin: 2px;
+}
+
+.invtImg {
+    width:30px;
+    margin: 5px;
 }
