@@ -16,6 +16,7 @@ function GameTextModal() {
                 </div>
 
                 <div className="modal-body">
+                    {/* Adventure text will be dynamically saved based on story progress */}
                     Your Adventure Text Will Go HERE!!
                 </div>
 
