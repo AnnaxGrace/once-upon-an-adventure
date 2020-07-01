@@ -2,6 +2,7 @@ import React from "react";
 import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
+import GameTextModal from "../components/Modals/GameTextModal";
 
 const styles= {
     bookImg: {
@@ -33,10 +34,12 @@ function Continue() {
                         Save Game!
                     </button>
 
-                    <button className="btn">
-                        Text Log
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                        Game Log!
                     </button>
                 </div>
+
+                <GameTextModal />
         </Container>
     )
 }
