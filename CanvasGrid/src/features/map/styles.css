@@ -1,5 +1,6 @@
 .tile {
     display: inline-flex;
+    /* background-color: lightskyblue; */
     background-color: olivedrab;
 }
 
@@ -11,8 +12,38 @@
     background-color: lightsalmon;
 }
 
-.shop {
-    background-image: url('/tiles/erikstore2.png');
+/* Cliffside Level */
+.sky {
+   background-color: lightskyblue;
+}
+.wizard {
+    background-image: url('/tiles/JaceLeft.png')
+}
+.impassSky {
+    background-color: lightskyblue;
+}
+.impassDirt {
+    background-color: lightsalmon;
+}
+
+/* Forest */
+.shop33 {
+    background-image: url('/tiles/ErikStore33.png');
+}
+.shop34 {
+    background-image: url('/tiles/ErikStore34.png');
+}
+.shop35 {
+    background-image: url('/tiles/ErikStore35.png');
+}
+.shop36 {
+    background-image: url('/tiles/ErikStore36.png');
+}
+.shop37 {
+    background-image: url('/tiles/ErikStore37.png');
+}
+.shop38 {
+    background-image: url('/tiles/ErikStore38.png');
 }
 
 .tree {
@@ -23,6 +54,73 @@
     background-image: url('/tiles/rock.png')
 }
 
-.castle {
-    background-image: url('/tiles/castle.png')
+/* Castle Level */
+.castle0 {
+    background-image: url('/tiles/castle0.png')
+}
+.castle1 {
+    background-image: url('/tiles/castle1.png')
+}
+.castle2 {
+    background-image: url('/tiles/castle2.png')
+}
+.castle3 {
+    background-image: url('/tiles/castle3.png')
+}
+.castle4 {
+    background-image: url('/tiles/castle4.png')
+}
+.castle5 {
+    background-image: url('/tiles/castle5.png')
+}
+.castle6 {
+    background-image: url('/tiles/castle6.png')
+}
+.castle7 {
+    background-image: url('/tiles/castle7.png')
+}
+.castle8 {
+    background-image: url('/tiles/castle8.png')
+}
+.castle9 {
+    background-image: url('/tiles/castle9.png')
+}
+.castle10 {
+    background-image: url('/tiles/castle10.png')
+}
+.castle11 {
+    background-image: url('/tiles/castle11.png')
+}
+.castle12 {
+    background-image: url('/tiles/castle12.png')
+}
+.castle13 {
+    background-image: url('/tiles/castle13.png')
+}
+.castle14 {
+    background-image: url('/tiles/castle14.png')
+}
+.castle15 {
+    background-image: url('/tiles/castle15.png')
+}
+.castle16 {
+    background-image: url('/tiles/castle16.png')
+}
+.castle17 {
+    background-image: url('/tiles/castle17.png')
+}
+.castle18 {
+    background-image: url('/tiles/castle18.png')
+}
+.castle19 {
+    background-image: url('/tiles/castle19.png')
+}
+.castle20 {
+    background-image: url('/tiles/castle20.png')
+}
+.castle21 {
+    background-image: url('/tiles/castle21.png')
+}
+.castle22 {
+    background-image: url('/tiles/castle22.png')
 }
