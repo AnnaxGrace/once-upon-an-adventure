@@ -1,8 +1,14 @@
 const initialState = {
-    position: [64, 64],
-    spriteLocation: '0px 64px',
-    direction: 'SOUTH',
+    // 
+    // position: [0, 192],
+    // ForestLevel
+    position: [0, 384],
+    // 
+    // position: [0, 512],
+    spriteLocation: '0px 128px',
+    direction: 'east'
     walkIndex: 0,
+
 }
 
 const playerReducer = (state=initialState, action) => {

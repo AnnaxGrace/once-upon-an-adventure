@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component} from "react";
 import Banner from "../components/Banner/Banner";
 import SignUpModal from "../components/Modals/SignUpModal";
 import About from "../components/About/About";
@@ -26,30 +25,32 @@ class Home extends Component {
       event.preventDefault();
       const user = this.state;
       console.log("working")
-      API.getUser({
+      API.findUser({
           email: user.email,
           password: user.password
       }).then(function() {
-        // window.location.replace("/members");
+        // window.location.replace("/battle");
         // If there's an error, log the error
-      }).catch(function(err){
-        alert("Please enter correct email")
       })
+      // .catch(function(err){
+      //   alert("Please enter correct email")
+      // })
   }
 
   handleSignUpSubmit = (event) => {
     event.preventDefault();
     const user = this.state;
-    console.log(user);
+    // console.log(user);
 
     API.saveUser({
       email: user.email,
       password: user.password,
     }).then(function() {
-        // window.location.replace("/members");
+        window.location.replace("/battle");
         // If there's an error, log the error
-      }).catch(function(err){
-        alert("This email already exists")
+      })
+      .catch(function(err){
+        alert("Try Again!")
       })
   };
 
@@ -58,15 +59,19 @@ class Home extends Component {
       <Container>
         <div className="row">
           <div className="col-md-7 text-center">
+            {/* Opening splash image */}
             <Banner />
           </div>
           <div className="col-md-5 text-center">
+            {/* Login Card */}
             <Login
               handleInputChange={this.handleInputChange}
               HandleLoginSubmit={this.HandleLoginSubmit}
             />
           </div>
+          {/* An About Section */}
           <About />
+          {/* Renders the sign-Up Modal */}
           <SignUpModal
             handleInputChange={this.handleInputChange}
             handleSignUpSubmit={this.handleSignUpSubmit}

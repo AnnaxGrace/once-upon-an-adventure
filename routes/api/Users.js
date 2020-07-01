@@ -5,6 +5,9 @@ const dataController = require("../../controllers/dataController");
 router.route("/")
   .get(dataController.findAll)
   .post(dataController.create);
+ 
+  router.route("/login")
+  .post(dataController.findUser)
 
 
   module.exports = router;

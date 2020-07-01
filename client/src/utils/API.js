@@ -9,5 +9,9 @@ export default {
   // Saves a User to the database
   saveUser: function(userData) {
     return axios.post("/api/signup", userData);
+  },
+
+  findUser: function(userData) {
+    return axios.post("/api/signup/login", userData);
   }
 };
