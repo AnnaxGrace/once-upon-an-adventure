@@ -1,4 +1,5 @@
 module.exports = {
   User: require("./User"),
-  Sprite: require("./SpriteChar")
+  Sprite: require("./SpriteChar"),
+  Inventory: require("./inventory")
 };
