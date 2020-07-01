@@ -13,6 +13,7 @@ function World(props) {
 
     return (
         <div
+            id="world-thingy"
             style={{
                 position: 'relative',
                 width:'800px',

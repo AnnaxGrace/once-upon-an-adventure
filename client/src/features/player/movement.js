@@ -2,11 +2,6 @@ import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import walking from '../sound/index'
 
-
-
-export default function handleMovement(player) {
-
-
     function getNewPosition(oldPos, direction) {
         switch (direction) {
             case 'WEST':
@@ -103,9 +98,5 @@ export default function handleMovement(player) {
         }
     }
 
-    window.addEventListener('keydown', (e) => {
-        handleKeyDown(e)
-    })
 
-    return player
-}
+    export { getNewPosition, getWalkIndex, getSpriteLocation, observeBoundaries, observeImpassable, dispatchMove, attemptMove, handleKeyDown }

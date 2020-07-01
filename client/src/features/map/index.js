@@ -111,6 +111,7 @@ function MapRow(props) {
 function Map(props) {
     return (
         <div 
+        className="map-thingy"
         style= {{
             position: 'relative',
             top: '0px',

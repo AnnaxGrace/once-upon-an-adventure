@@ -8,11 +8,14 @@ import Team from "./pages/Team";
 import User from "./pages/User";
 import Continue from "./pages/Continue";
 import New from "./pages/New";
+import World from "./features/world";
+import Store from "./config/store";
 
 
 function App() {
   return (
     <Router>
+      
       <div>
         <Nav />
         <Switch>
@@ -39,6 +42,8 @@ function App() {
             <Route exact path="/new">
               <New />
             </Route>
+
+            <Route exact path="/test" component={WorldPage}/>
         </Switch>
       </div>
     </Router>
@@ -46,3 +51,6 @@ function App() {
 }
 
 export default App;
+
+
+const WorldPage  = () => (<div id="this-window"><World /></div>)

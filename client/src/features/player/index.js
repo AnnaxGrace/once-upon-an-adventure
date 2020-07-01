@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import walkSprite from './erik - fourLine.png'
-import handleMovement from './movement'
+import { handleKeyDown } from "./movement"
+
+const handleMovement = player => {
+    return player
+}
 
 function Player(props) {
+    useEffect(() => {
+        window.addEventListener("keydown", e => handleKeyDown(e))
+    },[])
     return(
         <div
         style={{
