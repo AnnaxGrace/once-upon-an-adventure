@@ -1,0 +1,13 @@
+.textBG {
+    background-color:hsla(39,30%,89%,0.8);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 650px;
+    width: 870px;
+    height: 150px;
+    margin: 10px;
+    margin-left: 120px;
+}

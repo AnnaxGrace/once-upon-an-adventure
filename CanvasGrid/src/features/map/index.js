@@ -95,7 +95,6 @@ function MapTile(props) {
         width: SPRITE_SIZE
     }}
     />
-
 }
 
 function MapRow(props) {
