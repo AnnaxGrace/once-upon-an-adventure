@@ -1,126 +1,409 @@
 .tile {
     display: inline-flex;
-    /* background-color: lightskyblue; */
+    /* Cliff */
+    /* background-color: rgb(150, 219, 228); */
+    /* Forest & Castle */
     background-color: olivedrab;
 }
-
-.grass {
+.grassPath {
     background-color: olivedrab;
 }
-
-.dirt {
+.dirtPath {
     background-color: lightsalmon;
+}
+.stonePath {
+    background-image: url('../../assets/tiles/stonePath1.png');
+}
+.tree {
+    background-image: url('../../assets/tiles/tree.png');
+}
+.rock {
+    background-image: url('../../assets/tiles/rock.png')
+}
+.fakeTree {
+    background-image: url('../../assets/tiles/tree.png');
 }
 
 /* Cliffside Level */
 .sky {
-   background-color: lightskyblue;
+   background-color: rgb(150, 219, 228);
 }
-.wizard {
-    background-image: url('/tiles/JaceLeft.png')
+.talkToJace {
+    background-color: lightsteelblue;
+}
+.returnToBook {
+    background-color: lightsteelblue;
 }
 .impassSky {
-    background-color: lightskyblue;
+    background-color: rgb(150, 219, 228);
 }
-.impassDirt {
-    background-color: lightsalmon;
+.impassCliff {
+    background-image: url('../../assets/tiles/cliffTop.png');
+}
+.cliffEdge {
+    background-image: url('../../assets/tiles/cliffEdge2.png');
+}
+.cliffBody {
+    background-image: url('../../assets/tiles/cliffNoGrass.png');
+}
+.cliffEdgeEdit {
+    background-image: url('../../assets/tiles/cliffEdgeEdit.png');
+}
+.bigCloud0 {
+    background-image: url('../../assets/tiles/bigCloud0.png');
+}
+.bigCloud1 {
+    background-image: url('../../assets/tiles/bigCloud1.png');
+}
+.bigCloud2 {
+    background-image: url('../../assets/tiles/bigCloud2.png');
+}
+.bigCloud3 {
+    background-image: url('../../assets/tiles/bigCloud3.png');
+}
+.bigCloud4 {
+    background-image: url('../../assets/tiles/bigCloud4.png');
+}
+.bigCloud5 {
+    background-image: url('../../assets/tiles/bigCloud5.png');
+}
+.bigCloud6 {
+    background-image: url('../../assets/tiles/bigCloud6.png');
+}
+.bigCloud7 {
+    background-image: url('../../assets/tiles/bigCloud7.png');
 }
 
-/* Forest */
-.shop33 {
-    background-image: url('/tiles/ErikStore33.png');
+.background0 {
+   background-image: url('../../assets/tiles/background0.png');
 }
-.shop34 {
-    background-image: url('/tiles/ErikStore34.png');
+.background1 {
+    background-image: url('../../assets/tiles/background1.png');
 }
-.shop35 {
-    background-image: url('/tiles/ErikStore35.png');
+.background2 {
+    background-image: url('../../assets/tiles/background2.png');
 }
-.shop36 {
-    background-image: url('/tiles/ErikStore36.png');
+.background3 {
+    background-image: url('../../assets/tiles/background3.png');
 }
-.shop37 {
-    background-image: url('/tiles/ErikStore37.png');
+.background4 {
+    background-image: url('../../assets/tiles/background4.png');
 }
-.shop38 {
-    background-image: url('/tiles/ErikStore38.png');
+.background5 {
+    background-image: url('../../assets/tiles/background5.png');
+}
+.background6 {
+    background-image: url('../../assets/tiles/background6.png');
+}
+.background7 {
+    background-image: url('../../assets/tiles/background7.png');
+}
+.background8 {
+    background-image: url('../../assets/tiles/background8.png');
+}
+.background9 {
+    background-image: url('../../assets/tiles/background9.png');
+}
+.background10 {
+    background-image: url('../../assets/tiles/background10.png');
+}
+.background11 {
+    background-image: url('../../assets/tiles/background11.png');
+}
+.background12 {
+    background-image: url('../../assets/tiles/background12.png');
+}
+.background13 {
+    background-image: url('../../assets/tiles/background13.png');
+}
+.background14 {
+    background-image: url('../../assets/tiles/background14.png');
+}
+.background15 {
+    background-image: url('../../assets/tiles/background15.png');
+}
+.background16 {
+    background-image: url('../../assets/tiles/background16.png');
+}
+.background17 {
+    background-image: url('../../assets/tiles/background17.png');
+}
+.background18 {
+    background-image: url('../../assets/tiles/background18.png');
+}
+.background19 {
+    background-image: url('../../assets/tiles/background19.png');
+}
+.background20 {
+    background-image: url('../../assets/tiles/background20.png');
+}
+.background21 {
+    background-image: url('../../assets/tiles/background21.png');
+}
+.background22 {
+    background-image: url('../../assets/tiles/background22.png');
+}
+.background23 {
+    background-image: url('../../assets/tiles/background23.png');
+}
+.background24 {
+    background-image: url('../../assets/tiles/background24.png');
+}
+.background25 {
+    background-image: url('../../assets/tiles/background25.png');
+}
+.background26 {
+    background-image: url('../../assets/tiles/background26.png');
+}
+.background27 {
+    background-image: url('../../assets/tiles/background27.png');
+}
+.background28 {
+    background-image: url('../../assets/tiles/background28.png');
+}
+.background29 {
+    background-image: url('../../assets/tiles/background29.png');
+}
+.background30 {
+    background-image: url('../../assets/tiles/background30.png');
+}
+.background31 {
+    background-image: url('../../assets/tiles/background31.png');
+}
+.background32 {
+    background-image: url('../../assets/tiles/background32.png');
+}
+.background33 {
+    background-image: url('../../assets/tiles/background33.png');
+}
+.background34 {
+    background-image: url('../../assets/tiles/background34.png');
+}
+.background35 {
+    background-image: url('../../assets/tiles/background35.png');
+}
+.background36 {
+    background-image: url('../../assets/tiles/background36.png');
+}
+.background37 {
+    background-image: url('../../assets/tiles/background37.png');
+}
+.background38 {
+    background-image: url('../../assets/tiles/background38.png');
+}
+.background39 {
+    background-image: url('../../assets/tiles/background39.png');
+}
+.background40 {
+    background-image: url('../../assets/tiles/background40.png');
+}
+.background41 {
+    background-image: url('../../assets/tiles/background41.png');
+}
+.background42 {
+    background-image: url('../../assets/tiles/background42.png');
+}
+.background43 {
+    background-image: url('../../assets/tiles/background43.png');
+}
+.background44 {
+    background-image: url('../../assets/tiles/background44.png');
+}
+.background45 {
+    background-image: url('../../assets/tiles/background45.png');
+}
+.background46 {
+    background-image: url('../../assets/tiles/background46.png');
+}
+.background47 {
+    background-image: url('../../assets/tiles/background47.png');
+}
+.background48 {
+    background-image: url('../../assets/tiles/background48.png');
+}
+.background49 {
+    background-image: url('../../assets/tiles/background49.png');
+}
+.background50 {
+    background-image: url('../../assets/tiles/background50.png');
+}
+.background51 {
+    background-image: url('../../assets/tiles/background51.png');
+}
+.background52 {
+    background-image: url('../../assets/tiles/background52.png');
+}
+.background53 {
+    background-image: url('../../assets/tiles/background53.png');
+}
+.background54 {
+    background-image: url('../../assets/tiles/background54.png');
+}
+.background55 {
+    background-image: url('../../assets/tiles/background55.png');
+}
+.background56 {
+    background-image: url('../../assets/tiles/background56.png');
+}
+.background57 {
+    background-image: url('../../assets/tiles/background57.png');
+}
+.background58 {
+    background-image: url('../../assets/tiles/background58.png');
+}
+.background59 {
+    background-image: url('../../assets/tiles/background59.png');
+}
+.background60 {
+    background-image: url('../../assets/tiles/background60.png');
+}
+.background61 {
+    background-image: url('../../assets/tiles/background61.png');
+}
+.background62 {
+    background-image: url('../../assets/tiles/background62.png');
+}
+.background63 {
+    background-image: url('../../assets/tiles/background63.png');
+}
+.background64 {
+    background-image: url('../../assets/tiles/background64.png');
+}
+.background65 {
+    background-image: url('../../assets/tiles/background65.png');
+}
+.background66 {
+    background-image: url('../../assets/tiles/background66.png');
+}
+.background67 {
+    background-image: url('../../assets/tiles/background67.png');
 }
 
-.tree {
-    background-image: url('/tiles/tree.png');
+.wizard {
+    background-image: url('../../assets/tiles/JaceLeft.png')
 }
 
-.rock {
-    background-image: url('/tiles/rock.png')
-}
 
 /* Castle Level */
 .castle0 {
-    background-image: url('/tiles/castle0.png')
+    background-image: url('../../assets/tiles/castle0.png')
 }
 .castle1 {
-    background-image: url('/tiles/castle1.png')
+    background-image: url('../../assets/tiles/castle1.png')
 }
 .castle2 {
-    background-image: url('/tiles/castle2.png')
+    background-image: url('../../assets/tiles/castle2.png')
 }
 .castle3 {
-    background-image: url('/tiles/castle3.png')
+    background-image: url('../../assets/tiles/castle3.png')
 }
 .castle4 {
-    background-image: url('/tiles/castle4.png')
+    background-image: url('../../assets/tiles/castle4.png')
 }
 .castle5 {
-    background-image: url('/tiles/castle5.png')
+    background-image: url('../../assets/tiles/castle5.png')
 }
 .castle6 {
-    background-image: url('/tiles/castle6.png')
+    background-image: url('../../assets/tiles/castle6.png')
 }
 .castle7 {
-    background-image: url('/tiles/castle7.png')
+    background-image: url('../../assets/tiles/castle7.png')
 }
 .castle8 {
-    background-image: url('/tiles/castle8.png')
+    background-image: url('../../assets/tiles/castle8.png')
 }
 .castle9 {
-    background-image: url('/tiles/castle9.png')
+    background-image: url('../../assets/tiles/castle9.png')
 }
 .castle10 {
-    background-image: url('/tiles/castle10.png')
+    background-image: url('../../assets/tiles/castle10.png')
 }
 .castle11 {
-    background-image: url('/tiles/castle11.png')
+    background-image: url('../../assets/tiles/castle11.png')
 }
 .castle12 {
-    background-image: url('/tiles/castle12.png')
+    background-image: url('../../assets/tiles/castle12.png')
 }
 .castle13 {
-    background-image: url('/tiles/castle13.png')
+    background-image: url('../../assets/tiles/castle13.png')
 }
 .castle14 {
-    background-image: url('/tiles/castle14.png')
+    background-image: url('../../assets/tiles/castle14.png')
 }
 .castle15 {
-    background-image: url('/tiles/castle15.png')
+    background-image: url('../../assets/tiles/castle15.png')
 }
 .castle16 {
-    background-image: url('/tiles/castle16.png')
+    background-image: url('../../assets/tiles/castle16.png')
 }
 .castle17 {
-    background-image: url('/tiles/castle17.png')
+    background-image: url('../../assets/tiles/castle17.png')
 }
 .castle18 {
-    background-image: url('/tiles/castle18.png')
+    background-image: url('../../assets/tiles/castle18.png')
 }
 .castle19 {
-    background-image: url('/tiles/castle19.png')
+    background-image: url('../../assets/tiles/castle19.png')
 }
 .castle20 {
-    background-image: url('/tiles/castle20.png')
+    background-image: url('../../assets/tiles/castle20.png')
 }
 .castle21 {
-    background-image: url('/tiles/castle21.png')
+    background-image: url('../../assets/tiles/castle21.png')
 }
 .castle22 {
-    background-image: url('/tiles/castle22.png')
+    background-image: url('../../assets/tiles/castle22.png')
+}
+.castleWalls0 {
+    background-image: url('../../assets/tiles/castleWalls0.png');
+}
+.castleWalls1 {
+    background-image: url('../../assets/tiles/castleWalls1.png');
+}
+.castleGuard {
+    background-image: url('../../assets/tiles/castleguard.png');
+}
+.cabin0 {
+    background-image: url('../../assets/tiles/cabin0.png');
+}
+.cabin1 {
+    background-image: url('../../assets/tiles/cabin1.png');
+}
+.cabin2 {
+    background-image: url('../../assets/tiles/cabin2.png');
+}
+.cabin3 {
+    background-image: url('../../assets/tiles/cabin3.png');
+}
+.house0 {
+    background-image: url('../../assets/tiles/house0.png');
+}
+.house1 {
+    background-image: url('../../assets/tiles/house1.png');
+}
+.orc {
+    background-image: url('../../assets/sprites/orcHiding.png');
+}
+.talkToOrc {
+    background-image: url('../../assets/sprites/option1.png');
+}
+
+/* Forest Level */
+.shop33 {
+    background-image: url('../../assets/tiles/ErikStore33.png');
+}
+.shop34 {
+    background-image: url('../../assets/tiles/ErikStore34.png');
+}
+.shop35 {
+    background-image: url('../../assets/tiles/ErikStore35.png');
+}
+.shop36 {
+    background-image: url('../../assets/tiles/ErikStore36.png');
+}
+.shop37 {
+    background-image: url('../../assets/tiles/ErikStore37.png');
+}
+.shop38 {
+    background-image: url('../../assets/tiles/ErikStore38.png');
 }
