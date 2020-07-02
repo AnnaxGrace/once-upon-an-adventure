@@ -1,6 +1,6 @@
 //Size of the canvas where animations are rendered
-const canvasWidth = 650;
-const canvasHeight = 400;
+const canvasWidth = 600;
+const canvasHeight = 450;
 
 //Position where frame will be drawn
 let xAxis = 325;
@@ -21,7 +21,7 @@ const rows = 21;
 let trackLeft = 9;
 let trackRight = 11;
 let trackUp = 8;
-let trackDown = 10;
+let trackDown = 2;
 let movingLeft = false;
 let movingRight = false;
 let movingUp = false;
@@ -34,9 +34,9 @@ const height = sheetHeight / rows;
 let curretFrame = 0;
 
 const tree = new Image()
-tree.src = "../assets/sprites/tree.png"
+tree.src = "../client/src/assets/tiles/tree.png"
 const character = new Image();
-character.src = "../assets/sprites/erik.png";
+character.src = "../client/src/assets/sprites/anna.png";
 
 //defines element on html to render the animations
 const canvas = document.getElementById('canvas');
@@ -96,7 +96,7 @@ function charMove(event) {
 //updates the displayed frame and removes the preiously displayed frame
 function updateFrame() {
     context.clearRect(xAxis, yAxis+10, width, height);
-    curretFrame = ++curretFrame % 9; //9 is the number of columns to be animated
+    curretFrame = ++curretFrame % 5; //9 is the number of columns to be animated
     srcX = curretFrame * width;
     if (movingLeft === true) {
         srcY = trackLeft * height;//right: 704 down: 640 left:576 up:512
@@ -130,7 +130,7 @@ function drawSprite() {
     context.drawImage(character, srcX, srcY, width, height, xAxis, yAxis, width, height);
 }
 
-var myVar = setInterval(characterStart, 100);
+var myVar = setInterval(characterStart, 125);
 //if direction arrow is not pressed dont runn this function
 //sets the speed of sprite animation
 function characterStart() {
