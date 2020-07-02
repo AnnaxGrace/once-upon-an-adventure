@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SpriteSchema = new Schema({
-    sprite: {type: String} 
+    sprite: {type: String},
+    name: { type: String, required: true },
 });
 const Sprite = mongoose.model("Sprite", SpriteSchema);
 

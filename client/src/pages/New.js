@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../components/Grid";
+import API from "../utils/API"
 
 const styles={
     newCard: {
@@ -63,6 +64,28 @@ const characters2 = [
 ]
 
 function New() {
+
+    const handleNewAdventureClick = (event) => {
+        event.preventDefault()
+        //create the post data structure
+        let postObj = {
+            sprite: "",
+            name: "",
+        }
+        //get the data to populate this object
+        const spriteData = document.querySelector(".characterSelect.special img").getAttribute("src");
+        console.log("******spriteData",spriteData);
+        postObj.sprite = spriteData;
+        const nameData = document.querySelector("#character-name").value;
+        console.log("******spriteData",nameData);
+        postObj.name = nameData;
+        //post to route
+        API.saveSprite(postObj).then((res) => { 
+            console.log("save sprite res:", res);
+            window.location.replace("/continue  ")  
+        });
+    }
+
     return(
         <Container>
             <h1 className="text-center">Start a New Adventure</h1>
@@ -112,7 +135,7 @@ function New() {
                             />
 
                             <br />
-                            <button className="btn special" type="submit">
+                            <button className="btn special" onClick={handleNewAdventureClick}>
                                 Start a New Adventure!
                             </button>
 
@@ -125,6 +148,7 @@ function New() {
             </div>
         </Container>
     )
+
 }
 
 export default New;
