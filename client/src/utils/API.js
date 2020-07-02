@@ -14,9 +14,11 @@ export default {
   findUser: function(userData) {
     return axios.post("/api/signup/login", userData);
   },
+
   getSprite: function(spriteData) {
     return axios.get("/api/sprite", spriteData );
   },
+  
   saveSprite: function(spriteData) {
     return axios.post("/api/sprite", spriteData);
   },
