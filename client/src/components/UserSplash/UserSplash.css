@@ -1,0 +1,6 @@
+.image-container {
+    background: url("../../images/user-book.png") left top no-repeat;
+    box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset; 
+    width: 500px;
+    height: 558px;
+    }
