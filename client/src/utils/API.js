@@ -15,6 +15,10 @@ export default {
     return axios.post("/api/signup/login", userData);
   },
 
+  findSprite: function(userData) {
+    return axios.post("/api/sprite", userData);
+  },
+
   getSprite: function(spriteData) {
     return axios.get("/api/sprite", spriteData );
   },

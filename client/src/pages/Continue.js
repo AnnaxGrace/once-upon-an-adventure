@@ -8,7 +8,7 @@ import World from '../features/world/index';
 const styles= {
     bookImg: {
         marginTop: 30,
-        width: "100%"
+        width: "100%",
     }
 }
 

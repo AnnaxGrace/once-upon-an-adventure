@@ -1,11 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import walkSprite from './erik - fourLine.png'
+// import API from "../../utils/API"
 import { handleKeyDown } from "./movement"
 
 const handleMovement = player => {
     return player
 }
+
+// const walkSprite = () => {
+//     let postObj = {
+//         sprite: "",
+//         name: "",
+//     }
+//     API.findSprite(postObj)
+// }
 
 function Player(props) {
     useEffect(() => {

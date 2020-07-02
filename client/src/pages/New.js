@@ -20,46 +20,56 @@ const styles={
 const characters1 = [
     {
         id: 1,
-        img: require("../images/option1.png")
+        img: require("../images/option1.png"),
+        path: "../features/player/erik - fourLine.png"
     },
     {
         id: 2,
-        img: require("../images/option2.png")
+        img: require("../images/option2.png"),
+        path: ""
     },
     {
         id: 3,
-        img: require("../images/option3.png")
+        img: require("../images/option3.png"),
+        path: ""
     },
     {
         id: 4,
-        img: require("../images/option4.png")
+        img: require("../images/option4.png"),
+        path: ""
     },
     {
         id: 5,
-        img: require("../images/option5.png")
+        img: require("../images/option5.png"),
+        path: ""
     }
 ]
 
 const characters2 = [
     {
         id: 6,
-        img: require("../images/option6.png")
+        img: require("../images/option6.png"),
+        path: ""
     },
     {
         id: 7,
-        img: require("../images/option7.png")
+        img: require("../images/option7.png"),
+        path: ""
     },
     {
         id: 8,
-        img: require("../images/option8.png")
+        img: require("../images/option8.png"),
+        path: ""
     },
     {
         id: 9,
-        img: require("../images/option9.png")
+        img: require("../images/option9.png"),
+        path: ""
     },
     {
         id: 10,
-        img: require("../images/option10.png")
+        img: require("../images/option10.png"),
+        path: ""
     }
 ]
 
@@ -73,7 +83,7 @@ function New() {
             name: "",
         }
         //get the data to populate this object
-        const spriteData = document.querySelector(".characterSelect.special img").getAttribute("src");
+        const spriteData = document.querySelector(".characterSelect.special img").getAttribute("dataSprite");
         console.log("******spriteData",spriteData);
         postObj.sprite = spriteData;
         const nameData = document.querySelector("#character-name").value;
@@ -98,7 +108,7 @@ function New() {
                             <div className="row">
                                 {characters1.map(item => (
                                     <div className="col-md-2 text-center" key={item.id}>
-                                        <img src={item.img} alt={item.id} style={styles.option} />
+                                        <img src={item.img} alt={item.id} dataSprite={item.path} style={styles.option}  />
                                         <br />
                                         <div style={styles.input}>
                                             <input name="option" type="radio" aria-label={item.id}></input>
