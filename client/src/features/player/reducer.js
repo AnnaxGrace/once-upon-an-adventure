@@ -1,10 +1,10 @@
 const initialState = {
-    // 
-    // position: [0, 192],
-    // ForestLevel
-    position: [0, 384],
-    // 
+    // CastleLevel
     // position: [0, 512],
+    // ForestLevel
+    // position: [0, 384],
+    // CliffLevel
+    position: [64, 384],
     spriteLocation: '0px 128px',
     direction: 'east',
     walkIndex: 0,
