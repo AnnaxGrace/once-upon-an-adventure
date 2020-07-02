@@ -48,6 +48,7 @@ class CanvasSnake extends React.Component {
         statePoints: 0
     }
  
+
     componentDidMount() {
 
         let canvas = this.refs.canvas
