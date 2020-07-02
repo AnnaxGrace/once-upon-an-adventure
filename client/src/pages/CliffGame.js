@@ -3,11 +3,6 @@ import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
 import GameTextModal from "../components/Modals/GameTextModal";
-import World from '../features/world/index';
-import Cliffs from "../components/MapLocations/Cliffs";
-import Forest from "../components/MapLocations/Forest";
-import Village from "../components/MapLocations/Village";
-import Castle from "../components/MapLocations/Castle";
 
 const styles= {
     bookImg: {
@@ -16,7 +11,7 @@ const styles= {
     }
 }
 
-function Continue() {
+function CliffGame() {
     return(
         <Container>
                 <h1 className="text-center">Continue Your Adventure</h1>
@@ -27,11 +22,7 @@ function Continue() {
                 <div>
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                        <World />
-                        <Cliffs />
-                        <Forest />
-                        <Village />
-                        <Castle />
+                        {/* CLIFF GAME-BOARD GOES HERE */}
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox />
@@ -58,4 +49,4 @@ function Continue() {
     )
 }
 
-export default Continue;
+export default CliffGame;

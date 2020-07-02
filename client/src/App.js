@@ -10,7 +10,9 @@ import Continue from "./pages/Continue";
 import New from "./pages/New";
 import World from "./features/world";
 import Store from "./config/store";
-
+import CastleGame from "./pages/CastleGame";
+import ForestGame from "./pages/ForestGame";
+import CliffGame from "./pages/CliffGame";
 
 function App() {
   return (
@@ -41,6 +43,18 @@ function App() {
 
             <Route exact path="/new">
               <New />
+            </Route>
+
+            <Route exact path="/castle">
+              <CastleGame />
+            </Route>
+
+            <Route exact path="/forest">
+              <ForestGame />
+            </Route>
+
+            <Route exact path="/cliffs">
+              <CliffGame />
             </Route>
 
             <Route exact path="/test" component={WorldPage}/>
