@@ -1,10 +1,11 @@
 const router = require("express").Router();
+const spriteController = require("../../controllers/spriteController");
 
 
 // // Matches with "/api/sprite"
-// router.route("/")
-//   .get(spriteController.findAll)
-//   .post(spriteController.create);
+router.route("/")
+  .get(spriteController.findAll)
+  .post(spriteController.create);
 
 // // Matches with "/api/books/:id"
 // router
@@ -13,4 +14,4 @@ const router = require("express").Router();
 //   .put(spriteController.update)
 //   .delete(spriteController.remove);
 
-// module.exports = router;
+module.exports = router;

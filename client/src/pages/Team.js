@@ -1,4 +1,6 @@
 import React from "react";
+// import {canvas, xAxis, yAxis, srcX, srcY, width, height, context, curretFrame, selectedChar, character, animate, updateFrame, drawSprite} from "../assets/teamMovement/animate";
+// import useAnimation from "../assets/teamMovement/animate"
 
 const styles = {
     sprites: {
@@ -23,13 +25,17 @@ const teamInfo = [
         id: 1,
         img: require("../images/teamAnna.png"),
         name: "Anna Conover",
-        roles: "Mini Games, Story Logic, Thief"
+        roles: "Mini Games, Story Logic, Thief",
+        // animation: function () {
+        //     return useAnimation("anna")
+        // }
     },
     {
         id: 2,
         img: require("../images/teamJace.png"),
         name: "Jace Clements",
-        roles: "Front-end Appearance, Math Wizard"
+        roles: "Front-end Appearance, Math Wizard",
+       
     },
     {
         id: 3,
@@ -58,6 +64,7 @@ function Team() {
                 <div className="row">
                     {teamInfo.map(item => (
                         <div className="col-md-2 card text-center" style={styles.devCard} key={item.id}>
+                            {/* <canvas id="canvas" style={styles.teamImg}></canvas> */}
                             <img src={item.img} style={styles.teamImg} alt={item.name} />
                                 <h5>{item.name}</h5>
                                     <p className="special">
