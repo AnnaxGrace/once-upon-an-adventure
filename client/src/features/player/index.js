@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import walkSprite from './erik - fourLine.png'
+import walkSprite from '../../assets/sprites/gladiator-4row.png'
 import { handleKeyDown } from "./movement"
 
 const handleMovement = player => {
