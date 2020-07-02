@@ -1,0 +1,47 @@
+.cliff {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.cliffDiv {
+    position: absolute;
+    top: 500px;
+    right: 450px
+}
+
+.forest {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.forestDiv {
+    position: absolute;
+    top: 200px;
+    right: 600px
+}
+
+.village {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.villageDiv {
+    position: absolute;
+    top: 400px;
+    right: 710px
+}
+
+.castle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.castleDiv {
+    position: absolute;
+    top: 250px;
+    left: 400px
+}
