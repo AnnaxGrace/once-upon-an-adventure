@@ -3,10 +3,10 @@ import React from "react";
 //comments tell the game what is going on within the story
 
 function StoryObject(props) {
-    const storyObject = {
+const storyObject = {
         home: {
             start: {
-                p1: props.name + " poofs into a strange land. " + props.name + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + props.name + " right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + props.name + " can't see where it leads. Looking to the right, " + props.name + "can see a beautiful castle - it looks like it would be hard to take in battle! ",
+                p1: props.name + " poofs into a strange land. " + props.name + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + props.name + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + props.name + " can't see where it leads. Looking to the right, " + props.name + "can see a beautiful castle - it looks like it would be hard to take in battle! ",
                 //beautiful woman code appearing 
                 p2: "As " + props.name + " looks around suddenly - POOF. A strange but beautiful woman appears! ",
                 //dialouge window of beautiful lady pops up for below dialog
@@ -157,4 +157,3 @@ function StoryObject(props) {
     }
 }
 
-export default StoryObject;
