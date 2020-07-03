@@ -9,6 +9,7 @@ const storyRoutes = require("./storyRoute")
 router.use("/signup", userRoutes);
 router.use("/sprite", spriteRoutes);
 router.use("/story", storyRoutes);
+router.use("/user", userRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {

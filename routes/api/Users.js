@@ -9,5 +9,7 @@ router.route("/")
   router.route("/login")
   .post(dataController.findUser)
 
+  router.route("/avatar/:id?")
+  .get(dataController.findUserAvatar);
 
   module.exports = router;

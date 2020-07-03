@@ -16,12 +16,20 @@ export default {
     return axios.post("/api/signup/login", userData);
   },
 
+  // findSprite: function(userData) {
+  //   return axios.post("/api/sprite", userData);
+  // },
+
   getSprite: function(spriteData) {
     return axios.get("/api/sprite", spriteData );
   },
+
+  getUserSprite: function(id) {
+    return axios.get(`/api/user/avatar/${id}`)
+  },
   
-  saveSprite: function(spriteData) {
-    return axios.post("/api/sprite", spriteData);
+  saveSprite: function(spriteData, id) {
+    return axios.post("/api/sprite/" + id, spriteData);
   },
   getInvent: function(spriteData) {
     return axios.get("/api/inventory", spriteData );

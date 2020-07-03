@@ -28,14 +28,18 @@ class Home extends Component {
       API.findUser({
           email: user.email,
           password: user.password
-      }).then(function() {
-        window.location.replace("/user");
+      }).then(function(user) {
+        console.log(user)
+        const id = user.data[0]._id
+        console.log(id)
+        window.location.replace("/user/" + id);
         // If there's an error, log the error
       })
       .catch(function(err){
         alert("Please enter correct email")
       })
   }
+
 
   handleSignUpSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +50,7 @@ class Home extends Component {
       email: user.email,
       password: user.password,
     }).then(function() {
-        window.location.replace("/user");
+        window.location.replace("/");
         // If there's an error, log the error
       })
       .catch(function(err){

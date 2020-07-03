@@ -4,15 +4,21 @@ import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
 import GameTextModal from "../components/Modals/GameTextModal";
 import World from '../features/world/index';
+import Cliffs from "../components/MapLocations/Cliffs";
+import Forest from "../components/MapLocations/Forest";
+import Village from "../components/MapLocations/Village";
+import Castle from "../components/MapLocations/Castle";
 
 const styles= {
     bookImg: {
         marginTop: 30,
-        width: "100%"
+        width: "100%",
     }
 }
 
 function Continue() {
+    
+
     return(
         <Container>
                 <h1 className="text-center">Continue Your Adventure</h1>
@@ -24,6 +30,10 @@ function Continue() {
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
                         <World />
+                        <Cliffs />
+                        <Forest />
+                        <Village />
+                        <Castle />
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox />
