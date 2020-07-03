@@ -8,6 +8,9 @@ import Cliffs from "../components/MapLocations/Cliffs";
 import Forest from "../components/MapLocations/Forest";
 import Village from "../components/MapLocations/Village";
 import Castle from "../components/MapLocations/Castle";
+import CastleModal from "../components/MapModals/CastleModal";
+import CliffsModal from "../components/MapModals/CliffsModal";
+import ForestModal from "../components/MapModals/ForestModal"
 
 const styles= {
     bookImg: {
@@ -20,8 +23,8 @@ function Continue() {
     
 
     return(
-        <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+        <div>
+                <h1 className="text-center">World Map</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
@@ -56,7 +59,10 @@ function Continue() {
                 </div>
 
                 <GameTextModal />
-        </Container>
+                <CastleModal />
+                <CliffsModal />
+                <ForestModal />
+        </div>
     )
 }
 

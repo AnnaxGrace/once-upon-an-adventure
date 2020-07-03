@@ -13,8 +13,8 @@ const styles= {
 
 function CastleGame() {
     return(
-        <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+        <div>
+                <h1 className="text-center">The Castle</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
@@ -45,7 +45,7 @@ function CastleGame() {
                 </div>
 
                 <GameTextModal />
-        </Container>
+        </div>
     )
 }
 
