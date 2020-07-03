@@ -33,15 +33,15 @@ function App() {
               <Team />
             </Route>
 
-            <Route exact path="/user">
+            <Route path="/user/:id?">
               <User />
             </Route>
 
-            <Route exact path="/continue">
+            <Route path="/continue/:id?">
               <Continue />
             </Route>
 
-            <Route exact path="/new">
+            <Route path="/new/:id?">
               <New />
             </Route>
 

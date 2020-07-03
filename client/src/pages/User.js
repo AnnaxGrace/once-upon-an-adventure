@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../components/Grid";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import UserSplash from "../components/UserSplash/UserSplash";
 
 const styles={
@@ -11,6 +11,10 @@ const styles={
 }
 
 function User() {
+    const handleClick = event => console.log(event);
+    let { id } = useParams();
+    // console.log(id)
+    
     return(
         <Container>
                 <h1 className="text-center">Welcome to Your Realm</h1>
@@ -34,15 +38,15 @@ function User() {
                                     the word we've created for you!
                                 </p>
 
-                                <Link to="/continue">
+                                <Link to={"/continue/" + id}>
                                     <button className="btn">
                                         Continue your Adventure!
                                     </button>
                                 </Link>
                                 <br />
 
-                                <Link to="/new">
-                                    <button className="btn">
+                                <Link to={"/new/" + id}>
+                                    <button className="btn" onClick={handleClick}>
                                         Start a New Adventure!
                                     </button>
                                 </Link>
