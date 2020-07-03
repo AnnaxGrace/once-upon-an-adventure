@@ -21,7 +21,7 @@ function Continue() {
 
     return(
         <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+                <h1 className="text-center">World Map</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
