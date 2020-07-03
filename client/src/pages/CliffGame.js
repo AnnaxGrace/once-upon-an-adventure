@@ -14,7 +14,7 @@ const styles= {
 function CliffGame() {
     return(
         <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+                <h1 className="text-center">The Cliffs</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />

@@ -14,7 +14,7 @@ const styles= {
 function ForestGame() {
     return(
         <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+                <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
