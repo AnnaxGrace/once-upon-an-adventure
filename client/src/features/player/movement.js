@@ -51,6 +51,8 @@ import walking from '../sound/index'
         const y = newPos[1] / SPRITE_SIZE
         const x = newPos[0] / SPRITE_SIZE
         const nextTile = tiles[y][x]
+        console.log(nextTile)
+        console.log("characters position",newPos)
         return nextTile < 10
     }
 
@@ -72,7 +74,7 @@ import walking from '../sound/index'
     function attemptMove(direction) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(oldPos, direction)
-
+        console.log(observeBoundaries(oldPos, newPos))
         if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
             dispatchMove(direction, newPos)
     }

@@ -1,0 +1,22 @@
+.expo-btn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border: none;
+    bottom: 10%;
+    color: purple;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .yes {
+    left: 1%;
+    background: #E53935;
+  }
+  
+  .no {
+    right: 1%;
+    background: #43A047;
+  }
