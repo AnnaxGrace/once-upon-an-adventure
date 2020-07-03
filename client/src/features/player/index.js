@@ -1,31 +1,34 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import walkSprite from '../../assets/sprites/gladiator-4row.png'
+import { useParams } from "react-router-dom";
+// import walkSprite from '../../assets/sprites/gladiator-4row.png'
+// import x from "../../assets/sprites/option2-4row.png"
 import { handleKeyDown } from "./movement"
+
+// console.log(x)
 
 const handleMovement = player => {
     return player
 }
 
-// const walkSprite = () => {
-//     let postObj = {
-//         sprite: "",
-//         name: "",
-//     }
-//     API.findSprite(postObj)
-// }
-
 function Player(props) {
+    console.log(props.avatar)
+    
     useEffect(() => {
         window.addEventListener("keydown", e => handleKeyDown(e))
     },[])
+    
+   if (!props.avatar) {
+       return <h1>Loading...</h1>
+   }
+    
     return(
-        <div
+        <div    
         style={{
             position: 'absolute',
             top: props.position[1],
             left: props.position[0],
-            backgroundImage: `url('${walkSprite}')`,
+            backgroundImage: `url('${require("../../assets/sprites/" + props.avatar)}')`,
             backgroundPosition: props.spriteLocation,
             width: '64px',
             height: '64px'

@@ -13,12 +13,16 @@ module.exports = {
     //       .catch(err => res.status(422).json(err));
     //   },
       create: function(req, res) {
+        console.log(req.body);
+        const { id } = req.params
         db.Sprite.create(req.body)
+        .then(({ _id}) => db.User.findOneAndUpdate({_id: id}, { $set: {sprite: _id}}, {new: true}))
           .then(dbBook => res.json(dbBook))
           .catch(err => res.status(422).json(err));
       },
       findSprite: function (req, res) {
         db.Sprite.find({sprite: req.body.sprite})
+        // .populate("sprite")
           .then(dbUser => {
             //   const ah = bcrypt.compare(req.body.password, dbUser[0].password).then(result => {
             //     if(result===true){

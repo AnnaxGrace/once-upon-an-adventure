@@ -3,7 +3,7 @@ const spriteController = require("../../controllers/spriteController");
 
 
 // // Matches with "/api/sprite"
-router.route("/")
+router.route("/:id?")
   .get(spriteController.findAll)
   .post(spriteController.create);
 

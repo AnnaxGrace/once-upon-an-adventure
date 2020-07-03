@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState , useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { Container } from "../components/Grid";
-import API from "../utils/API"
+import API from "../utils/API";
 
 const styles={
     newCard: {
@@ -21,27 +22,27 @@ const characters1 = [
     {
         id: 1,
         img: require("../images/option1.png"),
-        path: "../features/player/erik - fourLine.png"
+        path: "option1-4row.png"
     },
     {
         id: 2,
         img: require("../images/option2.png"),
-        path: ""
+        path: "option2-4row.png"
     },
     {
         id: 3,
         img: require("../images/option3.png"),
-        path: ""
+        path: "option3-4row.png"
     },
     {
         id: 4,
         img: require("../images/option4.png"),
-        path: ""
+        path: "option4-4row.png"
     },
     {
         id: 5,
         img: require("../images/option5.png"),
-        path: ""
+        path: "option5-4row.png"
     }
 ]
 
@@ -49,31 +50,35 @@ const characters2 = [
     {
         id: 6,
         img: require("../images/option6.png"),
-        path: ""
+        path: "option6-4row.png"
     },
     {
         id: 7,
         img: require("../images/option7.png"),
-        path: ""
+        path: "option7-4row.png"
     },
     {
         id: 8,
         img: require("../images/option8.png"),
-        path: ""
+        path: "option8-4row.png"
     },
     {
         id: 9,
         img: require("../images/option9.png"),
-        path: ""
+        path: "option9-4row8.png"
     },
     {
         id: 10,
         img: require("../images/option10.png"),
-        path: ""
+        path: "option10-4row.png"
     }
 ]
 
 function New() {
+    const { id } = useParams();
+   
+    const [char, setChar] = useState(null)
+    useEffect(()=>console.log(char), [char])
 
     const handleNewAdventureClick = (event) => {
         event.preventDefault()
@@ -81,18 +86,16 @@ function New() {
         let postObj = {
             sprite: "",
             name: "",
-        }
-        //get the data to populate this object
-        const spriteData = document.querySelector(".characterSelect.special img").getAttribute("dataSprite");
-        console.log("******spriteData",spriteData);
-        postObj.sprite = spriteData;
+        };
+        
+        postObj.sprite = char;
         const nameData = document.querySelector("#character-name").value;
         console.log("******spriteData",nameData);
         postObj.name = nameData;
         //post to route
-        API.saveSprite(postObj).then((res) => { 
+        API.saveSprite(postObj, id).then((res) => { 
             console.log("save sprite res:", res);
-            window.location.replace("/continue  ")  
+            window.location.replace("/continue/" + id)  
         });
     }
 
@@ -106,24 +109,25 @@ function New() {
                         <h5>Select a Character!</h5>
                         <form className="characterSelect special">
                             <div className="row">
-                                {characters1.map(item => (
+                                {characters1.map(item => {
+                                    return (
                                     <div className="col-md-2 text-center" key={item.id}>
-                                        <img src={item.img} alt={item.id} dataSprite={item.path} style={styles.option}  />
+                                        <img className="img-path" src={item.img} alt={item.id} data-path={item.path} style={styles.option}  />
                                         <br />
                                         <div style={styles.input}>
-                                            <input name="option" type="radio" aria-label={item.id}></input>
+                                            <input name="option" onChange={()=> setChar(item.path)} className="charRadio" type="radio" aria-label={item.id}></input>
                                         </div>
                                     </div>
-                                ))}
+                                )})}
                             </div>
 
                             <div className="row">
                                 {characters2.map(item => (
                                     <div className="col-md-2 text-center" key={item.id}>
-                                        <img src={item.img} alt={item.id} style={styles.option} />
+                                        <img src={item.img} alt={item.id} data-path={item.path} style={styles.option} />
                                         <br />
                                         <div style={styles.input}>
-                                            <input name="option" type="radio" aria-label={item.id}></input>
+                                            <input name="option" onChange={()=> setChar(item.path)} className="charRadio" type="radio" aria-label={item.id}></input>
                                         </div>
                                     </div>
                                 ))}

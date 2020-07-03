@@ -13,6 +13,8 @@ const styles= {
 }
 
 function Continue() {
+    
+
     return(
         <Container>
                 <h1 className="text-center">Continue Your Adventure</h1>

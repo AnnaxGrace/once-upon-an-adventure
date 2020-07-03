@@ -24,6 +24,7 @@ module.exports = {
   },
   findUser: function (req, res) {
     db.User.find({email: req.body.email})
+    .populate("sprite")
       .then(dbUser => {
           const ah = bcrypt.compare(req.body.password, dbUser[0].password).then(result => {
             if(result===true){
@@ -33,5 +34,11 @@ module.exports = {
             }
           })
       }).catch((err) => res.status(422).json(err));
+  },
+  findUserAvatar: function(req, res) {
+    db.User.find({ _id: req.params.id})
+    .populate("sprite")
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(521).json(err));
   }
 };
