@@ -33,7 +33,7 @@ console.log(name)
     //has animation images render as a 2d image
     const context = canvas.getContext('2d');
     // Frame that will be rendered frist (measured by the position on x-axis)
-    let curretFrame = 0;
+    let currentFrame = 0;
 
     let selectedChar;
 
@@ -49,8 +49,8 @@ console.log(name)
 
     function updateFrame() {
         context.clearRect(xAxis, yAxis + 10, width, height);
-        curretFrame = ++curretFrame % 5; //9 is the number of columns to be animated
-        srcX = curretFrame * width;
+        currentFrame = ++currentFrame % 5; //# is the number of columns to be animated
+        srcX = currentFrame * width;
     }
     //draws the sprite
     function drawSprite() {
