@@ -1,4 +1,5 @@
 import axios from "axios";
+// import Story from "../../../models/storyModel";
 
 export default {
   // Get all users
@@ -35,6 +36,18 @@ export default {
   },
   saveInvent: function(spriteData) {
     return axios.post("/api/inventory", spriteData);
+  },
+  createStory: function(storyData) {
+    return axios.post("/api/story", storyData);
+  },
+  findAllStory: function() {
+    return axios.get("/api/story");
+  },
+  findUserStory: function(id) {
+    return axios.get("/api/story/" + id);
+  },
+  UpdateUserStory: function(id, storyData) {
+    return axios.post("/api/story/" + id, storyData);
   }
 
 };

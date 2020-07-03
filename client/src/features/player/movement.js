@@ -51,7 +51,7 @@ import walking from '../sound/index'
         const y = newPos[1] / SPRITE_SIZE
         const x = newPos[0] / SPRITE_SIZE
         const nextTile = tiles[y][x]
-        return nextTile < 5
+        return nextTile < 10
     }
 
     function dispatchMove(direction, newPos) {
