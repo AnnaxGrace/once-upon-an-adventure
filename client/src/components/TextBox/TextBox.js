@@ -16,17 +16,19 @@ class TextBox extends React.Component {
         id: 1,
         //will be character name
         name: "Misterman",
+        poofShow: "hide",
+        wilsonShow: "hide",
         home: {
             start: {
-                p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ "can see a beautiful castle - it looks like it would be hard to take in battle! ",
+                p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! ",
                 //beautiful woman code appearing 
-                p2: "As " + userName + " looks around suddenly - POOF. A strange but beautiful woman appears! ",
+                p2: "As " + userName + " looks around suddenly - POOF. A strange but handsome man appears! ",
                 //dialouge window of beautiful lady pops up for below dialog
-                p3: " 'Hello' says the woman. 'I am here to help. And in return, I hope you can help us.' ",
+                p3: " 'Hello' says Wilson. 'I am here to help. And in return, I hope you can help us. ",
                 //dialouge window of beautiful lady pops up for below dialog
-                p4: " 'There is something wrong with the King. He lives in the castle. I would appreciate it if you could go see if you could help me. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
+                p4: " There is something wrong with the King. He lives in the castle. I would appreciate it if you could go see if you could help me. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
                 //beautiful woman poofs away
-                p5: "And then, in another POOF, she was gone! " + userName+ " looked around again and thought about what to do. ", 
+                p5: "And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ", 
             },
             enter: {
                 p1: userName + " enters where they first came into the land. " + userName + " looks around and decides what to do. "
@@ -173,15 +175,53 @@ class TextBox extends React.Component {
     componentDidMount() {
         //this will be a beginning trait in the user, then all the rest will be from story
         if ( first === "true" ) {
-            
+            console.log(this.state.showPoof)
             this.setState({storyString: this.state.home.start.p1})
+            setTimeout(this.poofAppears, 9000);
             // this.scrollToBottom();
         }
     }
       
-      componentDidUpdate() {
-        // this.scrollToBottom();
-      }
+    //   componentDidUpdate() {
+    //     // this.scrollToBottom();
+    //   }
+
+    poofAppears = () => {
+        console.log("step1")
+        this.setState({poofShow: "show"})
+        this.updateStory(this.state.home.start.p2)
+        // this.updateStory(this.state.home.start.p3)
+        setTimeout(this.wilsonAppears, 2000)
+    }
+
+    wilsonAppears = () => {
+        this.updateStory(this.state.home.start.p3)
+
+        console.log("step 2")
+        this.setState({poofShow: "hide"})
+        this.setState({wilsonShow: "show"})
+        setTimeout(this.wilsonTalks, 3000)
+    }
+
+    wilsonTalks = () => {
+        this.updateStory(this.state.home.start.p4)
+        setTimeout(this.wilsonGoes, 6000)
+    }
+
+    wilsonGoes = () => {
+        console.log("step 3")
+        // this.updateStory(this.state.home.start.p4)
+
+        this.setState({wilsonShow: "hide"})
+        this.setState({poofShow: "show"})
+        setTimeout(this.poofGoes, 2000)
+    }
+
+    poofGoes = () => {
+        console.log("step 4")
+        this.setState({poofShow: "hide"})
+        this.updateStory(this.state.home.start.p5)
+    }
 
     handleBtnClick = event => {
         // Get the data-value of the clicked button
@@ -190,8 +230,8 @@ class TextBox extends React.Component {
     
         if (btnType === "yes") {
             console.log("yes")
-            let storyContainer = this.refs.scroll
-            storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
+            // let storyContainer = this.refs.scroll
+            // storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
           this.updateStory(this.state.home.start.p2)
         } 
         if (btnType === "no") {
@@ -234,12 +274,15 @@ class TextBox extends React.Component {
                         {this.state.storyString}
                     </div>
                     
-                    {/* {this.createStory} */}
-                    {/* <div style={{ float:"left", clear: "both" }}
-                        ref= "scroll ">
-                    </div> */}
                 </div>
                 <Exposition handleBtnClick={this.handleBtnClick} />
+                <div class= {this.state.poofShow}>
+                    <img class ="appear-image" src={require("../../images/prettypoof.gif")} />
+
+                </div>
+                <div class={this.state.wilsonShow}>
+                    <img class="appear-image" src = "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2018/08/kitten-440379.jpg?h=c8d00152&itok=1fdekAh2" />
+                </div>
             </div>
         )
     }

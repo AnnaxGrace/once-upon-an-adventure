@@ -24,6 +24,20 @@
     overflow: scroll;
 }
 
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.appear-image {
+    height: 50px;
+    position: absolute;
+    top: 500px;
+    right: 570px;
+}
 div::-webkit-scrollbar {
     width: 1em;
   }
