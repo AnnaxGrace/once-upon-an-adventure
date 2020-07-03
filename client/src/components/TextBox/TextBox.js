@@ -171,18 +171,22 @@ class TextBox extends React.Component {
     componentDidMount() {
         //this will be a beginning trait in the user, then all the rest will be from story
         if ( first === "true" ) {
+            
             this.setState({storyString: this.state.home.start.p1})
-            API.createStory({
-                text: this.state.storyString, 
-                UserId: this.state.Id
-            }).then(res => console.log("story created")).catch(err => console.log(err));
-           
+    
         }
     }
 
     updateStory = storyObjectPath => {
         this.setState({storyString: storyObjectPath + this.state.storyString})
         API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
+    }
+
+    createStory = () => {
+        API.createStory({
+            text: this.state.storyString, 
+            UserId: this.state.Id
+        }).then(res => console.log("story created")).catch(err => console.log(err));
     }
 
     personAppears = () => {
@@ -196,6 +200,7 @@ class TextBox extends React.Component {
             <div>
                 <div className="textBG">
                     {this.state.storyString}
+                    {/* {this.createStory} */}
                 </div>
             </div>
         )
