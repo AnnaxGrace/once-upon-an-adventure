@@ -13,7 +13,7 @@ const styles= {
 
 function CliffGame() {
     return(
-        <Container>
+        <div>
                 <h1 className="text-center">The Cliffs</h1>
 
                 {/* Inventory Bar */}
@@ -45,7 +45,7 @@ function CliffGame() {
                 </div>
 
                 <GameTextModal />
-        </Container>
+        </div>
     )
 }
 

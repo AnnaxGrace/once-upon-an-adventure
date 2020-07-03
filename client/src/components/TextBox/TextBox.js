@@ -3,6 +3,7 @@ import "./TextBox.css";
 // import { storyObject } from "../StoryObject";
 import API from "../../utils/API";
 import Exposition from "../Exposition";
+import { Container } from "../Grid";
 
 
 let first = "true";
@@ -228,7 +229,7 @@ class TextBox extends React.Component {
     render () {
     return(
             <div>
-                <div className="textBG">
+                <div className="mapBG">
                     <div ref = "scroll">
                         {this.state.storyString}
                     </div>
