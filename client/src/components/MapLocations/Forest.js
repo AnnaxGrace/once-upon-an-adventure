@@ -7,9 +7,9 @@ function Forest() {
         <div className="text-center special forestDiv">
             <img src={require("../../images/mapForest.png")} alt="Forest" className="forest" />
             <br />
-            <Link to="/forest">
+            <a href="#ForestGameModal" data-toggle="modal" data-target="#ForestGameModal">
                 Forest
-            </Link>
+            </a>
         </div>
     )
 }

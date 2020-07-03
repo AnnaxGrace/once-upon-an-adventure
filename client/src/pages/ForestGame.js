@@ -13,7 +13,7 @@ const styles= {
 
 function ForestGame() {
     return(
-        <Container>
+        <div>
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
@@ -45,7 +45,7 @@ function ForestGame() {
                 </div>
 
                 <GameTextModal />
-        </Container>
+        </div>
     )
 }
 
