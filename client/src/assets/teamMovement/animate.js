@@ -49,7 +49,7 @@
 
 //     function updateFrame() {
 //         context.clearRect(xAxis, yAxis + 10, width, height);
-//         curretFrame = ++curretFrame % 5; //9 is the number of columns to be animated
+//         curretFrame = ++curretFrame % 5; //# is the number of columns to be animated
 //         srcX = curretFrame * width;
 //     }
 //     //draws the sprite

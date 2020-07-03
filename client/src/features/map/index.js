@@ -24,8 +24,10 @@ function getTileSprite(type) {
         case 7:
             return 'fakeTree'
         case 8:
+            //window.location.replace(url to home page)
             return 'returnToBook'
         case 9:
+            //trigger modal with options to play or leave
             return 'talkToJace'
 
         // Castle
@@ -84,6 +86,7 @@ function getTileSprite(type) {
             case 123:
                 return 'orc'
             case 124:
+                //Get a heart from Vinnie
                 return 'talkToOrc'
             case 125:
                 return 'cabin0'
@@ -279,6 +282,8 @@ function getTileSprite(type) {
         
     }
 }
+
+
 
 function MapTile(props) {
     return <div
