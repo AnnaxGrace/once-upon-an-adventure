@@ -50,7 +50,7 @@ function Continue() {
                     </button>
 
                     {/* Pulls up GameTextModal */}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                         Game Log!
                     </button>
                 </div>
