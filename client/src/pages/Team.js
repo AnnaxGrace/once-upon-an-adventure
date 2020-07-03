@@ -1,10 +1,8 @@
 import React from "react";
-// import {canvas, xAxis, yAxis, srcX, srcY, width, height, context, curretFrame, selectedChar, character, animate, updateFrame, drawSprite} from "../assets/teamMovement/animate";
-// import useAnimation from "../assets/teamMovement/animate"
 
 const styles = {
     sprites: {
-        height: 100
+        height: 300
     },
     devCard: {
         margin: 20
@@ -19,44 +17,38 @@ const styles = {
         margin: "auto"
     }
 }
-
 const teamInfo = [
     {
         id: 1,
-        img: require("../images/teamAnna.png"),
+        img: require("../assets/sprites/anna.gif"),
         name: "Anna Conover",
         roles: "Mini Games, Story Logic, Thief",
-        // animation: function () {
-        //     return useAnimation("anna")
-        // }
     },
     {
         id: 2,
-        img: require("../images/teamJace.png"),
+        img: require("../assets/sprites/jace.gif"),
         name: "Jace Clements",
         roles: "Front-end Appearance, Math Wizard",
-       
     },
     {
         id: 3,
-        img: require("../images/teamVinnie.png"),
+        img: require("../assets/sprites/vinnie.gif"),
         name: "Vinnie Lopez",
-        roles: "Back-End Development, Authentication, Heart-giving Orc"
+        roles: "Back-End Development, Authentication, Heart-giving Orc",
     },
     {
         id: 4,
-        img: require("../images/teamTony.png"),
+        img: require("../assets/sprites/tony.gif"),
         name: "Tony Garces",
-        roles: "Canvas grid, Castle Guard"
+        roles: "Canvas grid, Castle Guard",
     },
     {
         id: 5,
-        img: require("../images/teamErik.png"),
+        img: require("../assets/sprites/erik.gif"),
         name: "Erik Hirsch",
-        roles: "Sprite Animation, Shopkeeper"
+        roles: "Sprite Animation, Shopkeeper",
     }
 ]
-
 function Team() {
     return(
         <div style={styles.divPos}>
@@ -64,7 +56,6 @@ function Team() {
                 <div className="row">
                     {teamInfo.map(item => (
                         <div className="col-md-2 card text-center" style={styles.devCard} key={item.id}>
-                            {/* <canvas id="canvas" style={styles.teamImg}></canvas> */}
                             <img src={item.img} style={styles.teamImg} alt={item.name} />
                                 <h5>{item.name}</h5>
                                     <p className="special">
@@ -76,5 +67,4 @@ function Team() {
         </div>
     )
 }
-
 export default Team;
