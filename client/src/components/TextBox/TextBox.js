@@ -2,6 +2,7 @@ import React from "react";
 import "./TextBox.css";
 // import { storyObject } from "../StoryObject";
 import API from "../../utils/API";
+import Exposition from "../Exposition";
 
 
 let first = "true";
@@ -20,7 +21,7 @@ class TextBox extends React.Component {
                 //beautiful woman code appearing 
                 p2: "As " + userName + " looks around suddenly - POOF. A strange but beautiful woman appears! ",
                 //dialouge window of beautiful lady pops up for below dialog
-                p3: " 'Hello' says the woman. 'I am here to help'. And in turn, I hope you can help us. ",
+                p3: " 'Hello' says the woman. 'I am here to help. And in return, I hope you can help us.' ",
                 //dialouge window of beautiful lady pops up for below dialog
                 p4: " 'There is something wrong with the King. He lives in the castle. I would appreciate it if you could go see if you could help me. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
                 //beautiful woman poofs away
@@ -173,13 +174,38 @@ class TextBox extends React.Component {
         if ( first === "true" ) {
             
             this.setState({storyString: this.state.home.start.p1})
-    
+            // this.scrollToBottom();
         }
     }
+      
+      componentDidUpdate() {
+        // this.scrollToBottom();
+      }
+
+    handleBtnClick = event => {
+        // Get the data-value of the clicked button
+        const btnType = event.target.attributes.getNamedItem("data-value").value;
+        
+    
+        if (btnType === "yes") {
+            console.log("yes")
+            let storyContainer = this.refs.scroll
+            storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
+          this.updateStory(this.state.home.start.p2)
+        } 
+        if (btnType === "no") {
+            console.log("no")
+          this.updateStory(this.state.home.start.p3)
+        }
+        
+      };
 
     updateStory = storyObjectPath => {
-        this.setState({storyString: storyObjectPath + this.state.storyString})
-        API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
+        this.setState({storyString: this.state.storyString + " " + storyObjectPath })
+       
+        // let endScroll = this.refs.scroll
+        //  endScroll.scrollTop = this.endScroll.scrollHeight - this.endScroll.clientHeight;
+        // API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
     }
 
     createStory = () => {
@@ -194,14 +220,25 @@ class TextBox extends React.Component {
         this.updateStory(this.state.home.start.p2)
     }
 
+    // let endScroll = this.refs.scroll
+    // endScroll.scrollTop = this.messagesEnd.scrollHeight - this.messagesEnd.clientHeight;
+    
+
 
     render () {
     return(
             <div>
                 <div className="textBG">
-                    {this.state.storyString}
+                    <div ref = "scroll">
+                        {this.state.storyString}
+                    </div>
+                    
                     {/* {this.createStory} */}
+                    {/* <div style={{ float:"left", clear: "both" }}
+                        ref= "scroll ">
+                    </div> */}
                 </div>
+                <Exposition handleBtnClick={this.handleBtnClick} />
             </div>
         )
     }
