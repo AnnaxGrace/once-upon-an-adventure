@@ -205,6 +205,7 @@ class TextBox extends React.Component {
 
     wilsonTalks = () => {
         this.updateStory(this.state.home.start.p4)
+        //adds gold
         setTimeout(this.wilsonGoes, 6000)
     }
 
