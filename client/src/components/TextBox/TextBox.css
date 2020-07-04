@@ -33,10 +33,10 @@
 }
 
 .appear-image {
-    height: 50px;
+    height: 100px;
     position: absolute;
-    top: 500px;
-    right: 570px;
+    top: 480px;
+    right: 450px;
 }
 div::-webkit-scrollbar {
     width: 1em;

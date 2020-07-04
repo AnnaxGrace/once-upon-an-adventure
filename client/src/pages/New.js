@@ -65,7 +65,7 @@ const characters2 = [
     {
         id: 9,
         img: require("../images/option9.png"),
-        path: "option9-4row8.png"
+        path: "option9-4row.png"
     },
     {
         id: 10,
