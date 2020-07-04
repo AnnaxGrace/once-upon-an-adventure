@@ -27,12 +27,13 @@ function World(props) {
 
     return (
         <div
-            id="world-thingy"
+            id="world-container"
             style={{
                 position: 'relative',
-                width:'800px',
-                height: '400px',
+                width:'968px',
                 margin: '20px auto',
+                border: '4px solid black',
+                borderRadius: '5px'
         }}
         >
         <Map />

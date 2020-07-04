@@ -318,10 +318,10 @@ function Map(props) {
             style={{
                 position: 'relative',
                 top: '0px',
-                left: '0px',
+                left: '15px',
                 width: '960px',
                 height: '960px',
-                border: '4px solid black',
+                
             }}
         >
             {

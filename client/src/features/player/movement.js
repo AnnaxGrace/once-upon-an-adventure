@@ -87,8 +87,7 @@ function observeImpassable(oldPos, newPos) {
 
     }
 
-    if (nextTile > 32) {
-        console.log("ouch")
+    if (nextTile > 32 && nextTile !== 122) {
       ouch.play() 
     }
 
