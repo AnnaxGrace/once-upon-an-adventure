@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./TextBox.css";
 // import { storyObject } from "../StoryObject";
 import API from "../../utils/API";
 
 
 let first = "true";
-let userName = "Misterman"
+let userName = "Misterman";
  
-class TextBox extends React.Component {
-    state = {
+function TextBox(props) {
+
+    let stateObj = {
         storyString: "",
         //this will be the user's Id
         id: 1,
         //will be character name
-        name: "Misterman",
+        name: props.avatarName,
         home: {
             start: {
-                p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ "can see a beautiful castle - it looks like it would be hard to take in battle! ",
+                p1: props.avatarName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ "can see a beautiful castle - it looks like it would be hard to take in battle! ",
                 //beautiful woman code appearing 
                 p2: "As " + userName + " looks around suddenly - POOF. A strange but beautiful woman appears! ",
                 //dialouge window of beautiful lady pops up for below dialog
@@ -168,38 +169,39 @@ class TextBox extends React.Component {
 
     //we could also do if storyString === ""
     //so this.state.storyString === ""
-    componentDidMount() {
+    useEffect(() => {
+        console.log("*****textbox props", props)
         //this will be a beginning trait in the user, then all the rest will be from story
-        if ( first === "true" ) {
-            this.setState({storyString: this.state.home.start.p1})
-            API.createStory({
-                text: this.state.storyString, 
-                UserId: this.state.Id
-            }).then(res => console.log("story created")).catch(err => console.log(err));
+        // if ( first === "true" ) {
+        //     this.setState({storyString: this.state.home.start.p1})
+        //     API.createStory({
+        //         text: this.state.storyString, 
+        //         UserId: this.state.Id
+        //     }).then(res => console.log("story created")).catch(err => console.log(err));
            
-        }
-    }
+        // }
+    })
 
     updateStory = storyObjectPath => {
-        this.setState({storyString: storyObjectPath + this.state.storyString})
+       setState({storyString: storyObjectPath + stateObj.storyString})
         API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
     }
 
     personAppears = () => {
         // animationshows
-        this.updateStory(this.state.home.start.p2)
+       updateStory(stateObj.home.start.p2)
     }
 
 
-    render () {
+    
     return(
             <div>
                 <div className="textBG">
-                    {this.state.storyString}
+                    {stateObj.storyString}
                 </div>
             </div>
         )
-    }
+    
 
 }
 
