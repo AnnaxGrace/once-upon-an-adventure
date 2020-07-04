@@ -542,8 +542,8 @@ class TextBox extends React.Component {
             if ( first === "true" ) {
                console.log("variable Change: ", userName)
                
-            //    console.log(this.state.home.start.p1)
-               this.setState({storyString: storyObj.home.start.p1})
+               console.log(this.state.home.start.p1)
+               this.setState({storyString:  userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
                setTimeout(this.poofAppears, 9000);
                // this.scrollToBottom();
            }
@@ -576,7 +576,7 @@ class TextBox extends React.Component {
     poofAppears = () => {
         console.log("step1")
         this.setState({poofShow: "show"})
-        this.updateStory(storyObj.home.start.p2)
+        this.updateStory("As " + userName + " looks around suddenly - POOF. A strange but handsome man appears! ")
         // this.updateStory(this.state.home.start.p3)
         setTimeout(this.wilsonAppears, 2000)
     }
@@ -608,7 +608,7 @@ class TextBox extends React.Component {
     poofGoes = () => {
         console.log("step 4")
         this.setState({poofShow: "hide"})
-        this.updateStory(storyObj.home.start.p5)
+        this.updateStory("And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ")
     }
 
     handleBtnClick = event => {
