@@ -183,8 +183,9 @@ function TextBox(props) {
     })
 
     updateStory = storyObjectPath => {
-       setState({storyString: storyObjectPath + stateObj.storyString})
-        API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
+       //setState({storyString: storyObjectPath + stateObj.storyString})
+       stateObj.storyString = storyObjectPath + stateObj.storyString;
+        API.UpdateUserStory(stateObj.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
     }
 
     personAppears = () => {

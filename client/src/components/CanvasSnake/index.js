@@ -48,22 +48,24 @@ class CanvasSnake extends React.Component {
         statePoints: 0
     }
  
-
+    //when our page loads
     componentDidMount() {
 
+        //get our canvas
         let canvas = this.refs.canvas
         ctx = canvas.getContext("2d")
-
-        let equation = this.refs.equation
-        equation.value = num1 + " " + num2 + " = " 
-        
        
+        //Adds our event listener so that our arrow keys move the snake
+        //Start the game
         document.addEventListener("keydown", this.keyPush);
         setInterval(this.game, 2000/15);
         
     }
     
+    //This function contains all of the game logic
     game = () => {
+
+        //continually moves the snake once we've increased it once
             px += xv;
             py += yv;
             
@@ -88,11 +90,8 @@ class CanvasSnake extends React.Component {
             if (py > tc - 1) {
                 
                 window.location.reload()
-            //    
             }
-            // ctx.fillStyle="black";
-            // ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+           
             ctx.clearRect(0, 0, 1000, 1000)
 
             ctx.fillStyle="pink";
@@ -109,13 +108,16 @@ class CanvasSnake extends React.Component {
 
             }
 
+            //This adds all of the tails
             trail.push({x: px, y: py});
 
+            //this removes the head so it the following looks seamless
             while (trail.length > tail) {
                 trail.shift();
                 
             }
 
+            //If the snake touches the wrong answer, you lose
             if(wx*gs + (2 * gs * 2) === px*gs && wy*gs === py*gs) {
                 console.log("you LOSE");
             }
@@ -123,43 +125,38 @@ class CanvasSnake extends React.Component {
             //this is if you touch the right math answer
             if(ax*gs === px*gs && ay*gs === py*gs) {
                 tail += 4
-                // console.log("hi")
+                
+                //This handles the next numbers appearing in a random position
                 ax=Math.floor(Math.random() * tc);
                 ay=Math.floor(Math.random() * tc);
 
                 wx=Math.floor(Math.random() * tc);
                 wy=Math.floor(Math.random() * tc);
 
-                // wx=Math.floor(Math.random() * tc);
-                // wy=Math.floor(Math.random() * tc);
-
+               
+                //This selects random numbers from our array
                 let indexNum = Math.floor(Math.random() * 4 ) 
-                
                 let indexNum2 = Math.floor(Math.random() * 4 ) 
 
-               
-                
                 num1 = numArray[indexNum]
                 this.setState({number1: num1})
-                // console.log(num1)
+
                 num2 = numArray[indexNum2]
                 this.setState({number2: num2})
-                console.log(num2)
 
+                //creates the new number we will use
                 answer = num1 + num2
+                //adds points that will be converted to money
                 points++;
                 this.setState({statePoints: points})
-                console.log(points)
-                console.log("answer")
-                console.log(answer)
                 
             }
 
-            
+            //Determines the color of our numbers
             ctx.fillStyle ="red";
             ctx.font="30px arial";
             
-            //right answers
+            //right answer
             ctx.fillText(answer, ax*gs, (ay*gs) + 20 )
             
             //wrong answer
@@ -169,6 +166,7 @@ class CanvasSnake extends React.Component {
         
     }
 
+    //Defines our movement direction by arrow key
      keyPush = event =>  {
         switch(event.keyCode) {
             case 37:
@@ -189,6 +187,7 @@ class CanvasSnake extends React.Component {
                 break;
             
         }
+        //prevents our arrow keys from scrolling
         event.preventDefault();
 
     }
@@ -199,7 +198,7 @@ class CanvasSnake extends React.Component {
         return(
           <div>
             <canvas ref="canvas" width={500} height={400} />
-                <div ref="equation" id="equation">
+                <div id="equation">
                     <p>{this.state.number1} + {this.state.number2} = </p>
                     <p>Points: {this.state.statePoints} </p>
                 </div>

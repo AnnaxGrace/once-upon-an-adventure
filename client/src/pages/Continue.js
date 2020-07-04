@@ -11,6 +11,9 @@ import Castle from "../components/MapLocations/Castle";
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 
+import CastleModal from "../components/MapModals/CastleModal";
+import CliffsModal from "../components/MapModals/CliffsModal";
+import ForestModal from "../components/MapModals/ForestModal"
 
 const styles= {
     bookImg: {
@@ -46,10 +49,8 @@ function Continue() {
     }, []);
 
     return(
-        
-        <Container>
-            
-                <h1 className="text-center">Continue Your Adventure</h1>
+        <div>
+                <h1 className="text-center">World Map</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
@@ -78,13 +79,16 @@ function Continue() {
                     </button>
 
                     {/* Pulls up GameTextModal */}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                         Game Log!
                     </button>
                 </div>
 
                 <GameTextModal />
-        </Container>
+                <CastleModal />
+                <CliffsModal />
+                <ForestModal />
+        </div>
     )
 }
 
