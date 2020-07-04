@@ -1,4 +1,5 @@
 import React from "react";
+import TextButtons from "../TextBox/TextButtons"
 
 function ForestModal() {
     return(
@@ -7,6 +8,7 @@ function ForestModal() {
                 <div className="modal-content text-center">
                     <h1>The Forest</h1>
                     <p>
+                        <TextButtons />
                         TEXT TEXT TEXT TEXT
                     </p>
                 </div>

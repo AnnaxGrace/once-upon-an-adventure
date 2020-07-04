@@ -32,6 +32,38 @@
     display: none;
 }
 
+.game-btn {
+  border-radius: 3px;
+  border-color: #533b2a;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  margin: 2px;
+  background-color: #7d5f40;
+  color: #f1dec7;
+}
+
+
+.game-btn:hover {
+  border-radius: 3px;
+  border-color: #f1dec7;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+  background-color: #533b2a;
+  color: #7d5f40;
+}
+
+.game-btn:active {
+  border-radius: 3px;
+  border-color: #7d5f40;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+  background-color: #f1dec7;
+  color:	#533b2a;
+}
+
 .appear-image {
     height: 100px;
     position: absolute;
