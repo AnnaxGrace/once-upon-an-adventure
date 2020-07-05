@@ -352,11 +352,11 @@ const storyObj = {
         start: {
             p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! ",
             //beautiful woman code appearing 
-            p2: "As " + userName + " looks around suddenly - POOF. A strange but handsome man appears! ",
+            p2: "As " + userName + " looks around suddenly - POOF. ",
             //dialouge window of beautiful lady pops up for below dialog
-            p3: " 'Hello' says Wilson. 'I am here to help. And in return, I hope you can help us. ",
+            p3: " A strange but handsome man appears! 'Hello' says Wilson. 'I am here to help. And in return, I hope you can help us. ",
             //dialouge window of beautiful lady pops up for below dialog
-            p4: " There is something wrong with the King. He lives in the castle. I would appreciate it if you could go see if you could help me. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
+            p4: " There is something wrong with the King. He lives in the castle. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
             //beautiful woman poofs away
             p5: "And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ", 
         }
@@ -369,20 +369,21 @@ class TextBox extends React.Component {
     state = {
         storyString: "",
         //this will be the user's Id
-        id: 1,
+        image: "wilson.gif",
         //will be character name
         name: "Misterman",
         poofShow: "hide",
+        homeFirst: true,
         wilsonShow: "hide",
         home: {
             start: {
-                p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! ",
+                p1: userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Far in the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! ",
                 //beautiful woman code appearing 
                 p2: "As " + userName + " looks around suddenly - POOF. A strange but handsome man appears! ",
                 //dialouge window of beautiful lady pops up for below dialog
                 p3: " 'Hello' says Wilson. 'I am here to help. And in return, I hope you can help us. ",
                 //dialouge window of beautiful lady pops up for below dialog
-                p4: " There is something wrong with the King. He lives in the castle. I would appreciate it if you could go see if you could help me. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
+                p4: " There is something wrong with the King. He lives in the castle. I do not know how this plane of existence works, so here's 10 gold. I hope that's enough!' ",
                 //beautiful woman poofs away
                 p5: "And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ", 
             },
@@ -539,23 +540,27 @@ class TextBox extends React.Component {
        
             console.log("post API: ", name)
             userName = user.data[0].sprite[0].name
-            if ( first === "true" ) {
-               console.log("variable Change: ", userName)
+        //     if ( first === "true" ) {
+        //        console.log("variable Change: ", userName)
                
-               console.log(this.state.home.start.p1)
-               this.setState({storyString:  userName + " poofs into a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. To " + userName + "'s right there seems to be a path that leads into a forest - there are a bunch of trees! There's another path to the left... but " + userName + " can't see where it leads. Looking to the right, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
-               setTimeout(this.poofAppears, 9000);
-               // this.scrollToBottom();
-           }
+        //        console.log(this.state.home.start.p1)
+        //        this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
+        //        setTimeout(this.poofAppears, 9000);
+        //        // this.scrollToBottom();
+        //    }
            
         }).then(()=>{
             API.getUserSprite(id).then(user => {
                 console.log(user.data[0].sprite[0])
-                const { sprite } = user.data[0].sprite[0]
+                const { sprite, homeFirst } = user.data[0].sprite[0]
            
                 console.log("../../assets/sprites/", sprite)
+                console.log(homeFirst)
+                this.setState({ image: sprite})
+                this.setState({ homeFirst: homeFirst})
+
                 // userName = user.data[0].sprite[0].name
-            //     if ( first === "true" ) {
+            //     if ( homeFirst === true ) {
             //        console.log("variable Change: ", userName)
                    
             //     //    console.log(this.state.home.start.p1)
@@ -563,6 +568,13 @@ class TextBox extends React.Component {
             //        setTimeout(this.poofAppears, 9000);
             //        // this.scrollToBottom();
             //    }
+               if ( homeFirst === true ) {
+                console.log("variable Change: ", userName)
+                
+                this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
+                setTimeout(this.poofAppears, 9000);
+                // this.scrollToBottom();
+            }
                
             })
         })
@@ -576,9 +588,9 @@ class TextBox extends React.Component {
     poofAppears = () => {
         console.log("step1")
         this.setState({poofShow: "show"})
-        this.updateStory("As " + userName + " looks around suddenly - POOF. A strange but handsome man appears! ")
+        this.updateStory("As " + userName + " looks around suddenly - POOF. ")
         // this.updateStory(this.state.home.start.p3)
-        setTimeout(this.wilsonAppears, 2000)
+        setTimeout(this.wilsonAppears, 3000)
     }
 
     wilsonAppears = () => {
@@ -587,7 +599,7 @@ class TextBox extends React.Component {
         console.log("step 2")
         this.setState({poofShow: "hide"})
         this.setState({wilsonShow: "show"})
-        setTimeout(this.wilsonTalks, 3000)
+        setTimeout(this.wilsonTalks, 5000)
     }
 
     wilsonTalks = () => {
@@ -602,13 +614,14 @@ class TextBox extends React.Component {
 
         this.setState({wilsonShow: "hide"})
         this.setState({poofShow: "show"})
-        setTimeout(this.poofGoes, 2000)
+        setTimeout(this.poofGoes, 3000)
     }
 
     poofGoes = () => {
         console.log("step 4")
         this.setState({poofShow: "hide"})
         this.updateStory("And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ")
+        ///This needs to be update boolean value in API
     }
 
     handleBtnClick = event => {
@@ -631,6 +644,7 @@ class TextBox extends React.Component {
 
     updateStory = storyObjectPath => {
         console.log("*****",userName)
+        console.log(this.state.storyString)
         this.setState({storyString: this.state.storyString + " " + storyObjectPath })
        
         // let endScroll = this.refs.scroll
@@ -664,13 +678,17 @@ class TextBox extends React.Component {
                     </div>
                     
                 </div>
-                <Exposition handleBtnClick={this.handleBtnClick} />
-                <div class= {this.state.poofShow}>
-                    <img class ="appear-image" src={require("../../images/prettypoof.gif")} />
+                {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
 
+                <div className= {this.state.poofShow}>
+                    <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
                 </div>
-                <div class={this.state.wilsonShow}>
-                    <img class="appear-image" src = "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2018/08/kitten-440379.jpg?h=c8d00152&itok=1fdekAh2" />
+
+                <div className={this.state.wilsonShow}>
+                    <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} />
+                </div>
+                <div >
+                    <img className="avatar-image" src={require("../../assets/sprites/" + this.state.image)} />
                 </div>
             </div>
         )
