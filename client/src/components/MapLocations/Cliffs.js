@@ -7,9 +7,9 @@ function Cliffs() {
         <div className="text-center special cliffDiv">
             <img src={require("../../images/mapCliff.jpg")} alt="Cliff" className="cliff" />
             <br />
-            <a href="#CliffsGameModal" data-toggle="modal" data-target="#CliffsGameModal">
+            <Link to="/cliffs">
                 Cliffs
-            </a>
+            </Link>
         </div>
     )
 }
