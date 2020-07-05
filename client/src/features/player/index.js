@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { useParams } from "react-router-dom";
 // import walkSprite from '../../assets/sprites/gladiator-4row.png'
 // import x from "../../assets/sprites/option2-4row.png"
-import { handleKeyDown } from "./movement"
+import { handleKeyDown, observeImpassable } from "./movement"
 
 // console.log(x)
 
@@ -15,7 +15,8 @@ function Player(props) {
     console.log(props.avatar)
     
     useEffect(() => {
-        window.addEventListener("keydown", e => handleKeyDown(e))
+        window.addEventListener("keydown", e =>{handleKeyDown(e)} )
+        //  observeImpassable(undefined, undefined, e)
     },[])
     
    if (!props.avatar) {

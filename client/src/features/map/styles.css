@@ -385,7 +385,7 @@
     background-image: url('../../assets/sprites/orcHiding.png');
 }
 .talkToOrc {
-    background-image: url('../../assets/sprites/option1.png');
+    background-color: olivedrab;
 }
 
 /* Forest Level */
