@@ -45,19 +45,19 @@ function App() {
               <New />
             </Route>
 
-            <Route exact path="/castle">
+            <Route path="/castle/:id?">
               <CastleGame />
             </Route>
 
-            <Route exact path="/forest">
+            <Route path="/forest/:id?">
               <ForestGame />
             </Route>
 
-            <Route exact path="/cliffs">
+            <Route path="/cliffs/:id?">
               <CliffGame />
             </Route>
 
-            <Route exact path="/test" component={WorldPage}/>
+            <Route path="/test" component={WorldPage}/>
         </Switch>
       </div>
     </Router>

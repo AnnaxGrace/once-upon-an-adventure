@@ -19,11 +19,15 @@
     border-width: 1px;
     border-radius: 5px;
     padding: 10px;
-    width: 600px;
-    height: 150px;
-    margin: 10px;
+    position: absolute;
+    top: 72%;
+    left: 68%;
+    width: 445px;
+    height: 800px;
+
     overflow: scroll;
 }
+
 
 .show {
     display: block;
