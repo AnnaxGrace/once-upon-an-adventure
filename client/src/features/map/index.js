@@ -29,7 +29,7 @@ function getTileSprite(type) {
         //event tiles
         case 19:
             return 'talkToJace'
-        case 124:
+        case 20:
             //Get a heart from Vinnie
             return 'talkToOrc'
         

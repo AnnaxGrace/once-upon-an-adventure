@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, ouch} from '../sound/index'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
 
 
 function getNewPosition(oldPos, direction) {
@@ -43,12 +43,13 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos) {
+function observeImpassable(oldPos, newPos, e) {
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
     const nextTile = tiles[y][x]
     console.log(nextTile)
+    console.log("e", e)
     console.log("characters position", newPos)
     switch (nextTile) {
         case 0:  //Cliff Edge
@@ -64,31 +65,41 @@ function observeImpassable(oldPos, newPos) {
 
             break;
         case 4:  //grass
-        walkingGrass.play();
+            walkingGrass.play();
             break;
         case 5:  //dirt
-        walkingGravel.play();
+            walkingGravel.play();
             break;
         case 6:  //stone
-        walkingStone.play();
+            walkingStone.play();
             break;
         case 7:  //fake Tree
-
+            rustlingFoliage.play();
             break;
         case 8:  //return to book
 
             break;
         case 9:  //talk to Jace
+        case 30:
+            if (e.keyCode === 13 || e.keyCode === 32) {
+                console.log("return to map page")
+            }
 
             break;
-            case 40:
-                ouch.play()
-                break;
+        case 40:  //tree
+
+            break;
+        case 122:  //talk to Guard Tony
+            guardTalk.play();
+            break;
+        case 123:  //talk to Orc Vinnie
+            orcBabble.play();
+            break;
 
     }
 
-    if (nextTile > 32 && nextTile !== 122) {
-      ouch.play() 
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123) {
+        impact2.play()
     }
 
     return nextTile < 32
