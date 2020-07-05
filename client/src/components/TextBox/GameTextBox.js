@@ -343,7 +343,7 @@ class ModalTextBox extends React.Component {
                 </div>
                 {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
 
-                <div className= {this.state.poofShow}>
+                {/* <div className= {this.state.poofShow}>
                     <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
                 </div>
 
@@ -352,7 +352,7 @@ class ModalTextBox extends React.Component {
                 </div>
                 <div >
                     <img className="avatar-image" src={require("../../assets/sprites/" + this.state.image)} />
-                </div>
+                </div> */}
             </div>
         )
     }

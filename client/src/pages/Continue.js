@@ -13,7 +13,6 @@ import API from "../utils/API";
 
 import CastleModal from "../components/MapModals/CastleModal";
 import CliffsModal from "../components/MapModals/CliffsModal";
-import ForestModal from "../components/MapModals/ForestModal"
 
 const styles= {
     bookImg: {
@@ -87,7 +86,6 @@ function Continue() {
                 <GameTextModal />
                 <CastleModal />
                 <CliffsModal />
-                <ForestModal />
         </div>
     )
 }
