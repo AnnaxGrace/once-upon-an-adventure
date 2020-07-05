@@ -45,7 +45,9 @@ class CanvasSnake extends React.Component {
     state = {
         number1: 1,
         number2: 1,
-        statePoints: 0
+        statePoints: 0,
+        gameScreen: "hide",
+        equation: "show"
     }
  
     //when our page loads
@@ -61,6 +63,13 @@ class CanvasSnake extends React.Component {
         setInterval(this.game, 2000/15);
         
     }
+
+    handleDoneButtonClick() {
+        //this will display: none snake canvas
+        //pushes points back to CliffText
+        //run function game done??
+
+    }
     
     //This function contains all of the game logic
     game = () => {
@@ -71,25 +80,21 @@ class CanvasSnake extends React.Component {
             
             //These are checking for walls
             if (px < 0 ) {
-                console.log("hi")
-                
-                window.location.reload()
-                clearInterval();
+                this.setState({ minigame: "show"})
             }
             if (px > 24) {
                
-               console.log("bye")
-               window.location.reload()
-            //    window.location.reload()
+                this.setState({ minigame: "show"})
+           
             }
             if (py < 0 ) {
                 
-                window.location.reload()
+                this.setState({ minigame: "show"})
                 
             }
             if (py > tc - 1) {
                 
-                window.location.reload()
+                this.setState({ minigame: "show"})
             }
            
             ctx.clearRect(0, 0, 1000, 1000)
@@ -101,7 +106,7 @@ class CanvasSnake extends React.Component {
                 // if you touch your own tail
                 if(trail[i].x === px && trail[i].y === py) {
                     if ( tail > 5) {
-                        console.log("you lose")  
+                        this.setState({ minigame: "show"})
                     }
                     
                 }
@@ -119,7 +124,7 @@ class CanvasSnake extends React.Component {
 
             //If the snake touches the wrong answer, you lose
             if(wx*gs + (2 * gs * 2) === px*gs && wy*gs === py*gs) {
-                console.log("you LOSE");
+                this.setState({ minigame: "show"})
             }
 
             //this is if you touch the right math answer
@@ -200,9 +205,16 @@ class CanvasSnake extends React.Component {
         return(
           <div>
             <canvas ref="canvas" width={500} height={400} />
-                <div id="equation">
+                <div id="equation" class={this.state.equation}>
                     <p>{this.state.number1} + {this.state.number2} = </p>
                     <p>Points: {this.state.statePoints} </p>
+                </div>
+                <div class={this.state.gameScreen} id="lose-cover">
+                    <p>YOU LOSE</p>
+                    <p>End Points: {this.state.statePoints}</p> 
+                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                        done
+                    </button>
                 </div>
           </div>
         )
