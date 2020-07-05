@@ -26,7 +26,7 @@ const storyObj = {
 }
 }
  
-class ModalTextBox extends React.Component {
+class GameTextBox extends React.Component {
 
 
     state = {
@@ -359,4 +359,4 @@ class ModalTextBox extends React.Component {
 
 }
 
-export default withRouter(ModalTextBox);
+export default withRouter(GameTextBox);

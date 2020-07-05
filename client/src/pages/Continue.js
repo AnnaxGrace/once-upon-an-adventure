@@ -11,9 +11,6 @@ import Castle from "../components/MapLocations/Castle";
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 
-import CastleModal from "../components/MapModals/CastleModal";
-import CliffsModal from "../components/MapModals/CliffsModal";
-
 const styles= {
     bookImg: {
         marginTop: 30,
@@ -82,10 +79,6 @@ function Continue() {
                         Game Log!
                     </button>
                 </div>
-
-                <GameTextModal />
-                <CastleModal />
-                <CliffsModal />
         </div>
     )
 }
