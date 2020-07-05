@@ -1,6 +1,7 @@
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
+import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
 function getNewPosition(oldPos, direction) {
@@ -43,13 +44,12 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos, e) {
+function observeImpassable(oldPos, newPos) {
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
     const nextTile = tiles[y][x]
     console.log(nextTile)
-    console.log("e", e)
     console.log("characters position", newPos)
     switch (nextTile) {
         case 0:  //Cliff Edge
@@ -81,9 +81,9 @@ function observeImpassable(oldPos, newPos, e) {
             break;
         case 9:  //talk to Jace
         case 30:
-            if (e.keyCode === 13 || e.keyCode === 32) {
+            // if (e.keyCode === 13 || e.keyCode === 32) {
                 console.log("return to map page")
-            }
+            // }
 
             break;
         case 40:  //tree
@@ -91,6 +91,8 @@ function observeImpassable(oldPos, newPos, e) {
             break;
         case 122:  //talk to Guard Tony
             guardTalk.play();
+            // GameTextBox.guardTalking();
+            //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
             orcBabble.play();

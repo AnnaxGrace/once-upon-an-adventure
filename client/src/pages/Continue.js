@@ -58,7 +58,7 @@ function Continue() {
                         <Cliffs />
                         <Forest />
                         <Village />
-                        <Castle />
+                        <Castle avatar={userAvatar} avatarName={userAvatarName}/>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox avatarName={userAvatarName}/>

@@ -4,7 +4,7 @@ const initialState = {
     // ForestLevel
     // position: [0, 384],
     // CliffLevel
-    position: [64, 384],
+    position: [64, 448],
     spriteLocation: '0px 128px',
     direction: 'east',
     walkIndex: 0,

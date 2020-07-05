@@ -5,6 +5,7 @@ import API from "../../utils/API";
 import Exposition from "../Exposition";
 import { Container } from "../Grid";
 import { withRouter } from "react-router";
+// import { guardTalk } from "../../features/sound";
 
 
 let first = "true";
@@ -26,6 +27,7 @@ const storyObj = {
 }
 }
  
+
 class GameTextBox extends React.Component {
 
 
@@ -234,8 +236,8 @@ class GameTextBox extends React.Component {
                if ( homeFirst === true ) {
                 console.log("variable Change: ", userName)
                 
-                this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
-                setTimeout(this.poofAppears, 9000);
+                this.setState({storyString:  userName + " follows the path to the castle. Up close it is even more marvelous. " + userName + " notices a guard in front of the castle, glittering in the sunlight in their armor. " + userName + " also thinks they hear a person very faintly saying '...find me...I'll give you hearts...' "})
+                // setTimeout(this.poofAppears, 9000);
                 // this.scrollToBottom();
             }
                
@@ -244,25 +246,9 @@ class GameTextBox extends React.Component {
         
     }
       
-    //   componentDidUpdate() {
-    //     // this.scrollToBottom();
-    //   }
-
-    poofAppears = () => {
-        console.log("step1")
-        this.setState({poofShow: "show"})
-        this.updateStory("As " + userName + " looks around suddenly - POOF. ")
-        // this.updateStory(this.state.home.start.p3)
-        setTimeout(this.wilsonAppears, 3000)
-    }
-
-    wilsonAppears = () => {
-        this.updateStory(storyObj.home.start.p3)
-
-        console.log("step 2")
-        this.setState({poofShow: "hide"})
-        this.setState({wilsonShow: "show"})
-        setTimeout(this.wilsonTalks, 5000)
+   
+    guardTalking = () => {
+        this.updateStory(userName + " decides to talk to the guard. 'Hello.' says Guard Tony. 'Do you have a permit to enter Castle Richfield?' ",)
     }
 
     wilsonTalks = () => {
@@ -306,8 +292,7 @@ class GameTextBox extends React.Component {
       };
 
     updateStory = storyObjectPath => {
-        console.log("*****",userName)
-        console.log(this.state.storyString)
+        
         this.setState({storyString: this.state.storyString + " " + storyObjectPath })
        
         // let endScroll = this.refs.scroll
@@ -341,6 +326,7 @@ class GameTextBox extends React.Component {
                     </div>
                     
                 </div>
+                
                 {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
 
                 {/* <div className= {this.state.poofShow}>
@@ -359,4 +345,5 @@ class GameTextBox extends React.Component {
 
 }
 
-export default withRouter(GameTextBox);
+export default withRouter(GameTextBox); 
+// withRouter(GameTextBox);

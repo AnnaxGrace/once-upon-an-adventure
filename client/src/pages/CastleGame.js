@@ -1,17 +1,19 @@
 import React, { useState ,useEffect } from "react";
 import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
-import Inventory from "../components/Inventory/Inventory"
+import InventoryGame from "../components/Inventory/inventoryGame"
 import World from '../features/world/index';
+import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
+import MenuBtns from "../components/MenuBtns/MenuBtns"
 
-const styles= {
-    bookImg: {
-        marginTop: 30,
-        width: "100%",
-    }
-}
+// const styles= {
+//     bookImg: {
+//         marginTop: 30,
+//         width: "100%",
+//     }
+// }
 
 function CastleGame() {
 
@@ -21,6 +23,7 @@ function CastleGame() {
     const [userAvatarName, setUserAvatarName] = useState(null)
 
     useEffect(() => {
+        console.log(id)
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
@@ -44,32 +47,20 @@ function CastleGame() {
                 <h1 className="text-center">World Map</h1>
 
                 {/* Inventory Bar */}
-                <Inventory />
+                <InventoryGame />
 
                 <div>
                     {/* Game Board */}
-                    <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
+                    {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
                         <World avatar={userAvatar} avatarName={userAvatarName}/>
+
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <GameTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
 
-                <div className="card-body text-center">
-                    <p></p>
-                    <h5>Menu</h5>
-
-                    {/* Saves Your Game */}
-                    <button className="btn">
-                        Save Game!
-                    </button>
-
-                    {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                        Game Log!
-                    </button>
-                </div>
+               <MenuBtns />
         </div>
     )
 }
