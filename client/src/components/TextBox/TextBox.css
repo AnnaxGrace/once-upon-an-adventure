@@ -65,11 +65,26 @@
 }
 
 .appear-image {
-    height: 100px;
+    height: 80px;
     position: absolute;
     top: 480px;
     right: 450px;
 }
+
+.avatar-image {
+  height: 80px;
+  position: absolute;
+  top: 600px;
+  right: 450px;
+}
+
+.poof-image {
+  height: 400px;
+    position: absolute;
+    top: 280px;
+    right: 250px;
+}
+
 div::-webkit-scrollbar {
     width: 1em;
   }

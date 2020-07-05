@@ -185,6 +185,8 @@ class CanvasSnake extends React.Component {
                 xv = 0;
                 yv = 1;
                 break;
+            default:
+                break;
             
         }
         //prevents our arrow keys from scrolling
