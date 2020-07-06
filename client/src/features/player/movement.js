@@ -1,8 +1,8 @@
-// import React, { useState } from "react";
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
-import GameTextBox, { guardTalking } from "../../components/TextBox/GameTextBox"
+import GameTextBox from "../../components/TextBox/GameTextBox"
+
 
 function getNewPosition(oldPos, direction) {
     switch (direction) {
@@ -16,8 +16,6 @@ function getNewPosition(oldPos, direction) {
             return [oldPos[0], oldPos[1] + SPRITE_SIZE]
     }
 }
-
-// const [guard, setGuard] = useState(false);
 
 
 function getSpriteLocation(direction, walkIndex) {
@@ -78,39 +76,32 @@ function observeImpassable(oldPos, newPos) {
         case 7:  //fake Tree
             rustlingFoliage.play();
             break;
-        case 8:  // not assigned
+        case 8:  //return to book
 
             break;
-        case 9:  // not assigned
+        case 9:  //talk to Jace
             break;
-        case 30:  //return to map page from cliff map
+        case 30:
+            // if (e.keyCode === 13 || e.keyCode === 32) {
             console.log("return to map page")
-            break;
-        case 31:  //return to forest from castle map
-            console.log("return to map page")
+            // }
+
             break;
         case 40:  //tree
 
             break;
-        case 43: //talk to wizard
-
-            break;
-        case 122:  //talk to Guard 
+        case 122:  //talk to Guard Tony
             guardTalk.play();
-            let guardState = true;
+            // GameTextBox.guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
             orcBabble.play();
-            //orc gives heart
-            break;
-        case 312:  //enter castle
-
             break;
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43) {
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123) {
         impact2.play()
     }
 
@@ -127,6 +118,7 @@ function dispatchMove(direction, newPos) {
             walkIndex,
             spriteLocation: getSpriteLocation(direction, walkIndex),
         }
+
     })
 }
 
@@ -134,7 +126,6 @@ function attemptMove(direction) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
     console.log(observeBoundaries(oldPos, newPos))
-    console.log(oldPos, newPos)
     if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
         dispatchMove(direction, newPos)
 }
