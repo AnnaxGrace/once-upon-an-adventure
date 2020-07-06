@@ -3,7 +3,7 @@ import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
 import GameTextModal from "../components/Modals/GameTextModal";
-import World from '../features/world/index';
+// import World from '../features/world/index';
 import Cliffs from "../components/MapLocations/Cliffs";
 import Forest from "../components/MapLocations/Forest";
 import Village from "../components/MapLocations/Village";
@@ -24,21 +24,28 @@ function Continue() {
 
     const [userAvatar, setUserAvatar] = useState(null)
     const [userAvatarName, setUserAvatarName] = useState(null)
+    const [userAvatarMoney, setUserAvatarMoney] = useState(null)
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
+            // console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
        
             // console.log(sprite, name)
                 return setUserAvatar(sprite)
-        }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
+        }).then(() => {
+            
+            API.getUserSprite(id).then(user => {
+            // console.log(user.data[0].sprite[0])
             const { name } = user.data[0].sprite[0]
        
-            console.log(name)
+            // console.log(name)
             setUserAvatarName(name)
-            console.log("userAvatar: ",userAvatar)
+            // console.log("userAvatar: ",userAvatar)
+        }).then(() => {
+            API.getUserInventory(id).then(user => {
+                console.log(user)
+            })
         })
             
         })
@@ -54,16 +61,16 @@ function Continue() {
                 <div>
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                        <World avatar={userAvatar} avatarName={userAvatarName}/>
+                        {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                         <Cliffs />
                         <Forest />
                         <Village />
-                        <Castle avatar={userAvatar} avatarName={userAvatarName}/>
+                        <Castle />
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox avatarName={userAvatarName}/>
-                    </div>
-                </div>
+                    </div> 
+                 </div>
 
                 <div className="card-body text-center">
                     <p></p>

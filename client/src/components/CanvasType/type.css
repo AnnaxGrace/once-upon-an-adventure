@@ -1,0 +1,33 @@
+#required-images {
+    display: none;
+}
+
+.form-style {
+    position: absolute;
+    top: 49%;
+    right: 42%;
+}
+
+.word-style {
+    position: absolute;
+    z-index: 7;
+    color: white;
+    top: 33%;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+#lose-cover {
+    position: absolute;
+    z-index: 7;
+    height: 500px;
+    width: 700px;
+    top: 5%;
+    left: 25%;
+}

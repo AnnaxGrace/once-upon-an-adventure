@@ -34,7 +34,10 @@
 .talkToJace {
     background-color: lightsteelblue;
 }
-.returnToBook {
+.returnToBookCastle {
+    background-image: url('../../assets/tiles/stonePath1.png');
+}
+.returnToBookCliff {
     background-color: lightsteelblue;
 }
 .impassSky {

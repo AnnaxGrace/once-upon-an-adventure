@@ -31,15 +31,19 @@ function getTileSprite(type) {
 
 
         //event tiles
-        case 19:
-            return 'talkToJace'
-        case 20:
-            //Get a heart from Vinnie
-            return 'talkToOrc'
-        
-        case 30:
-            return 'returnToBook'
+        // case 19:
+        //     return 'talkToJace'
+        // case 20:
 
+        //     return 'talkToOrc'
+        case 123:
+            return 'orc'
+        case 30: //sky map
+            return 'returnToBookCliff'
+        case 31: //castle map
+            return 'returnToBookCastle'
+        case 43:
+            return 'wizard'
 
         // Castle
         case 310:
@@ -94,9 +98,8 @@ function getTileSprite(type) {
             return 'castleWalls1'
         case 122:
             return 'castleGuard'
-        case 123:
-            return 'orc'
-        
+
+
         case 125:
             return 'cabin0'
         case 126:
@@ -338,14 +341,14 @@ function MapRow(props) {
 function Map(props) {
     return (
         <div
-            className="map-thingy"
+            className="map-container"
             style={{
                 position: 'relative',
                 top: '0px',
                 left: '15px',
                 width: '960px',
                 height: '960px',
-                
+
             }}
         >
             {

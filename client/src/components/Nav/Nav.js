@@ -6,7 +6,7 @@ function Nav() {
     <div>
       <nav className="navbar navbar-expand-lg nav-bg">
         <a className="nav-brand special" href="/">
-          React RPG (Title Pending)
+          Once Upon an Adventure
         </a>
       </nav>
       <p></p>

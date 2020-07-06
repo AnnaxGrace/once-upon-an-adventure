@@ -369,11 +369,13 @@ class TextBox extends React.Component {
     state = {
         storyString: "",
         //this will be the user's Id
-        image: "wilson.gif",
+        image: "placeholder.gif",
         //will be character name
         name: "Misterman",
         poofShow: "hide",
         homeFirst: true,
+        lives: "",
+        money: 0,
         wilsonShow: "hide",
         home: {
             start: {
@@ -552,12 +554,13 @@ class TextBox extends React.Component {
         }).then(()=>{
             API.getUserSprite(id).then(user => {
                 console.log(user.data[0].sprite[0])
-                const { sprite, homeFirst } = user.data[0].sprite[0]
+                const { sprite, homeFirst, lives } = user.data[0].sprite[0]
            
                 console.log("../../assets/sprites/", sprite)
-                console.log(homeFirst)
+                console.log(lives)
                 this.setState({ image: sprite})
                 this.setState({ homeFirst: homeFirst})
+                this.setState({lives: lives})
 
                 // userName = user.data[0].sprite[0].name
             //     if ( homeFirst === true ) {
@@ -603,8 +606,17 @@ class TextBox extends React.Component {
     }
 
     wilsonTalks = () => {
+        const id = this.props.match.params.id;
+        console.log(id)
         this.updateStory(storyObj.home.start.p4)
-        //adds gold
+        //adds gold. needs to update money from 0 to 10 money in the api
+        console.log("hello")
+        API.UpdateSpriteMoney(10, id).then(()=> {
+            console.log("updated money")
+            this.setState({money: 10})
+           
+        })
+
         setTimeout(this.wilsonGoes, 6000)
     }
 
@@ -688,7 +700,7 @@ class TextBox extends React.Component {
                     <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} />
                 </div>
                 <div >
-                    <img className="avatar-image" src={require("../../assets/sprites/" + this.state.image)} />
+                    <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} />
                 </div>
             </div>
         )
