@@ -133,5 +133,5 @@ class GameTextBox extends React.Component {
 
 }
 
-export default withRouter(GameTextBox); 
+export {withRouter(GameTextBox), GameTextBox}; 
 // withRouter(GameTextBox);

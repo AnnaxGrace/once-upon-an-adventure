@@ -3,7 +3,7 @@ import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HE
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
 import GameTextBox from "../../components/TextBox/GameTextBox"
 
-
+const Castle = new GameTextBox()
 function getNewPosition(oldPos, direction) {
     switch (direction) {
         case 'WEST':
@@ -91,7 +91,7 @@ function observeImpassable(oldPos, newPos) {
             break;
         case 122:  //talk to Guard Tony
             guardTalk.play();
-            // GameTextBox.guardTalking();
+            Castle.guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
