@@ -1,6 +1,5 @@
 import React from "react";
 import "./MapLocations.css"
-import Player from '../../features/player';
 import { Link, useParams } from "react-router-dom"
 
 
