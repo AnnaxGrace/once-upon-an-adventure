@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./battle.css"
 import CanvasSnake from "../CanvasSnake"
 import Hangman from "../CanvasHangman"
+import Type from "../CanvasType"
 // import SnakeGame from "../SnakeGame/index"
 
 
@@ -14,7 +15,8 @@ class Battle extends Component {
       Hello world!
 
       {/* <CanvasSnake /> */}
-      <Hangman />
+      {/* <Hangman /> */}
+      <Type />
      
     </div>
     )

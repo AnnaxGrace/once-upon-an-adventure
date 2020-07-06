@@ -1,8 +1,8 @@
+// import React, { useState } from "react";
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
-import GameTextBox from "../../components/TextBox/GameTextBox"
-
+import GameTextBox, { guardTalking } from "../../components/TextBox/GameTextBox"
 
 function getNewPosition(oldPos, direction) {
     switch (direction) {
@@ -16,6 +16,8 @@ function getNewPosition(oldPos, direction) {
             return [oldPos[0], oldPos[1] + SPRITE_SIZE]
     }
 }
+
+// const [guard, setGuard] = useState(false);
 
 
 function getSpriteLocation(direction, walkIndex) {
@@ -95,7 +97,7 @@ function observeImpassable(oldPos, newPos) {
             break;
         case 122:  //talk to Guard 
             guardTalk.play();
-            // GameTextBox.guardTalking();
+            let guardState = true;
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
