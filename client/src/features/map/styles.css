@@ -11,9 +11,6 @@
 .dirtPath {
     background-color: lightsalmon;
 }
-.carpet {
-    background-image: url('../../assets/tiles/carpetRaw.png');
-}
 .stonePath {
     background-image: url('../../assets/tiles/stonePath1.png');
 }
