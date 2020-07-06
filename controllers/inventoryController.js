@@ -2,30 +2,26 @@ const db = require("../models");
 
 // Defining methods for the dataController
 module.exports = {
-    // findAll: function(req, res) {
-    //     db.Book.find(req.query)
-    //       .then(dbBook => res.json(dbBook))
-    //       .catch(err => res.status(422).json(err));
-    //   },
-    //   findById: function(req, res) {
-    //     db.Book.findById(req.params.id)
-    //       .then(dbBook => res.json(dbBook))
-    //       .catch(err => res.status(422).json(err));
-    //   },
-    //   create: function(req, res) {
-    //     db.Book.create(req.body)
-    //       .then(dbBook => res.json(dbBook))
-    //       .catch(err => res.status(422).json(err));
-    //   },
-    //   update: function(req, res) {
-    //     db.Book.findOneAndUpdate({ id: req.params.id }, req.body)
-    //       .then(dbBook => res.json(dbBook))
-    //       .catch(err => res.status(422).json(err));
-    //   },
-    //   remove: function(req, res) {
-    //     db.Book.findById(req.params.id)
-    //       .then(dbBook => dbBook.remove())
-    //       .then(dbBook => res.json(dbBook))
-    //       .catch(err => res.status(422).json(err));
-    //   }
+    findAll: function(req, res) {
+        db.Inventory.find(req.query)
+          .then(dbBook => res.json(dbBook))
+          .catch(err => res.status(422).json(err));
+      },
+    create: function(req, res) {
+        
+        db.Inventory.create(req.body)
+          .then(dbBook => res.json(dbBook))
+          .catch(err => res.status(422).json(err));
+
+        //   const { id } = req.params
+        // db.Inventory.create(req.body)
+        // .then(({ _id}) => db.User.findOneAndUpdate({_id: id}, { $set: {inventory: _id}}, {new: true}))
+        //   .then(dbBook => res.json(dbBook))
+        //   .catch(err => res.status(422).json(err));
+      },
+    findInventory: function(req,res){
+        db.Inventory.find({}).then(dbUser => {
+            res.json(dbUser)
+        }).catch((err) => res.status(422).json(err));
+    }
 };

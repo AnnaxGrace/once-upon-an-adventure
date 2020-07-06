@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const InventorySchema = new Schema({
-    itemName: {type: String,  required: true }
+    lives: {type: String},
+    itemName: {type: String},
+    money: {type: Number}
 });
 const Inventory = mongoose.model("Inventory", InventorySchema);
 

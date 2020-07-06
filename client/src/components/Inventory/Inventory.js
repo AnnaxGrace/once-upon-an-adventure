@@ -26,7 +26,7 @@ function Inventory() {
                     {/* Hard coded for now, will later be determined by user data */}
                     COINS:
                         <img src={require("../../images/coins.png")} className="invtImg" alt="Coins" />
-                        x12
+                        x0
                 </div>
 
             </div>

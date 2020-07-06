@@ -78,6 +78,7 @@ function New() {
     const { id } = useParams();
    
     const [char, setChar] = useState(null)
+
     useEffect(()=>console.log(char), [char])
 
     const handleNewAdventureClick = (event) => {
@@ -87,6 +88,12 @@ function New() {
             sprite: "",
             name: "",
         };
+
+        let itemsObj = {
+            lives: "",
+            itemName: "",
+            money: 0
+        }
         
         postObj.sprite = char;
         const nameData = document.querySelector("#character-name").value;
@@ -96,7 +103,15 @@ function New() {
         API.saveSprite(postObj, id).then((res) => { 
             console.log("save sprite res:", res);
             window.location.replace("/continue/" + id)  
-        });
+        })
+        // .then(() => {
+           
+        //     API.saveInventory({})
+        //     .then((res) => { 
+        //         console.log("save inventory res:", res);
+        //         // window.location.replace("/continue/" + id)  
+        //     })
+        // });
     }
 
     return(
