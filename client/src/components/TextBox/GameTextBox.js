@@ -6,6 +6,8 @@ import Exposition from "../Exposition";
 import { Container } from "../Grid";
 import { useParams } from "react-router-dom";
 import { observeImpassable } from "../../features/player/movement"
+// import GuardTalking from "../../utils/ingameFunctions";
+
 
 
 let first = "true";
@@ -42,31 +44,32 @@ function GameTextBox() {
             setFirst(homeFirst)
             if ( homeFirst === true ) {
                 setStoryString(userName + " follows the path to the castle. Up close it is even more marvelous. " + userName + " notices a guard in front of the castle, glittering in the sunlight in their armor. " + userName + " also thinks they hear a person very faintly saying '...find me...I'll give you hearts...' ")
+                // GuardTalking()
             }
             else if ( homeFirst === false) {
                 setStoryString(userName + " walks up to the castle once again. ")
             }
-            if (observeImpassable.guardState === true) {
-                guardTalking()
-            }
+            // if (guardState === true) {
+            //     guardTalking()
+            // }
         })
     },[]);
 
-    function guardTalking() {
-        if ( firstTalk === true) {
-            updateStory(userName + " decides to talk to the guard. 'Hello.' says Guard Tony. 'Do you have a permit to enter Castle Richfield?' ")
-            setButtons({buttons: "show"})
-            setFirst(false)
-        }
-        if (firstTalk === false) {
-            if (permit === true) {
-                updateStory(userName + " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!', and goes inside the castle so that" + userName + " can choose to enter the castle. ")
-            }
-            if (permit === false) {
-                 updateStory(userName + " decides to speak to Guard Tony. Guard Tony frowns and shakes his head. 'Still no permit?', he says. 'I would try the shopkeeper. He usually has some. His store is in the forest' ")
-                }
-            }
-    }
+    // function guardTalking() {
+    //     if ( firstTalk === true) {
+    //         updateStory(userName + " decides to talk to the guard. 'Hello.' says Guard Tony. 'Do you have a permit to enter Castle Richfield?' ")
+    //         setButtons({buttons: "show"})
+    //         setFirst(false)
+    //     }
+    //     if (firstTalk === false) {
+    //         if (permit === true) {
+    //             updateStory(userName + " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!', and goes inside the castle so that" + userName + " can choose to enter the castle. ")
+    //         }
+    //         if (permit === false) {
+    //              updateStory(userName + " decides to speak to Guard Tony. Guard Tony frowns and shakes his head. 'Still no permit?', he says. 'I would try the shopkeeper. He usually has some. His store is in the forest' ")
+    //             }
+    //         }
+    // }
         
     function orcTalking () {
         if (firstTalkOrc === true) {
@@ -122,6 +125,7 @@ function GameTextBox() {
     
 
 }
+
 
 export default GameTextBox;
 

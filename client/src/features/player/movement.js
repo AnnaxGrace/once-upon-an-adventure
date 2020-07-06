@@ -2,7 +2,8 @@
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
-import GameTextBox, { guardTalking } from "../../components/TextBox/GameTextBox"
+// import GuardTalking from "../../utils/ingameFunctions"
+
 
 function getNewPosition(oldPos, direction) {
     switch (direction) {
@@ -46,7 +47,8 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos) {
+function observeImpassable(oldPos, newPos, gamestate) {
+    console.log(gamestate)
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
@@ -97,7 +99,7 @@ function observeImpassable(oldPos, newPos) {
             break;
         case 122:  //talk to Guard 
             guardTalk.play();
-            let guardState = true;
+            // GuardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie

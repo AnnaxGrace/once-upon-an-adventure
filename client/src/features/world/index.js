@@ -1,13 +1,26 @@
-import React, { useState ,useEffect } from 'react'
+import React, { useState ,useEffect, useContext } from 'react'
 import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
+import GameContext from "../../utils/GameContext";
+
 
 import { tiles } from '../../data/maps/1'
 import store from '../../config/store'
 
 function World(props) {
+
+ 
+    const [gameState, setGameState] = useState({
+        firstGuardTalk: true,
+        firstCastle: false,
+        permit: false,
+        guardButtons: "hide",
+        storyString: ""
+    });
+
+    
 
     const { id } = useParams();
     store.dispatch({ type: 'ADD_TILES', payload: {
@@ -39,7 +52,9 @@ function World(props) {
         }}
         >
         <Map />
-        <Player avatar={props.avatar} avatarName={props.avatarName}/>
+        <GameContext.Provider value = {gameState}>
+            <Player avatar={props.avatar} avatarName={props.avatarName}/>
+        </GameContext.Provider>
         </div>
     )
 }

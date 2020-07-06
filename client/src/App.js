@@ -13,6 +13,7 @@ import Store from "./config/store";
 import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
+import GameContext from "./utils/GameContext";
 
 function App() {
   return (
