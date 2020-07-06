@@ -3,7 +3,7 @@ import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
 import GameTextModal from "../components/Modals/GameTextModal";
-import World from '../features/world/index';
+// import World from '../features/world/index';
 import Cliffs from "../components/MapLocations/Cliffs";
 import Forest from "../components/MapLocations/Forest";
 import Village from "../components/MapLocations/Village";
@@ -65,12 +65,12 @@ function Continue() {
                         <Cliffs />
                         <Forest />
                         <Village />
-                        <Castle avatar={userAvatar} avatarName={userAvatarName}/>
+                        <Castle />
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox avatarName={userAvatarName}/>
-                    </div>
-                </div>
+                    </div> 
+                 </div>
 
                 <div className="card-body text-center">
                     <p></p>
