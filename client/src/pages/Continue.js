@@ -62,8 +62,8 @@ function Continue() {
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox avatarName={userAvatarName}/>
-                    </div>
-                </div>
+                    </div> 
+                 </div>
 
                 <div className="card-body text-center">
                     <p></p>
