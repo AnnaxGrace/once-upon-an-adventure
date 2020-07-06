@@ -32,6 +32,10 @@ export default {
     return axios.get(`/api/user/inventory/${id}`)
   },
   
+  UpdateSpriteMoney: function(spriteData, id) {
+    return axios.put("/api/sprite/" + id, spriteData);
+  },
+  
   saveSprite: function(spriteData, id) {
     return axios.post("/api/sprite/" + id, spriteData);
   },
@@ -53,5 +57,6 @@ export default {
   UpdateUserStory: function(id, storyData) {
     return axios.post("/api/story/" + id, storyData);
   }
+ 
 
 };

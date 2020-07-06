@@ -1,8 +1,26 @@
-import React from "react";
+import React, {  useState , useEffect } from "react";
 import "./Inventory.css";
 import { Container } from "../Grid"
+import API from "../../utils/API"
+import { useParams } from "react-router-dom";
 
 function Inventory() {
+    const { id } = useParams();
+
+    const [userMoney, setUserMoney] = useState(null)
+    const [, forceUpdate] = useState();
+    
+    useEffect(()=> {
+        setTimeout(forceUpdate, 2000);
+API.getUserSprite(id).then(user => {
+    const {money} = user.data[0].sprite[0]
+
+    setUserMoney(money)
+})
+    }, [userMoney]);
+
+    
+
     return(
         <Container>
             <div className="inventoryBG special row">
@@ -26,7 +44,7 @@ function Inventory() {
                     {/* Hard coded for now, will later be determined by user data */}
                     COINS:
                         <img src={require("../../images/coins.png")} className="invtImg" alt="Coins" />
-                        x0
+                        x {userMoney}
                 </div>
 
             </div>

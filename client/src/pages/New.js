@@ -89,11 +89,7 @@ function New() {
             name: "",
         };
 
-        let itemsObj = {
-            lives: "",
-            itemName: "",
-            money: 0
-        }
+     
         
         postObj.sprite = char;
         const nameData = document.querySelector("#character-name").value;
@@ -104,14 +100,7 @@ function New() {
             console.log("save sprite res:", res);
             window.location.replace("/continue/" + id)  
         })
-        // .then(() => {
-           
-        //     API.saveInventory({})
-        //     .then((res) => { 
-        //         console.log("save inventory res:", res);
-        //         // window.location.replace("/continue/" + id)  
-        //     })
-        // });
+       
     }
 
     return(
