@@ -32,16 +32,44 @@ module.exports = {
         console.log(req.params.id)
         db.User.find({_id: req.params.id}).then(
           dbUser => {
-            console.log(dbUser)
+            // console.log(dbUser)
             db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {money: 10}}, {useFindAndModify: false})
           .then(dbBook => {
-            console.log("dbBook")
+            // console.log("dbBook")
             res.json(dbBook)})
           .catch(err => res.status(422).json(err));
           }
         )
         
       },
+      updateHomeFirst: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            // console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {homeFirst: false}}, {useFindAndModify: false})
+          .then(dbBook => {
+            // console.log("dbBook")
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      },
+      updatePermit: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {permit: true}}, {useFindAndModify: false})
+          .then(dbBook => {
+            console.log(dbBook)
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      }
     //   remove: function(req, res) {
     //     db.Book.findById(req.params.id)
     //       .then(dbBook => dbBook.remove())

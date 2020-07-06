@@ -22,9 +22,11 @@ function MenuBtns() {
                     </Link>
 
                     {/* logs you out */}
-                    <button type="button" className="btn">
+                    <Link to ="/">
+                    <button type="button" className="btn" >
                         Log Out!
                     </button>
+                    </Link>
                 </div>
     )
 }

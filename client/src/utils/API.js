@@ -35,6 +35,12 @@ export default {
   UpdateSpriteMoney: function(spriteData, id) {
     return axios.put("/api/sprite/" + id, spriteData);
   },
+  UpdateSpriteHomeFirst: function(spriteData, id) {
+    return axios.put("/api/sprite/homefirst/" + id, spriteData);
+  },
+  UpdateSpritePermit: function(spriteData, id) {
+    return axios.put("/api/sprite/permit/" + id, spriteData);
+  },
   
   saveSprite: function(spriteData, id) {
     return axios.post("/api/sprite/" + id, spriteData);
