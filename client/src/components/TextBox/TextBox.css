@@ -9,10 +9,6 @@
     overflow: scroll;
 }
 
-.modal {
-  width: 1000px;
-}
-
 .textBG {
     background-color:hsla(39,30%,89%,0.8);
     border-style: solid;
@@ -20,11 +16,10 @@
     border-radius: 5px;
     padding: 10px;
     position: absolute;
-    top: 72%;
+    top: 32%;
     left: 68%;
     width: 445px;
-    height: 800px;
-
+    height: 890px;
     overflow: scroll;
 }
 

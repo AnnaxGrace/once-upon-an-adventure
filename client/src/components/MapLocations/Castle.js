@@ -13,7 +13,6 @@ function Castle(props) {
             <Link to={"/castle/" + id}>
                 Castle
             </Link>
-            <Player avatar={props.avatar} avatarName={props.avatarName}/>
         </div>
     )
 }

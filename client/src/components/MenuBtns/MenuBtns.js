@@ -8,13 +8,13 @@ function MenuBtns() {
                     <h5>Menu</h5>
 
                     {/* Saves Your Game */}
-                    <button className="btn">
+                    <button className="btn special">
                         Save Game!
                     </button>
 
                     {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                        Game Log!
+                    <button type="button" className="btn special">
+                        Log Out!
                     </button>
                 </div>
     )
