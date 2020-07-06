@@ -5,6 +5,10 @@ const SpriteSchema = new Schema({
     sprite: {type: String},
     name: { type: String, required: true },
     homeFirst: {type: Boolean, default: true},
+    lives: {type: Number, default: 3},
+    permit: {type: Boolean, default: false},
+    money: {type: Number, default: 0}
+
 });
 const Sprite = mongoose.model("Sprite", SpriteSchema);
 
