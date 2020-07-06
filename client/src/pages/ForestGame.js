@@ -1,10 +1,11 @@
 import React, { useState ,useEffect } from "react";
 import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
-import Inventory from "../components/Inventory/Inventory"
+import InventoryGame from "../components/Inventory/inventoryGame"
 import World from '../features/world/index';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
+import MenuBtns from "../components/MenuBtns/MenuBtns"
 
 const styles= {
     bookImg: {
@@ -41,35 +42,20 @@ function ForestGame() {
 
     return(
         <div>
-                <h1 className="text-center">World Map</h1>
+                <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
-                <Inventory />
+                <InventoryGame />
 
                 <div>
                     {/* Game Board */}
-                    <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
                         <World avatar={userAvatar} avatarName={userAvatarName}/>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <GameTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
-
-                <div className="card-body text-center">
-                    <p></p>
-                    <h5>Menu</h5>
-
-                    {/* Saves Your Game */}
-                    <button className="btn">
-                        Save Game!
-                    </button>
-
-                    {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                        Game Log!
-                    </button>
-                </div>
+                <MenuBtns />
         </div>
     )
 }
