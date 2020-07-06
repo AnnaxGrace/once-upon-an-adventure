@@ -24,21 +24,28 @@ function Continue() {
 
     const [userAvatar, setUserAvatar] = useState(null)
     const [userAvatarName, setUserAvatarName] = useState(null)
+    const [userAvatarMoney, setUserAvatarMoney] = useState(null)
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
+            // console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
        
             // console.log(sprite, name)
                 return setUserAvatar(sprite)
-        }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
+        }).then(() => {
+            
+            API.getUserSprite(id).then(user => {
+            // console.log(user.data[0].sprite[0])
             const { name } = user.data[0].sprite[0]
        
-            console.log(name)
+            // console.log(name)
             setUserAvatarName(name)
-            console.log("userAvatar: ",userAvatar)
+            // console.log("userAvatar: ",userAvatar)
+        }).then(() => {
+            API.getUserInventory(id).then(user => {
+                console.log(user)
+            })
         })
             
         })

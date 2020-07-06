@@ -12,4 +12,7 @@ router.route("/")
   router.route("/avatar/:id?")
   .get(dataController.findUserAvatar);
 
+  router.route("/inventory/:id?")
+  .get(dataController.findUserInventory)
+
   module.exports = router;
