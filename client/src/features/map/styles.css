@@ -11,6 +11,9 @@
 .dirtPath {
     background-color: lightsalmon;
 }
+.carpet {
+    background-image: url('../../assets/tiles/carpetRaw.png');
+}
 .stonePath {
     background-image: url('../../assets/tiles/stonePath1.png');
 }
@@ -31,7 +34,10 @@
 .talkToJace {
     background-color: lightsteelblue;
 }
-.returnToBook {
+.returnToBookCastle {
+    background-image: url('../../assets/tiles/stonePath1.png');
+}
+.returnToBookCliff {
     background-color: lightsteelblue;
 }
 .impassSky {
@@ -406,4 +412,31 @@
 }
 .shop38 {
     background-image: url('../../assets/tiles/ErikStore38.png');
+}
+.lakeBody {
+    background-image: url('../../assets/tiles/lakeBody.png');
+}
+.lakeCorner0 {
+    background-image: url('../../assets/tiles/lakeCorner0.png');
+}
+.lakeCorner1 {
+    background-image: url('../../assets/tiles/lakeCorner1.png');
+}
+.lakeCorner2 {
+    background-image: url('../../assets/tiles/lakeCorner2.png');
+}
+.lakeCorner3 {
+    background-image: url('../../assets/tiles/lakeCorner3.png');
+}
+.lakeLeft {
+    background-image: url('../../assets/tiles/lakeLeft.png');
+}
+.lakeRight {
+    background-image: url('../../assets/tiles/lakeRight.png');
+}
+.lakeTop {
+    background-image: url('../../assets/tiles/lakeTop.png');
+}
+.lakeBottom {
+    background-image: url('../../assets/tiles/lakeBottom.png');
 }

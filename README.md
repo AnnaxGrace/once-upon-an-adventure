@@ -11,9 +11,9 @@
 
 
 ## Description
-React RPG (Title Pending) is an interactive learning experience.
+Once Upon an Adventure is an interactive learning experience.
 Based on both RPG's and Choose Your Own Adventure games,
-React RPG (Title Pending) offers a variety of learning games that any child will enjoy.
+Once Upon an Adventure offers a variety of learning games that any child will enjoy.
 
 ## Table of Contents
 * [Installation](#installation)

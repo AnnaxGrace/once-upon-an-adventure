@@ -5,6 +5,7 @@ import API from "../../utils/API";
 import Exposition from "../Exposition";
 import { Container } from "../Grid";
 import { useParams } from "react-router-dom";
+import { observeImpassable } from "../../features/player/movement"
 
 
 let first = "true";
@@ -44,6 +45,9 @@ function GameTextBox() {
             }
             else if ( homeFirst === false) {
                 setStoryString(userName + " walks up to the castle once again. ")
+            }
+            if (observeImpassable.guardState === true) {
+                guardTalking()
             }
         })
     },[]);

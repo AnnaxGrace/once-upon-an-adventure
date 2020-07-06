@@ -1,7 +1,9 @@
 import React from "react";
 import "./MenuBtns.css"
+import { Link, useParams } from "react-router-dom"
 
 function MenuBtns() {
+    const {id} = useParams()
     return (
         <div className="card-body text-center menu">
                     <p></p>
@@ -12,9 +14,16 @@ function MenuBtns() {
                         Save Game!
                     </button>
 
-                    {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                        Game Log!
+                    {/* Returns to World Map */}
+                    <Link to ={"/continue/" + id}>
+                    <button type="button" className="btn">
+                        World Map
+                    </button>
+                    </Link>
+
+                    {/* logs you out */}
+                    <button type="button" className="btn">
+                        Log Out!
                     </button>
                 </div>
     )

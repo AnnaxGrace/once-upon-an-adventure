@@ -40,5 +40,11 @@ module.exports = {
     .populate("sprite")
     .then(dbUser => res.json(dbUser))
     .catch(err => res.status(521).json(err));
+  },
+  findUserInventory: function(req,res) {
+    db.User.find({ _id: req.params.id})
+    .populate("inventory")
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(521).json(err));
   }
 };
