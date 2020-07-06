@@ -5,7 +5,8 @@ import InventoryGame from "../components/Inventory/inventoryGame"
 import World from '../features/world/index';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
-import MenuBtns from "../components/MenuBtns/MenuBtns"
+import MenuBtns from "../components/MenuBtns/MenuBtns";
+import ComingSoon from "../components/ComingSoon/ComingSoon";
 
 const styles= {
     bookImg: {
@@ -45,11 +46,12 @@ function ForestGame() {
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
-                <InventoryGame />
+                {/* <InventoryGame /> */}
+                <ComingSoon />
 
                 <div>
                     {/* Game Board */}
-                        <World avatar={userAvatar} avatarName={userAvatarName}/>
+                        {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <GameTextBox avatarName={userAvatarName}/>
