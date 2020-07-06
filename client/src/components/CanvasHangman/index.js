@@ -3,7 +3,6 @@ import "./hangman.css"
 
 //global variables necessary to have gameplay
 let wrong = 0;
-let win = "false";
 let ctx;
 let wordArray = [["q","u","i","p"], ["w", "a", "v", "e"], ["j", "i", "n", "x"], ["o", "n", "y", "x"], ["q", "u", "i", "z"], ["w", "i", "n", "k"], ["a", "c", "i", "d"], ["n", "a", "v", "y"], ["g", "a", "w", "k"], ["j", "i", "v", "e"], ["l", "i", "e", "u"], ["w", "e", "l", "t"], ["p", "e", "o", "n"], ["l", "u", "n", "g"], ["b", "a", "r", "d"], ["o", "u", "s", "t"]]
 let word;
@@ -14,13 +13,9 @@ let right = 0;
 class Hangman extends React.Component {
 
     state = {
-        // img1: "../../images/Hangman1.png",
-        // img2: "../../images/Hangman2.png",
-        // img3: "../../images/Hangman2.png",
-        // img4: "../../images/Hangman2.png",
-        // img5: "../../images/Hangman2.png",
-        // img6: "../../images/Hangman2.png",
-        letter: ""
+        letter: "",
+        gameScreen: "hide",
+        win: ""
     }
  
     //when our page loads
@@ -44,6 +39,12 @@ class Hangman extends React.Component {
         this.game()
     }
 
+    handleDoneButtonClick() {
+        //this will display: none snake canvas
+        //pushes points back to CliffText
+        //run function game done??
+
+    }
     //Grabs a random word from our word array
     game = () => {
         
@@ -111,7 +112,8 @@ class Hangman extends React.Component {
                         break;
                 }
                 if (right === 4) {
-                    console.log("you win!")
+                    this.setState({win: "You win"})
+                    this.setState({gameScreen: "show"})
                 }
             }
             else {
@@ -157,7 +159,8 @@ class Hangman extends React.Component {
                             break;
                         case 6: 
                             ctx.drawImage(image7, 80, 50);
-                            console.log('you lose')
+                            this.setState({win: "You Lose"})
+                            this.setState({gamescreen: "show"})
                             break;
                         default:
                             break;
@@ -196,6 +199,14 @@ class Hangman extends React.Component {
           
                 <button onClick={this.handleFormSubmit}>Submit</button>
             </form>
+
+            <div class={this.state.gameScreen} id="lose-cover">
+                    <p>{this.state.win}</p>
+                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                        done
+                    </button>
+            </div>
+
           </div>
         )
       }

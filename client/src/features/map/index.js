@@ -8,7 +8,7 @@ function getTileSprite(type) {
     switch (type) {
         // Passable Tiles
         case 0:
-            return 'cliffEdge'
+            return 'carpet'
         case 1:
             return 'cliffBody'
         case 2:
@@ -286,6 +286,27 @@ function getTileSprite(type) {
             return 'background66'
         case 119:
             return 'background67'
+
+        case 131:
+            return 'lakeBody'
+        case 132:
+            return 'lakeCorner0'
+        case 133:
+            return 'lakeCorner1'
+        case 134:
+            return 'lakeCorner2'
+        case 135:
+            return 'lakeCorner3'
+        case 136:
+            return 'lakeLeft'
+        case 137:
+            return 'lakeTop'
+        case 138:
+            return 'lakeRight'
+        case 139:
+            return 'lakeBottom'
+        case 140:
+            return 'cliffEdge'
 
     }
 }

@@ -9,10 +9,6 @@
     overflow: scroll;
 }
 
-.modal {
-  width: 1000px;
-}
-
 .textBG {
     background-color:hsla(39,30%,89%,0.8);
     border-style: solid;
@@ -20,11 +16,10 @@
     border-radius: 5px;
     padding: 10px;
     position: absolute;
-    top: 72%;
+    top: 30%;
     left: 68%;
     width: 445px;
-    height: 800px;
-
+    height: 855px;
     overflow: scroll;
 }
 
@@ -106,3 +101,39 @@ div::-webkit-scrollbar-thumb {
     background-color: #c0a083;
     outline: 1px solid slategrey;
   }
+
+
+#snake{
+    background-color:rgba(0,0,0,0.4);
+    border-radius: 0px 0px 10px 10px;
+    height: 1000px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* display: none; */
+    display: block;
+    z-index: 3;
+    opacity: 3;
+}
+
+#hangman{
+  background-color:rgba(0,0,0,0.4);
+  border-radius: 0px 0px 10px 10px;
+  height: 1000px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  /* display: none; */
+  display: block;
+  z-index: 3;
+  opacity: 3;
+}
+
+
+canvas {
+    background-color: black;
+    border: 5px white solid;
+    position: absolute;
+    left: 32%;
+    top: 5%;
+}

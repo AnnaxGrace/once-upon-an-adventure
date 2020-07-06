@@ -3,7 +3,7 @@
 
 
 [![made-with-VSCode](https://img.shields.io/badge/Made%20with-VSCode-1f425f.svg)](https://code.visualstudio.com/)
-# Working Title
+# Once Upon an Adventure
 
 <img src="./client/src/images/Castle-Banner.png"
      alt="Log-in Page"
@@ -11,9 +11,9 @@
 
 
 ## Description
-React RPG (Title Pending) is an interactive learning experience.
+Once Upon an Adventure is an interactive learning experience.
 Based on both RPG's and Choose Your Own Adventure games,
-React RPG (Title Pending) offers a variety of learning games that any child will enjoy.
+Once Upon an Adventure offers a variety of learning games that any child will enjoy.
 
 ## Table of Contents
 * [Installation](#installation)
