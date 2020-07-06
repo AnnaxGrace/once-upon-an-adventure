@@ -3,7 +3,7 @@
 
 
 [![made-with-VSCode](https://img.shields.io/badge/Made%20with-VSCode-1f425f.svg)](https://code.visualstudio.com/)
-# Working Title
+# Once Upon An Adventure
 
 <img src="./client/src/images/Castle-Banner.png"
      alt="Log-in Page"
