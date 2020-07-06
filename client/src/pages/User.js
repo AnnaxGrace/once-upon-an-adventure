@@ -31,7 +31,7 @@ function User() {
                                 <img src={require("../images/Book-Pile.png")} alt="book pile" style={styles.bookImg} />
 
                                 <p>
-                                    React RPG (Title Pending) is an interactive 
+                                    Once Upon an Adventure is an interactive 
                                     learning game. From this menu you can continue 
                                     a previous Adventure (if you have one saved), 
                                     or start a new Adventure. Enjoy your time exploring 

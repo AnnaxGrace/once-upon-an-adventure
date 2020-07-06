@@ -5,7 +5,7 @@ import InventoryGame from "../components/Inventory/inventoryGame"
 import World from '../features/world/index';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
-import MenuBtns from "../components/MenuBtns/MenuBtns"
+import MenuBtns from "../components/MenuBtns/MenuBtns";
 
 const styles= {
     bookImg: {
@@ -46,7 +46,6 @@ function CliffGame() {
 
                 {/* Inventory Bar */}
                 <InventoryGame />
-
                 <div>
                     {/* Game Board */}
                         <World avatar={userAvatar} avatarName={userAvatarName}/>
