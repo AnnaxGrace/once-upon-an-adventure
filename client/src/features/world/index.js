@@ -16,7 +16,7 @@ function World(props) {
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            // console.log(user.data[0].sprite[0].sprite)
+            console.log(user.data[0].sprite[0].sprite)
             const { sprite } = user.data[0].sprite[0]
             console.log(sprite)
                 return setUserAvatar(sprite)
@@ -27,16 +27,19 @@ function World(props) {
 
     return (
         <div
-            id="world-thingy"
+            id="world-container"
             style={{
                 position: 'relative',
-                width:'800px',
-                height: '400px',
-                margin: '20px auto',
+                width:'968px',
+                top: '35%',
+                // marginTop: '50px',
+                marginLeft: '3px',
+                border: '4px solid black',
+                borderRadius: '5px'
         }}
         >
         <Map />
-        <Player avatar={userAvatar}/>
+        <Player avatar={props.avatar} avatarName={props.avatarName}/>
         </div>
     )
 }

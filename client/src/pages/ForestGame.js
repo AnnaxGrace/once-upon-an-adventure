@@ -1,20 +1,47 @@
-import React from "react";
-import TextBox from "../components/TextBox/TextBox"
+import React, { useState ,useEffect } from "react";
+import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
-import GameTextModal from "../components/Modals/GameTextModal";
+import World from '../features/world/index';
+import { useParams } from "react-router-dom";
+import API from "../utils/API";
 
 const styles= {
     bookImg: {
         marginTop: 30,
-        width: "100%"
+        width: "100%",
     }
 }
 
 function ForestGame() {
+
+    const { id } = useParams();
+
+    const [userAvatar, setUserAvatar] = useState(null)
+    const [userAvatarName, setUserAvatarName] = useState(null)
+
+    useEffect(() => {
+        API.getUserSprite(id).then(user => {
+            console.log(user.data[0].sprite[0])
+            const { sprite } = user.data[0].sprite[0]
+       
+            // console.log(sprite, name)
+                return setUserAvatar(sprite)
+        }).then(() => {API.getUserSprite(id).then(user => {
+            console.log(user.data[0].sprite[0])
+            const { name } = user.data[0].sprite[0]
+       
+            console.log(name)
+            setUserAvatarName(name)
+            console.log("userAvatar: ",userAvatar)
+        })
+            
+        })
+    }, []);
+
     return(
-        <Container>
-                <h1 className="text-center">Continue Your Adventure</h1>
+        <div>
+                <h1 className="text-center">World Map</h1>
 
                 {/* Inventory Bar */}
                 <Inventory />
@@ -22,10 +49,10 @@ function ForestGame() {
                 <div>
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                        {/* FOREST GAME-BOARD GOES HERE */}
+                        <World avatar={userAvatar} avatarName={userAvatarName}/>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        <TextBox />
+                        <GameTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
 
@@ -39,13 +66,11 @@ function ForestGame() {
                     </button>
 
                     {/* Pulls up GameTextModal */}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                         Game Log!
                     </button>
                 </div>
-
-                <GameTextModal />
-        </Container>
+        </div>
     )
 }
 

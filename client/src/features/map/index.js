@@ -23,80 +23,88 @@ function getTileSprite(type) {
             return 'stonePath'
         case 7:
             return 'fakeTree'
-        case 8:
-            return 'returnToBook'
-        case 9:
+        
+
+
+        //event tiles
+        case 19:
             return 'talkToJace'
+        case 20:
+            //Get a heart from Vinnie
+            return 'talkToOrc'
+        
+        case 30:
+            return 'returnToBook'
+
 
         // Castle
-            case 10:
-                return 'castle0'
-            case 11:
-                return 'castle1'
-            case 12:
-                return 'castle2'
-            case 13:
-                return 'castle3'
-            case 14:
-                return 'castle4'
-            case 15:
-                return 'castle5'
-            case 16:
-                return 'castle6'
-            case 17:
-                return 'castle7'
-            case 18:
-                return 'castle8'
-            case 19:
-                return 'castle9'
-            case 20:
-                return 'castle10'
-            case 21:
-                return 'castle11'
-            case 22:
-                return 'castle12'
-            case 23:
-                return 'castle13'
-            case 24:
-                return 'castle14'
-            case 25:
-                return 'castle15'
-            case 26:
-                return 'castle16'
-            case 27:
-                return 'castle17'
-            case 28:
-                return 'castle18'
-            case 29:
-                return 'castle19'
-            case 30:
-                return 'castle20'
-            case 31:
-                return 'castle21'
-            case 32:
-                return 'castle22'
-            case 120:
-                return 'castleWalls0'
-            case 121:
-                return 'castleWalls1'
-            case 122:
-                return 'castleGuard'
-            case 123:
-                return 'orc'
-            case 124:
-                return 'talkToOrc'
-            case 125:
-                return 'cabin0'
-            case 126:
-                return 'cabin1'
-            case 127:
-                return 'cabin2'
-            case 128:
-                return 'cabin3'
-            case 129:
-                return 'house0'
-            case 130:
-                return 'house1'
+        case 310:
+            return 'castle0'
+        case 311:
+            return 'castle1'
+        case 312:
+            return 'castle2'
+        case 313:
+            return 'castle3'
+        case 314:
+            return 'castle4'
+        case 315:
+            return 'castle5'
+        case 316:
+            return 'castle6'
+        case 317:
+            return 'castle7'
+        case 318:
+            return 'castle8'
+        case 319:
+            return 'castle9'
+        case 320:
+            return 'castle10'
+        case 321:
+            return 'castle11'
+        case 322:
+            return 'castle12'
+        case 323:
+            return 'castle13'
+        case 324:
+            return 'castle14'
+        case 325:
+            return 'castle15'
+        case 326:
+            return 'castle16'
+        case 327:
+            return 'castle17'
+        case 328:
+            return 'castle18'
+        case 329:
+            return 'castle19'
+        case 330:
+            return 'castle20'
+        case 331:
+            return 'castle21'
+        case 332:
+            return 'castle22'
+        case 120:
+            return 'castleWalls0'
+        case 121:
+            return 'castleWalls1'
+        case 122:
+            return 'castleGuard'
+        case 123:
+            return 'orc'
+        
+        case 125:
+            return 'cabin0'
+        case 126:
+            return 'cabin1'
+        case 127:
+            return 'cabin2'
+        case 128:
+            return 'cabin3'
+        case 129:
+            return 'house0'
+        case 130:
+            return 'house1'
 
             // Forest
             case 33:
@@ -300,42 +308,44 @@ function getTileSprite(type) {
     }
 }
 
+
+
 function MapTile(props) {
     return <div
-    className={`tile ${getTileSprite(props.tile)}`}
-    style={{
-        height: SPRITE_SIZE,
-        width: SPRITE_SIZE
-    }}
+        className={`tile ${getTileSprite(props.tile)}`}
+        style={{
+            height: SPRITE_SIZE,
+            width: SPRITE_SIZE
+        }}
     />
 }
 
 function MapRow(props) {
     return <div className="row"
-    style={{
-        height: SPRITE_SIZE
-    }}>
-    {
-        props.tiles.map( tile => <MapTile tile={tile} />)
-    }
+        style={{
+            height: SPRITE_SIZE
+        }}>
+        {
+            props.tiles.map(tile => <MapTile tile={tile} />)
+        }
     </div>
 }
 
 function Map(props) {
     return (
-        <div 
-        className="map-thingy"
-        style= {{
-            position: 'relative',
-            top: '0px',
-            left: '0px',
-            width:'960px',
-            height: '960px',
-            border: '4px solid black',
-        }}
+        <div
+            className="map-thingy"
+            style={{
+                position: 'relative',
+                top: '0px',
+                left: '15px',
+                width: '960px',
+                height: '960px',
+                
+            }}
         >
             {
-                props.tiles.map( row => <MapRow tiles={row} />)
+                props.tiles.map(row => <MapRow tiles={row} />)
             }
         </div>
     )

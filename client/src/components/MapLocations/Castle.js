@@ -1,15 +1,19 @@
 import React from "react";
 import "./MapLocations.css"
-import { Link } from "react-router-dom"
+import Player from '../../features/player';
+import { Link, useParams } from "react-router-dom"
 
-function Castle() {
+
+function Castle(props) {
+    const {id} = useParams()
     return(
         <div className="text-center special castleDiv">
             <img src={require("../../images/mapCastle.jpg")} alt="Castle" className="castle" />
             <br />
-            <Link to="/castle">
+            <Link to={"/castle/" + id}>
                 Castle
             </Link>
+            <Player avatar={props.avatar} avatarName={props.avatarName}/>
         </div>
     )
 }

@@ -7,7 +7,7 @@
 .cliffDiv {
     position: absolute;
     top: 500px;
-    right: 450px
+    right: 250px
 }
 
 .forest {
@@ -18,8 +18,8 @@
 
 .forestDiv {
     position: absolute;
-    top: 200px;
-    right: 600px
+    top: 400px;
+    right: 550px
 }
 
 .village {
@@ -30,8 +30,8 @@
 
 .villageDiv {
     position: absolute;
-    top: 400px;
-    right: 710px
+    top: 630px;
+    right: 425px
 }
 
 .castle {
@@ -43,5 +43,5 @@
 .castleDiv {
     position: absolute;
     top: 250px;
-    left: 400px
+    right: 350px
 }

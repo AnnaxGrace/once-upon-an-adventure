@@ -22,7 +22,5 @@ canvas {
     border: 5px white solid;
     position: absolute;
     left: 32%;
-    /* margin-left: -50px; */
-    top: 20%;
-    /* margin-top: -50px; */
+    top: 5%;
 }
