@@ -1,19 +1,28 @@
 import React from "react";
 import "./MenuBtns.css"
+import { Link, useParams } from "react-router-dom"
 
 function MenuBtns() {
+    const {id} = useParams()
     return (
         <div className="card-body text-center menu">
                     <p></p>
                     <h5>Menu</h5>
 
                     {/* Saves Your Game */}
-                    <button className="btn special">
+                    <button className="btn">
                         Save Game!
                     </button>
 
-                    {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn special">
+                    {/* Returns to World Map */}
+                    <Link to ={"/continue/" + id}>
+                    <button type="button" className="btn">
+                        World Map
+                    </button>
+                    </Link>
+
+                    {/* logs you out */}
+                    <button type="button" className="btn">
                         Log Out!
                     </button>
                 </div>

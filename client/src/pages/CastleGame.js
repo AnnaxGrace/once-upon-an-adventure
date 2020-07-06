@@ -44,7 +44,7 @@ function CastleGame() {
 
     return(
         <div>
-                <h1 className="text-center">World Map</h1>
+                <h1 className="text-center">The Castle</h1>
 
                 {/* Inventory Bar */}
                 <InventoryGame />
