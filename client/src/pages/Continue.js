@@ -54,7 +54,7 @@ function Continue() {
                 <div>
                     {/* Game Board */}
                     <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                        <World avatar={userAvatar} avatarName={userAvatarName}/>
+                        {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                         <Cliffs />
                         <Forest />
                         <Village />
@@ -62,8 +62,8 @@ function Continue() {
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         <TextBox avatarName={userAvatarName}/>
-                    </div>
-                </div>
+                    </div> 
+                 </div>
 
                 <div className="card-body text-center">
                     <p></p>

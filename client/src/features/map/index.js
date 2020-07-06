@@ -23,19 +23,23 @@ function getTileSprite(type) {
             return 'stonePath'
         case 7:
             return 'fakeTree'
-        
+
 
 
         //event tiles
-        case 19:
-            return 'talkToJace'
-        case 20:
-            //Get a heart from Vinnie
-            return 'talkToOrc'
-        
-        case 30:
-            return 'returnToBook'
+        // case 19:
+        //     return 'talkToJace'
+        // case 20:
 
+        //     return 'talkToOrc'
+        case 123:
+            return 'orc'
+        case 30: //sky map
+            return 'returnToBookCliff'
+        case 31: //castle map
+            return 'returnToBookCastle'
+        case 43:
+            return 'wizard'
 
         // Castle
         case 310:
@@ -90,9 +94,8 @@ function getTileSprite(type) {
             return 'castleWalls1'
         case 122:
             return 'castleGuard'
-        case 123:
-            return 'orc'
-        
+
+
         case 125:
             return 'cabin0'
         case 126:
@@ -129,24 +132,23 @@ function getTileSprite(type) {
             return 'impassSky'
         case 42:
             return 'impassCliff'
-        case 43:
-            return 'wizard'
+
         case 44:
-            return 'bigCloud0'
+            return 'bigCloud0 sky'
         case 45:
-            return 'bigCloud1'
+            return 'bigCloud1 sky'
         case 46:
-            return 'bigCloud2'
+            return 'bigCloud2 sky'
         case 47:
-            return 'bigCloud3'
+            return 'bigCloud3 sky'
         case 48:
-            return 'bigCloud4'
+            return 'bigCloud4 sky'
         case 49:
-            return 'bigCloud5'
+            return 'bigCloud5 sky'
         case 50:
-            return 'bigCloud6'
+            return 'bigCloud6 sky'
         case 51:
-            return 'bigCloud7'
+            return 'bigCloud7 sky'
 
         case 52:
             return 'background0'
@@ -314,14 +316,14 @@ function MapRow(props) {
 function Map(props) {
     return (
         <div
-            className="map-thingy"
+            className="map-container"
             style={{
                 position: 'relative',
                 top: '0px',
                 left: '15px',
                 width: '960px',
                 height: '960px',
-                
+
             }}
         >
             {
