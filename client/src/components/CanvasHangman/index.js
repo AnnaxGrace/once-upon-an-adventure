@@ -200,7 +200,7 @@ class Hangman extends React.Component {
                 <button onClick={this.handleFormSubmit}>Submit</button>
             </form>
 
-            <div class={this.state.gameScreen} id="lose-cover">
+            <div className={this.state.gameScreen} id="lose-cover">
                     <p>{this.state.win}</p>
                     <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
                         done

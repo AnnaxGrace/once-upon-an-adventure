@@ -369,7 +369,7 @@ class TextBox extends React.Component {
     state = {
         storyString: "",
         //this will be the user's Id
-        image: "wilson.gif",
+        image: "placeholder.gif",
         //will be character name
         name: "Misterman",
         poofShow: "hide",
@@ -700,7 +700,7 @@ class TextBox extends React.Component {
                     <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} />
                 </div>
                 <div >
-                    <img className="avatar-image" src={require("../../assets/sprites/" + this.state.image)} />
+                    <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} />
                 </div>
             </div>
         )
