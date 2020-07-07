@@ -623,9 +623,14 @@ class TextBox extends React.Component {
     wilsonGoes = () => {
         console.log("step 3")
         // this.updateStory(this.state.home.start.p4)
-
+        const id = this.props.match.params.id;
         this.setState({wilsonShow: "hide"})
         this.setState({poofShow: "show"})
+
+        API.UpdateSpriteHomeFirst(false, id).then(()=> {
+            console.log("updated homeFirst")            
+        })
+
         setTimeout(this.poofGoes, 3000)
     }
 

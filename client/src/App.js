@@ -14,8 +14,21 @@ import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
 import GameContext from "./utils/GameContext";
+// import {gameMusic} from "../features/sound/index"
+
 
 function App() {
+
+  // useEffect(() => {
+  //   console.log("did mount !!");
+  //   // Typical usage (don't forget to compare props):
+  //   setTimeout(function(){ 
+  //     console.log("game music playing")
+  //    gameMusic.play(); 
+  //   }, 3000);
+  // });
+   
+
   return (
     <Router>
       

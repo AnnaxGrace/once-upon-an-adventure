@@ -1,0 +1,58 @@
+.storeBox {
+    background-image: url("../../images/store-box.png");
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    top: 35%;
+    left: 8%
+}
+
+.storeBG {
+    background-image: url("../../images/store.png");
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 550px
+}
+
+.storeItemP {
+    margin-top: 20px
+}
+
+.storePosition {
+    position: absolute;
+    top: 30%;
+    left: 15%
+}
+
+.store-btn {
+    border-radius: 3px;
+    border-color: #533b2a;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    margin: 2px;
+    background-color: #7d5f40;
+    color: #f1dec7;
+  }
+  
+  
+  .store-btn:hover {
+    border-radius: 3px;
+    border-color: #f1dec7;
+    border-style: solid;
+    border-width: 1px;
+    margin: 2px;
+    background-color: #533b2a;
+    color: #7d5f40;
+  }
+  
+  .store-btn:active {
+    border-radius: 3px;
+    border-color: #7d5f40;
+    border-style: solid;
+    border-width: 1px;
+    margin: 2px;
+    background-color: #f1dec7;
+    color:	#533b2a;
+  }
