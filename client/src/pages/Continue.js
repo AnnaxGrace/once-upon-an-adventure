@@ -43,11 +43,6 @@ function Continue() {
                 // console.log(name)
                 setUserAvatarName(name)
                 // console.log("userAvatar: ",userAvatar)
-            }).then(() => {
-                API.getUserInventory(id).then(user => {
-                    console.log(user)
-                })
-
             })
         })
     }, []);

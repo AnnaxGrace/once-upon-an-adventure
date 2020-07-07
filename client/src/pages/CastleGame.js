@@ -1,9 +1,9 @@
 import React, { useState ,useEffect } from "react";
-import GameTextBox from "../components/TextBox/GameTextBox"
-import { Container } from "../components/Grid"
+// import GameTextBox from "../components/TextBox/GameTextBox"
+// import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
 import CastleWorld from '../features/world/CastleWorld';
-import Player from '../features/player';
+// import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"

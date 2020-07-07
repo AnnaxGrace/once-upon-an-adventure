@@ -339,12 +339,12 @@ import React from "react";
 import "./TextBox.css";
 // import { storyObject } from "../StoryObject";
 import API from "../../utils/API";
-import Exposition from "../Exposition";
-import { Container } from "../Grid";
+// import Exposition from "../Exposition";
+// import { Container } from "../Grid";
 import { withRouter } from "react-router";
 
 
-let first = "true";
+// let first = "true";
 let userName = "You";
 // const { id } = useParams();
 const storyObj = {
