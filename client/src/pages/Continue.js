@@ -10,6 +10,7 @@ import Village from "../components/MapLocations/Village";
 import Castle from "../components/MapLocations/Castle";
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
+import {gameMusic} from "../features/sound/index"
 
 const styles= {
     bookImg: {
@@ -46,8 +47,11 @@ function Continue() {
             API.getUserInventory(id).then(user => {
                 console.log(user)
             })
-        })
             
+        }).then(()=>{   //plays sound on every page... somehow
+             console.log("game music playing")
+           gameMusic.play(); 
+        })
         })
     }, []);
 

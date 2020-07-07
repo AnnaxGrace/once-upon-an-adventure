@@ -5,14 +5,16 @@ import About from "../components/About/About";
 import { Container } from "../components/Grid";
 import Login from "../components/Login/Login";
 import API from "../utils/API";
+// import {gameMusic} from "../features/sound/index"
+
 
 class Home extends Component {
   state = {  
         email: "", 
-        password: "" 
+        password: "",
   };
 
-  handleInputChange = (event) => {
+   handleInputChange = (event) => {
     const { name, value } = event.target;
     console.log(value);
     this.setState({
@@ -32,6 +34,7 @@ class Home extends Component {
         console.log(user)
         const id = user.data[0]._id
         console.log(id)
+        
         window.location.replace("/user/" + id);
         // If there's an error, log the error
       })
