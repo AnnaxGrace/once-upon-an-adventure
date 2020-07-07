@@ -8,13 +8,6 @@ import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"
 
-// const styles= {
-//     bookImg: {
-//         marginTop: 30,
-//         width: "100%",
-//     }
-// }
-
 function CastleGame() {
 
     const { id } = useParams();
@@ -46,21 +39,26 @@ function CastleGame() {
         <div>
                 <h1 className="text-center">The Castle</h1>
 
-                {/* Inventory Bar */}
-                <InventoryGame />
-
-                <div>
-                    {/* Game Board */}
-                    {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
-                        <World avatar={userAvatar} avatarName={userAvatarName}/>
-
-                    <div>
-                        {/* Dynamically rendered game text appears in text-box */}
-                        {/* <GameTextBox avatarName={userAvatarName}/> */}
+                <div className="row">
+                    <div className="col-md-6">
+                        {/* Inventory Bar */}
+                        <InventoryGame />
                     </div>
                 </div>
 
-               <MenuBtns />
+                <div className="row">
+                    <div className="col-md-8">
+                        {/* Game Board */}
+                            <World avatar={userAvatar} avatarName={userAvatarName}/>
+                    </div>
+
+                    <div className="col-md-4">
+                        <MenuBtns />
+                        <br />
+                        {/* Dynamically rendered game text appears in text-box */}
+                        <GameTextBox avatarName={userAvatarName}/>
+                    </div>
+                </div>
         </div>
     )
 }

@@ -9,13 +9,6 @@ import MenuBtns from "../components/MenuBtns/MenuBtns";
 // import ComingSoon from "../components/ComingSoon/ComingSoon";
 import Store from "../components/Store/Store";
 
-const styles= {
-    bookImg: {
-        marginTop: 30,
-        width: "100%",
-    }
-}
-
 function ForestGame() {
 
     const { id } = useParams();
