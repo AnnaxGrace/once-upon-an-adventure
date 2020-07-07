@@ -1,11 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { useParams } from "react-router-dom";
 // import walkSprite from '../../assets/sprites/gladiator-4row.png'
 // import x from "../../assets/sprites/option2-4row.png"
 import { handleKeyDown, observeImpassable } from "./movement"
-import GameContext from "../../utils/GameContext";
-import GameTextBox from "../../components/TextBox/GameTextBox"
+// import GameContext from "../../utils/GameContext";
+// import GameTextBox from "../../components/TextBox/GameTextBox"
 import "../../components/TextBox/TextBox.css";
 import API from "../../utils/API";
 import Exposition from "../../components/Exposition";
@@ -48,7 +48,7 @@ function Player(props) {
     
     useEffect(() => {
         window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking) } )
-    },[gameState])
+    },[])
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
@@ -231,7 +231,7 @@ function Player(props) {
             />
         </div>
         
-        <div className={gameState.snakeMinigame} id="snake">
+        <div className={gameState.snakeMinigame} id="snake" >
             <CanvasSnake 
             handleDoneButtonClick={handleDoneButtonClick}
             />

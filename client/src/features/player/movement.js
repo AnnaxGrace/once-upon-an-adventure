@@ -1,7 +1,7 @@
 import store from '../../config/store'
-import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
+import { SPRITE_SIZE,  MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
-import GameTextBox from "../../components/TextBox/GameTextBox"
+// import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
 function getNewPosition(oldPos, direction) {

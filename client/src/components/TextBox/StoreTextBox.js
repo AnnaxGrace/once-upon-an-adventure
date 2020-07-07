@@ -339,12 +339,12 @@ import React from "react";
 import "./TextBox.css";
 // import { storyObject } from "../StoryObject";
 import API from "../../utils/API";
-import Exposition from "../Exposition";
-import { Container } from "../Grid";
+// import Exposition from "../Exposition";
+// import { Container } from "../Grid";
 import { withRouter } from "react-router";
 
 
-let first = "true";
+// let first = "true";
 let userName = "You";
 // const { id } = useParams();
 const storyObj = {
@@ -405,7 +405,7 @@ class StoreTextBox extends React.Component {
                     //prompt "okay" gives thief all money, prompt "no way"
                     p4: userName + " says 'okay!' ",
                     //your money is zero!
-                    p4: userName + " says 'no way!' ",
+                    p7: userName + " says 'no way!' ",
                     //mini game starts
                     //if you win
                     p5: "Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone!' ",

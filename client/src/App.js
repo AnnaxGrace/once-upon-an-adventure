@@ -9,11 +9,11 @@ import User from "./pages/User";
 import Continue from "./pages/Continue";
 import New from "./pages/New";
 import World from "./features/world";
-import Store from "./config/store";
+// import Store from "./config/store";
 import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
-import GameContext from "./utils/GameContext";
+// import GameContext from "./utils/GameContext";
 // import {gameMusic} from "../features/sound/index"
 
 
