@@ -178,14 +178,14 @@ class Hangman extends React.Component {
           <div>
             <canvas ref="canvas" width={500} height={400} />
             <div id="required-images">
-                <img ref="Hangman1" src ={require("../../images/Hangman1.png")}></img>
-                <img ref="Hangman2" src ={require("../../images/Hangman2.png")}></img>
-                <img ref="Hangman3" src ={require("../../images/Hangman3.png")}></img>
-                <img ref="Hangman4" src ={require("../../images/Hangman4.png")}></img>
-                <img ref="Hangman5" src ={require("../../images/Hangman5.png")}></img>
-                <img ref="Hangman6" src ={require("../../images/Hangman6.png")}></img>
-                <img ref="Hangman7" src ={require("../../images/Hangman7.png")}></img>
-                <img ref="Hangmanspace" src ={require("../../images/Hangmanspace.png")}></img>
+                <img ref="Hangman1" src ={require("../../images/Hangman1.png")} alt="level1Hangman"></img>
+                <img ref="Hangman2" src ={require("../../images/Hangman2.png")} alt="level2Hangman"></img>
+                <img ref="Hangman3" src ={require("../../images/Hangman3.png")} alt="level3Hangman"></img>
+                <img ref="Hangman4" src ={require("../../images/Hangman4.png")} alt="level4Hangman"></img>
+                <img ref="Hangman5" src ={require("../../images/Hangman5.png")} alt="level5Hangman"></img>
+                <img ref="Hangman6" src ={require("../../images/Hangman6.png")} alt="level6Hangman"></img>
+                <img ref="Hangman7" src ={require("../../images/Hangman7.png")} alt="level7Hangman"></img>
+                <img ref="Hangmanspace" src ={require("../../images/Hangmanspace.png")} alt="Spaces for the Hangman"></img>
 
             </div>
             

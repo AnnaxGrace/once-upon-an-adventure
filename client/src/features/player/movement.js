@@ -82,6 +82,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
             break;
         case 43:  //talk to Jace
             jaceTalking()
+            break;
         case 9:  //Enter Shop
             break;
         case 30:  //return to map page
