@@ -6,7 +6,7 @@
     display: none;
 }
 
-#guardYes, #guardNo { 
+#guardYes, #guardNo, #jaceYes, #jaceNo { 
     border-radius: 3px;
     border-color: #b56262;
     margin: 2px;
@@ -31,6 +31,12 @@
     overflow: scroll; */
 }
 
+.jaceBtns {
+    position: absolute;
+    top: 45%;
+    left: 60%;
+}
+
 /* #guardYes {
     position: absolute;
     top: 1%;
@@ -41,3 +47,37 @@
     position: absolute;
     top: 10%
 } */
+
+#snake{
+    background-color:rgba(0,0,0,0.4);
+    border-radius: 0px 0px 10px 10px;
+    height: 1000px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* display: none; */
+    /* display: block; */
+    z-index: 3;
+    opacity: 3;
+}
+
+#hangman{
+    background-color:rgba(0,0,0,0.4);
+    border-radius: 0px 0px 10px 10px;
+    height: 1000px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* display: none; */
+    display: block;
+    z-index: 3;
+    opacity: 3;
+  }
+  
+
+.beige{
+    /* background-color: gray; */
+    background-color:rgba(0,0,0,0.4);
+    /* background-color: hsla(60, 20%, 99%, 0.9); */
+    border-radius: 0px 0px 10px 10px;
+}

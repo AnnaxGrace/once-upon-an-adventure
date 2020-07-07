@@ -9,7 +9,9 @@ import GameTextBox from "../../components/TextBox/GameTextBox"
 import "../../components/TextBox/TextBox.css";
 import API from "../../utils/API";
 import Exposition from "../../components/Exposition";
+import WizardExposition from "../../components/Exposition/wizardExposition";
 import "./gamePlay.css"
+import CanvasSnake from '../../components/CanvasSnake';
 
 
 // console.log(x)
@@ -32,9 +34,12 @@ function Player(props) {
     const [gameState, setGameState] = useState({
         firstGuardTalk: true,
         firstTalkOrc: true,
+        firstJaceTalk: true,
         firstCastle: false,
         permit: false,
         guardButtons: "hide",
+        jaceButtons: "hide",
+        snakeMinigame: "hide",
         storyString: "",
         castle: true,
         forest: false,
@@ -61,7 +66,7 @@ function Player(props) {
             console.log("forest")
         }
         if ( gameState.cliff === true) {
-            console.log("cliff")
+           gameState.storyString = userName + " emerges from the path and looks around. There is a cliff that looks out over mountains. At the edge of the cliff is a magical looking person. " + userName + " wonders if they should go up and talk to them... "
         }
         })
     }, []);
@@ -124,6 +129,19 @@ function Player(props) {
         
     }
 
+    function jaceTalking ()  {
+        if (gameState.firstJaceTalk === false) {
+            updateStory("'Hi " + userName + " did you want to play my math game?' ")
+            setGameState({...gameState, jaceButtons: "show"})
+        }
+        if (gameState.firstJaceTalk === true) {
+            updateStory("Wizard Jace says 'Hello " + userName + "a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' ")
+            setGameState({...gameState, jaceButtons: "show"})
+            setGameState({...gameState, firstJaceTalk: false })
+        }
+       
+    }
+
     function updateStory (storyObjectPath) {
         // setGameState({...gameState, storyString: gameState.storyString + " " + storyObjectPath})
         let currentStory = gameState.storyString
@@ -148,8 +166,26 @@ function Player(props) {
                     gameState.guardButtons = "hide"
                     updateStory(userName + " frowns and says 'no'. Guard Tony smiled helpfully 'I would try the shopkeeper. He usually has some. His store is in the forest' ")
                 }
+                if (btnType === "jaceYes") {
+                    console.log("yes")
+                    gameState.jaceButtons = "hide"
+                    updateStory(userName + " says 'Math? Money? You bet!' ")
+                    setGameState({ snakeMinigame: "show", guardButtons: "hide"})
+                }
+                if (btnType === "jaceNo") {
+                    console.log("no")
+                    gameState.jaceButtons = "hide"
+                    updateStory(userName + " says, 'Not now, thanks. Maybe later!")
+                }
                 
     };
+
+    function handleDoneButtonClick() {
+        setGameState({...gameState, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
+        // setGameState({guardButtons: "hide"})
+        // setGameState({jaceButtons: "hide"})
+
+    }
 
     
    if (!props.avatar) {
@@ -179,6 +215,19 @@ function Player(props) {
         <Exposition 
         handleBtnClick={handleBtnClick}
         hideState={gameState.guardButtons} />
+        </div>
+
+        <div className="jaceBtns">
+            <WizardExposition
+            handleBtnClick={handleBtnClick}
+            hideState={gameState.jaceButtons} 
+            />
+        </div>
+        
+        <div className={gameState.snakeMinigame} id="snake">
+            <CanvasSnake 
+            handleDoneButtonClick={handleDoneButtonClick}
+            />
         </div>
                          
         </>
