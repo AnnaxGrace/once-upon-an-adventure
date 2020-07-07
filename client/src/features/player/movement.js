@@ -1,7 +1,7 @@
 import store from '../../config/store'
-import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, impact1, rustlingFoliage, orcBabble, guardTalk, magicalJace } from '../sound/index'
-import GameTextBox from "../../components/TextBox/GameTextBox"
+import { SPRITE_SIZE,  MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
+// import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
 function getNewPosition(oldPos, direction) {
@@ -83,6 +83,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
         case 43:  //talk to Jace
         magicalJace.play();
             jaceTalking()
+            break;
         case 9:  //Enter Shop
             break;
         case 30:  //return to map page
