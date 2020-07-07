@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import { SPRITE_SIZE,  MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace } from '../sound/index'
 // import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
