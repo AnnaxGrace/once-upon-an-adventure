@@ -8,7 +8,7 @@ export const walkingStone = new Howl({
 });
   
 export const walkingGrass = new Howl({
-  src: 'https://raw.githubusercontent.com/AnnaxGrace/react-rpg/master/client/src/features/sound/footstep.mp3',
+  src: 'https://audio-previews.elements.envatousercontent.com/files/282624049/preview.mp3',
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
@@ -54,4 +54,14 @@ export const guardTalk = new Howl({
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
+});
+
+export const gameMusic = new Howl({
+  src: require('./soundEffects/8-BitsMusic.mp3'),
+  html5: true,
+  // autoSuspend: true,
+  format:["mp3", "aac"],
+  volume: 0.10,
+  loop: true,
+  autoplay: true,
 });

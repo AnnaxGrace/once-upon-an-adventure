@@ -5,6 +5,11 @@ import { Link, useParams } from "react-router-dom"
 
 function Castle(props) {
     const {id} = useParams()
+
+    const castle = ()=> {
+        window.location.replace("/castle/" + id)
+    }
+    
     return(
         <div className="text-center special castleDiv">
             <img src={require("../../images/mapCastle.jpg")} alt="Castle" className="castle" />

@@ -1,8 +1,8 @@
-// import React, { useState } from "react";
 import store from '../../config/store'
 import { SPRITE_SIZE, SPRITE_SHEET_HEIGHT, SPRITE_SHEET_WIDTH, MAP_WIDTH, MAP_HEIGHT, HALF_GRID } from '../../config/constants'
 import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
-import GameTextBox, { guardTalking } from "../../components/TextBox/GameTextBox"
+import GameTextBox from "../../components/TextBox/GameTextBox"
+
 
 function getNewPosition(oldPos, direction) {
     switch (direction) {
@@ -16,8 +16,6 @@ function getNewPosition(oldPos, direction) {
             return [oldPos[0], oldPos[1] + SPRITE_SIZE]
     }
 }
-
-// const [guard, setGuard] = useState(false);
 
 
 function getSpriteLocation(direction, walkIndex) {
@@ -46,7 +44,8 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos) {
+function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking) {
+    // console.log(gamestate)
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
@@ -78,30 +77,30 @@ function observeImpassable(oldPos, newPos) {
         case 7:  //fake Tree
             rustlingFoliage.play();
             break;
-        case 8:  // not assigned
+        case 8:  //return to book
 
             break;
-        case 9:  // not assigned
+        case 43:  //talk to Jace
+            jaceTalking()
+        case 9:  //Enter Shop
             break;
-        case 30:  //return to map page from cliff map
+        case 30:  //return to map page
             console.log("return to map page")
             break;
-        case 31:  //return to forest from castle map
+        case 31:  //return to map page
             console.log("return to map page")
             break;
         case 40:  //tree
 
             break;
-        case 43: //talk to wizard
-
-            break;
-        case 122:  //talk to Guard 
+        case 122:  //talk to Guard Tony
             guardTalk.play();
-            let guardState = true;
+            guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
             orcBabble.play();
+            orcTalking();
             //orc gives heart
             break;
         case 312:  //enter castle
@@ -110,7 +109,7 @@ function observeImpassable(oldPos, newPos) {
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43) {
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123) {
         impact2.play()
     }
 
@@ -127,33 +126,34 @@ function dispatchMove(direction, newPos) {
             walkIndex,
             spriteLocation: getSpriteLocation(direction, walkIndex),
         }
+
     })
 }
 
-function attemptMove(direction) {
+function attemptMove(direction, guardTalking, orcTalking, jaceTalking) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
     console.log(observeBoundaries(oldPos, newPos))
     console.log(oldPos, newPos)
-    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
+    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking))
         dispatchMove(direction, newPos)
 }
 
 
-function handleKeyDown(e) {
+function handleKeyDown(e, guardTalking, orcTalking, jaceTalking) {
     e.preventDefault()
     switch (e.keyCode) {
         case 37:
-            return attemptMove('WEST');
+            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking);
 
         case 38:
-            return attemptMove('NORTH');
+            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking);
 
         case 39:
-            return attemptMove('EAST');
+            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking);
 
         case 40:
-            return attemptMove('SOUTH');
+            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking);
 
         default:
             console.log(e.keyCode)

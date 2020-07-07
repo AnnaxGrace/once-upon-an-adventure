@@ -64,12 +64,6 @@ class CanvasSnake extends React.Component {
         
     }
 
-    handleDoneButtonClick() {
-        //this will display: none snake canvas
-        //pushes points back to CliffText
-        //run function game done??
-
-    }
     
     //This function contains all of the game logic
     game = () => {
@@ -80,21 +74,21 @@ class CanvasSnake extends React.Component {
             
             //These are checking for walls
             if (px < 0 ) {
-                this.setState({ minigame: "show"})
+                this.lose(this.state.statePoints)
             }
             if (px > 24) {
                
-                this.setState({ minigame: "show"})
+                this.lose(this.state.statePoints)
            
             }
             if (py < 0 ) {
                 
-                this.setState({ minigame: "show"})
+                this.lose(this.state.statePoints)
                 
             }
             if (py > tc - 1) {
                 
-                this.setState({ minigame: "show"})
+                this.lose(this.state.statePoints)
             }
            
             ctx.clearRect(0, 0, 1000, 1000)
@@ -106,7 +100,7 @@ class CanvasSnake extends React.Component {
                 // if you touch your own tail
                 if(trail[i].x === px && trail[i].y === py) {
                     if ( tail > 5) {
-                        this.setState({ minigame: "show"})
+                        this.lose(this.state.statePoints)
                     }
                     
                 }
@@ -124,7 +118,7 @@ class CanvasSnake extends React.Component {
 
             //If the snake touches the wrong answer, you lose
             if(wx*gs + (2 * gs * 2) === px*gs && wy*gs === py*gs) {
-                this.setState({ minigame: "show"})
+                this.lose(this.state.statePoints)
             }
 
             //this is if you touch the right math answer
@@ -171,6 +165,14 @@ class CanvasSnake extends React.Component {
         
     }
 
+    lose = (points) => {
+        this.setState({ gameScreen: "show"})
+        //api call w/ points (points will be this.state.statePoints)
+        console.log(points)
+        console.log(this.state.statePoints)
+
+    }
+
     //Defines our movement direction by arrow key
      keyPush = event =>  {
         switch(event.keyCode) {
@@ -212,7 +214,7 @@ class CanvasSnake extends React.Component {
                 <div class={this.state.gameScreen} id="lose-cover">
                     <p>YOU LOSE</p>
                     <p>End Points: {this.state.statePoints}</p> 
-                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                    <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>
                         done
                     </button>
                 </div>

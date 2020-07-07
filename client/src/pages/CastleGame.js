@@ -2,18 +2,11 @@ import React, { useState ,useEffect } from "react";
 import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
-import World from '../features/world/index';
+import CastleWorld from '../features/world/CastleWorld';
 import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"
-
-// const styles= {
-//     bookImg: {
-//         marginTop: 30,
-//         width: "100%",
-//     }
-// }
 
 function CastleGame() {
 
@@ -48,19 +41,15 @@ function CastleGame() {
 
                 {/* Inventory Bar */}
                 <InventoryGame />
-
                 <div>
                     {/* Game Board */}
-                    {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
-                        <World avatar={userAvatar} avatarName={userAvatarName}/>
-
+                        <CastleWorld avatar={userAvatar} avatarName={userAvatarName}/>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
+                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
-
-               <MenuBtns />
+                <MenuBtns />
         </div>
     )
 }
