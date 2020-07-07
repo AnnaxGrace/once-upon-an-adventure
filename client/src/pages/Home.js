@@ -5,7 +5,7 @@ import About from "../components/About/About";
 import { Container } from "../components/Grid";
 import Login from "../components/Login/Login";
 import API from "../utils/API";
-// import {gameMusic} from "../features/sound/index"
+import {gameMusic} from "../features/sound/index"
 
 
 class Home extends Component {
@@ -13,6 +13,14 @@ class Home extends Component {
         email: "", 
         password: "",
   };
+
+  componentDidMount() {
+    console.log("did mount !!");
+    setTimeout(function(){ 
+      console.log("game music playing")
+     gameMusic.play(); 
+    }, 3000);   
+  }
 
    handleInputChange = (event) => {
     const { name, value } = event.target;

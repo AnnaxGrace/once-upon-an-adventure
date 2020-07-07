@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import TextBox from "../components/TextBox/TextBox"
 import { Container } from "../components/Grid"
 import Inventory from "../components/Inventory/Inventory"
@@ -10,9 +10,9 @@ import Village from "../components/MapLocations/Village";
 import Castle from "../components/MapLocations/Castle";
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
-import {gameMusic} from "../features/sound/index"
 
-const styles= {
+
+const styles = {
     bookImg: {
         marginTop: 30,
         width: "100%",
@@ -31,65 +31,62 @@ function Continue() {
         API.getUserSprite(id).then(user => {
             // console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
-       
+
             // console.log(sprite, name)
-                return setUserAvatar(sprite)
+            return setUserAvatar(sprite)
         }).then(() => {
-            
+
             API.getUserSprite(id).then(user => {
-            // console.log(user.data[0].sprite[0])
-            const { name } = user.data[0].sprite[0]
-       
-            // console.log(name)
-            setUserAvatarName(name)
-            // console.log("userAvatar: ",userAvatar)
-        }).then(() => {
-            API.getUserInventory(id).then(user => {
-                console.log(user)
+                // console.log(user.data[0].sprite[0])
+                const { name } = user.data[0].sprite[0]
+
+                // console.log(name)
+                setUserAvatarName(name)
+                // console.log("userAvatar: ",userAvatar)
+            }).then(() => {
+                API.getUserInventory(id).then(user => {
+                    console.log(user)
+                })
+
             })
-            
-        }).then(()=>{   //plays sound on every page... somehow
-             console.log("game music playing")
-           gameMusic.play(); 
-        })
         })
     }, []);
 
-    return(
+    return (
         <div>
-                <h1 className="text-center">World Map</h1>
+            <h1 className="text-center">World Map</h1>
 
-                {/* Inventory Bar */}
-                <Inventory />
+            {/* Inventory Bar */}
+            <Inventory />
 
+            <div>
+                {/* Game Board */}
+                <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
+                {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
+                <Cliffs />
+                <Forest />
+                <Village />
+                <Castle />
                 <div>
-                    {/* Game Board */}
-                    <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                        {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
-                        <Cliffs />
-                        <Forest />
-                        <Village />
-                        <Castle />
-                    <div>
-                        {/* Dynamically rendered game text appears in text-box */}
-                        <TextBox avatarName={userAvatarName}/>
-                    </div> 
-                 </div>
-
-                <div className="card-body text-center">
-                    <p></p>
-                    <h5>Menu</h5>
-
-                    {/* Saves Your Game */}
-                    <button className="btn">
-                        Save Game!
-                    </button>
-
-                    {/* Pulls up GameTextModal */}
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                        Game Log!
-                    </button>
+                    {/* Dynamically rendered game text appears in text-box */}
+                    <TextBox avatarName={userAvatarName} />
                 </div>
+            </div>
+
+            <div className="card-body text-center">
+                <p></p>
+                <h5>Menu</h5>
+
+                {/* Saves Your Game */}
+                <button className="btn">
+                    Save Game!
+                    </button>
+
+                {/* Pulls up GameTextModal */}
+                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    Game Log!
+                    </button>
+            </div>
         </div>
     )
 }
