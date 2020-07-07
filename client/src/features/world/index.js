@@ -69,9 +69,9 @@ function World(props) {
         <div
             id="world-container"
             style={{
-                position: 'relative',
+                // position: 'relative',
                 width:'968px',
-                top: '35%',
+                // top: '35%',
                 // marginTop: '50px',
                 marginLeft: '3px',
                 border: '4px solid black',
