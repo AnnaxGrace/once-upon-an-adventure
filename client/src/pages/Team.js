@@ -96,6 +96,17 @@ function Team() {
               Kronbits
             </a>
           </p>
+          <p>
+            Sounds Sourced from:
+            <br />
+            <a
+              href="https://www.zapsplat.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ZapSplat
+            </a>
+          </p>
         </div>
       </Container>
     </div>
