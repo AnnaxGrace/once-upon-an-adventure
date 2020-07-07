@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import { SPRITE_SIZE,  MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk } from '../sound/index'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace } from '../sound/index'
 // import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
@@ -81,6 +81,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
 
             break;
         case 43:  //talk to Jace
+        magicalJace.play();
             jaceTalking()
             break;
         case 9:  //Enter Shop
@@ -110,8 +111,9 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123) {
-        impact2.play()
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43) {
+        console.log("impact1")
+        impact1.play()
     }
 
     return nextTile < 32
