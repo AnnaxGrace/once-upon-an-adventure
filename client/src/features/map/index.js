@@ -114,18 +114,47 @@ function getTileSprite(type) {
             return 'house1'
 
             // Forest
-            case 33:
-                return 'shop33'
-            case 34:
-                return 'shop34'
-            case 35:
-                return 'shop35'
-            case 36:
-                return 'shop36'
-            // case 37:
-            //     return 'shop37'
-            case 38:
-                return 'shop38'
+            case 230:
+                return 'erikShop0'
+            case 231:
+                return 'erikShop1'
+            case 232:
+                return 'erikShop2'
+            case 233:
+                return 'erikShop3'
+            case 234:
+                return 'erikShop4'
+            case 235:
+                return 'erikShop5'
+            case 236:
+                return 'erikShop6'
+            case 237:
+                return 'erikShop7'
+            case 238:
+                return 'erikShop8'
+            case 239:
+                return 'erikShop9'
+            case 240:
+                return 'erikShop10'
+            case 241:
+                return 'erikShop11'
+            case 242:
+                return 'erikShop12'
+            case 243:
+                return 'erikShop13'
+            case 244:
+                return 'erikShop14'
+            case 245:
+                return 'erikShop15'
+            case 246:
+                return 'erikShop16'
+            case 247:
+                return 'erikShop17'
+            case 248:
+                return 'erikShop18'
+            case 249:
+                return 'erikShop19'
+
             case 131:
                 return 'lakeBody'
             case 132:
