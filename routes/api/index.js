@@ -1,6 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
-const userRoutes = require("./users");
+const userRoutes = require("./Users");
 const spriteRoutes = require("./sprite");
 const storyRoutes = require("./storyRoute");
 const inventoryRoutes = require("./Inventory")
