@@ -168,27 +168,29 @@ class CanvasSnake extends React.Component {
     lose = (points) => {
         this.setState({ gameScreen: "show"})
         //api call w/ points (points will be this.state.statePoints)
-        // console.log(points)
-        // console.log(this.state.statePoints)
 
     }
 
     //Defines our movement direction by arrow key
      keyPush = event =>  {
         switch(event.keyCode) {
-            case 37:
+            case 65:
+                //left
                 xv = -1;
                 yv = 0;
                 break;
-            case 38:
+            case 87:
+                //up
                 xv = 0;
                 yv = -1;
                 break;
-            case 39:
+            case 68:
+                //right
                 xv = 1;
                 yv = 0;
                 break;
-            case 40:
+            case 83:
+                //down
                 xv = 0;
                 yv = 1;
                 break;
@@ -207,11 +209,11 @@ class CanvasSnake extends React.Component {
         return(
           <div>
             <canvas ref="canvas" width={500} height={400} />
-                <div id="equation" class={this.state.equation}>
+                <div id="equation" className={this.state.equation}>
                     <p>{this.state.number1} + {this.state.number2} = </p>
                     <p>Points: {this.state.statePoints} </p>
                 </div>
-                <div class={this.state.gameScreen} id="lose-cover">
+                <div className={this.state.gameScreen} id="lose-cover">
                     <p>YOU LOSE</p>
                     <p>End Points: {this.state.statePoints}</p> 
                     <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>

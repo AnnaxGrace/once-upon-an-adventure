@@ -130,14 +130,21 @@ function Player(props) {
     }
 
     function jaceTalking ()  {
+        console.log("what?")
         if (gameState.firstJaceTalk === false) {
-            gameState.storyString = gameState.storyString + " " + "'Hi " + userName + " did you want to play my math game?' "
-            setGameState({...gameState, jaceButtons: "show"})
+            let currentStory = gameState.storyString
+            console.log("hi")
+            // updateStory("'Hi " + userName + " did you want to play my math game?' ")
+            // setGameState({...gameState, storyString: currentStory + "'Hi " + userName + " did you want to play my math game?' ", jaceButtons: "show"})
+            setGameState({...gameState, storyString: "hi", jaceButtons: "show"})
+            return;
         }
         if (gameState.firstJaceTalk === true) {
-            gameState.storyString = gameState.storyString + " " + "Wizard Jace says 'Hello " + userName + "a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' "
-            setGameState({...gameState, jaceButtons: "show"})
-            setGameState({...gameState, firstJaceTalk: false })
+            // updateStory("Wizard Jace says 'Hello " + userName + "a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' ")
+            // setGameState({...gameState, jaceButtons: "show", firstTalkJace: false})
+            let currentStory = gameState.storyString + "Wizard Jace says 'Hello " + userName + " a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' "
+            setGameState({...gameState, storyString: currentStory, jaceButtons: "show", firstTalkJace: false})
+            
         }
        
     }
