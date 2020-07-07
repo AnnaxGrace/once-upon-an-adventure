@@ -56,7 +56,7 @@ function CastleGame() {
                         <MenuBtns />
                         <br />
                         {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
+                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
         </div>

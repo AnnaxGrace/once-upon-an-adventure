@@ -577,7 +577,13 @@ class TextBox extends React.Component {
                 this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
                 setTimeout(this.poofAppears, 9000);
                 // this.scrollToBottom();
-            }
+                }
+                if ( homeFirst === true ) {
+                    console.log("variable Change: ", userName)
+                    
+                    this.setState({storyString: userName + " enters where they first came into the land. " + userName + " looks around and decides what to do. "})
+                    
+                }
                
             })
         })
