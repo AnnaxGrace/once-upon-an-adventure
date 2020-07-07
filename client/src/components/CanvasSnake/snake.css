@@ -6,10 +6,6 @@
 
 }
 
-#lose-cover {
-    background-color: black;
-    color: white;
-}
 
 .show {
     display: block;
@@ -17,4 +13,15 @@
 
 .hide {
     display: none;
+}
+
+#lose-cover {
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index: 7;
+    height: 500px;
+    width: 700px;
+    top: 5%;
+    left: 25%;
 }
