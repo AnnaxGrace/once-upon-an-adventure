@@ -7,8 +7,6 @@ import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"
-// import { handleKeyDown, observeImpassable } from "../features/player/movement"
-
 
 function CastleGame() {
 
@@ -33,13 +31,7 @@ function CastleGame() {
             setUserAvatarName(name)
             console.log("userAvatar: ",userAvatar)
         })
-        //Atempt to stop the eventlistener from stacking up
-        // window.addEventListener("keydown", e =>{handleKeyDown(e)} )
-        // //  observeImpassable(undefined, undefined, e)
-        
-        // return () => {
-        //     window.removeEventListener("keydown", e =>{handleKeyDown(e)} )
-        // }
+            
         })
     }, []);
 
@@ -47,25 +39,17 @@ function CastleGame() {
         <div>
                 <h1 className="text-center">The Castle</h1>
 
-                <div className="row">
-                    <div className="col-md-6">
-                        {/* Inventory Bar */}
-                        <InventoryGame />
-                    </div>
-                </div>
-
+                {/* Inventory Bar */}
+                <InventoryGame />
                 <div>
                     {/* Game Board */}
-                    {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
                         <CastleWorld avatar={userAvatar} avatarName={userAvatarName}/>
-
-                    <div className="col-md-4">
-                        <MenuBtns />
-                        <br />
+                    <div>
                         {/* Dynamically rendered game text appears in text-box */}
                         {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
+                <MenuBtns />
         </div>
     )
 }
