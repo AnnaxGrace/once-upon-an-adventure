@@ -194,7 +194,7 @@ function Player(props) {
     
     return(
         <>
-        <div    
+        <div className="row"    
         style={{
             position: 'absolute',
             top: props.position[1],

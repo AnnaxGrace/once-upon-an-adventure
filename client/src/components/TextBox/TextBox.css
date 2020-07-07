@@ -15,11 +15,11 @@
     border-width: 1px;
     border-radius: 5px;
     padding: 10px;
-    position: relative;
-    top: -43%;
-    left: 70%;
+    position: absolute;
+    top: 30%;
+    left: 101%;
     width: 445px;
-    height: 855px;
+    height: 670px;
     overflow: scroll;
 }
 
