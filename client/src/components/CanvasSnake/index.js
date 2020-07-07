@@ -74,21 +74,21 @@ class CanvasSnake extends React.Component {
             
             //These are checking for walls
             if (px < 0 ) {
-                this.setState({gameScreen: "show"})
+                this.lose(this.state.statePoints)
             }
             if (px > 24) {
                
-                this.setState({ gameScreen: "show"})
+                this.lose(this.state.statePoints)
            
             }
             if (py < 0 ) {
                 
-                this.setState({ gameScreen: "show"})
+                this.lose(this.state.statePoints)
                 
             }
             if (py > tc - 1) {
                 
-                this.setState({ gameScreen: "show"})
+                this.lose(this.state.statePoints)
             }
            
             ctx.clearRect(0, 0, 1000, 1000)
@@ -100,7 +100,7 @@ class CanvasSnake extends React.Component {
                 // if you touch your own tail
                 if(trail[i].x === px && trail[i].y === py) {
                     if ( tail > 5) {
-                        this.setState({ gameScreen: "show"})
+                        this.lose(this.state.statePoints)
                     }
                     
                 }
@@ -118,7 +118,7 @@ class CanvasSnake extends React.Component {
 
             //If the snake touches the wrong answer, you lose
             if(wx*gs + (2 * gs * 2) === px*gs && wy*gs === py*gs) {
-                this.setState({ gameScreen: "show"})
+                this.lose(this.state.statePoints)
             }
 
             //this is if you touch the right math answer
@@ -163,6 +163,14 @@ class CanvasSnake extends React.Component {
                 
             ctx.fillText(answer + ranNum, wx*gs + (2 * gs * 2), (wy*gs) + 20 )
         
+    }
+
+    lose = (points) => {
+        this.setState({ gameScreen: "show"})
+        //api call w/ points (points will be this.state.statePoints)
+        console.log(points)
+        console.log(this.state.statePoints)
+
     }
 
     //Defines our movement direction by arrow key

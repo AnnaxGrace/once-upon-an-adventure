@@ -47,7 +47,7 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking) } )
+        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking) } )
     },[gameState])
 
     useEffect(() => {
