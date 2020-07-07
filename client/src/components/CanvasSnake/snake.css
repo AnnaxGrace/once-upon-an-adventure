@@ -1,19 +1,38 @@
 #equation {
     position: absolute;
-    top: 62%;
-    right: 47%;
+    top: 46%;
+    right: 20%;
     color: black;
+    background-color:white;
+    width: 400px;
+    text-align: center;
 
+}
+ #required-images {
+    display: none;
+}
+
+.form-style {
+    position: absolute;
+    top: 49%;
+    right: 42%;
+}
+
+.word-style {
+    position: absolute;
+    z-index: 7;
+    color: white;
+    top: 33%;
 }
 
 
-.show {
+/* .show {
     display: block;
 }
 
 .hide {
     display: none;
-}
+} */
 
 #lose-cover {
     background-color: black;
@@ -23,5 +42,6 @@
     height: 500px;
     width: 700px;
     top: 5%;
-    left: 25%;
+    left: 14% !important;
+    text-align: center;
 }
