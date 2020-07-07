@@ -44,7 +44,8 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos) {
+function observeImpassable(oldPos, newPos, guardTalking, orcTalking) {
+    // console.log(gamestate)
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
@@ -92,11 +93,16 @@ function observeImpassable(oldPos, newPos) {
             break;
         case 122:  //talk to Guard Tony
             guardTalk.play();
-            // GameTextBox.guardTalking();
+            guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
             orcBabble.play();
+            orcTalking();
+            //orc gives heart
+            break;
+        case 312:  //enter castle
+
             break;
 
     }
@@ -122,29 +128,30 @@ function dispatchMove(direction, newPos) {
     })
 }
 
-function attemptMove(direction) {
+function attemptMove(direction, guardTalking, orcTalking) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
     console.log(observeBoundaries(oldPos, newPos))
-    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
+    console.log(oldPos, newPos)
+    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking))
         dispatchMove(direction, newPos)
 }
 
 
-function handleKeyDown(e) {
+function handleKeyDown(e, guardTalking, orcTalking) {
     e.preventDefault()
     switch (e.keyCode) {
         case 37:
-            return attemptMove('WEST');
+            return attemptMove('WEST', guardTalking, orcTalking);
 
         case 38:
-            return attemptMove('NORTH');
+            return attemptMove('NORTH', guardTalking, orcTalking);
 
         case 39:
-            return attemptMove('EAST');
+            return attemptMove('EAST', guardTalking, orcTalking);
 
         case 40:
-            return attemptMove('SOUTH');
+            return attemptMove('SOUTH', guardTalking, orcTalking);
 
         default:
             console.log(e.keyCode)

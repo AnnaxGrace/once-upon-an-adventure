@@ -7,13 +7,6 @@ import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
 
-const styles= {
-    bookImg: {
-        marginTop: 30,
-        width: "100%",
-    }
-}
-
 function CliffGame() {
 
     const { id } = useParams();

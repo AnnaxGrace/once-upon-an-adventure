@@ -10,13 +10,6 @@ import MenuBtns from "../components/MenuBtns/MenuBtns"
 // import { handleKeyDown, observeImpassable } from "../features/player/movement"
 
 
-// const styles= {
-//     bookImg: {
-//         marginTop: 30,
-//         width: "100%",
-//     }
-// }
-
 function CastleGame() {
 
     const { id } = useParams();
@@ -54,21 +47,25 @@ function CastleGame() {
         <div>
                 <h1 className="text-center">The Castle</h1>
 
-                {/* Inventory Bar */}
-                <InventoryGame />
+                <div className="row">
+                    <div className="col-md-6">
+                        {/* Inventory Bar */}
+                        <InventoryGame />
+                    </div>
+                </div>
 
                 <div>
                     {/* Game Board */}
                     {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
                         <CastleWorld avatar={userAvatar} avatarName={userAvatarName}/>
 
-                    <div>
+                    <div className="col-md-4">
+                        <MenuBtns />
+                        <br />
                         {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
+                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
-
-               <MenuBtns />
         </div>
     )
 }

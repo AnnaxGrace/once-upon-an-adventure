@@ -1,28 +1,28 @@
 import React from "react";
 import ExpoBtn from "../ExpoBtn";
 
-function Exposition(props) {
+function WizardExposition(props) {
     return (
         <div>
+          
           <ExpoBtn
             className={props.hideState}
-            id= "guardYes"
-            
+            id = "jaceNo"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="guardYes"
-            name="Yes"
+            data-value="jaceNo"
+            name="No"
           />
           <ExpoBtn
             className={props.hideState}
-            id = "guardNo"
+            id = "jaceYes"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="guardNo"
-            name="No"
+            data-value="jaceYes"
+            name="Yes"
           />
         </div>
       );
 }
 
-export default Exposition;
+export default WizardExposition;
