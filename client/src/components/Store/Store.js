@@ -7,7 +7,7 @@ const styles = {
     }
 }
 
-function Store() {
+function Store(props) {
     return(
         <div className="storePosition">
             <div className="storeBG">
@@ -16,7 +16,7 @@ function Store() {
                         Castle Pass
                         <br />
                         <img src={require("../../images/castle-pass.png")} alt="Castle Pass" style={styles.storeItem} />
-                        <button className="store-btn">
+                        <button className="store-btn" onClick={props.handleStoreBtn}>
                             Buy? (50 coins)
                         </button>
                     </p>

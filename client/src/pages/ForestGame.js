@@ -1,5 +1,5 @@
 import React, { useState ,useEffect } from "react";
-import GameTextBox from "../components/TextBox/GameTextBox"
+import StoreTextBox from "../components/TextBox/StoreTextBox"
 import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
 import World from '../features/world/index';
@@ -22,6 +22,7 @@ function ForestGame() {
 
     const [userAvatar, setUserAvatar] = useState(null)
     const [userAvatarName, setUserAvatarName] = useState(null)
+    const [userMoney, setUserMoney] = useState(null)
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
@@ -39,24 +40,40 @@ function ForestGame() {
             console.log("userAvatar: ",userAvatar)
         })
             
+        }).then(()=>{
+            API.getUserSprite(id).then(user => {
+                const {money} = user.data[0].sprite[0]
+                return setUserMoney(money)
+            })
         })
     }, []);
+
+    const handleStoreBtn = () => {
+       if(userMoney >= 50){
+           API.UpdateSpritePermit(true, id).then(()=> {
+               console.log("updated permit")            
+           })
+           alert("Thank you for the Sale, Kupo!")
+       } else{
+           alert("Sorry, Not enough money, Kupo!")
+       }
+      };
 
     return(
         <div>
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
-                {/* <InventoryGame /> */}
+                <InventoryGame />
                 {/* <ComingSoon /> */}
-                <Store />
+                <Store handleStoreBtn={handleStoreBtn}/>
 
                 <div>
                     {/* Game Board */}
                         {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
+                        <StoreTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
                 <MenuBtns />
