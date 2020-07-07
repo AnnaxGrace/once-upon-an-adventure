@@ -1,4 +1,4 @@
-import React, { useState ,useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
@@ -7,14 +7,12 @@ import GameContext from "../../utils/GameContext";
 // import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
-import { tiles } from '../../data/maps/1'
+import { Cliffside, Castle, Forest } from '../../data/maps/1'
 import store from '../../config/store'
 
 // var userName = "You";
 function World(props) {
-
- 
-
+  let tiles = Forest
     // const [gameState, setGameState] = useState({
     //     firstGuardTalk: true,
     //     firstCastle: false,
@@ -23,12 +21,12 @@ function World(props) {
     //     storyString: ""
     // });
 
-    
-
     const { id } = useParams();
-    store.dispatch({ type: 'ADD_TILES', payload: {
-        tiles,
-    }});
+    store.dispatch({
+        type: 'ADD_TILES', payload: {
+            tiles,
+        }
+    });
     const [userAvatar, setUserAvatar] = useState(null)
     const [userName, setUserName] = useState();
     useEffect(() => {
@@ -38,7 +36,7 @@ function World(props) {
             //userName = name
             setUserName(name);
             console.log(sprite)
-                return setUserAvatar(sprite)
+            return setUserAvatar(sprite)
         })
     }, []);
 
@@ -69,14 +67,14 @@ function World(props) {
         <div
             id="world-container"
             style={{
-                // position: 'relative',
-                width:'968px',
-                // top: '35%',
+                position: 'relative',
+                width: '968px',
+                top: '35%',
                 // marginTop: '50px',
                 marginLeft: '3px',
                 border: '4px solid black',
                 borderRadius: '5px'
-        }}
+            }}
         >
         <Map />
         {/* <GameContext.Provider value = {gameState}> */}

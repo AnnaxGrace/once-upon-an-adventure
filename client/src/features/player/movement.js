@@ -80,13 +80,13 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking) {
         case 8:  //return to book
 
             break;
-        case 9:  //talk to Jace
+        case 9:  //Enter Shop
             break;
-        case 30:
-            // if (e.keyCode === 13 || e.keyCode === 32) {
+        case 30:  //return to map page
             console.log("return to map page")
-            // }
-
+            break;
+        case 31:  //return to map page
+            console.log("return to map page")
             break;
         case 40:  //tree
 

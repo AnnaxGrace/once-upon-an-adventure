@@ -2,11 +2,13 @@ import React, { useState ,useEffect } from "react";
 import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
-import World from '../features/world/index';
+import CastleWorld from '../features/world/CastleWorld';
 import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"
+// import { handleKeyDown, observeImpassable } from "../features/player/movement"
+
 
 function CastleGame() {
 
@@ -31,7 +33,13 @@ function CastleGame() {
             setUserAvatarName(name)
             console.log("userAvatar: ",userAvatar)
         })
-            
+        //Atempt to stop the eventlistener from stacking up
+        // window.addEventListener("keydown", e =>{handleKeyDown(e)} )
+        // //  observeImpassable(undefined, undefined, e)
+        
+        // return () => {
+        //     window.removeEventListener("keydown", e =>{handleKeyDown(e)} )
+        // }
         })
     }, []);
 
@@ -46,17 +54,16 @@ function CastleGame() {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-md-8">
-                        {/* Game Board */}
-                            <World avatar={userAvatar} avatarName={userAvatarName}/>
-                    </div>
+                <div>
+                    {/* Game Board */}
+                    {/* <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" /> */}
+                        <CastleWorld avatar={userAvatar} avatarName={userAvatarName}/>
 
                     <div className="col-md-4">
                         <MenuBtns />
                         <br />
                         {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
+                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
         </div>

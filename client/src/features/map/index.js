@@ -27,8 +27,6 @@ function getTileSprite(type) {
             return 'carpet'
         case 9:
             return 'shop37'
-        
-
 
         //event tiles
         // case 19:
@@ -113,205 +111,205 @@ function getTileSprite(type) {
         case 130:
             return 'house1'
 
-            // Forest
-            case 33:
-                return 'shop33'
-            case 34:
-                return 'shop34'
-            case 35:
-                return 'shop35'
-            case 36:
-                return 'shop36'
-            // case 37:
-            //     return 'shop37'
-            case 38:
-                return 'shop38'
-            case 131:
-                return 'lakeBody'
-            case 132:
-                return 'lakeCorner0'
-            case 133:
-                return 'lakeCorner1'
-            case 134:
-                return 'lakeCorner2'
-            case 135:
-                return 'lakeCorner3'
-            case 136:
-                return 'lakeLeft'
-            case 137:
-                return 'lakeTop'
-            case 138:
-                return 'lakeRight'
-            case 139:
-                return 'lakeBottom'
+        // Forest
+        case 33:
+            return 'shop33'
+        case 34:
+            return 'shop34'
+        case 35:
+            return 'shop35'
+        case 36:
+            return 'shop36'
+        // case 37:
+        //     return 'shop37'
+        case 38:
+            return 'shop38'
+        case 131:
+            return 'lakeBody'
+        case 132:
+            return 'lakeCorner0'
+        case 133:
+            return 'lakeCorner1'
+        case 134:
+            return 'lakeCorner2'
+        case 135:
+            return 'lakeCorner3'
+        case 136:
+            return 'lakeLeft'
+        case 137:
+            return 'lakeTop'
+        case 138:
+            return 'lakeRight'
+        case 139:
+            return 'lakeBottom'
 
-            // Cliff
-            case 39:
-                return 'rock'
-            case 40:
-                return 'tree'
-            case 41:
-                return 'impassSky'
-            case 42:
-                return 'impassCliff'
-            case 43:
-                return 'wizard sky'
-            case 44:
-                return 'bigCloud0 sky'
-            case 45:
-                return 'bigCloud1 sky'
-            case 46:
-                return 'bigCloud2 sky'
-            case 47:
-                return 'bigCloud3 sky'
-            case 48:
-                return 'bigCloud4 sky'
-            case 49:
-                return 'bigCloud5 sky'
-            case 50:
-                return 'bigCloud6 sky'
-            case 51:
-                return 'bigCloud7 sky'
-            
-            case 52:
-                return 'background0 sky'
-            case 53:
-                return 'background1 sky'
-            case 54:
-                return 'background2 sky'
-            case 55:
-                return 'background3 sky'
-            case 56:
-                return 'background4 sky'
-            case 57:
-                return 'background5 sky'
-            case 58:
-                return 'background6 sky'
-            case 59:
-                return 'background7 sky'
-            case 60:
-                return 'background8 sky'
-            case 61:
-                return 'background9 sky'
-            case 62:
-                return 'background10 sky'
-            case 63:
-                return 'background11 sky'
-            case 64:
-                return 'background12 sky'
-            case 65:
-                return 'background13 sky'
-            case 66:
-                return 'background14 sky'
-            case 67:
-                return 'background15 sky'
-            case 68:
-                return 'background16 sky'
-            case 69:
-                return 'background17 sky'
-            case 70:
-                return 'background18 sky'
-            case 71:
-                return 'background19 sky'
-            case 72:
-                return 'background20 sky'
-            case 73:
-                return 'background21 sky'
-            case 74:
-                return 'background22 sky'
-            case 75:
-                return 'background23 sky'
-            case 76:
-                return 'background24 sky'
-            case 77:
-                return 'background25 sky'
-            case 78:
-                return 'background26 sky'
-            case 79:
-                return 'background27 sky'
-            case 80:
-                return 'background28 sky'
-            case 81:
-                return 'background29 sky'
-            case 82:
-                return 'background30 sky'
-            case 83:
-                return 'background31 sky'
-            case 84:
-                return 'background32 sky'
-            case 85:
-                return 'background33 sky'
-            case 86:
-                return 'background34 sky'
-            case 87:
-                return 'background35 sky'
-            case 88:
-                return 'background36 sky'
-            case 89:
-                return 'background37 sky'
-            case 90:
-                return 'background38 sky'
-            case 91:
-                return 'background39 sky'
-            case 92:
-                return 'background40 sky'
-            case 93:
-                return 'background41 sky'
-            case 94:
-                return 'background42 sky'
-            case 95:
-                return 'background43 sky'
-            case 96:
-                return 'background44 sky'
-            case 97:
-                return 'background45 sky'
-            case 98:
-                return 'background46 sky'
-            case 99:
-                return 'background47 sky'
-            case 100:
-                return 'background48 sky'
-            case 101:
-                return 'background49 sky'
-            case 102:
-                return 'background50 sky'
-            case 103:
-                return 'background51 sky'
-            case 104:
-                return 'background52 sky'
-            case 105:
-                return 'background53 sky'
-            case 106:
-                return 'background54 sky'
-            case 107:
-                return 'background55 sky'
-            case 108:
-                return 'background56 sky'
-            case 109:
-                return 'background57 sky'
-            case 110:
-                return 'background58 sky'
-            case 111:
-                return 'background59 sky'
-            case 112:
-                return 'background60 sky'
-            case 113:
-                return 'background61 sky'
-            case 114:
-                return 'background62 sky'
-            case 115:
-                return 'background63 sky'
-            case 116:
-                return 'background64 sky'
-            case 117:
-                return 'background65 sky'
-            case 118:
-                return 'background66 sky'
-            case 119:
-                return 'background67 sky'
-            case 140:
-                return 'cliffEdge'
-        
+        // Cliff
+        case 39:
+            return 'rock'
+        case 40:
+            return 'tree'
+        case 41:
+            return 'impassSky'
+        case 42:
+            return 'impassCliff'
+        case 43:
+            return 'wizard sky'
+        case 44:
+            return 'bigCloud0 sky'
+        case 45:
+            return 'bigCloud1 sky'
+        case 46:
+            return 'bigCloud2 sky'
+        case 47:
+            return 'bigCloud3 sky'
+        case 48:
+            return 'bigCloud4 sky'
+        case 49:
+            return 'bigCloud5 sky'
+        case 50:
+            return 'bigCloud6 sky'
+        case 51:
+            return 'bigCloud7 sky'
+
+        case 52:
+            return 'background0 sky'
+        case 53:
+            return 'background1 sky'
+        case 54:
+            return 'background2 sky'
+        case 55:
+            return 'background3 sky'
+        case 56:
+            return 'background4 sky'
+        case 57:
+            return 'background5 sky'
+        case 58:
+            return 'background6 sky'
+        case 59:
+            return 'background7 sky'
+        case 60:
+            return 'background8 sky'
+        case 61:
+            return 'background9 sky'
+        case 62:
+            return 'background10 sky'
+        case 63:
+            return 'background11 sky'
+        case 64:
+            return 'background12 sky'
+        case 65:
+            return 'background13 sky'
+        case 66:
+            return 'background14 sky'
+        case 67:
+            return 'background15 sky'
+        case 68:
+            return 'background16 sky'
+        case 69:
+            return 'background17 sky'
+        case 70:
+            return 'background18 sky'
+        case 71:
+            return 'background19 sky'
+        case 72:
+            return 'background20 sky'
+        case 73:
+            return 'background21 sky'
+        case 74:
+            return 'background22 sky'
+        case 75:
+            return 'background23 sky'
+        case 76:
+            return 'background24 sky'
+        case 77:
+            return 'background25 sky'
+        case 78:
+            return 'background26 sky'
+        case 79:
+            return 'background27 sky'
+        case 80:
+            return 'background28 sky'
+        case 81:
+            return 'background29 sky'
+        case 82:
+            return 'background30 sky'
+        case 83:
+            return 'background31 sky'
+        case 84:
+            return 'background32 sky'
+        case 85:
+            return 'background33 sky'
+        case 86:
+            return 'background34 sky'
+        case 87:
+            return 'background35 sky'
+        case 88:
+            return 'background36 sky'
+        case 89:
+            return 'background37 sky'
+        case 90:
+            return 'background38 sky'
+        case 91:
+            return 'background39 sky'
+        case 92:
+            return 'background40 sky'
+        case 93:
+            return 'background41 sky'
+        case 94:
+            return 'background42 sky'
+        case 95:
+            return 'background43 sky'
+        case 96:
+            return 'background44 sky'
+        case 97:
+            return 'background45 sky'
+        case 98:
+            return 'background46 sky'
+        case 99:
+            return 'background47 sky'
+        case 100:
+            return 'background48 sky'
+        case 101:
+            return 'background49 sky'
+        case 102:
+            return 'background50 sky'
+        case 103:
+            return 'background51 sky'
+        case 104:
+            return 'background52 sky'
+        case 105:
+            return 'background53 sky'
+        case 106:
+            return 'background54 sky'
+        case 107:
+            return 'background55 sky'
+        case 108:
+            return 'background56 sky'
+        case 109:
+            return 'background57 sky'
+        case 110:
+            return 'background58 sky'
+        case 111:
+            return 'background59 sky'
+        case 112:
+            return 'background60 sky'
+        case 113:
+            return 'background61 sky'
+        case 114:
+            return 'background62 sky'
+        case 115:
+            return 'background63 sky'
+        case 116:
+            return 'background64 sky'
+        case 117:
+            return 'background65 sky'
+        case 118:
+            return 'background66 sky'
+        case 119:
+            return 'background67 sky'
+        case 140:
+            return 'cliffEdge'
+
     }
 }
 
@@ -348,7 +346,6 @@ function Map(props) {
                 left: '15px',
                 width: '960px',
                 height: '960px',
-
             }}
         >
             {
