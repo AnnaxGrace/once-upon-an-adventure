@@ -5,14 +5,21 @@ function Exposition(props) {
     return (
         <div>
           <ExpoBtn
+            className={props.hideState}
+            id= "guardYes"
+            
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="yes"
+            data-value="guardYes"
+            name="Yes"
           />
           <ExpoBtn
+            className={props.hideState}
+            id = "guardNo"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="no"
+            data-value="guardNo"
+            name="No"
           />
         </div>
       );

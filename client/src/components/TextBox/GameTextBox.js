@@ -36,7 +36,7 @@ function GameTextBox() {
 
 
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
+            // console.log(user.data[0].sprite[0])
             const { name, homeFirst } = user.data[0].sprite[0]
             userName = user.data[0].sprite[0].name
             console.log(name)
