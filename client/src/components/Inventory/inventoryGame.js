@@ -22,7 +22,7 @@ API.getUserSprite(id).then(user => {
         const {lives} = user.data[0].sprite[0]
     
         return setUserLives(lives)
-    })
+    }, [])
 }
 
 ).then(()=>{
@@ -47,12 +47,13 @@ API.getUserSprite(id).then(user => {
   }
 
   function permit( ){
-      if (userPermit === true){
-          return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
-      } else {
-          return
-      }
-  }
+    console.log(userPermit)
+        if (userPermit === true){
+            return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
+        } else {
+            return <img src={require("../../images/empty.png")} className="invtImg" alt="Empty" />
+        }
+    }
     
 
     return(
@@ -72,7 +73,7 @@ API.getUserSprite(id).then(user => {
                 <div className="col-md-4">
                     {/* Hard coded for now, will later be determined by user data */}
                     INVENTORY:
-                    {permit}
+                    {permit()}
                     {/* {userPermit}
                         <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
                         <img src={require("../../images/health-potion.png")} className="invtImg" alt="Health Potion" /> */}
