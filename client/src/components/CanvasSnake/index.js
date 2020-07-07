@@ -168,8 +168,8 @@ class CanvasSnake extends React.Component {
     lose = (points) => {
         this.setState({ gameScreen: "show"})
         //api call w/ points (points will be this.state.statePoints)
-        console.log(points)
-        console.log(this.state.statePoints)
+        // console.log(points)
+        // console.log(this.state.statePoints)
 
     }
 

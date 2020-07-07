@@ -1,11 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { useParams } from "react-router-dom";
 // import walkSprite from '../../assets/sprites/gladiator-4row.png'
 // import x from "../../assets/sprites/option2-4row.png"
 import { handleKeyDown, observeImpassable } from "./movement"
-import GameContext from "../../utils/GameContext";
-import GameTextBox from "../../components/TextBox/GameTextBox"
+// import GameContext from "../../utils/GameContext";
+// import GameTextBox from "../../components/TextBox/GameTextBox"
 import "../../components/TextBox/TextBox.css";
 import API from "../../utils/API";
 import Exposition from "../../components/Exposition";
@@ -41,14 +41,14 @@ function Player(props) {
         jaceButtons: "hide",
         snakeMinigame: "hide",
         storyString: "",
-        castle: true,
+        castle: false,
         forest: false,
-        cliff: false
+        cliff: true
     });
     
     useEffect(() => {
         window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking) } )
-    },[gameState])
+    },[])
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
@@ -131,11 +131,11 @@ function Player(props) {
 
     function jaceTalking ()  {
         if (gameState.firstJaceTalk === false) {
-            updateStory("'Hi " + userName + " did you want to play my math game?' ")
+            gameState.storyString = gameState.storyString + " " + "'Hi " + userName + " did you want to play my math game?' "
             setGameState({...gameState, jaceButtons: "show"})
         }
         if (gameState.firstJaceTalk === true) {
-            updateStory("Wizard Jace says 'Hello " + userName + "a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' ")
+            gameState.storyString = gameState.storyString + " " + "Wizard Jace says 'Hello " + userName + "a little birdy told me you were trying to help our kingdom! I can give you money if you play my magical math game!' "
             setGameState({...gameState, jaceButtons: "show"})
             setGameState({...gameState, firstJaceTalk: false })
         }
@@ -224,7 +224,7 @@ function Player(props) {
             />
         </div>
         
-        <div className={gameState.snakeMinigame} id="snake">
+        <div className={gameState.snakeMinigame} id="snake" >
             <CanvasSnake 
             handleDoneButtonClick={handleDoneButtonClick}
             />
