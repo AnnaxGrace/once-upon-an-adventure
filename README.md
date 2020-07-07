@@ -40,7 +40,7 @@ No contributors allowed.
 
 ## Links
 * GitHub repository URL: https://github.com/annaxgrace/once-upon-an-adventure
-* Heroku deployed URL: https://onceuponadventure.herokuapp.com/
+* Heroku deployed URL: https://onceuponanadventure.herokuapp.com/
 
 ## Technologies
 
