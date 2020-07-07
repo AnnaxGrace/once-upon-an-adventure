@@ -1,39 +1,33 @@
 import { Howl } from 'howler';
 
 export const walkingStone = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/292851973/preview.mp3',
+  src: require('./soundEffects/footstep.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
 });
   
 export const walkingGrass = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/282624049/preview.mp3',
+  src: require('./soundEffects/grassWalk.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
 });
 
 export const walkingGravel = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/282624049/preview.mp3',
+  src: require('./soundEffects/gravelWalk.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
 });
 
 export const impact1 = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/111423304/preview.mp3',
+  src: require('./soundEffects/impactPain.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
 });
 
-export const impact2 = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/282576800/preview.mp3',
-  html5: true,
-  format:["mp3", "aac"],
-  volume: 0.25
-});
 
 export const rustlingFoliage = new Howl({
   src: 'https://audio-previews.elements.envatousercontent.com/files/282571386/preview.mp3',
@@ -51,6 +45,13 @@ export const orcBabble = new Howl({
 
 export const guardTalk = new Howl({
   src: 'https://audio-previews.elements.envatousercontent.com/files/294041419/preview.mp3',
+  html5: true,
+  format:["mp3", "aac"],
+  volume: 0.25
+});
+
+export const magicalJace = new Howl({
+  src: require('./soundEffects/gravelWalk.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
