@@ -15,8 +15,13 @@ function Player(props) {
     console.log(props.avatar)
     
     useEffect(() => {
+        //window.removeEventListener("keydown")
         window.addEventListener("keydown", e =>{handleKeyDown(e)} )
         //  observeImpassable(undefined, undefined, e)
+        
+        return () => {
+            window.removeEventListener("keydown", e =>{handleKeyDown(e)} )
+        }
     },[])
     
    if (!props.avatar) {

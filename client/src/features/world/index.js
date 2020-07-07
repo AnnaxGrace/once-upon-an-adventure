@@ -1,25 +1,40 @@
-import React, { useState ,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
 
-import { tiles } from '../../data/maps/1'
+import { Cliffside, Castle, Forest } from '../../data/maps/1'
 import store from '../../config/store'
 
 function World(props) {
-
+    console.log("World props!!!!!", props)
+    let tiles;
+    let x =2 
+    switch (x) {
+        case 1:
+            tiles = Cliffside;
+            break;
+        case 2:
+            tiles = Castle;
+            break;
+        case 3:
+            tiles = Forest
+            break;
+    }
     const { id } = useParams();
-    store.dispatch({ type: 'ADD_TILES', payload: {
-        tiles,
-    }});
+    store.dispatch({
+        type: 'ADD_TILES', payload: {
+            tiles,
+        }
+    });
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0].sprite)
             const { sprite } = user.data[0].sprite[0]
             console.log(sprite)
-                return setUserAvatar(sprite)
+            return setUserAvatar(sprite)
         })
     }, []);
 
@@ -30,16 +45,16 @@ function World(props) {
             id="world-container"
             style={{
                 position: 'relative',
-                width:'968px',
+                width: '968px',
                 top: '35%',
                 // marginTop: '50px',
                 marginLeft: '3px',
                 border: '4px solid black',
                 borderRadius: '5px'
-        }}
+            }}
         >
-        <Map />
-        <Player avatar={props.avatar} avatarName={props.avatarName}/>
+            <Map />
+            <Player avatar={props.avatar} avatarName={props.avatarName} />
         </div>
     )
 }
