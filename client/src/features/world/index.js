@@ -3,8 +3,6 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
-import GameContext from "../../utils/GameContext";
-// import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
 import { Cliffside, Castle, Forest } from '../../data/maps/1'
@@ -77,9 +75,7 @@ function World(props) {
             }}
         >
         <Map />
-        {/* <GameContext.Provider value = {gameState}> */}
             <Player avatar={props.avatar} avatarName={props.avatarName} name={userName}/>
-        {/* </GameContext.Provider> */}
         {/* <GameTextBox avatarName={props.AvatarName}/> */}
         </div>
     )

@@ -1,4 +1,0 @@
-export const GUARD_TALKING = "GUARD_TALKING";
-export const ORC_TALKING = "ORC_TALKING";
-export const THIEF_TALKING = "THIEF_TALKING";
-export const WIZARD_TALKING = "WIZARD_TALKING";
