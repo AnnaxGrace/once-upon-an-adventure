@@ -38,6 +38,15 @@ export default {
   UpdateSpriteHomeFirst: function(spriteData, id) {
     return axios.put("/api/sprite/homefirst/" + id, spriteData);
   },
+
+  UpdateSpriteFirstGuardTalk: function(spriteData, id) {
+    return axios.put("/api/sprite/guardTalk/" + id ,spriteData)
+  },
+
+  UpdateSpriteFirstOrcTalk: function(spriteData, id) {
+    return axios.put("/api/sprite/orcTalk/" + id ,spriteData)
+  },
+  
   UpdateSpritePermit: function(spriteData, id) {
     return axios.put("/api/sprite/permit/" + id, spriteData);
   },

@@ -13,7 +13,6 @@ import World from "./features/world";
 import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
-// import GameContext from "./utils/GameContext";
 // import {gameMusic} from "../features/sound/index"
 
 

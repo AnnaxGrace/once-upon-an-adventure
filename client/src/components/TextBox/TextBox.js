@@ -578,7 +578,7 @@ class TextBox extends React.Component {
                 setTimeout(this.poofAppears, 9000);
                 // this.scrollToBottom();
                 }
-                if ( homeFirst === true ) {
+                if ( homeFirst === false ) {
                     console.log("variable Change: ", userName)
                     
                     this.setState({storyString: userName + " enters where they first came into the land. " + userName + " looks around and decides what to do. "})
@@ -590,22 +590,16 @@ class TextBox extends React.Component {
         
     }
       
-    //   componentDidUpdate() {
-    //     // this.scrollToBottom();
-    //   }
 
     poofAppears = () => {
-        console.log("step1")
         this.setState({poofShow: "show"})
         this.updateStory("As " + userName + " looks around suddenly - POOF. ")
-        // this.updateStory(this.state.home.start.p3)
         setTimeout(this.wilsonAppears, 3000)
     }
 
     wilsonAppears = () => {
+        
         this.updateStory(storyObj.home.start.p3)
-
-        console.log("step 2")
         this.setState({poofShow: "hide"})
         this.setState({wilsonShow: "show"})
         setTimeout(this.wilsonTalks, 5000)
@@ -613,10 +607,8 @@ class TextBox extends React.Component {
 
     wilsonTalks = () => {
         const id = this.props.match.params.id;
-        console.log(id)
+
         this.updateStory(storyObj.home.start.p4)
-        //adds gold. needs to update money from 0 to 10 money in the api
-        console.log("hello")
         API.UpdateSpriteMoney(10, id).then(()=> {
             console.log("updated money")
             this.setState({money: 10})
@@ -627,8 +619,7 @@ class TextBox extends React.Component {
     }
 
     wilsonGoes = () => {
-        console.log("step 3")
-        // this.updateStory(this.state.home.start.p4)
+
         const id = this.props.match.params.id;
         this.setState({wilsonShow: "hide"})
         this.setState({poofShow: "show"})

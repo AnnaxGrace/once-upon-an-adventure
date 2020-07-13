@@ -56,6 +56,34 @@ module.exports = {
         )
         
       },
+      updateGuardTalk: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            // console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {apiFirstGuardTalk: false}}, {useFindAndModify: false})
+          .then(dbBook => {
+            // console.log("dbBook")
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      },
+      updateOrcTalk: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            // console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {apiFirstOrcTalk: false}}, {useFindAndModify: false})
+          .then(dbBook => {
+            // console.log("dbBook")
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      },
       updatePermit: function(req, res) {
         console.log(req.params.id)
         db.User.find({_id: req.params.id}).then(

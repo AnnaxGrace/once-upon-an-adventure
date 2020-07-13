@@ -10,6 +10,12 @@ router.route("/:id?")
   
   router.route("/homefirst/:id?")
   .put(spriteController.updateHomeFirst)
+
+  router.route("/guardTalk/:id?")
+  .put(spriteController.updateGuardTalk)
+
+  router.route("/orcTalk/:id?")
+  .put(spriteController.updateOrcTalk)
   
   router.route("/permit/:id?")
   .put(spriteController.updatePermit)
