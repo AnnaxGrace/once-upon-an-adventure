@@ -41,7 +41,7 @@ function getTileSprite(type) {
         case 31: //castle map
             return 'returnToBookCastle'
         case 43:
-            return 'wizard'
+            return 'wizard sky'
 
         // Castle
         case 310:

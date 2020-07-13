@@ -39,8 +39,8 @@ MIT
 No contributors allowed.
 
 ## Links
-* GitHub repository URL: https://github.com/annaxgrace/react-rpg
-* Heroku deployed URL: https://create-react-rpg.herokuapp.com/
+* GitHub repository URL: https://github.com/annaxgrace/once-upon-an-adventure
+* Heroku deployed URL: https://onceuponanadventure.herokuapp.com/
 
 ## Technologies
 
@@ -52,8 +52,7 @@ No contributors allowed.
 * Bootstrap, Express, Canvas
 
 ### Dependencies
-* passport
-     - Authentication so we can log in/store users safely
+
 * bcryptjs
      - Encrypts our passwords for security
 * howler
@@ -63,6 +62,17 @@ No contributors allowed.
 ## Icebox
 
 * Ability to have multiple game for each user
+* New levels
+* More items to buy
+* More interactions/more sprites
+* Castle throne room page
+* A game log where you can see the whole story
+* Winning and losing game sounds
+* Add money for when you win
+* Add media queries
+* Mobile friendly
+* Losing a heart if you lose
+
 
 
 
