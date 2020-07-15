@@ -153,6 +153,8 @@ function getTileSprite(type) {
                 return 'erikShop18'
             case 249:
                 return 'erikShop19'
+            case 250:
+                return 'thief'
 
         // Forest
         case 33:
