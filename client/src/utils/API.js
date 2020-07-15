@@ -46,6 +46,14 @@ export default {
   UpdateSpriteFirstOrcTalk: function(spriteData, id) {
     return axios.put("/api/sprite/orcTalk/" + id ,spriteData)
   },
+
+  UpdateSpriteFirstJaceTalk: function(spriteData, id) {
+    return axios.put("/api/sprite/jaceTalk/" + id ,spriteData)
+  },
+
+  UpdateSpriteFirstThiefTalk: function(spriteData, id) {
+    return axios.put("/api/sprite/thiefTalk/" + id ,spriteData)
+  },
   
   UpdateSpritePermit: function(spriteData, id) {
     return axios.put("/api/sprite/permit/" + id, spriteData);

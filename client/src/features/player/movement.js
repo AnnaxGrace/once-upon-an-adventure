@@ -44,7 +44,7 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking) {
+function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking) {
     // console.log(gamestate)
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
@@ -81,7 +81,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
 
             break;
         case 43:  //talk to Jace
-        magicalJace.play();
+            magicalJace.play();
             jaceTalking()
             break;
         case 9:  //Enter Shop
@@ -133,30 +133,31 @@ function dispatchMove(direction, newPos) {
     })
 }
 
-function attemptMove(direction, guardTalking, orcTalking, jaceTalking) {
+
+function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalking) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
     console.log(observeBoundaries(oldPos, newPos))
     console.log(oldPos, newPos)
-    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking))
+    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking))
         dispatchMove(direction, newPos)
 }
 
 
-function handleKeyDown(e, guardTalking, orcTalking, jaceTalking) {
+function handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking) {
     e.preventDefault()
     switch (e.keyCode) {
         case 37:
-            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking);
+            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking);
 
         case 38:
-            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking);
+            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking);
 
         case 39:
-            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking);
+            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking);
 
         case 40:
-            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking);
+            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking);
 
         default:
             console.log(e.keyCode)
