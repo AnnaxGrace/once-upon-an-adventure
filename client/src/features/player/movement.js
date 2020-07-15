@@ -78,7 +78,6 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
             rustlingFoliage.play();
             break;
         case 8:  //return to book
-
             break;
         case 43:  //talk to Jace
             magicalJace.play();
