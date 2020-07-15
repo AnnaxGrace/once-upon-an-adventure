@@ -16,6 +16,12 @@ router.route("/:id?")
 
   router.route("/orcTalk/:id?")
   .put(spriteController.updateOrcTalk)
+
+  router.route("/jaceTalk/:id?")
+  .put(spriteController.updateJaceTalk)
+
+  router.route("/thiefTalk/:id?")
+  .put(spriteController.updateThiefTalk)
   
   router.route("/permit/:id?")
   .put(spriteController.updatePermit)

@@ -84,6 +84,34 @@ module.exports = {
         )
         
       },
+      updateJaceTalk: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            // console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {apiFirstJaceTalk: false}}, {useFindAndModify: false})
+          .then(dbBook => {
+            // console.log("dbBook")
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      },
+      updateThiefTalk: function(req, res) {
+        console.log(req.params.id)
+        db.User.find({_id: req.params.id}).then(
+          dbUser => {
+            // console.log(dbUser)
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {apiFirstThiefTalk: false}}, {useFindAndModify: false})
+          .then(dbBook => {
+            // console.log("dbBook")
+            res.json(dbBook)})
+          .catch(err => res.status(422).json(err));
+          }
+        )
+        
+      },
       updatePermit: function(req, res) {
         console.log(req.params.id)
         db.User.find({_id: req.params.id}).then(

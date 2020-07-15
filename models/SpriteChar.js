@@ -8,6 +8,8 @@ const SpriteSchema = new Schema({
     place: {type: String, default: "castle"},
     apiFirstGuardTalk: {type: Boolean, default: true},
     apiFirstOrcTalk: {type: Boolean, default: true},
+    apiFirstJaceTalk: {type: Boolean, default: true},
+    apiFirstThiefTalk: {type: Boolean, default: true},
     lives: {type: Number, default: 3},
     permit: {type: Boolean, default: false},
     money: {type: Number, default: 0}
