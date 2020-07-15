@@ -44,7 +44,7 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
-function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap) {
+function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     // console.log(gamestate)
     const tiles = store.getState().map.tiles
     const y = newPos[1] / SPRITE_SIZE
@@ -104,13 +104,16 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
             orcTalking();
             //orc gives heart
             break;
+        case 247:
+            enterShop();
+            break;
         case 312:  //enter castle
-
+            enterCastle();
             break;
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43) {
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43 && nextTile !== 247) {
         console.log("impact1")
         impact1.play()
     }
@@ -133,30 +136,30 @@ function dispatchMove(direction, newPos) {
 }
 
 
-function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap) {
+function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
     console.log(observeBoundaries(oldPos, newPos))
     console.log(oldPos, newPos)
-    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap))
+    if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle))
         dispatchMove(direction, newPos)
 }
 
 
-function handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap) {
+function handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     e.preventDefault()
     switch (e.keyCode) {
         case 37:
-            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap);
+            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
 
         case 38:
-            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap);
+            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
 
         case 39:
-            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap);
+            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
 
         case 40:
-            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap);
+            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
 
         default:
             console.log(e.keyCode)
