@@ -51,7 +51,7 @@ export const guardTalk = new Howl({
 });
 
 export const magicalJace = new Howl({
-  src: require('./soundEffects/gravelWalk.mp3'),
+  src: require('./soundEffects/magicalSound.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25

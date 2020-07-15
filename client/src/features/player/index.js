@@ -225,7 +225,7 @@ function Player(props) {
     }
 
     function enterCastle(){
-        window.location.replace("/store/" + id) 
+        window.location.replace("/throne/" + id) 
     }
 
     function handleDoneButtonClick(event) {
