@@ -47,7 +47,7 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking) } )
+        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop) } )
     },[])
 
     useEffect(() => {
@@ -211,6 +211,14 @@ function Player(props) {
                 }
                 
     };
+
+    function returnToWorldMap(){
+        window.location.replace("/continue/" + id)
+    }
+
+    function enterShop(){
+        window.location.replace("/store/" + id) 
+    }
 
     function handleDoneButtonClick() {
         setGameState({...gameState, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
