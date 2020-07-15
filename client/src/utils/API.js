@@ -54,6 +54,10 @@ export default {
   UpdateSpriteFirstThiefTalk: function(spriteData, id) {
     return axios.put("/api/sprite/thiefTalk/" + id ,spriteData)
   },
+
+  UpdateSpritePlace: function(spriteData, id) {
+    return axios.put("/api/sprite/place/" + id, spriteData)
+  },
   
   UpdateSpritePermit: function(spriteData, id) {
     return axios.put("/api/sprite/permit/" + id, spriteData);

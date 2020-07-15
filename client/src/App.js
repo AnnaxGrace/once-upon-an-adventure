@@ -14,6 +14,7 @@ import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
 import InnerCastle from "./pages/InnerCastle";
+import ForestStore from "./pages/ForestStore"
 // import {gameMusic} from "../features/sound/index"
 
 
@@ -65,6 +66,10 @@ function App() {
 
             <Route path="/forest/:id?">
               <ForestGame />
+            </Route>
+
+            <Route path="/store/:id?">
+              <ForestStore />
             </Route>
 
             <Route path="/cliffs/:id?">

@@ -30,6 +30,7 @@ let hasPermit = "false";
 let firstJaceTalk = "true";
 let firstThiefTalk = "true";
 let varStoryString = "";
+let varMoney = 0;
 
 
 function Player(props) {
@@ -47,19 +48,21 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking) } )
+        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop) } )
     },[])
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0].sprite)
-            const { name, place, apiFirstGuardTalk, apiFirstOrcTalk, permit, apiFirstJaceTalk, apiFirstThiefTalk } = user.data[0].sprite[0]
+            const { name, place, apiFirstGuardTalk, apiFirstOrcTalk, permit, apiFirstJaceTalk, apiFirstThiefTalk, money } = user.data[0].sprite[0]
             userName = name
             firstGuardTalk = apiFirstGuardTalk
             firstOrcTalk = apiFirstOrcTalk
             firstJaceTalk = apiFirstJaceTalk
             firstThiefTalk = apiFirstThiefTalk
             hasPermit = permit
+            varMoney = money
+
 
             if ( place === "castle") {
                 varStoryString = userName + " follows the path to the castle. Up close it is even more marvelous. " + userName + " notices a guard in front of the castle, glittering in the sunlight in their armor. " + userName + " also thinks they hear a voice very faintly saying '...find me...I'll give you hearts...' "
@@ -104,8 +107,9 @@ function Player(props) {
         
     }
 
+    
+
     function orcTalking () {
-        console.log(gameState.firstTalkOrc)
         if (firstOrcTalk === false) {
             varStoryString += " " + userName + " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS' he says. "
             setGameState({...gameState, storyString: varStoryString})
@@ -123,7 +127,7 @@ function Player(props) {
     }
 
     function jaceTalking ()  {
-    
+        
         if (firstJaceTalk === false) {
             varStoryString += " 'Hi " + userName + " did you want to play my math game?' "
             setGameState({...gameState, storyString: varStoryString, jaceButtons: "show"})
@@ -212,8 +216,22 @@ function Player(props) {
                 
     };
 
-    function handleDoneButtonClick() {
+    function returnToWorldMap(){
+        window.location.replace("/continue/" + id)
+    }
+
+    function enterShop(){
+        window.location.replace("/store/" + id) 
+    }
+
+  
+    function handleDoneButtonClick(event) {
+        
+        const btnValue = event.target.attributes.getNamedItem("data-value").value
+        console.log(btnValue)
         setGameState({...gameState, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
+        //update api
+        //update variable
         //Need to do all done here if/ for how much money for points, need to have points show up here
     }
 

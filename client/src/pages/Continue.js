@@ -52,7 +52,7 @@ function Continue() {
             <h1 className="text-center">World Map</h1>
 
             {/* Inventory Bar */}
-            <Inventory />
+            {/* <Inventory /> */}
 
             <div>
                 {/* Game Board */}
