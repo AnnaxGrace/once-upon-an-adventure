@@ -13,6 +13,7 @@ import World from "./features/world";
 import CastleGame from "./pages/CastleGame";
 import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
+import InnerCastle from "./pages/InnerCastle";
 import ForestStore from "./pages/ForestStore"
 // import {gameMusic} from "../features/sound/index"
 
@@ -73,6 +74,10 @@ function App() {
 
             <Route path="/cliffs/:id?">
               <CliffGame />
+            </Route>
+
+            <Route path="/throne/:id?">
+              <InnerCastle />
             </Route>
 
             <Route path="/test" component={WorldPage}/>
