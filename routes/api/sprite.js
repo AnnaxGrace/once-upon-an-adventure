@@ -26,6 +26,9 @@ router.route("/:id?")
   router.route("/permit/:id?")
   .put(spriteController.updatePermit)
 
+  router.route("/place/:id?")
+  .put(spriteController.updatePlace)
+
 
 
 

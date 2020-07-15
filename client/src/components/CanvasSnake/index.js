@@ -213,10 +213,10 @@ class CanvasSnake extends React.Component {
                     <p>{this.state.number1} + {this.state.number2} = </p>
                     <p>Points: {this.state.statePoints} </p>
                 </div>
-                <div className={this.state.gameScreen} id="lose-cover">
+                <div className={this.state.gameScreen} id="lose-cover" value={this.state.StatePoints}>
                     <p>YOU LOSE</p>
                     <p>End Points: {this.state.statePoints}</p> 
-                    <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>
+                    <button className="btn btn-primary" data-value={points} onClick={this.props.handleDoneButtonClick}>
                         done
                     </button>
                 </div>

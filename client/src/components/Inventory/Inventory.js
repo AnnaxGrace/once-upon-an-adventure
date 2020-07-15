@@ -3,8 +3,9 @@ import "./Inventory.css";
 import { Container } from "../Grid"
 import API from "../../utils/API"
 import { useParams } from "react-router-dom";
+import { PromiseProvider } from "mongoose";
 
-function Inventory() {
+function Inventory(props) {
     const { id } = useParams();
 
     const [userMoney, setUserMoney] = useState(null)
@@ -14,6 +15,8 @@ function Inventory() {
     useEffect(()=> {
         API.getUserSprite(id).then(user => {
             const {money} = user.data[0].sprite[0]
+            console.log("MONEY")
+            console.log(props.money)
         
             return setUserMoney(money)
         }).then(()=>{
@@ -86,7 +89,7 @@ console.log(userPermit)
                     {/* Hard coded for now, will later be determined by user data */}
                     COINS:
                         <img src={require("../../images/coins.png")} className="invtImg" alt="Coins" />
-                        x {userMoney}
+                        x {props.money}
                 </div>
 
             </div>
