@@ -1,13 +1,12 @@
 import React, { useState ,useEffect } from "react";
-import StoreTextBox from "../components/TextBox/StoreTextBox"
-import { Container } from "../components/Grid"
+// import GameTextBox from "../components/TextBox/GameTextBox"
+// import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
-import World from '../features/world/index';
+import ForestWorld from '../features/world/ForestWorld';
+// import Player from '../features/player';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
-import MenuBtns from "../components/MenuBtns/MenuBtns";
-import ComingSoon from "../components/ComingSoon/ComingSoon";
-import Store from "../components/Store/Store";
+import MenuBtns from "../components/MenuBtns/MenuBtns"
 
 function ForestGame() {
 
@@ -15,9 +14,9 @@ function ForestGame() {
 
     const [userAvatar, setUserAvatar] = useState(null)
     const [userAvatarName, setUserAvatarName] = useState(null)
-    const [userMoney, setUserMoney] = useState(null)
 
     useEffect(() => {
+        console.log(id)
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
@@ -33,24 +32,8 @@ function ForestGame() {
             console.log("userAvatar: ",userAvatar)
         })
             
-        }).then(()=>{
-            API.getUserSprite(id).then(user => {
-                const {money} = user.data[0].sprite[0]
-                return setUserMoney(money)
-            })
         })
     }, []);
-
-    const handleStoreBtn = () => {
-       if(userMoney >= 50){
-           API.UpdateSpritePermit(true, id).then(()=> {
-               console.log("updated permit")            
-           })
-           alert("Thank you for the Sale, Kupo!")
-       } else{
-           alert("Sorry, Not enough money, Kupo!")
-       }
-      };
 
     return(
         <div>
@@ -58,15 +41,12 @@ function ForestGame() {
 
                 {/* Inventory Bar */}
                 <InventoryGame />
-                {/* <ComingSoon /> */}
-                <Store handleStoreBtn={handleStoreBtn}/>
-
                 <div>
                     {/* Game Board */}
-                        {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
+                        <ForestWorld avatar={userAvatar} avatarName={userAvatarName}/>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        <StoreTextBox avatarName={userAvatarName}/>
+                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
                 <MenuBtns />
