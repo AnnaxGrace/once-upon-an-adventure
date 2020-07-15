@@ -47,7 +47,10 @@ function heart() {
           return <img src={require("../../images/twoHearts.png")} className="heart" alt="Full Heart" />
   } else if (userLives === 1) {
       return<img src={require("../../images/oneHeart.png")} className="heart" alt="Full Heart" />
-  }
+  } 
+//   else if (userLives < 1) {
+//       return window.location.replace("gameover")
+//   }
 }
 
 function permit( ){

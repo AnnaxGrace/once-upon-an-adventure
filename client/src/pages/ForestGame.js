@@ -6,7 +6,7 @@ import World from '../features/world/index';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
-// import ComingSoon from "../components/ComingSoon/ComingSoon";
+import ComingSoon from "../components/ComingSoon/ComingSoon";
 import Store from "../components/Store/Store";
 
 function ForestGame() {
