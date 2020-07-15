@@ -342,6 +342,7 @@ import API from "../../utils/API";
 // import Exposition from "../Exposition";
 // import { Container } from "../Grid";
 import { withRouter } from "react-router";
+import Inventory from "../Inventory/Inventory";
 
 
 // let first = "true";
@@ -693,7 +694,9 @@ class TextBox extends React.Component {
                     
                 </div>
                 {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
-
+                < Inventory 
+                money={this.state.money}
+                />
                 <div className= {this.state.poofShow}>
                     <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
                 </div>
