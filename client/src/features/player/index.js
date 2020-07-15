@@ -48,7 +48,7 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking) } )
+        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop) } )
     },[])
 
     useEffect(() => {
@@ -216,6 +216,15 @@ function Player(props) {
                 
     };
 
+    function returnToWorldMap(){
+        window.location.replace("/continue/" + id)
+    }
+
+    function enterShop(){
+        window.location.replace("/store/" + id) 
+    }
+
+  
     function handleDoneButtonClick(event) {
         
         const btnValue = event.target.attributes.getNamedItem("data-value").value
