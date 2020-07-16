@@ -369,14 +369,14 @@ class TextBox extends React.Component {
 
     state = {
         storyString: "",
-        //this will be the user's Id
         image: "placeholder.gif",
-        //will be character name
         name: "Misterman",
         poofShow: "hide",
+        links: "hide",
         homeFirst: true,
         lives: "",
         money: 0,
+
         wilsonShow: "hide",
         home: {
             start: {
@@ -575,7 +575,7 @@ class TextBox extends React.Component {
                if ( homeFirst === true ) {
                 console.log("variable Change: ", userName)
                 
-                this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
+                this.setState({links: "show", storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
                 setTimeout(this.poofAppears, 9000);
                 // this.scrollToBottom();
                 }
@@ -624,6 +624,7 @@ class TextBox extends React.Component {
         const id = this.props.match.params.id;
         this.setState({wilsonShow: "hide"})
         this.setState({poofShow: "show"})
+        this.setState({links: "hide"})
 
         API.UpdateSpriteHomeFirst(false, id).then(()=> {
             console.log("updated homeFirst")            
@@ -689,16 +690,21 @@ class TextBox extends React.Component {
             <div>
                 <div className="mapBG">
                     <div ref = "scroll">
+                    
                         {this.state.storyString}
                     </div>
                     
                 </div>
-                {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
                 < Inventory 
                 money={this.state.money}
                 />
                 <div className= {this.state.poofShow}>
                     <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
+                </div>
+
+                <div className={this.state.links}>
+                        <p id="castle"></p>
+                        
                 </div>
 
                 <div className={this.state.wilsonShow}>

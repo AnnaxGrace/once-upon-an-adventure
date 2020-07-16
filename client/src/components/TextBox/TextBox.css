@@ -23,6 +23,16 @@
     overflow: scroll;
 }
 
+#castle {
+  background-color: rgba(0,0,0,0);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 280px;
+  right: 250px;
+}
+
+
 
 .show {
     display: block;

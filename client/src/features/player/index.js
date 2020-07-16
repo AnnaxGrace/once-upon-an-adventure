@@ -45,6 +45,7 @@ function Player(props) {
         thiefButtons2: "hide",
         hangmanMiniGame: "hide",
         storyString: "",
+        
     });
     
     useEffect(() => {
@@ -70,7 +71,8 @@ function Player(props) {
             }
 
             if ( place === "forest") {
-                console.log("forest")
+                varStoryString = userName +  " enters the forest. There are trees on either side of them, and in the distance, " + userName + " can see a shop! But in the path, inbetween " + userName + " and the shop is a person... "
+                setGameState({...gameState, storyString: varStoryString})
             }
 
             if ( place === "cliff") {
@@ -149,10 +151,10 @@ function Player(props) {
         if (firstThiefTalk === true) {
             varStoryString += " Thief Anna grins and says 'GIMMIE YOUR MONEY!' "
             setGameState({...gameState, storyString: varStoryString, thiefButtons: "show"})
-            API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
-                console.log("updated thiefTalk")
-                firstThiefTalk = false;            
-            })
+            // API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
+            //     console.log("updated thiefTalk")
+            //     firstThiefTalk = false;            
+            // })
         }
         if (firstThiefTalk === false) {
             varStoryString += " Thief Anna says 'What do you want?' "
@@ -231,8 +233,10 @@ function Player(props) {
     function handleDoneButtonClick(event) {
         
         const btnValue = event.target.attributes.getNamedItem("data-value").value
+        //this is points to convert to money
         console.log(btnValue)
-        setGameState({...gameState, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
+        varStoryString += " " + "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " + userName + "! You won " + btnValue + " gold! Come see me if you want to play again!' "
+        setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
         //update api
         //update variable
         //Need to do all done here if/ for how much money for points, need to have points show up here

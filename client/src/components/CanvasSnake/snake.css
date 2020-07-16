@@ -8,6 +8,20 @@
     text-align: center;
 
 }
+
+#instructions {
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    width: 200px;
+}
+
+#instruction-list {
+    text-align: left;
+}
  #required-images {
     display: none;
 }
