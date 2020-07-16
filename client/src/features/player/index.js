@@ -49,7 +49,7 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop) } )
+        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) } )
     },[])
 
     useEffect(() => {
@@ -226,7 +226,10 @@ function Player(props) {
         window.location.replace("/store/" + id) 
     }
 
-  
+    function enterCastle(){
+        window.location.replace("/throne/" + id) 
+    }
+
     function handleDoneButtonClick(event) {
         
         const btnValue = event.target.attributes.getNamedItem("data-value").value

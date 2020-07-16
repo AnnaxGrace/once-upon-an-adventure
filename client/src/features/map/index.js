@@ -23,17 +23,13 @@ function getTileSprite(type) {
             return 'stonePath'
         case 7:
             return 'fakeTree'
-        case 8:
-            return 'carpet'
-        case 9:
-            return 'shop37'
+        // case 8: Not In Use
+        //     return 'carpet'
+        // case 9: Not In Use
+        //     return 'shop37'
 
         //event tiles
-        // case 19:
-        //     return 'talkToJace'
-        // case 20:
-
-        //     return 'talkToOrc'
+      
         case 123:
             return 'orc'
         case 30: //sky map
@@ -42,6 +38,8 @@ function getTileSprite(type) {
             return 'returnToBookCastle'
         case 43:
             return 'wizard sky'
+        case 247:
+            return 'erikShop17'
 
         // Castle
         case 310:
@@ -96,8 +94,6 @@ function getTileSprite(type) {
             return 'castleWalls1'
         case 122:
             return 'castleGuard'
-
-
         case 125:
             return 'cabin0'
         case 126:
@@ -147,8 +143,6 @@ function getTileSprite(type) {
                 return 'erikShop15'
             case 246:
                 return 'erikShop16'
-            case 247:
-                return 'erikShop17'
             case 248:
                 return 'erikShop18'
             case 249:
