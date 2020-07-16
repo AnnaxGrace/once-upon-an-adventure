@@ -695,7 +695,6 @@ class TextBox extends React.Component {
                     </div>
                     
                 </div>
-                {/* <Exposition handleBtnClick={this.handleBtnClick} /> */}
                 < Inventory 
                 money={this.state.money}
                 />
