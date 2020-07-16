@@ -213,6 +213,26 @@ class CanvasSnake extends React.Component {
                     <p>{this.state.number1} + {this.state.number2} = </p>
                     <p>Points: {this.state.statePoints} </p>
                 </div>
+                <div id="instructions" className={this.state.equation}>
+                   <p> Use the WASD keys to move the snake! </p>
+                   <p> Add points to your score by eating the correct answer to the equation!</p>
+                   <p> If you: </p>
+                   
+                       <ul id="instruction-list">
+                           <li>
+                               Touch your tail
+                           </li>
+                           <li>
+                               Eat the wrong answer
+                           </li>
+                           <li>
+                               Hit the edge
+                           </li>
+                           
+                       </ul>
+                   
+                   <p>You Lose!</p>
+                </div>
                 <div className={this.state.gameScreen} id="lose-cover" value={this.state.StatePoints}>
                     <p>YOU LOSE</p>
                     <p>End Points: {this.state.statePoints}</p> 
