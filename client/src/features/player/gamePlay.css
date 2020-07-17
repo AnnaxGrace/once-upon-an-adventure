@@ -6,7 +6,7 @@
     display: none;
 }
 
-#guardYes, #guardNo, #jaceYes, #jaceNo { 
+#guardYes, #guardNo, #jaceYes, #jaceNo, #thiefYes, #thiefNo { 
     border-radius: 3px;
     border-color: #b56262;
     margin: 2px;
@@ -15,6 +15,12 @@
     height: 40px;
     width: 50px;
     
+}
+
+.thiefBtns {
+    position: absolute;
+    top: 63%;
+    left: 70%;
 }
 
 .guardBtns {
@@ -69,7 +75,7 @@
     position: absolute;
     top: 0;
     /* display: none; */
-    display: block;
+    /* display: block; */
     z-index: 3;
     opacity: 3;
   }
