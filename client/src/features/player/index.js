@@ -13,6 +13,8 @@ import "./gamePlay.css"
 import CanvasSnake from '../../components/CanvasSnake';
 import ThiefExposition from '../../components/Exposition/thiefExposition';
 
+import CanvasHangman from "../../components/CanvasHangman"
+
 
 // console.log(x)
 console.log("this is gamestate")
@@ -43,7 +45,7 @@ function Player(props) {
         snakeMinigame: "hide",
         thiefButtons: "hide",
         thiefButtons2: "hide",
-        hangmanMiniGame: "hide",
+        hangmanMinigame: "hide",
         storyString: "",
         
     });
@@ -213,7 +215,7 @@ function Player(props) {
                 }
                 if (btnType === "thiefNo") {
                     varStoryString += " " + userName + " says 'no way!' The thief snickers and says 'Then you must beat me in a game of Hangman!' "
-                    setGameState({...gameState, thiefButtons: "hide", storyString: varStoryString, hangmanMiniGame: "show"})
+                    setGameState({...gameState, thiefButtons: "hide", storyString: varStoryString, hangmanMinigame: "show"})
                 }
                 
     };
@@ -231,6 +233,18 @@ function Player(props) {
     }
 
     function handleDoneButtonClick(event) {
+        
+        const btnValue = event.target.attributes.getNamedItem("data-value").value
+        //this is points to convert to money
+        console.log(btnValue)
+        varStoryString += " " + "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " + userName + "! You won " + btnValue + " gold! Come see me if you want to play again!' "
+        setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
+        //update api
+        //update variable
+        //Need to do all done here if/ for how much money for points, need to have points show up here
+    }
+
+    function handleHangButtonClick(event) {
         
         const btnValue = event.target.attributes.getNamedItem("data-value").value
         //this is points to convert to money
@@ -288,6 +302,13 @@ function Player(props) {
         <div className={gameState.snakeMinigame} id="snake" >
             <CanvasSnake 
             handleDoneButtonClick={handleDoneButtonClick}
+            />
+        </div>
+
+        <div className={gameState.hangmanMinigame} id="hangman" >
+            <CanvasHangman 
+            handleHangButtonClick={handleHangButtonClick}
+            // handleKeyDown={handleKeyDown}
             />
         </div>
                          
