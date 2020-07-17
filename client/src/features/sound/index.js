@@ -62,7 +62,6 @@ export const gameMusic = new Howl({
   html5: true,
   // autoSuspend: true,
   format:["mp3", "aac"],
-  volume: 0.05,
+  volume: 0.03,
   loop: true,
-  autoplay: true,
 });
