@@ -8,7 +8,6 @@ import { Forest } from '../../data/maps/1'
 import store from '../../config/store'
 
 function ForestWorld(props) {
-    console.log("World props!!!!!", props)
     let tiles = Forest;
    
     const { id } = useParams();

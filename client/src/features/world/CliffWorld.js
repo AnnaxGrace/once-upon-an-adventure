@@ -8,7 +8,6 @@ import { Cliffside } from '../../data/maps/1'
 import store from '../../config/store'
 
 function CliffWorld(props) {
-    console.log("World props!!!!!", props)
     let tiles = Cliffside
     
     const { id } = useParams();

@@ -8,7 +8,6 @@ import { Castle } from '../../data/maps/1'
 import store from '../../config/store'
 
 function CastleWorld(props) {
-    console.log("World props!!!!!", props)
     let tiles = Castle;
    
     const { id } = useParams();

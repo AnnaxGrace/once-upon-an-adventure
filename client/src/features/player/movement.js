@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace } from '../sound/index'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace, annaAttacks, shopDoor, castleGate } from '../sound/index'
 // import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
@@ -63,7 +63,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
 
             break;
         case 3:  //Sky
-
+            walkingGrass.play();
             break;
         case 4:  //grass
             walkingGrass.play();
@@ -80,6 +80,7 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
         case 8:  //return to book
             break;
         case 43:  //talk to Jace
+            magicalJace.stop()
             magicalJace.play();
             jaceTalking()
             break;
@@ -94,28 +95,36 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
         case 40:  //tree
             break;
         case 122:  //talk to Guard Tony
+            guardTalk.stop();
             guardTalk.play();
             guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
+            orcBabble.stop();
             orcBabble.play();
             orcTalking();
             //orc gives heart
             break;
         case 247:
-            enterShop();
+            shopDoor.play();
+            setTimeout(()=>{enterShop()}, 800)
+            
             break;
         case 250:
+            annaAttacks.stop();
+            annaAttacks.play();
             thiefTalking();
             break;
         case 312:  //enter castle
-            enterCastle();
+            castleGate.play()
+            setTimeout(()=>{enterCastle()}, 1200)
+            
             break;
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43 && nextTile !== 247 && nextTile !== 250) {
+    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43 && nextTile !== 247 && nextTile !== 250 && nextTile !== 312 ) {
         console.log("impact1")
         impact1.play()
     }
