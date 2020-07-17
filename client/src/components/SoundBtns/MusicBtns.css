@@ -1,0 +1,9 @@
+#musicBtn{
+    border: none;
+    background-color:#99cad7;
+    position: absolute;
+    left: 95%;
+}
+#musicBtn:hover {
+    color: #b6e4f5;
+}

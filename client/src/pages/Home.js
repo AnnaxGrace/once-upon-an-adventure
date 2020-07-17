@@ -1,28 +1,21 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import Banner from "../components/Banner/Banner";
 import SignUpModal from "../components/Modals/SignUpModal";
 import About from "../components/About/About";
 import { Container } from "../components/Grid";
 import Login from "../components/Login/Login";
 import API from "../utils/API";
-import {gameMusic} from "../features/sound/index"
+import { gameMusic } from "../features/sound/index"
+import MusicBtn from "../components/SoundBtns/MusicBtn"
 
 
 class Home extends Component {
-  state = {  
-        email: "", 
-        password: "",
+  state = {
+    email: "",
+    password: "",
   };
 
-  componentDidMount() {
-    console.log("did mount !!");
-    setTimeout(function(){ 
-      console.log("game music playing")
-     gameMusic.play(); 
-    }, 3000);   
-  }
-
-   handleInputChange = (event) => {
+  handleInputChange = (event) => {
     const { name, value } = event.target;
     console.log(value);
     this.setState({
@@ -32,21 +25,21 @@ class Home extends Component {
 
 
   HandleLoginSubmit = event => {
-      event.preventDefault();
-      const user = this.state;
-      console.log("working")
-      API.findUser({
-          email: user.email,
-          password: user.password
-      }).then(function(user) {
-        console.log(user)
-        const id = user.data[0]._id
-        console.log(id)
-        
-        window.location.replace("/user/" + id);
-        // If there's an error, log the error
-      })
-      .catch(function(err){
+    event.preventDefault();
+    const user = this.state;
+    console.log("working")
+    API.findUser({
+      email: user.email,
+      password: user.password
+    }).then(function (user) {
+      console.log(user)
+      const id = user.data[0]._id
+      console.log(id)
+
+      window.location.replace("/user/" + id);
+      // If there's an error, log the error
+    })
+      .catch(function (err) {
         alert("Please enter correct email")
       })
   }
@@ -60,11 +53,11 @@ class Home extends Component {
     API.saveUser({
       email: user.email,
       password: user.password,
-    }).then(function() {
-        window.location.replace("/");
-        // If there's an error, log the error
-      })
-      .catch(function(err){
+    }).then(function () {
+      window.location.replace("/");
+      // If there's an error, log the error
+    })
+      .catch(function (err) {
         alert("Try Again!")
       })
   };

@@ -1,5 +1,6 @@
 import React from "react";
 import './Nav.css'
+import MusicBtn from "../../components/SoundBtns/MusicBtn"
 
 function Nav() {
   return (
@@ -8,6 +9,7 @@ function Nav() {
         <a className="nav-brand special" href="/">
           Once Upon an Adventure
         </a>
+      <MusicBtn />
       </nav>
       <p></p>
     </div>

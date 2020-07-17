@@ -15,24 +15,10 @@ import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
 import InnerCastle from "./pages/InnerCastle";
 import ForestStore from "./pages/ForestStore"
-// import {gameMusic} from "../features/sound/index"
-
 
 function App() {
-
-  // useEffect(() => {
-  //   console.log("did mount !!");
-  //   // Typical usage (don't forget to compare props):
-  //   setTimeout(function(){ 
-  //     console.log("game music playing")
-  //    gameMusic.play(); 
-  //   }, 3000);
-  // });
-   
-
   return (
     <Router>
-      
       <div>
         <Nav />
         <Switch>
@@ -88,6 +74,5 @@ function App() {
 }
 
 export default App;
-
 
 const WorldPage  = () => (<div id="this-window"><World /></div>)
