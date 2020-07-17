@@ -30,7 +30,7 @@ export const impact1 = new Howl({
 
 
 export const rustlingFoliage = new Howl({
-  src: 'https://audio-previews.elements.envatousercontent.com/files/282571386/preview.mp3',
+  src: require('./soundEffects/footstepf_on_fallen_dry_palm_leaves.mp3'),
   html5: true,
   format:["mp3", "aac"],
   volume: 0.25
@@ -57,8 +57,47 @@ export const magicalJace = new Howl({
   volume: 0.25
 });
 
+export const annaAttacks = new Howl({
+  src: require('./soundEffects/femaleHiyah.mp3'),
+  html5: true,
+  format:["mp3", "aac"],
+  volume: 0.25
+});
+
+export const shopDoor = new Howl({
+  src: require('./soundEffects/shopDoor.mp3'),
+  html5: true,
+  format:["mp3", "aac"],
+  volume: 0.25
+});
+
+export const castleGate = new Howl({
+  src: require('./soundEffects/castleGate.mp3'),
+  html5: true,
+  format:["mp3", "aac"],
+  volume: 0.25
+});
+
 export const gameMusic = new Howl({
   src: require('./soundEffects/8-BitsMusic.mp3'),
+  html5: true,
+  // autoSuspend: true,
+  format:["mp3", "aac"],
+  volume: 0.03,
+  loop: true,
+});
+
+export const gameMusic2 = new Howl({
+  src: require('./soundEffects/Our-Mountain_v003.mp3'),
+  html5: true,
+  // autoSuspend: true,
+  format:["mp3", "aac"],
+  volume: 0.03,
+  loop: true,
+});
+
+export const gameMusic3 = new Howl({
+  src: require('./soundEffects/game_music_zen_arpeggios.mp3'),
   html5: true,
   // autoSuspend: true,
   format:["mp3", "aac"],
