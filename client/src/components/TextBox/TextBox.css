@@ -23,6 +23,20 @@
     overflow: scroll;
 }
 
+.textStore {
+  background-color:hsla(39,30%,89%,0.8);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  width: 445px;
+  height: 670px;
+  overflow: scroll;
+}
+
 #castle {
   background-color: rgba(0,0,0,0);
   width: 500px;
@@ -40,6 +54,44 @@
 
 .hide {
     display: none;
+}
+
+.show1 {
+  display: block;
+}
+
+.hide1 {
+  display: none;
+}
+
+#type{
+  background-color:rgba(0,0,0,0.4);
+  border-radius: 0px 0px 10px 10px;
+  height: 1000px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  /* display: none; */
+  /* display: block; */
+  z-index: 3;
+  opacity: 3;
+}
+
+#kingYes, #kingNo{ 
+  border-radius: 3px;
+  border-color: #b56262;
+  margin: 2px;
+  background-color: #d38888;
+  color: #9b5051;
+  height: 40px;
+  width: 50px;
+  
+}
+
+.kingBtns {
+  position: absolute;
+  top: 63%;
+  left: 40%;
 }
 
 .game-btn {

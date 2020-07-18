@@ -27,12 +27,12 @@ class Type extends React.Component {
         
     }
 
-    handleDoneButtonClick() {
+    // handleDoneButtonClick() {
         //this will display: none snake canvas
         //pushes points back to CliffText
         //run function game done??
 
-    }
+    // }
     //Grabs a random word from our word array
     game = () => {
         
@@ -85,7 +85,7 @@ class Type extends React.Component {
             
             <div className={this.state.gameScreen} id="lose-cover">
                     <p>{this.state.win}</p>
-                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                    <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>
                         done
                     </button>
             </div>
