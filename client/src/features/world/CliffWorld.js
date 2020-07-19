@@ -19,7 +19,7 @@ function CliffWorld(props) {
     });
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
-        API.UpdateSpritePlaceCliff("cliff", id).then(()=> {
+        API.UpdateSpritePlace("cliff", id).then(()=> {
             console.log("we're at the cliffs")          
         })
         API.getUserSprite(id).then(user => {
