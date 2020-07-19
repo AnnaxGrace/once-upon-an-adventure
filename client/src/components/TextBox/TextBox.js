@@ -555,13 +555,14 @@ class TextBox extends React.Component {
         }).then(()=>{
             API.getUserSprite(id).then(user => {
                 console.log(user.data[0].sprite[0])
-                const { sprite, homeFirst, lives } = user.data[0].sprite[0]
+                const { sprite, homeFirst, lives, money } = user.data[0].sprite[0]
            
                 console.log("../../assets/sprites/", sprite)
                 console.log(lives)
                 this.setState({ image: sprite})
                 this.setState({ homeFirst: homeFirst})
                 this.setState({lives: lives})
+                this.setState({money: money})
 
                 // userName = user.data[0].sprite[0].name
             //     if ( homeFirst === true ) {
