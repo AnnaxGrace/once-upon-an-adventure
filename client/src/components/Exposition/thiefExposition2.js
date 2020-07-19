@@ -1,7 +1,7 @@
 import React from "react";
 import ExpoBtn from "../ExpoBtn";
 
-function ThiefExposition(props) {
+function ThiefExposition2(props) {
     return (
         <div>
           
@@ -10,16 +10,16 @@ function ThiefExposition(props) {
             id = "thiefNo"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="thiefNo"
-            name="No"
+            data-value="thiefNo2"
+            name="Nothing"
           />
           <ExpoBtn
             className={props.hideState}
             id = "thiefYes"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
-            data-value="thiefYes"
-            name="Yes"
+            data-value="thiefYes2"
+            name="Gimme Your Money!"
           />
 
           
@@ -27,4 +27,4 @@ function ThiefExposition(props) {
       );
 }
 
-export default ThiefExposition;
+export default ThiefExposition2;

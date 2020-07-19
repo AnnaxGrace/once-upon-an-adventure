@@ -1,26 +1,11 @@
-/* #required-images {
-    display: none;
+.letter-btns {
+    margin-top: 65%;
 }
 
-.form-style {
-    position: absolute;
-    top: 49%;
-    right: 42%;
+.letters {
+    margin-left: 20%;
 }
 
-.show {
-    display: block;
+.gamescreen-words {
+    margin-top: 10%;
 }
-
-.hide {
-    display: none;
-}
-
-#lose-cover {
-    position: absolute;
-    z-index: 7;
-    height: 500px;
-    width: 700px;
-    top: 5%;
-    left: 25%;
-} */

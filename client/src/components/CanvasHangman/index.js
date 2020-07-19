@@ -1,5 +1,6 @@
 import React from "react";
 import "./hangman.css"
+import LetterBtns from "./LetterBtns"
 
 //global variables necessary to have gameplay
 let wrong = 0;
@@ -9,6 +10,7 @@ let word;
 let miniWrong = 0;
 let wrongSpacing = 0;
 let right = 0;
+let varWin;
 
 class Hangman extends React.Component {
 
@@ -63,18 +65,36 @@ class Hangman extends React.Component {
         });
       };
 
-    handleFormSubmit = event => {
+    //   handleBtnClick = event => {
+    //     // Get the data-value of the clicked button
+    //     const btnType = event.target.attributes.getNamedItem("data-value").value;
+        
+    
+    //     if (btnType === "yes") {
+    //         console.log("yes")
+    //         // let storyContainer = this.refs.scroll
+    //         // storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
+    //       this.updateStory(storyObj.home.start.p2)
+    //     } 
+    //     if (btnType === "no") {
+    //         console.log("no")
+    //       this.updateStory(storyObj.home.start.p3)
+    //     }
+        
+    //   };
+
+    handleBtnClick = event => {
         event.preventDefault();
     
-        this.setState({
-          letter: "",
-        });
+        const btnType = event.target.attributes.getNamedItem("data-value").value;
+
+        
         
         //we need to reset miniwrong many times so that we don't accidentally add the correct letter to the wrong list
         miniWrong = 0
         for (var i = 0; i < word.length; i++){
             //if the word's letter matches the letter given
-            if (word[i] === this.state.letter) {
+            if (word[i] === btnType) {
                 //notes the position of the word the letter is in
                 miniWrong = 0
                 
@@ -85,25 +105,21 @@ class Hangman extends React.Component {
                 //Writes letter given depending on the position in the word
                 switch (position) {
                     case 0:
-                        console.log("hi")
                         ctx.fillText(word[i], 55, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 1:
-                        console.log("hi")
                         ctx.fillText(word[i], 165, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 2:
-                        console.log("hi")
                         ctx.fillText(word[i], 275, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 3:
-                        console.log("hi")
                         ctx.fillText(word[i], 385, 340)
                         right++
                         miniWrong = 0
@@ -114,6 +130,7 @@ class Hangman extends React.Component {
                 if (right === 4) {
                     this.setState({win: "You win"})
                     this.setState({gameScreen: "show"})
+                    varWin = "yes"
                 }
             }
             else {
@@ -126,7 +143,7 @@ class Hangman extends React.Component {
                     ctx.font="30px arial";
 
                     //wrongSpacing increasing the spacing everytime you get an answer wrong so that numbers are not written on top of each other
-                    ctx.fillText(this.state.letter, 240 + wrongSpacing, 50)
+                    ctx.fillText(btnType, 240 + wrongSpacing, 50)
                     wrongSpacing += 25
                     
                     miniWrong = 0
@@ -160,7 +177,8 @@ class Hangman extends React.Component {
                         case 6: 
                             ctx.drawImage(image7, 80, 50);
                             this.setState({win: "You Lose"})
-                            this.setState({gamescreen: "show"})
+                            this.setState({gameScreen: "show"})
+                            varWin="no"
                             break;
                         default:
                             break;
@@ -188,8 +206,13 @@ class Hangman extends React.Component {
                 <img ref="Hangmanspace" src ={require("../../images/Hangmanspace.png")} alt="Spaces for the Hangman"></img>
 
             </div>
+            <div className="letters">
+                <LetterBtns 
+                handleBtnClick={this.handleBtnClick}
+                />
+            </div>
             
-            <form className="form form-style">
+            {/* <form className="form form-style">
                 <input
                     value={this.state.letter}
                     name="letter"
@@ -198,13 +221,15 @@ class Hangman extends React.Component {
                 />
           
                 <button onClick={this.handleFormSubmit}>Submit</button>
-            </form>
+            </form> */}
 
             <div className={this.state.gameScreen} id="lose-cover">
+                <div className="gamescreen-words">
                     <p>{this.state.win}</p>
-                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                    <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
                         done
                     </button>
+                </div>
             </div>
 
           </div>
