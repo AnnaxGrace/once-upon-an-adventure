@@ -1,5 +1,5 @@
 import React, { useState ,useEffect } from "react";
-import StoreTextBox from "../components/TextBox/StoreTextBox"
+import CastleTextBox from "../components/TextBox/CastleTextBox"
 import InventoryGame from "../components/Inventory/inventoryGame"
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
@@ -50,7 +50,7 @@ function InnerCastle() {
                 <div>
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        <StoreTextBox avatarName={userAvatarName}/>
+                        <CastleTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
                 <MenuBtns />

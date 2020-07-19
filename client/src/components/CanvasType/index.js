@@ -13,6 +13,8 @@ class Type extends React.Component {
 
     state = {
         gameScreen: "hide",
+        startScreen: "hide",
+        gameScreenLose: "hide",
         win: "",
         points: 0
     }
@@ -23,8 +25,14 @@ class Type extends React.Component {
         //get/setup our canvas
         let canvas = this.refs.canvas
         ctx = canvas.getContext("2d")
-        this.game()
+        this.setState({startScreen: "show"})
         
+        
+    }
+
+    handleStartButtonClick = () => {
+      this.setState({startScreen: "hide"})
+      this.game()
     }
 
     // handleDoneButtonClick() {
@@ -35,7 +43,7 @@ class Type extends React.Component {
     // }
     //Grabs a random word from our word array
     game = () => {
-        
+        console.log("game running?")
         setTimeout(this.gameScreenAppears, 30000);
         let indexNum = Math.floor(Math.random() * 16);
         word = wordArray[indexNum]
@@ -47,7 +55,13 @@ class Type extends React.Component {
     }
 
     gameScreenAppears = () => {
-      this.setState({gameScreen: "show"})
+      if (points >= 13 ) {
+        this.setState({gameScreen: "show"})
+      }
+      if (points < 13) {
+        this.setState({gameScreenLose: "show"})
+      }
+      
     }
     
 
@@ -59,6 +73,7 @@ class Type extends React.Component {
         if (event.target.value === word) {
             points++
             console.log(points)
+            this.setState({points: points})
             let indexNum = Math.floor(Math.random() * 16);
             word = wordArray[indexNum]
             console.log(word)
@@ -66,6 +81,7 @@ class Type extends React.Component {
             ctx.font="30px arial";
             ctx.clearRect(0, 0, 1000, 1000)
             ctx.fillText(word, 170 , 200)
+            event.target.value = ""
         }
         // let result = this.state.result.filter(item => item.name.first.includes(event.target.value));
         // this.setState({ result })
@@ -84,9 +100,23 @@ class Type extends React.Component {
             />
             
             <div className={this.state.gameScreen} id="lose-cover">
-                    <p>{this.state.win}</p>
+                    <p>You win!</p>
                     <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>
                         done
+                    </button>
+            </div>
+            <div className={this.state.gameScreenLose} id="lose-cover">
+                    <p>You Lose!</p>
+                    <p> You got {this.state.points} points! You have lost a heart. Try again to win the game!</p>
+                    <button className="btn btn-primary" onClick={this.props.handleLoseDoneButtonClick}>
+                        done
+                    </button>
+            </div>
+
+            <div className={this.state.startScreen} id="lose-cover">
+                    <p>You have 30 seconds to receive as many points as you can by typing in the word. Get 13 points, and you win!</p>
+                    <button className="btn btn-primary" onClick={this.handleStartButtonClick}>
+                        Get Started!
                     </button>
             </div>
 
