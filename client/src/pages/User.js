@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "../components/Grid";
 import { Link, useParams } from "react-router-dom";
 import UserSplash from "../components/UserSplash/UserSplash";
+import MusicBtn from "../components/SoundBtns/MusicBtn"
 
 const styles={
     bookImg: {

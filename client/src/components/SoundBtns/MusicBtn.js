@@ -5,30 +5,31 @@ import API from "../../utils/API";
 import { gameMusic, gameMusic2, gameMusic3 } from "../../features/sound/index"
 
 
-export default function MusicBtn(props) {
-
+function MusicBtn(props) {
+    const [musicPlace, setMusicPlace] = useState(null)
     const [music, setMusic] = useState(null)
     const { id } = useParams();
-    let currentMusic = gameMusic;
+    let currentMusic;
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log("My API Log", user.data[0].sprite[0].sprite)
+            console.log("My API Log", user.data[0].sprite[0].place)
             const { place } = user.data[0].sprite[0]
-
-            switch (place) {
-                case "forest":
-                    currentMusic = gameMusic
-                    break;
-                case "castle":
-                    currentMusic = gameMusic2
-                    break;
-                case "cliff":
-                    currentMusic = gameMusic3
-                    break;
-            }
-        });
-    });
+            return setMusicPlace(place)
+        })
+    }, [])
+    
+    switch (musicPlace) {
+        case "forest":
+            currentMusic = gameMusic
+            break;
+        case "castle":
+            currentMusic = gameMusic2
+            break;
+        case "cliff":
+            currentMusic = gameMusic3
+            break;
+    }
 
     switch (music) {
         case true:
@@ -52,3 +53,4 @@ export default function MusicBtn(props) {
             >Music <i class="fas fa-volume-mute"></i></div>)
     }
 }
+export default MusicBtn;

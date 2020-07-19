@@ -3,6 +3,7 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
+import handleKeydown, { handleKeyDown } from "../player/movement"
 
 import { Cliffside } from '../../data/maps/1'
 import store from '../../config/store'
@@ -29,6 +30,12 @@ function CliffWorld(props) {
         })
     }, []);
 
+    // function handleKeyboard(e){
+    //     console.log("handleKeyboard Firing");
+    //     console.log(e)
+    //     handleKeyDown(e)
+    // }
+
     console.log(userAvatar);
 
     return (
@@ -46,6 +53,7 @@ function CliffWorld(props) {
         >
             <Map />
             <Player avatar={props.avatar} avatarName={props.avatarName} />
+        {/* onKeyDown={handleKeyboard} */}
         </div>
     )
 }
