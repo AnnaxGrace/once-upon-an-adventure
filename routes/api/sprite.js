@@ -26,12 +26,8 @@ router.route("/:id?")
   router.route("/permit/:id?")
   .put(spriteController.updatePermit)
 
-  router.route("/placeCliff/:id?")
-  .put(spriteController.updatePlaceCliff)
-
-  router.route("/placeForest/:id?")
-  .put(spriteController.updatePlaceForest)
-
+  router.route("/place/:id?/:place?")
+  .put(spriteController.updatePlace)
 
 
 

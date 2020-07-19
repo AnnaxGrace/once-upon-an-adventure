@@ -18,6 +18,8 @@ function InnerCastle() {
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
+
+            
        
             // console.log(sprite, name)
                 return setUserAvatar(sprite)
