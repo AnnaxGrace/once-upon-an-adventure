@@ -51,8 +51,34 @@ function Player(props) {
     });
     
     useEffect(() => {
-        window.addEventListener("keydown", e =>{handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) } )
-    },[])
+        window.addEventListener("keydown", e => { handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) })
+    }, [])
+
+    // function listenerCheck(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
+    //     console.log("e in listenercheck 1st stop", e)
+    //     if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
+    //         addListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle)
+    //     } else {
+    //         console.log("else", e)
+    //         removeListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle)
+    //     }
+
+    // }
+
+    // function addListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
+    //     console.log("e in addListener 2nd stop", e)
+    //     console.log("adding event listener")
+    //     window.addEventListener("keydown", e => { handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) })
+        
+
+    // }
+
+    // function removeListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
+    //     console.log("e in removeListener 3rd stop", e)
+    //     console.log("removing event listener")
+    //     document.removeEventListener("keydown", handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle))
+    // }
+
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
@@ -83,9 +109,6 @@ function Player(props) {
             }
         })
     }, []);
-
-   
- 
 
     function guardTalking() {
         switch(firstGuardTalk) {

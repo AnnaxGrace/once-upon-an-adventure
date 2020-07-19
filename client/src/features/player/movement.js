@@ -79,12 +79,12 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
             break;
         case 8:  //return to book
             break;
+        case 9:  //open
+            break;
         case 43:  //talk to Jace
             magicalJace.stop()
             magicalJace.play();
             jaceTalking()
-            break;
-        case 9:  //Enter Shop
             break;
         case 30:  //return to map page
             returnToWorldMap();
@@ -119,13 +119,13 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
         case 312:  //enter castle
             castleGate.play()
             setTimeout(()=>{enterCastle()}, 1200)
-            
             break;
 
     }
 
     if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43 && nextTile !== 247 && nextTile !== 250 && nextTile !== 312 ) {
         console.log("impact1")
+        impact1.stop()
         impact1.play()
     }
 
@@ -159,22 +159,22 @@ function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalk
 
 function handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     e.preventDefault()
-    switch (e.keyCode) {
-        case 37:
-            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-
-        case 38:
-            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-
-        case 39:
-            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-
-        case 40:
-            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-
-        default:
-            console.log(e.keyCode)
-    }
+        switch (e.keyCode) {
+            case 37:
+                return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+    
+            case 38:
+                return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+    
+            case 39:
+                return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+    
+            case 40:
+                return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+    
+            default:
+                console.log(e.keyCode)
+        }
 }
 
 

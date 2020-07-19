@@ -70,11 +70,12 @@ module.exports = {
         )
         
       },
-      updatePlaceCliff: function(req, res) {
+      
+      updatePlace: function(req, res) {
         db.User.find({_id: req.params.id}).then(
           dbUser => {
             // console.log(dbUser)
-            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {place: "cliff"}}, {useFindAndModify: false})
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {place: req.params.place}}, {useFindAndModify: false})
           .then(dbBook => {
             // console.log("dbBook")
             res.json(dbBook)})
@@ -83,19 +84,7 @@ module.exports = {
         )
         
       },
-      updatePlaceForest: function(req, res) {
-        db.User.find({_id: req.params.id}).then(
-          dbUser => {
-            // console.log(dbUser)
-            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {place: "forest"}}, {useFindAndModify: false})
-          .then(dbBook => {
-            // console.log("dbBook")
-            res.json(dbBook)})
-          .catch(err => res.status(422).json(err));
-          }
-        )
-        
-      },
+      
       updateOrcTalk: function(req, res) {
         console.log(req.params.id)
         db.User.find({_id: req.params.id}).then(

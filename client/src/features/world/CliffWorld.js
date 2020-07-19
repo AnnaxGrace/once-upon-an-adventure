@@ -3,6 +3,7 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
+import handleKeydown, { handleKeyDown } from "../player/movement"
 
 import { Cliffside } from '../../data/maps/1'
 import store from '../../config/store'
@@ -18,7 +19,7 @@ function CliffWorld(props) {
     });
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
-        API.UpdateSpritePlaceCliff("cliff", id).then(()=> {
+        API.UpdateSpritePlace("cliff", id).then(()=> {
             console.log("we're at the cliffs")          
         })
         API.getUserSprite(id).then(user => {
@@ -28,6 +29,12 @@ function CliffWorld(props) {
             return setUserAvatar(sprite)
         })
     }, []);
+
+    // function handleKeyboard(e){
+    //     console.log("handleKeyboard Firing");
+    //     console.log(e)
+    //     handleKeyDown(e)
+    // }
 
     console.log(userAvatar);
 
@@ -46,6 +53,7 @@ function CliffWorld(props) {
         >
             <Map />
             <Player avatar={props.avatar} avatarName={props.avatarName} />
+        {/* onKeyDown={handleKeyboard} */}
         </div>
     )
 }
