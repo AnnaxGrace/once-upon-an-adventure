@@ -485,3 +485,15 @@
 .thief {
     background-image: url('../../assets/sprites/annaStanding.png');
 }
+.fireSlice {
+    background-image: url('../../assets/tiles/fireSlice.png');
+}
+.fireSlice1 {
+    background-image: url('../../assets/tiles/fireSlice1.png');
+}
+.fireSlice2 {
+    background-image: url('../../assets/tiles/fireSlice2.png');
+}
+.fireSlice3 {
+    background-image: url('../../assets/tiles/fireSlice3.png');
+}
