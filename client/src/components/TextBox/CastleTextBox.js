@@ -161,17 +161,17 @@ class StoreTextBox extends React.Component {
     // }
 
     
-    handleDoneButtonClick = (event) =>{
+    handleDoneButtonClick = () =>{
         console.log("you win!")
         this.setState({typeMinigame: "hide"})
-        // const btnValue = event.target.attributes.getNamedItem("data-value").value
-        //this is points to convert to money
-        // console.log(btnValue)
-        // varStoryString += " " + "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " + userName + "! You won " + btnValue + " gold! Come see me if you want to play again!' "
-        // setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
-        //update api
-        //update variable
-        //Need to do all done here if/ for how much money for points, need to have points show up here
+        
+        // window location reload to win game page
+    }
+
+    handleLoseDoneButtonClick = () => {
+        this.updateStory(userName + " feels ashamed that they were not able to help the king. The king signs and then says 'Well... come talk to me if you would like to try again.' ")
+
+        //api lose heart
     }
    
 
