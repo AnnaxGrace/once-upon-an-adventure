@@ -271,6 +271,7 @@ function Player(props) {
         window.location.replace("/throne/" + id) 
     }
 
+    //done button for the wizard/snake
     function handleDoneButtonClick(event) {
         console.log("no running?")
         const btnValue = event.target.attributes.getNamedItem("data-value").value
@@ -278,7 +279,7 @@ function Player(props) {
         console.log(btnValue)
         varStoryString += " " + "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " + userName + "! You won " + btnValue + " gold! Come see me if you want to play again!' "
         setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
-        //update api
+        //update api (btnValue, id)
         //update variable
         //Need to do all done here if/ for how much money for points, need to have points show up here
     }
@@ -296,13 +297,15 @@ function Player(props) {
         if (btnWin === "yes") {
             varStoryString += " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone! I won't block you way if you come this way again.' "
             setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+            //gain 10 gold
         }
         if (btnWin === "no") {
             varStoryString += " Thief Anna laughs in " + userName + "'s face 'HA. You LOSE. Gimmie your money! ...But you know what? You put up a good fight. I won't take all of your money - just 10 gold.' " + userName + " tries to hide their anger and sadness while handing over ten gold."
             setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+            //lose 10 gold, lose one heart
         }
         
-        //update api
+        //update api money, heart api
         //update variable
         //Need to do all done here if/ for how much money for points, need to have points show up here
     }
@@ -331,6 +334,7 @@ function Player(props) {
                     {gameState.storyString}
                 </div>
         </div>
+        
         <div className="guardBtns">
         <Exposition 
         handleBtnClick={handleBtnClick}
