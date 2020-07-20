@@ -22,10 +22,26 @@ class Hangman extends React.Component {
  
     //when our page loads
     componentDidMount() {
-
+        console.log(this.props)
         //get/setup our canvas
         let canvas = this.refs.canvas
         ctx = canvas.getContext("2d")
+
+        this.game()
+    }
+
+    // wrapperFunction () {
+    //     {props.handleHangButtonClick()}
+    //     this.hideScreen()
+    // }
+
+    
+    //Grabs a random word from our word array
+    game = () => {
+        
+        wrongSpacing=0;
+        wrong=0;
+        right=0;
         ctx.fillStyle="white";
         ctx.fillRect(80, 50, 140, 190)
 
@@ -37,51 +53,22 @@ class Hangman extends React.Component {
         ctx.drawImage(space, 130, 300)
         ctx.drawImage(space, 240, 300)
         ctx.drawImage(space, 350, 300)
-
-        this.game()
-    }
-
-    handleDoneButtonClick() {
-        //this will display: none snake canvas
-        //pushes points back to CliffText
-        //run function game done??
-
-    }
-    //Grabs a random word from our word array
-    game = () => {
-        
+        // this.setState({gameScreen: "hide"})
         let indexNum = Math.floor(Math.random() * 16);
         word = wordArray[indexNum]
+
+        ctx.fillStyle="black";
+        ctx.fillRect(230, 20, 280, 160)
         
     }
 
-    handleInputChange = event => {
-        // Getting the value and name of the input which triggered the change
-        const { name, value } = event.target;
-    
-        // Updating the input's state
-        this.setState({
-          [name]: value
-        });
-      };
+    hideScreen = () => {
+        console.log("this hide screen works?");
+        this.setState({gameScreen: "hide"})
 
-    //   handleBtnClick = event => {
-    //     // Get the data-value of the clicked button
-    //     const btnType = event.target.attributes.getNamedItem("data-value").value;
-        
-    
-    //     if (btnType === "yes") {
-    //         console.log("yes")
-    //         // let storyContainer = this.refs.scroll
-    //         // storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
-    //       this.updateStory(storyObj.home.start.p2)
-    //     } 
-    //     if (btnType === "no") {
-    //         console.log("no")
-    //       this.updateStory(storyObj.home.start.p3)
-    //     }
-        
-    //   };
+    }
+
+
 
     handleBtnClick = event => {
         event.preventDefault();
@@ -130,6 +117,7 @@ class Hangman extends React.Component {
                 if (right === 4) {
                     this.setState({win: "You win"})
                     this.setState({gameScreen: "show"})
+                    this.game()
                     varWin = "yes"
                 }
             }
@@ -178,6 +166,8 @@ class Hangman extends React.Component {
                             ctx.drawImage(image7, 80, 50);
                             this.setState({win: "You Lose"})
                             this.setState({gameScreen: "show"})
+                            this.game()
+
                             varWin="no"
                             break;
                         default:
@@ -226,8 +216,15 @@ class Hangman extends React.Component {
             <div className={this.state.gameScreen} id="lose-cover">
                 <div className="gamescreen-words">
                     <p>{this.state.win}</p>
-                    <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
+                    {/* <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
                         done
+                        
+                    </button> */}
+                    <button className="btn btn-primary hide-screen" onClick={this.hideScreen}>
+                        <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
+                            done
+                        
+                        </button>
                     </button>
                 </div>
             </div>

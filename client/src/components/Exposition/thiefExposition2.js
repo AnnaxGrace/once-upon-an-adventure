@@ -7,7 +7,7 @@ function ThiefExposition2(props) {
           
           <ExpoBtn
             className={props.hideState}
-            id = "thiefNo"
+            id = "thiefNo2"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="thiefNo2"
@@ -15,7 +15,7 @@ function ThiefExposition2(props) {
           />
           <ExpoBtn
             className={props.hideState}
-            id = "thiefYes"
+            id = "thiefYes2"
             // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="thiefYes2"

@@ -64,9 +64,44 @@ class CanvasSnake extends React.Component {
         
     }
 
+    hideScreen = () => {
+        console.log("this hide screen works?");
+        this.setState({gameScreen: "hide"})
+        this.reset()
+        clearInterval(this.game, 2000/15)
+        this.reset()
+        setInterval(this.game, 2000/5)
+        // setInterval(this.game, 2000/15)
+
+    }
     
+    //resets all our variables to play again
+    reset = () => {
+        xv = 0;
+        yv = 0;
+        px = 12;
+        py = 10;
+        gs = 20;
+        tc = 20;
+        ax = 15;
+        ay = 15;
+        wx = 40;
+        wy = 40;
+        trail = [];
+        tail = 5;
+        points = 0;
+        answer = 2;
+        num1 = 1;
+        num2 = 1;
+
+        this.setState({number1: num1})
+        this.setState({number2: num2})
+        this.setState({statePoints: points})
+    }
+
     //This function contains all of the game logic
     game = () => {
+
 
         //continually moves the snake once we've increased it once
             px += xv;
@@ -236,8 +271,11 @@ class CanvasSnake extends React.Component {
                 <div className={this.state.gameScreen} id="lose-cover" value={this.state.StatePoints}>
                     <p>YOU LOSE</p>
                     <p>End Points: {this.state.statePoints}</p> 
-                    <button className="btn btn-primary" data-value={points} onClick={this.props.handleDoneButtonClick}>
-                        done
+                    
+                    <button className="btn btn-primary hide-screen" onClick={this.hideScreen}>
+                        <button className="btn btn-primary" data-value={points} onClick={this.props.handleDoneButtonClick}>
+                            done
+                        </button>
                     </button>
                 </div>
           </div>
