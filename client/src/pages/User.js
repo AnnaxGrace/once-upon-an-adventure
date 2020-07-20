@@ -18,6 +18,7 @@ function User() {
     
     return(
         <Container>
+            <MusicBtn />
                 <h1 className="text-center">Welcome to Your Realm</h1>
 
                 <div className="row">

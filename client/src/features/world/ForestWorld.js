@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 import { Forest } from '../../data/maps/1'
 import store from '../../config/store'
+import MusicBtn from '../../components/SoundBtns/MusicBtn';
 
 function ForestWorld(props) {
     let tiles = Forest;
@@ -44,6 +45,7 @@ function ForestWorld(props) {
                 borderRadius: '5px'
             }}
         >
+            <MusicBtn />
             <Map />
             <Player avatar={props.avatar} avatarName={props.avatarName} />
         </div>

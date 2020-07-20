@@ -5,9 +5,7 @@ import About from "../components/About/About";
 import { Container } from "../components/Grid";
 import Login from "../components/Login/Login";
 import API from "../utils/API";
-import { gameMusic } from "../features/sound/index"
-import MusicBtn from "../components/SoundBtns/MusicBtn"
-
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 class Home extends Component {
   state = {
@@ -65,6 +63,7 @@ class Home extends Component {
   render() {
     return (
       <Container>
+        <MusicBtn />
         <div className="row">
           <div className="col-md-7 text-center">
             {/* Opening splash image */}

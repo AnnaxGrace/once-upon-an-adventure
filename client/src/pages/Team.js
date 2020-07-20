@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../components/Grid";
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 const styles = {
   sprites: {
@@ -57,6 +58,7 @@ const teamInfo = [
 function Team() {
   return (
     <div>
+      <MusicBtn />
       <div style={styles.divPos}>
         <h1 className="text-center">The Team</h1>
         <div className="row">

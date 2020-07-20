@@ -1,6 +1,7 @@
 import React from "react";
 import "./ThroneRoom.css"
 
+
 const styles = {
     throneImg: {
         height: "360px"
@@ -10,6 +11,7 @@ const styles = {
 function ThroneRoom(props) {
     return(
         <div className="thronePosition">
+          
             <img src={require("../../images/Throne-Room.png")} alt="Throne Room" style={styles.throneImg}/>
 
             <div className="charPosition">

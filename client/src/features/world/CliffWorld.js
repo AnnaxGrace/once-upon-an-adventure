@@ -7,6 +7,7 @@ import handleKeydown, { handleKeyDown } from "../player/movement"
 
 import { Cliffside } from '../../data/maps/1'
 import store from '../../config/store'
+import MusicBtn from '../../components/SoundBtns/MusicBtn';
 
 function CliffWorld(props) {
     let tiles = Cliffside
@@ -51,6 +52,7 @@ function CliffWorld(props) {
                 borderRadius: '5px'
             }}
         >
+            <MusicBtn />
             <Map />
             <Player avatar={props.avatar} avatarName={props.avatarName} />
         {/* onKeyDown={handleKeyboard} */}

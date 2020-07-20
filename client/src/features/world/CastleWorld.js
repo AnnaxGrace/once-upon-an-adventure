@@ -3,7 +3,7 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
-
+import MusicBtn from "../../components/SoundBtns/MusicBtn"
 import { Castle } from '../../data/maps/1'
 import store from '../../config/store'
 
@@ -41,6 +41,7 @@ function CastleWorld(props) {
                 borderRadius: '5px'
             }}
         >
+            <MusicBtn />
             <Map />
             <Player avatar={props.avatar} avatarName={props.avatarName} />
         </div>

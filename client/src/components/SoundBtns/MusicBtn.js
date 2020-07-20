@@ -9,7 +9,7 @@ function MusicBtn(props) {
     const [musicPlace, setMusicPlace] = useState(null)
     const [music, setMusic] = useState(null)
     const { id } = useParams();
-    let currentMusic;
+    let currentMusic= gameMusic;
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {

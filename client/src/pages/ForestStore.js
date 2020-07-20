@@ -8,6 +8,7 @@ import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
 import ComingSoon from "../components/ComingSoon/ComingSoon";
 import Store from "../components/Store/Store";
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 function ForestGame() {
 
@@ -54,6 +55,7 @@ function ForestGame() {
 
     return(
         <div>
+            <MusicBtn />
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}

@@ -1,8 +1,8 @@
 #musicBtn{
-    border: none;
+    border: solid black 1px;
     background-color:#99cad7;
     position: fixed;
-    top: 7%;
+    top: 8%;
     left: 90%;
     border-radius: 10px;
     width: 75px;

@@ -12,7 +12,7 @@ import WizardExposition from "../../components/Exposition/wizardExposition";
 import "./gamePlay.css"
 import CanvasSnake from '../../components/CanvasSnake';
 import ThiefExposition from '../../components/Exposition/thiefExposition';
-import MusicBtn from "../../components/SoundBtns/MusicBtn"
+// import MusicBtn from "../../components/SoundBtns/MusicBtn"
 import CanvasHangman from "../../components/CanvasHangman"
 
 
@@ -286,7 +286,7 @@ function Player(props) {
     
     return(
         <div>
-            <MusicBtn />
+            {/* <MusicBtn /> */}
         <div className="row"    
         style={{
             position: 'absolute',

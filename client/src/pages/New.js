@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "../components/Grid";
 import API from "../utils/API";
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 const styles={
     newCard: {
@@ -105,6 +106,7 @@ function New() {
 
     return(
         <Container>
+            <MusicBtn />
             <h1 className="text-center">Start a New Adventure</h1>
 
             <div className="row">

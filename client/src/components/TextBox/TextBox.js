@@ -345,6 +345,7 @@ import { withRouter } from "react-router";
 import Inventory from "../Inventory/Inventory";
 
 
+
 // let first = "true";
 let userName = "You";
 // const { id } = useParams();
@@ -689,6 +690,7 @@ class TextBox extends React.Component {
     render () {
     return(
             <div>
+               
                 <div className="mapBG">
                     <div ref = "scroll">
                     
