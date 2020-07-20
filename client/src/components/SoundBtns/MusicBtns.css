@@ -1,8 +1,12 @@
 #musicBtn{
-    border: none;
+    border: solid black 1px;
     background-color:#99cad7;
-    position: absolute;
-    left: 95%;
+    position: fixed;
+    top: 8%;
+    left: 90%;
+    border-radius: 10px;
+    width: 75px;
+    text-align: center;
 }
 #musicBtn:hover {
     color: #b6e4f5;

@@ -10,7 +10,7 @@ import Village from "../components/MapLocations/Village";
 import Castle from "../components/MapLocations/Castle";
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
-
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 const styles = {
     bookImg: {
@@ -49,6 +49,7 @@ function Continue() {
 
     return (
         <div>
+            <MusicBtn />
             <h1 className="text-center">World Map</h1>
 
             {/* Inventory Bar */}

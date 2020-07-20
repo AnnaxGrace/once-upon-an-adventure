@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { useParams } from "react-router-dom";
 
 
+
 const styles = {
     throneImg: {
         height: "360px"
@@ -32,6 +33,7 @@ function ThroneRoom(props) {
 
     return(
         <div className="thronePosition">
+          
             <img src={require("../../images/Throne-Room.png")} alt="Throne Room" style={styles.throneImg}/>
 
             <div className="charPosition">

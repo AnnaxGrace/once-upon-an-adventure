@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
 import ThroneRoom from "../components/ThroneRoom/ThroneRoom";
+import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 function InnerCastle() {
 
@@ -42,6 +43,7 @@ function InnerCastle() {
 
     return(
         <div>
+            <MusicBtn />
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
