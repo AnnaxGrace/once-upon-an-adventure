@@ -17,10 +17,20 @@
     
 }
 
-.thiefBtns {
+.thiefBtns, .thiefBtns2 {
     position: absolute;
     top: 63%;
     left: 70%;
+}
+
+#thiefYes2, #thiefNo2 {
+    border-radius: 3px;
+    border-color: #b56262;
+    margin: 2px;
+    background-color: #d38888;
+    color: #9b5051;
+    height: 40px;
+    width: 200px;
 }
 
 .guardBtns {
@@ -86,4 +96,14 @@
     background-color:rgba(0,0,0,0.4);
     /* background-color: hsla(60, 20%, 99%, 0.9); */
     border-radius: 0px 0px 10px 10px;
+}
+
+.hide-screen {
+    background-color: black;
+    border-color: black;
+}
+
+.hide-screen:hover {
+    background-color: black;
+    border-color: black;
 }

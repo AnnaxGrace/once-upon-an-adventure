@@ -1,5 +1,6 @@
 import React from "react";
 import "./hangman.css"
+import LetterBtns from "./LetterBtns"
 
 //global variables necessary to have gameplay
 let wrong = 0;
@@ -9,6 +10,7 @@ let word;
 let miniWrong = 0;
 let wrongSpacing = 0;
 let right = 0;
+let varWin;
 
 class Hangman extends React.Component {
 
@@ -20,10 +22,26 @@ class Hangman extends React.Component {
  
     //when our page loads
     componentDidMount() {
-
+        console.log(this.props)
         //get/setup our canvas
         let canvas = this.refs.canvas
         ctx = canvas.getContext("2d")
+
+        this.game()
+    }
+
+    // wrapperFunction () {
+    //     {props.handleHangButtonClick()}
+    //     this.hideScreen()
+    // }
+
+    
+    //Grabs a random word from our word array
+    game = () => {
+        
+        wrongSpacing=0;
+        wrong=0;
+        right=0;
         ctx.fillStyle="white";
         ctx.fillRect(80, 50, 140, 190)
 
@@ -35,46 +53,35 @@ class Hangman extends React.Component {
         ctx.drawImage(space, 130, 300)
         ctx.drawImage(space, 240, 300)
         ctx.drawImage(space, 350, 300)
-
-        this.game()
-    }
-
-    handleDoneButtonClick() {
-        //this will display: none snake canvas
-        //pushes points back to CliffText
-        //run function game done??
-
-    }
-    //Grabs a random word from our word array
-    game = () => {
-        
+        // this.setState({gameScreen: "hide"})
         let indexNum = Math.floor(Math.random() * 16);
         word = wordArray[indexNum]
+
+        ctx.fillStyle="black";
+        ctx.fillRect(230, 20, 280, 160)
         
     }
 
-    handleInputChange = event => {
-        // Getting the value and name of the input which triggered the change
-        const { name, value } = event.target;
-    
-        // Updating the input's state
-        this.setState({
-          [name]: value
-        });
-      };
+    hideScreen = () => {
+        console.log("this hide screen works?");
+        this.setState({gameScreen: "hide"})
 
-    handleFormSubmit = event => {
+    }
+
+
+
+    handleBtnClick = event => {
         event.preventDefault();
     
-        this.setState({
-          letter: "",
-        });
+        const btnType = event.target.attributes.getNamedItem("data-value").value;
+
+        
         
         //we need to reset miniwrong many times so that we don't accidentally add the correct letter to the wrong list
         miniWrong = 0
         for (var i = 0; i < word.length; i++){
             //if the word's letter matches the letter given
-            if (word[i] === this.state.letter) {
+            if (word[i] === btnType) {
                 //notes the position of the word the letter is in
                 miniWrong = 0
                 
@@ -85,25 +92,21 @@ class Hangman extends React.Component {
                 //Writes letter given depending on the position in the word
                 switch (position) {
                     case 0:
-                        console.log("hi")
                         ctx.fillText(word[i], 55, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 1:
-                        console.log("hi")
                         ctx.fillText(word[i], 165, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 2:
-                        console.log("hi")
                         ctx.fillText(word[i], 275, 340)
                         right++
                         miniWrong = 0
                         break;
                     case 3:
-                        console.log("hi")
                         ctx.fillText(word[i], 385, 340)
                         right++
                         miniWrong = 0
@@ -114,6 +117,8 @@ class Hangman extends React.Component {
                 if (right === 4) {
                     this.setState({win: "You win"})
                     this.setState({gameScreen: "show"})
+                    this.game()
+                    varWin = "yes"
                 }
             }
             else {
@@ -126,7 +131,7 @@ class Hangman extends React.Component {
                     ctx.font="30px arial";
 
                     //wrongSpacing increasing the spacing everytime you get an answer wrong so that numbers are not written on top of each other
-                    ctx.fillText(this.state.letter, 240 + wrongSpacing, 50)
+                    ctx.fillText(btnType, 240 + wrongSpacing, 50)
                     wrongSpacing += 25
                     
                     miniWrong = 0
@@ -160,7 +165,10 @@ class Hangman extends React.Component {
                         case 6: 
                             ctx.drawImage(image7, 80, 50);
                             this.setState({win: "You Lose"})
-                            this.setState({gamescreen: "show"})
+                            this.setState({gameScreen: "show"})
+                            this.game()
+
+                            varWin="no"
                             break;
                         default:
                             break;
@@ -188,8 +196,13 @@ class Hangman extends React.Component {
                 <img ref="Hangmanspace" src ={require("../../images/Hangmanspace.png")} alt="Spaces for the Hangman"></img>
 
             </div>
+            <div className="letters">
+                <LetterBtns 
+                handleBtnClick={this.handleBtnClick}
+                />
+            </div>
             
-            <form className="form form-style">
+            {/* <form className="form form-style">
                 <input
                     value={this.state.letter}
                     name="letter"
@@ -198,13 +211,22 @@ class Hangman extends React.Component {
                 />
           
                 <button onClick={this.handleFormSubmit}>Submit</button>
-            </form>
+            </form> */}
 
             <div className={this.state.gameScreen} id="lose-cover">
+                <div className="gamescreen-words">
                     <p>{this.state.win}</p>
-                    <button className="btn btn-primary" onClick={this.handleDoneButtonClick}>
+                    {/* <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
                         done
+                        
+                    </button> */}
+                    <button className="btn btn-primary hide-screen" onClick={this.hideScreen}>
+                        <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
+                            done
+                        
+                        </button>
                     </button>
+                </div>
             </div>
 
           </div>

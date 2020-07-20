@@ -12,6 +12,8 @@ import WizardExposition from "../../components/Exposition/wizardExposition";
 import "./gamePlay.css"
 import CanvasSnake from '../../components/CanvasSnake';
 import ThiefExposition from '../../components/Exposition/thiefExposition';
+import ThiefExposition2 from '../../components/Exposition/thiefExposition2';
+
 
 import CanvasHangman from "../../components/CanvasHangman"
 
@@ -183,7 +185,7 @@ function Player(props) {
         }
         if (firstThiefTalk === false) {
             varStoryString += " Thief Anna says 'What do you want?' "
-            setGameState({...gameState, storyString: varStoryString, thiefButtons2: "show"})
+            setGameState({...gameState, storyString: varStoryString, thiefButtons2: "show", thiefButtons: "hide"})
         }
     }
 
@@ -233,12 +235,26 @@ function Player(props) {
                 if (btnType === "thiefYes") {
                     varStoryString += " " + userName + " says 'okay!' and hands over all their money."
                     setGameState({...gameState, thiefButtons: "hide", storyString: varStoryString })
+                    API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
+                        console.log("updated thiefTalk")
+                        firstThiefTalk = false;            
+                    });
                     //player loses all money
                     //api money to 0
                 }
                 if (btnType === "thiefNo") {
                     varStoryString += " " + userName + " says 'no way!' The thief snickers and says 'Then you must beat me in a game of Hangman!' "
                     setGameState({...gameState, thiefButtons: "hide", storyString: varStoryString, hangmanMinigame: "show"})
+                }
+
+                if (btnType === "thiefYes2") {
+                    varStoryString += " " + userName + " says 'Gimmie your money!' Thief Anna looks shocked for a minute, then says, 'Bring it on!' "
+                    setGameState({...gameState, thiefButtons2: "hide", storyString: varStoryString, hangmanMinigame: "show" })
+                    
+                }
+                if (btnType === "thiefNo2") {
+                    varStoryString += " " + userName + " decides to leave Thief Anna alone for now. "
+                    setGameState({...gameState, thiefButtons2: "hide", storyString: varStoryString})
                 }
                 
     };
@@ -256,7 +272,7 @@ function Player(props) {
     }
 
     function handleDoneButtonClick(event) {
-        
+        console.log("no running?")
         const btnValue = event.target.attributes.getNamedItem("data-value").value
         //this is points to convert to money
         console.log(btnValue)
@@ -268,16 +284,29 @@ function Player(props) {
     }
 
     function handleHangButtonClick(event) {
+        console.log("this handle hang click works?")
+
+        API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
+            console.log("updated thiefTalk")
+            firstThiefTalk = false;            
+        });
         
-        const btnValue = event.target.attributes.getNamedItem("data-value").value
-        //this is points to convert to money
-        console.log(btnValue)
-        varStoryString += " " + "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " + userName + "! You won " + btnValue + " gold! Come see me if you want to play again!' "
-        setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
+        const btnWin = event.target.attributes.getNamedItem("data-value").value
+        console.log(btnWin)
+        if (btnWin === "yes") {
+            varStoryString += " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone! I won't block you way if you come this way again.' "
+            setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+        }
+        if (btnWin === "no") {
+            varStoryString += " Thief Anna laughs in " + userName + "'s face 'HA. You LOSE. Gimmie your money! ...But you know what? You put up a good fight. I won't take all of your money - just 10 gold.' " + userName + " tries to hide their anger and sadness while handing over ten gold."
+            setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+        }
+        
         //update api
         //update variable
         //Need to do all done here if/ for how much money for points, need to have points show up here
     }
+
 
     
    if (!props.avatar) {
@@ -321,6 +350,13 @@ function Player(props) {
             hideState={gameState.thiefButtons}
             />
         </div>
+
+        <div className="thiefBtns2">
+            <ThiefExposition2
+            handleBtnClick={handleBtnClick}
+            hideState={gameState.thiefButtons2}
+            />
+        </div>
         
         <div className={gameState.snakeMinigame} id="snake" >
             <CanvasSnake 
@@ -331,7 +367,6 @@ function Player(props) {
         <div className={gameState.hangmanMinigame} id="hangman" >
             <CanvasHangman 
             handleHangButtonClick={handleHangButtonClick}
-            // handleKeyDown={handleKeyDown}
             />
         </div>
                          
