@@ -55,14 +55,9 @@ export default {
     return axios.put("/api/sprite/thiefTalk/" + id ,spriteData)
   },
 
-  UpdateSpritePlaceCliff: function(spriteData, id) {
-    return axios.put("/api/sprite/placeCliff/" + id, spriteData)
+  UpdateSpritePlace: function(spriteData, id) {
+    return axios.put("/api/sprite/place/" + id + "/" + spriteData)
   },
-
-  UpdateSpritePlaceForest: function(spriteData, id) {
-    return axios.put("/api/sprite/placeForest/" + id, spriteData)
-  },
-  
   
   UpdateSpritePermit: function(spriteData, id) {
     return axios.put("/api/sprite/permit/" + id, spriteData);

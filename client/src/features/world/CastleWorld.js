@@ -18,6 +18,9 @@ function CastleWorld(props) {
     });
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
+        API.UpdateSpritePlace("castle", id).then(()=> {
+            console.log("we're at the castle")          
+        })
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0].sprite)
             const { sprite } = user.data[0].sprite[0]
