@@ -41,16 +41,16 @@ function ForestGame() {
         })
     }, []);
 
-    const handleStoreBtn = () => {
-       if(userMoney >= 50){
-           API.UpdateSpritePermit(true, id).then(()=> {
-               console.log("updated permit")            
-           })
-           alert("Thank you for the Sale, Kupo!")
-       } else{
-           alert("Sorry, Not enough money, Kupo!")
-       }
-      };
+    // const handleStoreBtn = () => {
+    //    if(userMoney >= 50){
+    //        API.UpdateSpritePermit(true, id).then(()=> {
+    //            console.log("updated permit")            
+    //        })
+    //        alert("Thank you for the Sale, Kupo!")
+    //    } else{
+    //        alert("Sorry, Not enough money, Kupo!")
+    //    }
+    //   };
 
     return(
         <div>
@@ -59,7 +59,7 @@ function ForestGame() {
                 {/* Inventory Bar */}
                 <InventoryGame />
                 {/* <ComingSoon /> */}
-                <Store handleStoreBtn={handleStoreBtn}/>
+                {/* <Store handleStoreBtn={handleStoreBtn}/> */}
 
                 <div>
                     {/* Game Board */}
