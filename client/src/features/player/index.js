@@ -244,20 +244,43 @@ function Player(props) {
       varStoryString +=
         " " +
         userName +
-        " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS' he says. ";
+        " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
       setGameState({ ...gameState, storyString: varStoryString });
       return;
     }
     if (firstOrcTalk === true) {
-      varStoryString +=
-        " " +
-        userName +
-        " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
-      setGameState({ ...gameState, storyString: varStoryString });
-      API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
-        console.log("updated OrcTalk");
-        firstOrcTalk = false;
+if (varLives === 3) {
+    varStoryString +=
+    " " +
+    userName +
+    " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
+    setGameState({ ...gameState, storyString: varStoryString });
+} else{
+
+    varStoryString +=
+      " " +
+      userName +
+      " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
+    //   setGameState({ ...gameState, storyString: varStoryString });
+    API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
+      console.log("updated OrcTalk");
+      firstOrcTalk = false;
+    }).then(() => {
+      let newLives = varLives + 1;
+    
+      API.UpdateSpriteLives(newLives, id).then(() => {
+        console.log("updated newLives", newLives);
+        setGameState({
+          ...gameState,
+          storyString: varStoryString,
+          stateLives: newLives
+        });
+        varLives = newLives;
       });
+    });
+
+}
+
     }
   }
 
