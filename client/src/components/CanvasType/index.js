@@ -21,6 +21,13 @@ class Type extends React.Component {
  
     //when our page loads
     componentDidMount() {
+      window.addEventListener("keydown", (event)=> {
+        if(event.keyCode == 13) {
+          event.preventDefault();
+          return false;
+        }
+      })
+      
 
         //get/setup our canvas
         let canvas = this.refs.canvas

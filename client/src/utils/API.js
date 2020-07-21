@@ -32,8 +32,13 @@ export default {
     return axios.get(`/api/user/inventory/${id}`)
   },
   
+  UpdateSpriteLives: function(spriteData, id) {
+    return axios.put("/api/sprite/lives/"  + id + "/" + spriteData);
+  },
+  
+  
   UpdateSpriteMoney: function(spriteData, id) {
-    return axios.put("/api/sprite/" + id, spriteData);
+    return axios.put("/api/sprite/money/"  + id + "/" + spriteData);
   },
   UpdateSpriteHomeFirst: function(spriteData, id) {
     return axios.put("/api/sprite/homefirst/" + id, spriteData);
