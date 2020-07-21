@@ -54,18 +54,18 @@ class StoreTextBox extends React.Component {
         
     }
 
-    handleStoreBtn = () => {
-        if(this.money >= 50){
-            API.UpdateSpritePermit(true, this.id).then(()=> {
-                console.log("updated permit")            
-            })
-             varString += " Shopkeeper Erik smiles and says 'Thank you for the Sale, Kupo! " + userName + " has added a permit to their inventory! "
-            this.setState({storyString: varString})
-        } else{
-            varString += " Shopkeeper Erik frowns and says 'Sorry, not enough money, Kupo!"
-            this.setState({storyString: varString})
-        }
-       };
+    // handleStoreBtn = () => {
+    //     if(this.money >= 50){
+    //         API.UpdateSpritePermit(true, this.id).then(()=> {
+    //             console.log("updated permit")            
+    //         })
+    //          varString += " Shopkeeper Erik smiles and says 'Thank you for the Sale, Kupo! " + userName + " has added a permit to their inventory! "
+    //         this.setState({storyString: varString})
+    //     } else{
+    //         varString += " Shopkeeper Erik frowns and says 'Sorry, not enough money, Kupo!"
+    //         this.setState({storyString: varString})
+    //     }
+    //    };
    
 
     render () {
@@ -76,7 +76,7 @@ class StoreTextBox extends React.Component {
                         {this.state.storyString}
                     </div>
                 </div>
-                <Store handleStoreBtn={this.handleStoreBtn}/>   
+                {/* <Store handleStoreBtn={this.handleStoreBtn}/>    */}
             </div>
         )
     }
