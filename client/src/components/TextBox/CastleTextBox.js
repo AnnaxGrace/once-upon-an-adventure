@@ -127,12 +127,22 @@ class StoreTextBox extends React.Component {
         this.setState({typeMinigame: "hide"})
         
         // window location reload to win game page
+      
     }
 
     handleLoseDoneButtonClick = () => {
         this.updateStory(userName + " feels ashamed that they were not able to help the king. The king signs and then says 'Well... come talk to me if you would like to try again.' ")
 
         //api lose heart
+        const id = this.props.match.params.id;
+        let newLives = this.state.lives - 1;
+        console.log(newLives);
+        console.log(id)
+          API.UpdateSpriteLives(newLives, id).then(() => {
+            console.log("updated newLives", newLives);
+            
+            this.state.lives = newLives;
+          });
     }
    
 
@@ -159,6 +169,7 @@ class StoreTextBox extends React.Component {
                 <div className={this.state.typeMinigame} id="type" >
                     <CanvasType
                     handleDoneButtonClick={this.handleDoneButtonClick}
+                    handleLoseDoneButtonClick={this.handleDoneButtonClick}
                     />
                 </div>
                 <div >

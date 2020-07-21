@@ -6,7 +6,7 @@ const spriteController = require("../../controllers/spriteController");
 router.route("/:id?")
   .get(spriteController.findAll)
   .post(spriteController.create)
-  .put(spriteController.update)
+  
   
   router.route("/homefirst/:id?")
   .put(spriteController.updateHomeFirst)
@@ -28,6 +28,12 @@ router.route("/:id?")
 
   router.route("/place/:id?/:place?")
   .put(spriteController.updatePlace)
+
+  router.route("/money/:id?/:money?")
+  .put(spriteController.updateMoney)
+
+  router.route("/lives/:id?/:lives?")
+  .put(spriteController.updateLives)
 
 
 
