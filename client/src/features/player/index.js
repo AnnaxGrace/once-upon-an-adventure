@@ -210,7 +210,7 @@ function Player(props) {
           varStoryString +=
             " " +
             userName +
-            " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!', and goes inside the castle so that" +
+            " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!', and moves aside so that " +
             userName +
             " can choose to enter the castle. ";
           setGameState({ ...gameState, storyString: varStoryString });
@@ -347,7 +347,7 @@ if (varLives === 3) {
         varStoryString +=
           " " +
           userName +
-          " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!' and goes inside the castle so that " +
+          " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!' and moves aside so that " +
           userName +
           " can choose to enter the castle. ";
         setGameState({

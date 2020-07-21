@@ -18,7 +18,7 @@ function ThroneRoom(props) {
 
     const { id } = useParams();
 
-    const [userImage, setUserImage] = useState("placeholder.gif")
+    const [userImage, setUserImage] = useState("placeholder1.gif")
 
 
 
