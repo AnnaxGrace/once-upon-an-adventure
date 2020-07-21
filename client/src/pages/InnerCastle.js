@@ -6,6 +6,7 @@ import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
 import ThroneRoom from "../components/ThroneRoom/ThroneRoom";
 import MusicBtn from "../components/SoundBtns/MusicBtn";
+import YouWin from "../components/ComingSoon/YouWin";
 
 function InnerCastle() {
 
