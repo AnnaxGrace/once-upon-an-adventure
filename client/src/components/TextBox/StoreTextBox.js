@@ -53,12 +53,6 @@ class StoreTextBox extends React.Component {
         })
         
     }
-      
-
-
-    
-
-   
 
     handleStoreBtn = () => {
         if(this.money >= 50){
@@ -81,13 +75,8 @@ class StoreTextBox extends React.Component {
                     <div ref = "scroll">
                         {this.state.storyString}
                     </div>
-                    
                 </div>
-
-                <Store handleStoreBtn={this.handleStoreBtn}/>
-
-
-                
+                <Store handleStoreBtn={this.handleStoreBtn}/>   
             </div>
         )
     }

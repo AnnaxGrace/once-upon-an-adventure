@@ -33,7 +33,7 @@ module.exports = {
         db.User.find({_id: req.params.id}).then(
           dbUser => {
             // console.log(dbUser)
-            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {money: 10}}, {useFindAndModify: false})
+            db.Sprite.findOneAndUpdate({ _id: dbUser[0].sprite }, { $set: {money: 60}}, {useFindAndModify: false})
           .then(dbBook => {
             // console.log("dbBook")
             res.json(dbBook)})
