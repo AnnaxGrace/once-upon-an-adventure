@@ -37,8 +37,7 @@ function CliffGame() {
         <div>
                 <h1 className="text-center">The Cliffs</h1>
 
-                {/* Inventory Bar */}
-                <InventoryGame />
+                
                 <div>
                     {/* Game Board */}
                         <CliffWorld avatar={userAvatar} avatarName={userAvatarName}/>

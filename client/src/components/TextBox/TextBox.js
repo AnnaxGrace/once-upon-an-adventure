@@ -515,7 +515,7 @@ class TextBox extends React.Component {
                     p3: userName + " says, 'Not now, thanks. Maybe later!"
                 },
                 enter: {
-                    p1: userName + " emerges from the path and looks out at the ocean and Wizard Jace. ",
+                    p1: userName + " emerges from the path and looks out at the mountains and Wizard Jace. ",
                     p2: "'Hi " + userName + " did you want to play my math game?' ",
                     //Play game? If yes 
                     //if yes

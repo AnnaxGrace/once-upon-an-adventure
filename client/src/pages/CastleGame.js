@@ -51,8 +51,6 @@ function CastleGame() {
         <div>
                 <h1 className="text-center">The Castle</h1>
 
-                {/* Inventory Bar */}
-                <InventoryGame />
                 <div>
                     {/* Game Board */}
                         {renderCastle()}

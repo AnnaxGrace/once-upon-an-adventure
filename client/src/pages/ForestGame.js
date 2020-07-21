@@ -51,8 +51,6 @@ function ForestGame() {
         <div>
             <h1 className="text-center">The Forest</h1>
 
-            {/* Inventory Bar */}
-            <InventoryGame />
             <div>
                 {/* Game Board */}
                 {renderForest()}

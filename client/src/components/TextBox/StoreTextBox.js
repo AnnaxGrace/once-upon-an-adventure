@@ -2,6 +2,7 @@ import React from "react";
 import "./TextBox.css";
 import API from "../../utils/API";
 import { withRouter } from "react-router";
+import StoreInventory from "../Inventory/storeInventory"
 import Store from "../Store/Store"
 
 
@@ -42,6 +43,8 @@ class StoreTextBox extends React.Component {
                 this.setState({ lives: lives })
                 this.setState({money: money})
                 this.setState({id: id})
+                console.log("this is money")
+                console.log(this.state.money)
 
                 userName = user.data[0].sprite[0].name
                    
@@ -75,6 +78,10 @@ class StoreTextBox extends React.Component {
                         {this.state.storyString}
                     </div>
                 </div>
+
+                < StoreInventory 
+                money={this.state.money}
+                />
                 {/* <Store handleStoreBtn={this.handleStoreBtn}/>    */}
             </div>
         )

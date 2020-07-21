@@ -3,8 +3,9 @@ import "./InventoryGame.css";
 import { Container } from "../Grid";
 import API from "../../utils/API"
 import { useParams } from "react-router-dom";
+import { PromiseProvider } from "mongoose";
 
-function InventoryGame() {
+function InventoryGame(props) {
     const { id } = useParams();
 
     const [userMoney, setUserMoney] = useState(null)
@@ -83,7 +84,7 @@ API.getUserSprite(id).then(user => {
                     {/* Hard coded for now, will later be determined by user data */}
                     COINS:
                         <img src={require("../../images/coins.png")} className="invtImg" alt="Coins" />
-                         x {userMoney}
+                         x {props.playerMoney}
                 </div>
 
             </div>

@@ -17,7 +17,8 @@ class Hangman extends React.Component {
     state = {
         letter: "",
         gameScreen: "hide",
-        win: ""
+        win: "",
+        endWord: ""
     }
  
     //when our page loads
@@ -117,6 +118,7 @@ class Hangman extends React.Component {
                 if (right === 4) {
                     this.setState({win: "You win"})
                     this.setState({gameScreen: "show"})
+                    this.setState({endWord: word})
                     this.game()
                     varWin = "yes"
                 }
@@ -166,6 +168,7 @@ class Hangman extends React.Component {
                             ctx.drawImage(image7, 80, 50);
                             this.setState({win: "You Lose"})
                             this.setState({gameScreen: "show"})
+                            this.setState({endWord: word})
                             this.game()
 
                             varWin="no"
@@ -216,10 +219,7 @@ class Hangman extends React.Component {
             <div className={this.state.gameScreen} id="lose-cover">
                 <div className="gamescreen-words">
                     <p>{this.state.win}</p>
-                    {/* <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
-                        done
-                        
-                    </button> */}
+                    <p>The word was {this.state.endWord}</p>
                     <button className="btn btn-primary hide-screen" onClick={this.hideScreen}>
                         <button className="btn btn-primary" data-value={varWin} onClick={this.props.handleHangButtonClick}>
                             done

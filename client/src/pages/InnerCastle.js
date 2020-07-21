@@ -47,7 +47,7 @@ function InnerCastle() {
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
-                <InventoryGame />
+                {/* <InventoryGame /> */}
                 {/* Throne Room */}
                 <ThroneRoom />
 

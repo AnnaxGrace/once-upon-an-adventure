@@ -5,6 +5,7 @@ import API from "../../utils/API"
 import { useParams } from "react-router-dom";
 import { PromiseProvider } from "mongoose";
 
+//inventory for continue.js
 function Inventory(props) {
     const { id } = useParams();
 
