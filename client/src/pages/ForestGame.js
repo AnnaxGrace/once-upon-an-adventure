@@ -8,7 +8,6 @@ import ForestWorldThiefMoved from '../features/world/ForestWorldThiefMoved';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns"
-import ForestWorldTheifMoved from "../features/world/ForestWorldThiefMoved";
 
 function ForestGame() {
 
@@ -17,7 +16,6 @@ function ForestGame() {
     const [userAvatar, setUserAvatar] = useState(null)
     const [userAvatarName, setUserAvatarName] = useState(null)
     const [thiefTalk, setThiefTalk] = useState(null)
-    const [worldRendered, setWorldRendered] = useState(null)
 
     useEffect(() => {
         console.log(id)
@@ -46,7 +44,7 @@ function ForestGame() {
             case true:
                 return <ForestWorld avatar={userAvatar} avatarName={userAvatarName} />
             case false:
-                return <ForestWorldTheifMoved avatar={userAvatar} avatarName={userAvatarName} />
+                return <ForestWorldThiefMoved avatar={userAvatar} avatarName={userAvatarName} />
         }
     }
     return (
