@@ -38,19 +38,19 @@ function MusicBtn(props) {
             return (<div id="musicBtn" onClick={() => {
                 setMusic(false)
             }}
-            >Music <i class="fas fa-volume-up"></i>
+            >Music <i className="fas fa-volume-up"></i>
             </div>)
         case false:
             currentMusic.stop()
             return (<div id="musicBtn" onClick={() => {
                 setMusic(true)
             }}
-            >Music <i class="fas fa-volume-mute"></i></div>)
+            >Music <i className="fas fa-volume-mute"></i></div>)
         default:
             return (<div id="musicBtn" onClick={() => {
                 setMusic(true)
             }}
-            >Music <i class="fas fa-volume-mute"></i></div>)
+            >Music <i className="fas fa-volume-mute"></i></div>)
     }
 }
 export default MusicBtn;

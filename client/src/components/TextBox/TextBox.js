@@ -612,9 +612,9 @@ class TextBox extends React.Component {
         const id = this.props.match.params.id;
 
         this.updateStory(storyObj.home.start.p4)
-        API.UpdateSpriteMoney(10, id).then(()=> {
+        API.UpdateSpriteMoney(60, id).then(()=> {
             console.log("updated money")
-            this.setState({money: 10})
+            this.setState({money: 60})
            
         })
 
