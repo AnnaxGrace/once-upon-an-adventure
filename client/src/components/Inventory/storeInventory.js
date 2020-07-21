@@ -59,7 +59,7 @@ function heart() {
 
 function permit( ){
 console.log(userPermit)
-    if (userPermit === true){
+    if (props.permit === true){
         return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
     } else {
         return <img src={require("../../images/empty.png")} className="invtImg" alt="Empty" />
@@ -84,7 +84,8 @@ console.log(userPermit)
                 <div className="col-md-4">
                     {/* Hard coded for now, will later be determined by user data */}
                     INVENTORY:
-                    {permit()}
+                    <img src={props.permitImg} className="invtImg" alt="Castle Pass" />
+                    {/* // {permit()} */}
                         {/* <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
                         <img src={require("../../images/health-potion.png")} className="invtImg" alt="Health Potion" /> */}
                 </div>
