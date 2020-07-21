@@ -11,7 +11,6 @@ let varString = "";
  
 class StoreTextBox extends React.Component {
 
-
     state = {
         storyString: "",
         money: 0,

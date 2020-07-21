@@ -1,6 +1,6 @@
 const initialState = {
     // CastleLevel
-    position: [64, 448],
+    position: [0, 448],
     // ForestLevel
     // position: [64, 384],
     // CliffLevel

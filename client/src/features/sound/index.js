@@ -78,6 +78,13 @@ export const castleGate = new Howl({
   volume: 0.25
 });
 
+export const waterSplash = new Howl({
+  src: require('./soundEffects/waterSplash.mp3'),
+  html5: true,
+  format:["mp3", "aac"],
+  volume: 0.25
+});
+
 export const gameMusic = new Howl({
   src: require('./soundEffects/8-BitsMusic.mp3'),
   html5: true,

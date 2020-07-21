@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../config/constants'
-import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace, annaAttacks, shopDoor, castleGate } from '../sound/index'
+import { walkingStone, walkingGrass, walkingGravel, impact1, impact2, rustlingFoliage, orcBabble, guardTalk, magicalJace, annaAttacks, shopDoor, castleGate, waterSplash } from '../sound/index'
 // import GameTextBox from "../../components/TextBox/GameTextBox"
 
 
@@ -44,6 +44,10 @@ function observeBoundaries(oldPos, newPos) {
         (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_SIZE)
 }
 
+let orcInteractions = 0;
+let guardInteractions = 0;
+let thiefInteractions = 0;
+let wizardInteractions = 0;
 function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     // console.log(gamestate)
     const tiles = store.getState().map.tiles
@@ -83,7 +87,8 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
             break;
         case 43:  //talk to Jace
             magicalJace.stop()
-            magicalJace.play();
+            magicalJace.play()
+            wizardInteractions++
             jaceTalking()
             break;
         case 30:  //return to map page
@@ -97,33 +102,73 @@ function observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking
         case 122:  //talk to Guard Tony
             guardTalk.stop();
             guardTalk.play();
+            guardInteractions++
             guardTalking();
             //Story on side of page says "anna talked to guard"
             break;
         case 123:  //talk to Orc Vinnie
             orcBabble.stop();
             orcBabble.play();
+            orcInteractions++
             orcTalking();
             //orc gives heart
             break;
+        case 132:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 133:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 134:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 135:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 136:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 137:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 138:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+        case 139:
+            waterSplash.stop();
+            waterSplash.play()
+            break;
+
         case 247:
             shopDoor.play();
-            setTimeout(()=>{enterShop()}, 800)
-            
+            setTimeout(() => { enterShop() }, 800)
+
             break;
         case 250:
-            annaAttacks.stop();
-            annaAttacks.play();
-            thiefTalking();
+            if (thiefInteractions >= 1) {
+                window.location.reload()
+            } else {
+                annaAttacks.stop();
+                annaAttacks.play();
+                thiefInteractions++
+                thiefTalking();
+            }
             break;
         case 312:  //enter castle
             castleGate.play()
-            setTimeout(()=>{enterCastle()}, 1200)
+            setTimeout(() => { enterCastle() }, 1200)
             break;
 
     }
 
-    if (nextTile > 32 && nextTile !== 122 && nextTile !== 123 && nextTile !== 43 && nextTile !== 247 && nextTile !== 250 && nextTile !== 312 ) {
+    if (nextTile > 32 && nextTile !== 43 && nextTile !== 122 && nextTile !== 123 && nextTile !== 132 && nextTile !== 133 && nextTile !== 134 && nextTile !== 135 && nextTile !== 136 && nextTile !== 137 && nextTile !== 138 && nextTile !== 139 && nextTile !== 247 && nextTile !== 250 && nextTile !== 312) {
         console.log("impact1")
         impact1.stop()
         impact1.play()
@@ -159,22 +204,22 @@ function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalk
 
 function handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     e.preventDefault()
-        switch (e.keyCode) {
-            case 37:
-                return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-    
-            case 38:
-                return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-    
-            case 39:
-                return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-    
-            case 40:
-                return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
-    
-            default:
-                console.log(e.keyCode)
-        }
+    switch (e.keyCode) {
+        case 37:
+            return attemptMove('WEST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+
+        case 38:
+            return attemptMove('NORTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+
+        case 39:
+            return attemptMove('EAST', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+
+        case 40:
+            return attemptMove('SOUTH', guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle);
+
+        default:
+            console.log(e.keyCode)
+    }
 }
 
 
