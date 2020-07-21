@@ -14,6 +14,7 @@ import CanvasSnake from '../../components/CanvasSnake';
 import ThiefExposition from '../../components/Exposition/thiefExposition';
 // import MusicBtn from "../../components/SoundBtns/MusicBtn"
 import ThiefExposition2 from '../../components/Exposition/thiefExposition2';
+import InventoryGame from "../../components/Inventory/inventoryGame"
 
 
 import CanvasHangman from "../../components/CanvasHangman"
@@ -50,6 +51,7 @@ function Player(props) {
         thiefButtons2: "hide",
         hangmanMinigame: "hide",
         storyString: "",
+        stateMoney: 0
         
     });
     
@@ -94,21 +96,40 @@ function Player(props) {
             firstThiefTalk = apiFirstThiefTalk
             hasPermit = permit
             varMoney = money
+            setGameState({...gameState, stateMoney: money})
 
 
             if ( place === "castle") {
-                varStoryString = userName + " follows the path to the castle. Up close it is even more marvelous. " + userName + " notices a guard in front of the castle, glittering in the sunlight in their armor. " + userName + " also thinks they hear a voice very faintly saying '...find me...I'll give you hearts...' "
-                setGameState({...gameState, storyString: varStoryString})
+                if  (firstGuardTalk === true) {
+                    varStoryString = userName + " follows the path to the castle. Up close it is even more marvelous. " + userName + " notices a guard in front of the castle, glittering in the sunlight in their armor. " + userName + " also thinks they hear a voice very faintly saying '...find me...I'll give you hearts...' "
+                    setGameState({...gameState, storyString: varStoryString})
+                }
+                if (firstGuardTalk === false) {
+                    varStoryString = userName + " walks up to the castle once again. "
+                    setGameState({...gameState, storyString: varStoryString})
+                }
             }
 
             if ( place === "forest") {
-                varStoryString = userName +  " enters the forest. There are trees on either side of them, and in the distance, " + userName + " can see a shop! But in the path, inbetween " + userName + " and the shop is a person... "
-                setGameState({...gameState, storyString: varStoryString})
+                if (firstThiefTalk === true) {
+                    varStoryString = userName +  " enters the forest. There are trees on either side of them, and in the distance, " + userName + " can see a shop! But in the path, inbetween " + userName + " and the shop is a person... "
+                    setGameState({...gameState, storyString: varStoryString})
+                }
+                if (firstThiefTalk === false) {
+                    varStoryString = userName + " enters the forest. " + userName + " notices Thief Anna watching them warily. "
+                    setGameState({...gameState, storyString: varStoryString})
+                }
             }
 
             if ( place === "cliff") {
-                varStoryString =  userName + " emerges from the path and looks around. There is a cliff that looks out over mountains. At the edge of the cliff is a magical looking person. " + userName + " wonders if they should go up and talk to them... " 
-                setGameState({...gameState, storyString: varStoryString})
+                if (firstJaceTalk === true) {
+                    varStoryString =  userName + " emerges from the path and looks around. There is a cliff that looks out over mountains. At the edge of the cliff is a magical looking person. " + userName + " wonders if they should go up and talk to them... " 
+                    setGameState({...gameState, storyString: varStoryString})
+                }
+                if (firstJaceTalk === false) {
+                    varStoryString = userName + " emerges from the path and looks out at the mountains and Wizard Jace. "
+                    setGameState({...gameState, storyString: varStoryString})
+                }
             }
         })
     }, []);
@@ -288,19 +309,29 @@ function Player(props) {
     function handleHangButtonClick(event) {
         console.log("this handle hang click works?")
 
-        API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
-            console.log("updated thiefTalk")
-            firstThiefTalk = false;            
-        });
         
         const btnWin = event.target.attributes.getNamedItem("data-value").value
         console.log(btnWin)
         if (btnWin === "yes") {
-            varStoryString += " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone! I won't block you way if you come this way again.' "
-            setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+            if (firstThiefTalk === true) {
+                varStoryString += " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone! I won't block you way if you come this way again.' "
+                setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
+                API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
+                    console.log("updated thiefTalk")
+                    firstThiefTalk = false;            
+                });
+            }
+            if (firstThiefTalk === false) {
+                varStoryString += " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone!' "
+                setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
             //gain 10 gold
+            }
         }
         if (btnWin === "no") {
+            API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
+                console.log("updated thiefTalk")
+                firstThiefTalk = false;            
+            });
             varStoryString += " Thief Anna laughs in " + userName + "'s face 'HA. You LOSE. Gimmie your money! ...But you know what? You put up a good fight. I won't take all of your money - just 10 gold.' " + userName + " tries to hide their anger and sadness while handing over ten gold."
             setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
             //lose 10 gold, lose one heart
@@ -336,6 +367,11 @@ function Player(props) {
                     {gameState.storyString}
                 </div>
         </div>
+
+        {/* Inventory Bar */}
+        <InventoryGame 
+        playerMoney={varMoney}
+        />
         
         <div className="guardBtns">
         <Exposition 

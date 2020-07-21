@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { withRouter } from "react-router";
 import CanvasType from "../CanvasType/index"
 import KingExposition from "../Exposition/kingExposition"
+import InnerCastleInventory from "../Inventory/innerCastleInventory"
 
 
 let userName = "You";
@@ -21,50 +22,9 @@ class StoreTextBox extends React.Component {
         typeMinigame: "hide",
         lives: "",
         money: 0,
-        home: {
-            
-        castle: {
-            
-            path2: {
-                start: {
-                    start: {
-                        p1: userName + " enters a grand hall. At the end of it sits the king. ",
-                        //dialogue box
-                        p2: "'Hello citizen', says the king. 'Can you help me? I'm not a good king if I can't type, but no one can teach me!' ",
-                        //prompt with yes or no
-                        //if no
-                        p3: userName + " shakes their head and says 'I can't right now'. 'Oh.' Says the king. 'That's unfortunate and awkward. Well, come talk to me if you change your mind!' ",
-                        //from then on you can approach the king to take the challenge 
-                        //if yes
-                        p4: userName + " says 'You bet I can!' 'Fantastic!' says the king. 'Let's start now!"
-                        //typing mini-game starts
-                    },
-                    enter: {
-                        //walk up to king
-                        p1: "'Hello again!' Says the king. 'Have you come to help me?' ",
-                        //prompt yes or no
-                        //if no
-                        p2: userName + " shakes their head and says 'I can't right now'. 'Oh.' Says the king. 'I feel like you're playing games with my heart. Well, come talk to me if you change your mind!' ",
-                        //if yes
-                        p3: userName+ " gives the king a big thumbs up and says 'I have!' The king smiles at " + userName + " and says 'Then let's get started!' ",
-                        //mini game starts
-                    },
-                    //if lose 
-                    p1: userName + " feels ashamed that they were not able to help the king. The king signs and then says 'Well... come talk to me if you would like to try again.' ",
-                    //if win
-                    p2: userName + " has helped the king. " + userName + " feels a big sense of accomplishment, and wonders if they should revisit any old friends... "
-                    
-                }
-            }
-        },
-       
-
-            
-        }
     }
 
-    //we could also do if storyString === ""
-    //so this.state.storyString === ""
+
     componentDidMount() {
         console.log("pre API", userName)
         const id = this.props.match.params.id;
@@ -88,13 +48,14 @@ class StoreTextBox extends React.Component {
         }).then(()=>{
             API.getUserSprite(id).then(user => {
                 console.log(user.data[0].sprite[0])
-                const { sprite, homeFirst, lives } = user.data[0].sprite[0]
+                const { sprite, homeFirst, lives, money } = user.data[0].sprite[0]
            
                 console.log("../../assets/sprites/", sprite)
                 console.log(lives)
                 this.setState({ image: sprite})
                 this.setState({ homeFirst: true})
                 this.setState({ lives: lives })
+                this.setState({money: money})
 
                 userName = user.data[0].sprite[0].name
                 if ( this.state.homeFirst === true ) {
@@ -184,6 +145,10 @@ class StoreTextBox extends React.Component {
                     </div>
                     
                 </div>
+
+                < InnerCastleInventory 
+                money={this.state.money}
+                />
 
                 <div className="kingBtns">
                     <KingExposition 

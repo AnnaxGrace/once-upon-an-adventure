@@ -59,7 +59,7 @@ function ForestGame() {
                 <h1 className="text-center">The Forest</h1>
 
                 {/* Inventory Bar */}
-                <InventoryGame />
+                {/* <InventoryGame /> */}
                 {/* <ComingSoon /> */}
                 <Store handleStoreBtn={handleStoreBtn}/>
 
@@ -68,7 +68,7 @@ function ForestGame() {
                         {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        {/* <StoreTextBox avatarName={userAvatarName}/> */}
+                        <StoreTextBox avatarName={userAvatarName}/>
                     </div>
                 </div>
                 <MenuBtns />
