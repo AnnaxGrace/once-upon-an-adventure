@@ -90,7 +90,7 @@ export const gameMusic = new Howl({
   html5: true,
   // autoSuspend: true,
   format:["mp3", "aac"],
-  volume: 0.03,
+  volume: 0.10,
   loop: true,
 });
 
@@ -99,7 +99,7 @@ export const gameMusic2 = new Howl({
   html5: true,
   // autoSuspend: true,
   format:["mp3", "aac"],
-  volume: 0.03,
+  volume: .09,
   loop: true,
 });
 
@@ -108,6 +108,6 @@ export const gameMusic3 = new Howl({
   html5: true,
   // autoSuspend: true,
   format:["mp3", "aac"],
-  volume: 0.03,
+  volume: 0.25,
   loop: true,
 });

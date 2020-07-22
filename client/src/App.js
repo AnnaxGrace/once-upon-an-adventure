@@ -15,6 +15,8 @@ import ForestGame from "./pages/ForestGame";
 import CliffGame from "./pages/CliffGame";
 import InnerCastle from "./pages/InnerCastle";
 import ForestStore from "./pages/ForestStore"
+import ComingSoon from "./components/ComingSoon/ComingSoon";
+import YouWin from "./components/ComingSoon/YouWin";
 
 function App() {
   return (
@@ -64,6 +66,14 @@ function App() {
 
             <Route path="/throne/:id?">
               <InnerCastle />
+            </Route>
+
+            <Route path="/youlose/:id?">
+              <ComingSoon />
+            </Route>
+
+            <Route path="/youwin/:id?">
+              <YouWin />
             </Route>
 
             <Route path="/test" component={WorldPage}/>

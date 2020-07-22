@@ -10,14 +10,18 @@ function MenuBtns() {
                     <h5>Menu</h5>
 
                     {/* Returns to World Map */}
-                    <Link to ={"/continue/" + id}>
+                    <Link onClick={()=>{
+                window.location.replace("/continue/" + id)
+            }}>
                     <button type="button" className="btn">
                         World Map
                     </button>
                     </Link>
 
                     {/* logs you out */}
-                    <Link to ="/">
+                    <Link onClick={()=>{
+                window.location.replace("/")
+            }}>
                     <button type="button" className="btn" >
                         Log Out!
                     </button>

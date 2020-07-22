@@ -213,14 +213,14 @@ function Player(props) {
   }, []);
 
   function heart() {
-    if (varLives === 3){
-     varLivesImg=require("../../images/threeHearts.png")
-  } else if(varLives === 2) {
-      varLivesImg=require("../../images/twoHearts.png")
-  } else if (varLives === 1) {
-      varLivesImg=require("../../images/oneHeart.png")
+    if (varLives === 3) {
+      varLivesImg = require("../../images/threeHearts.png")
+    } else if (varLives === 2) {
+      varLivesImg = require("../../images/twoHearts.png")
+    } else if (varLives === 1) {
+      varLivesImg = require("../../images/oneHeart.png")
+    }
   }
-}
 
   function guardTalking() {
     switch (firstGuardTalk) {
@@ -231,7 +231,7 @@ function Player(props) {
             userName +
             " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit! Enjoy your visit.' "
           setGameState({ ...gameState, storyString: varStoryString });
-          updateStoryLog ()
+          updateStoryLog()
         }
         if (hasPermit === false) {
           varStoryString +=
@@ -239,7 +239,7 @@ function Player(props) {
             userName +
             " decides to speak to Guard Tony. Guard Tony frowns and shakes his head. 'Still no permit?', he says. 'I would try the shopkeeper. He usually has some. His store is in the forest.' ";
           setGameState({ ...gameState, storyString: varStoryString });
-          updateStoryLog ()
+          updateStoryLog()
         }
         return;
       case true:
@@ -252,7 +252,7 @@ function Player(props) {
           guardButtons: "show",
           storyString: varStoryString,
         });
-        updateStoryLog ()
+        updateStoryLog()
         return;
       default:
         break;
@@ -266,44 +266,44 @@ function Player(props) {
         " " +
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
-      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney});
-      updateStoryLog ()
+      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney });
+      updateStoryLog()
       // return;
     }
     if (firstOrcTalk === true) {
       console.log("step 2")
       if (varLives === 3) {
         varStoryString +=
-        " " +
-        userName +
-        " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
+          " " +
+          userName +
+          " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
         setGameState({ ...gameState, storyString: varStoryString });
-        updateStoryLog ()
-      } else{
+        updateStoryLog()
+      } else {
 
         varStoryString +=
           " " +
           userName +
-        " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
+          " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
         //   setGameState({ ...gameState, storyString: varStoryString });
         API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
           console.log("updated OrcTalk");
           firstOrcTalk = false;
-          }).then(() => {
+        }).then(() => {
           let newLives = varLives + 1;
-    
-           API.UpdateSpriteLives(newLives, id).then(() => {
-              console.log("updated newLives", newLives);
-              varLives = newLives;
-              heart()
-              setGameState({
+
+          API.UpdateSpriteLives(newLives, id).then(() => {
+            console.log("updated newLives", newLives);
+            varLives = newLives;
+            heart()
+            setGameState({
               ...gameState,
               storyString: varStoryString,
               stateLives: newLives,
               stateLivesImg: varLivesImg
             });
-            updateStoryLog ()
-          
+            updateStoryLog()
+
           });
         });
 
@@ -404,7 +404,7 @@ function Player(props) {
           firstGuardTalk = false;
         });
 
-        updateStoryLog ()
+        updateStoryLog()
       }
     }
     if (btnType === "guardNo") {
@@ -421,7 +421,7 @@ function Player(props) {
         guardButtons: "hide",
         storyString: varStoryString,
       });
-      updateStoryLog ()
+      updateStoryLog()
     }
     if (btnType === "jaceYes") {
       varStoryString += " " + userName + " says 'Math? Money? You bet!' ";
@@ -462,10 +462,10 @@ function Player(props) {
               stateMoney: 0,
             });
             varMoney = 0;
-            updateStoryLog ()
+            updateStoryLog()
           });
         });
-     
+
     }
     if (btnType === "thiefNo") {
       varStoryString +=
@@ -547,10 +547,10 @@ function Player(props) {
         stateMoney: newMoney,
       });
       varMoney = newMoney;
-      updateStoryLog ()
+      updateStoryLog()
     });
 
-    
+
   }
 
   function handleHangButtonClick(event) {
@@ -579,7 +579,7 @@ function Player(props) {
                 stateMoney: newMoney,
               });
               varMoney = newMoney;
-              updateStoryLog ()
+              updateStoryLog()
             });
           });
       }
@@ -599,7 +599,7 @@ function Player(props) {
             stateMoney: newMoney,
           });
           varMoney = newMoney;
-          updateStoryLog ()
+          updateStoryLog()
         });
       }
     }
@@ -622,12 +622,12 @@ function Player(props) {
       API.UpdateSpriteMoney(newMoney, id)
         .then(() => {
           console.log("updated NewMoney", newMoney);
-        //   setGameState({
-        //     ...gameState,
-        //     storyString: varStoryString,
-        //     hangmanMinigame: "hide",
-        //     stateMoney: newMoney,
-        //   });
+          //   setGameState({
+          //     ...gameState,
+          //     storyString: varStoryString,
+          //     hangmanMinigame: "hide",
+          //     stateMoney: newMoney,
+          //   });
           varMoney = newMoney;
         })
         .then(() => {
@@ -636,33 +636,36 @@ function Player(props) {
           API.UpdateSpriteLives(newLives, id).then(() => {
             console.log("updated newLives", newLives);
             varLives = newLives;
-            heart()
-            console.log(varLivesImg)
-            setGameState({
-              ...gameState,
-              storyString: varStoryString,
-              hangmanMinigame: "hide",
-              stateMoney: newMoney,
-              stateLives: newLives,
-              stateLivesImg: varLivesImg
-            });
-            
-            updateStoryLog ()
+            if (varLives === 0) {
+              window.location.replace("/youlose/" + id)
+            } else {
+              heart()
+              console.log(varLivesImg)
+              setGameState({
+                ...gameState,
+                storyString: varStoryString,
+                hangmanMinigame: "hide",
+                stateMoney: newMoney,
+                stateLives: newLives,
+                stateLivesImg: varLivesImg
+              });
+              updateStoryLog()
+            }
           });
         });
     }
 
-    
+
   }
 
-  function updateStoryLog () {
+  function updateStoryLog() {
     API.getUserStory(id).then(user => {
       const { text } = user.data[0].story[0]
       let newText = text + varStoryString
       API.UpdateStory(newText, id).then(() => {
         console.log("story updated")
       })
-    })    
+    })
   }
 
 
@@ -691,9 +694,9 @@ function Player(props) {
       </div>
 
       {/* Inventory Bar */}
-      <InventoryGame 
-      playerMoney={gameState.stateMoney} 
-      stateLivesImg={gameState.stateLivesImg}
+      <InventoryGame
+        playerMoney={gameState.stateMoney}
+        stateLivesImg={gameState.stateLivesImg}
       />
 
       <div className="guardBtns">
