@@ -13,11 +13,6 @@ module.exports = {
           .then(dbBook => res.json(dbBook))
           .catch(err => res.status(422).json(err));
 
-        //   const { id } = req.params
-        // db.Inventory.create(req.body)
-        // .then(({ _id}) => db.User.findOneAndUpdate({_id: id}, { $set: {inventory: _id}}, {new: true}))
-        //   .then(dbBook => res.json(dbBook))
-        //   .catch(err => res.status(422).json(err));
       },
     findInventory: function(req,res){
         db.Inventory.find({}).then(dbUser => {

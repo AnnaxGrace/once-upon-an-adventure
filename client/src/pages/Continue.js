@@ -69,20 +69,20 @@ function Continue() {
                 </div>
             </div>
 
-            <div className="card-body text-center">
+            {/* <div className="card-body text-center">
                 <p></p>
-                <h5>Menu</h5>
+                <h5>Menu</h5> */}
 
                 {/* Saves Your Game */}
-                <button className="btn">
+                {/* <button className="btn">
                     Save Game!
-                    </button>
+                    </button> */}
 
                 {/* Pulls up GameTextModal */}
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                     Game Log!
                     </button>
-            </div>
+            </div> */}
         </div>
     )
 }

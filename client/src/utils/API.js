@@ -28,6 +28,10 @@ export default {
     return axios.get(`/api/user/avatar/${id}`)
   },
 
+  getUserStory: function(id) {
+    return axios.get(`/api/user/avatar/story/${id}`)
+  },
+
   getUserInventory: function(id) {
     return axios.get(`/api/user/inventory/${id}`)
   },
@@ -71,14 +75,21 @@ export default {
   saveSprite: function(spriteData, id) {
     return axios.post("/api/sprite/" + id, spriteData);
   },
+
+  createStory: function(storyData, id) {
+    return axios.post("/api/story/" + id, storyData);
+  },
+
   getInventory: function(spriteData) {
     return axios.get("/api/inventory", spriteData );
   },
   saveInventory: function(spriteData, id) {
     return axios.post("/api/inventory" + id, spriteData);
   },
-  createStory: function(storyData) {
-    return axios.post("/api/story", storyData);
+
+
+  updateStory: function(storyData, id) {
+    return axios.post("/api/story/update/" + id + "/" + storyData);
   },
   findAllStory: function() {
     return axios.get("/api/story");
