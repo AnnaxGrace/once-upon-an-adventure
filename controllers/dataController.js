@@ -41,6 +41,12 @@ module.exports = {
     .then(dbUser => res.json(dbUser))
     .catch(err => res.status(521).json(err));
   },
+  findUserStory: function(req, res) {
+    db.User.find({ _id: req.params.id})
+    .populate("story")
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(521).json(err));
+  },
   findUserInventory: function(req,res) {
     db.User.find({ _id: req.params.id})
     .populate("inventory")

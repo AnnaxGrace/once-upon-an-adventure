@@ -12,6 +12,9 @@ router.route("/")
   router.route("/avatar/:id?")
   .get(dataController.findUserAvatar);
 
+  router.route("/avatar/story/:id?")
+  .get(dataController.findUserStory);
+
   router.route("/inventory/:id?")
   .get(dataController.findUserInventory)
 

@@ -10,6 +10,12 @@ const UserSchema = new Schema({
       ref: "Sprite" 
     }
   ],
+  story: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Story" 
+    }
+  ],
   hearts: {type: String},
   inventory: [
     {
