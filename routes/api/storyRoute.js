@@ -6,7 +6,7 @@ router.route("/:id?")
   .get(storyController.findAll)
   .post(storyController.create)
  
-  router.route("/api/story/update/:id?/:place?")
+  router.route("/update/:id?/:text?")
   .put(storyController.updateStory)
  
  
