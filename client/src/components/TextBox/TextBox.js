@@ -3,6 +3,7 @@ import "./TextBox.css";
 import API from "../../utils/API";
 import { withRouter } from "react-router";
 import Inventory from "../Inventory/Inventory";
+import { Link } from "react-router-dom";
 
 
 
@@ -175,9 +176,11 @@ class TextBox extends React.Component {
                 <h5>Menu</h5>
 
                 {/* Saves Your Game */}
-                <button className="btn">
-                    Save Game!
+                <Link to ="/">
+                    <button type="button" className="btn" >
+                        Log Out!
                     </button>
+                </Link>
 
                 {/* Pulls up GameTextModal */}
                 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#game-log">
