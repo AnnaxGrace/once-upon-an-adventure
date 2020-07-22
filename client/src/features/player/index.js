@@ -213,14 +213,14 @@ function Player(props) {
   }, []);
 
   function heart() {
-    if (varLives === 3){
-     varLivesImg=require("../../images/threeHearts.png")
-  } else if(varLives === 2) {
-      varLivesImg=require("../../images/twoHearts.png")
-  } else if (varLives === 1) {
-      varLivesImg=require("../../images/oneHeart.png")
+    if (varLives === 3) {
+      varLivesImg = require("../../images/threeHearts.png")
+    } else if (varLives === 2) {
+      varLivesImg = require("../../images/twoHearts.png")
+    } else if (varLives === 1) {
+      varLivesImg = require("../../images/oneHeart.png")
+    }
   }
-}
 
   function guardTalking() {
     switch (firstGuardTalk) {
@@ -263,41 +263,41 @@ function Player(props) {
         " " +
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
-      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney});
+      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney });
       // return;
     }
     if (firstOrcTalk === true) {
       console.log("step 2")
       if (varLives === 3) {
         varStoryString +=
-        " " +
-        userName +
-        " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
+          " " +
+          userName +
+          " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
         setGameState({ ...gameState, storyString: varStoryString });
-      } else{
+      } else {
 
         varStoryString +=
           " " +
           userName +
-        " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
+          " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
         //   setGameState({ ...gameState, storyString: varStoryString });
         API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
           console.log("updated OrcTalk");
           firstOrcTalk = false;
-          }).then(() => {
+        }).then(() => {
           let newLives = varLives + 1;
-    
-           API.UpdateSpriteLives(newLives, id).then(() => {
-              console.log("updated newLives", newLives);
-              varLives = newLives;
-              heart()
-              setGameState({
+
+          API.UpdateSpriteLives(newLives, id).then(() => {
+            console.log("updated newLives", newLives);
+            varLives = newLives;
+            heart()
+            setGameState({
               ...gameState,
               storyString: varStoryString,
               stateLives: newLives,
               stateLivesImg: varLivesImg
             });
-          
+
           });
         });
 
@@ -608,12 +608,12 @@ function Player(props) {
       API.UpdateSpriteMoney(newMoney, id)
         .then(() => {
           console.log("updated NewMoney", newMoney);
-        //   setGameState({
-        //     ...gameState,
-        //     storyString: varStoryString,
-        //     hangmanMinigame: "hide",
-        //     stateMoney: newMoney,
-        //   });
+          //   setGameState({
+          //     ...gameState,
+          //     storyString: varStoryString,
+          //     hangmanMinigame: "hide",
+          //     stateMoney: newMoney,
+          //   });
           varMoney = newMoney;
         })
         .then(() => {
@@ -622,18 +622,21 @@ function Player(props) {
           API.UpdateSpriteLives(newLives, id).then(() => {
             console.log("updated newLives", newLives);
             varLives = newLives;
-            heart()
-            console.log(varLivesImg)
-            setGameState({
-              ...gameState,
-              storyString: varStoryString,
-              hangmanMinigame: "hide",
-              stateMoney: newMoney,
-              stateLives: newLives,
-              stateLivesImg: varLivesImg
-            });
-            
-            
+            if (varLives === 0) {
+              window.location.replace("/youlose/" + id)
+            } else {
+              heart()
+              console.log(varLivesImg)
+              setGameState({
+                ...gameState,
+                storyString: varStoryString,
+                hangmanMinigame: "hide",
+                stateMoney: newMoney,
+                stateLives: newLives,
+                stateLivesImg: varLivesImg
+              });
+            }
+
           });
         });
     }
@@ -668,9 +671,9 @@ function Player(props) {
       </div>
 
       {/* Inventory Bar */}
-      <InventoryGame 
-      playerMoney={gameState.stateMoney} 
-      stateLivesImg={gameState.stateLivesImg}
+      <InventoryGame
+        playerMoney={gameState.stateMoney}
+        stateLivesImg={gameState.stateLivesImg}
       />
 
       <div className="guardBtns">

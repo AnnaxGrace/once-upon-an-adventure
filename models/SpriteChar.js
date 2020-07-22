@@ -5,7 +5,7 @@ const SpriteSchema = new Schema({
     sprite: {type: String},
     name: { type: String, required: true },
     homeFirst: {type: Boolean, default: true},
-    place: {type: String, default: "castle"},
+    place: {type: String, default: "home"},
     apiFirstGuardTalk: {type: Boolean, default: true},
     apiFirstOrcTalk: {type: Boolean, default: true},
     apiFirstJaceTalk: {type: Boolean, default: true},

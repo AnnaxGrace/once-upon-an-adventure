@@ -14,9 +14,12 @@ function Castle(props) {
         <div className="text-center special castleDiv">
             <img src={require("../../images/mapCastle.jpg")} alt="Castle" className="castle" />
             <br />
-            <Link to={"/castle/" + id}>
+            {/* <Link to={"/castle/" + id}>
                 Castle
-            </Link>
+            </Link> */}
+            <Link onClick={()=>{
+                window.location.replace("/castle/" + id)
+            }}>Castle</Link>
         </div>
     )
 }

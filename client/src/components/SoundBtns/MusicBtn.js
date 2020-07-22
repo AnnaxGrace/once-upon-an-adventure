@@ -29,6 +29,8 @@ function MusicBtn(props) {
         case "cliff":
             currentMusic = gameMusic3
             break;
+        case "home":
+            currentMusic= gameMusic2
     }
 
     switch (music) {

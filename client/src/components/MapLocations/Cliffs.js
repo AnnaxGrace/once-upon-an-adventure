@@ -8,9 +8,12 @@ function Cliffs() {
         <div className="text-center special cliffDiv">
             <img src={require("../../images/mapCliff.jpg")} alt="Cliff" className="cliff" />
             <br />
-            <Link to={"/cliffs/" + id}>
+            {/* <Link to={"/cliffs/" + id}>
                 Cliffs
-            </Link>
+            </Link> */}
+            <Link onClick={()=>{
+                window.location.replace("/cliffs/" + id)
+            }}>Cliffs</Link>
         </div>
     )
 }
