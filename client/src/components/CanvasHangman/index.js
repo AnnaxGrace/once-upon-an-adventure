@@ -166,7 +166,7 @@ class Hangman extends React.Component {
                             break;
                         case 6: 
                             ctx.drawImage(image7, 80, 50);
-                            this.setState({win: "You Lose"})
+                            this.setState({win: "You Lose - You will lose one heart and 10 gold!"})
                             this.setState({gameScreen: "show"})
                             this.setState({endWord: word})
                             this.game()

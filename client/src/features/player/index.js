@@ -35,6 +35,7 @@ let firstThiefTalk = "true";
 let varStoryString = "";
 let varMoney = 0;
 let varLives = 3;
+let varLivesImg = "";
 
 function Player(props) {
   // console.log(props.avatar)
@@ -50,6 +51,7 @@ function Player(props) {
     storyString: "",
     stateMoney: "",
     stateLives: "",
+    stateLivesImg: require("../../images/threeHearts.png")
   });
 
   useEffect(() => {
@@ -115,6 +117,7 @@ function Player(props) {
       varLives = lives;
       // setGameState({...gameState, stateMoney: varMoney})
       console.log(money);
+      heart()
 
       if (place === "castle") {
         if (firstGuardTalk === true) {
@@ -130,6 +133,7 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
         if (firstGuardTalk === false) {
@@ -139,6 +143,7 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
       }
@@ -157,6 +162,7 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
         if (firstThiefTalk === false) {
@@ -170,6 +176,7 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
       }
@@ -186,6 +193,7 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
         if (firstJaceTalk === false) {
@@ -197,11 +205,22 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
+            stateLivesImg: varLivesImg
           });
         }
       }
     });
   }, []);
+
+  function heart() {
+    if (varLives === 3){
+     varLivesImg=require("../../images/threeHearts.png")
+  } else if(varLives === 2) {
+      varLivesImg=require("../../images/twoHearts.png")
+  } else if (varLives === 1) {
+      varLivesImg=require("../../images/oneHeart.png")
+  }
+}
 
   function guardTalking() {
     switch (firstGuardTalk) {
@@ -210,9 +229,7 @@ function Player(props) {
           varStoryString +=
             " " +
             userName +
-            " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!', and moves aside so that " +
-            userName +
-            " can choose to enter the castle. ";
+            " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit! Enjoy your visit.' "
           setGameState({ ...gameState, storyString: varStoryString });
         }
         if (hasPermit === false) {
@@ -241,45 +258,50 @@ function Player(props) {
 
   function orcTalking() {
     if (firstOrcTalk === false) {
+      console.log("step 1")
       varStoryString +=
         " " +
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
-      setGameState({ ...gameState, storyString: varStoryString });
-      return;
+      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney});
+      // return;
     }
     if (firstOrcTalk === true) {
-if (varLives === 3) {
-    varStoryString +=
-    " " +
-    userName +
-    " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
-    setGameState({ ...gameState, storyString: varStoryString });
-} else{
+      console.log("step 2")
+      if (varLives === 3) {
+        varStoryString +=
+        " " +
+        userName +
+        " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
+        setGameState({ ...gameState, storyString: varStoryString });
+      } else{
 
-    varStoryString +=
-      " " +
-      userName +
-      " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
-    //   setGameState({ ...gameState, storyString: varStoryString });
-    API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
-      console.log("updated OrcTalk");
-      firstOrcTalk = false;
-    }).then(() => {
-      let newLives = varLives + 1;
+        varStoryString +=
+          " " +
+          userName +
+        " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
+        //   setGameState({ ...gameState, storyString: varStoryString });
+        API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
+          console.log("updated OrcTalk");
+          firstOrcTalk = false;
+          }).then(() => {
+          let newLives = varLives + 1;
     
-      API.UpdateSpriteLives(newLives, id).then(() => {
-        console.log("updated newLives", newLives);
-        setGameState({
-          ...gameState,
-          storyString: varStoryString,
-          stateLives: newLives
+           API.UpdateSpriteLives(newLives, id).then(() => {
+              console.log("updated newLives", newLives);
+              varLives = newLives;
+              heart()
+              setGameState({
+              ...gameState,
+              storyString: varStoryString,
+              stateLives: newLives,
+              stateLivesImg: varLivesImg
+            });
+          
+          });
         });
-        varLives = newLives;
-      });
-    });
 
-}
+      }
 
     }
   }
@@ -347,7 +369,7 @@ if (varLives === 3) {
         varStoryString +=
           " " +
           userName +
-          " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit!' and moves aside so that " +
+          " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit! Enjoy your visit' " +
           userName +
           " can choose to enter the castle. ";
         setGameState({
@@ -599,14 +621,19 @@ if (varLives === 3) {
 
           API.UpdateSpriteLives(newLives, id).then(() => {
             console.log("updated newLives", newLives);
+            varLives = newLives;
+            heart()
+            console.log(varLivesImg)
             setGameState({
               ...gameState,
               storyString: varStoryString,
               hangmanMinigame: "hide",
               stateMoney: newMoney,
-              stateLives: newLives
+              stateLives: newLives,
+              stateLivesImg: varLivesImg
             });
-            varLives = newLives;
+            
+            
           });
         });
     }
@@ -641,7 +668,10 @@ if (varLives === 3) {
       </div>
 
       {/* Inventory Bar */}
-      <InventoryGame playerMoney={gameState.stateMoney} />
+      <InventoryGame 
+      playerMoney={gameState.stateMoney} 
+      stateLivesImg={gameState.stateLivesImg}
+      />
 
       <div className="guardBtns">
         <Exposition

@@ -63,7 +63,7 @@ API.getUserSprite(id).then(user => {
                 <div className="col-md-4">
                     {/* Hearts -- hard coded for now but will later be determined by the User's data */}
                     HEALTH: 
-                    {heart()}
+                    <img src={props.stateLivesImg} className="heart" alt="Full Heart" />
                     {/* {userLives}
                         <img src={require("../../images/full-heart.png")} className="heart" alt="Full Heart" />
                         <img src={require("../../images/full-heart.png")} className="heart" alt="Full Heart" />

@@ -45,7 +45,7 @@ function InnerCastle() {
     return(
         <div>
             <MusicBtn />
-                <h1 className="text-center">The Forest</h1>
+                <h1 className="text-center">The Throne Room</h1>
 
                 {/* Inventory Bar */}
                 {/* <InventoryGame /> */}
