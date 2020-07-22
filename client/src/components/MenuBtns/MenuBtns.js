@@ -9,11 +9,6 @@ function MenuBtns() {
                     <p></p>
                     <h5>Menu</h5>
 
-                    {/* Saves Your Game */}
-                    <button className="btn">
-                        Save Game!
-                    </button>
-
                     {/* Returns to World Map */}
                     <Link onClick={()=>{
                 window.location.replace("/continue/" + id)

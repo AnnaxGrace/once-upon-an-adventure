@@ -3,6 +3,7 @@ import "./TextBox.css";
 import API from "../../utils/API";
 import { withRouter } from "react-router";
 import Inventory from "../Inventory/Inventory";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,6 +29,7 @@ class TextBox extends React.Component {
         homeFirst: true,
         lives: "",
         money: 0,
+        gameLog: "",
 
         wilsonShow: "hide",
     }
@@ -152,7 +154,25 @@ class TextBox extends React.Component {
         }
         API.createStory(postObj, id).then(res => 
             console.log("story created")).catch(err => console.log(err));
+            // this.setState({gameLog: this.state.storyString})
     }
+
+    findGameLog = () => {
+        const id = this.props.match.params.id;
+        API.getUserStory(id).then(user => {
+            const { text } = user.data[0].story[0]
+            this.setState({gameLog: text})
+        })
+    }
+
+    // updateStoryLog = () => {
+    //     const id = this.props.match.params.id;
+    //     console.log("checking") 
+    //     let newText = "hi"
+    //     API.UpdateStory(newText, id).then(() => {
+    //         console.log("story updated")
+    //     })
+    // }
 
 
     render () {
@@ -175,15 +195,18 @@ class TextBox extends React.Component {
                 <h5>Menu</h5>
 
                 {/* Saves Your Game */}
-                <button className="btn">
-                    Save Game!
+                <Link to ="/">
+                    <button type="button" className="btn" >
+                        Log Out!
                     </button>
+                </Link>
 
                 {/* Pulls up GameTextModal */}
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#game-log">
+                <button type="button" className="btn btn-primary" onClick={this.findGameLog} data-toggle="modal" data-target="#game-log">
                     Game Log!
                     </button>
                 </div>
+
 
                 <div className= {this.state.poofShow}>
                     <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
@@ -201,21 +224,22 @@ class TextBox extends React.Component {
                     <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} />
                 </div>
 
-                <div class="modal fade" id="game-log" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">The Story so far...</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div className="modal fade" id="game-log" data-backdrop="static" tabIndex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                            <h5 className="modal-title" id="staticBackdropLabel">The Story so far...</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                             </div>
-                            <div class="modal-body">
-                                THIS WILL BE API CALL
+                            <div className="modal-body">
+                                <div className = "scroll-log">
+                                    {this.state.gameLog}
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

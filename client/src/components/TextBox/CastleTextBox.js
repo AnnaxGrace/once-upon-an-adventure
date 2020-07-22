@@ -186,9 +186,7 @@ class StoreTextBox extends React.Component {
                         handleLoseDoneButtonClick={this.handleLoseDoneButtonClick}
                     />
                 </div>
-                <div >
-                    {/* <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} /> */}
-                </div>
+                
             </div>
         )
     }
