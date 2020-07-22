@@ -98,8 +98,7 @@ class StoreTextBox extends React.Component {
 
           API.UpdateSpriteMoney(newMoney, id).then(() => {
             console.log("updated NewMoney", newMoney);
-
-            this.state.money = newMoney;
+            this.setState({money: newMoney})
           });
         });
     } else {

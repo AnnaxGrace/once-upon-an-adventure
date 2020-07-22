@@ -22,6 +22,7 @@ class StoreTextBox extends React.Component {
         typeMinigame: "hide",
         lives: "",
         money: 0,
+        livesImg: require("../../images/threeHearts.png")
     }
 
 
@@ -56,6 +57,8 @@ class StoreTextBox extends React.Component {
                 this.setState({ homeFirst: true})
                 this.setState({ lives: lives })
                 this.setState({money: money})
+                console.log(this.state.lives)
+                this.heart()
 
                 userName = user.data[0].sprite[0].name
                 if ( this.state.homeFirst === true ) {
@@ -74,6 +77,16 @@ class StoreTextBox extends React.Component {
             })
         })
         
+    }
+
+    heart = () => {
+        if (this.state.lives === 3){
+            this.setState({ livesImg: require("../../images/threeHearts.png")})
+      } else if(this.state.lives === 2) {
+            this.setState({ livesImg: require("../../images/twoHearts.png")})
+      } else if (this.state.lives === 1) {
+            this.setState({ livesImg: require("../../images/oneHeart.png")})
+      }
     }
       
 
@@ -99,7 +112,7 @@ class StoreTextBox extends React.Component {
         if (btnType === "kingNo") {
             console.log("no")
             this.setState({kingButtons: "hide1"})
-          this.updateStory(userName + " shakes their head and says 'I can't right now'. 'Oh.' Says King Bryan. 'That's unfortunate and awkward. Well, come talk to me if you change your mind!' ")
+            this.updateStory(userName + " shakes their head and says 'I can't right now'. 'Oh.' Says King Bryan. 'That's unfortunate and awkward. Well, come talk to me if you change your mind!' ")
         }
         
       };
@@ -109,17 +122,9 @@ class StoreTextBox extends React.Component {
         console.log(this.state.storyString)
         this.setState({storyString: this.state.storyString + " " + storyObjectPath })
        
-        // let endScroll = this.refs.scroll
-        //  endScroll.scrollTop = this.endScroll.scrollHeight - this.endScroll.clientHeight;
-        // API.UpdateUserStory(this.state.id, this.storyString). then(res => console.log("story updated")).catch(err => console.log(err));
     }
 
-    // createStory = () => {
-    //     API.createStory({
-    //         text: this.state.storyString, 
-    //         UserId: this.state.Id
-    //     }).then(res => console.log("story created")).catch(err => console.log(err));
-    // }
+   
 
     
     handleDoneButtonClick = () =>{
@@ -131,6 +136,7 @@ class StoreTextBox extends React.Component {
     }
 
     handleLoseDoneButtonClick = () => {
+        console.log("you lose!")
         this.updateStory(userName + " feels ashamed that they were not able to help the king. The king signs and then says 'Well... come talk to me if you would like to try again.' ")
 
         //api lose heart
@@ -140,8 +146,9 @@ class StoreTextBox extends React.Component {
         console.log(id)
           API.UpdateSpriteLives(newLives, id).then(() => {
             console.log("updated newLives", newLives);
-            
-            this.state.lives = newLives;
+            this.setState({lives: newLives})
+            this.setState({typeMinigame: "hide"})
+            this.heart()
           });
     }
    
@@ -158,6 +165,7 @@ class StoreTextBox extends React.Component {
 
                 < InnerCastleInventory 
                 money={this.state.money}
+                livesImg={this.state.livesImg}
                 />
 
                 <div className="kingBtns">
@@ -169,7 +177,7 @@ class StoreTextBox extends React.Component {
                 <div className={this.state.typeMinigame} id="type" >
                     <CanvasType
                     handleDoneButtonClick={this.handleDoneButtonClick}
-                    handleLoseDoneButtonClick={this.handleDoneButtonClick}
+                    handleLoseDoneButtonClick={this.handleLoseDoneButtonClick}
                     />
                 </div>
                 <div >
