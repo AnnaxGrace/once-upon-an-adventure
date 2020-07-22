@@ -16,6 +16,7 @@ export default {
     return axios.post("/api/signup/login", userData);
   },
 
+
   // findSprite: function(userData) {
   //   return axios.post("/api/sprite", userData);
   // },
@@ -71,6 +72,10 @@ export default {
   UpdateSpritePermit: function(spriteData, id) {
     return axios.put("/api/sprite/permit/" + id, spriteData);
   },
+
+  UpdateStory: function(storyData, id) {
+    return axios.put("/api/story/update/" + id + "/" + storyData)
+  },
   
   saveSprite: function(spriteData, id) {
     return axios.post("/api/sprite/" + id, spriteData);
@@ -87,19 +92,5 @@ export default {
     return axios.post("/api/inventory" + id, spriteData);
   },
 
-
-  updateStory: function(storyData, id) {
-    return axios.post("/api/story/update/" + id + "/" + storyData);
-  },
-  findAllStory: function() {
-    return axios.get("/api/story");
-  },
-  findUserStory: function(id) {
-    return axios.get("/api/story/" + id);
-  },
-  UpdateUserStory: function(id, storyData) {
-    return axios.post("/api/story/" + id, storyData);
-  }
- 
 
 };

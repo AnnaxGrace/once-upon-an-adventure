@@ -231,6 +231,7 @@ function Player(props) {
             userName +
             " decides to speak to Guard Tony. Guard Tony smiles and says 'It looks like you have a permit! Enjoy your visit.' "
           setGameState({ ...gameState, storyString: varStoryString });
+          updateStoryLog ()
         }
         if (hasPermit === false) {
           varStoryString +=
@@ -238,6 +239,7 @@ function Player(props) {
             userName +
             " decides to speak to Guard Tony. Guard Tony frowns and shakes his head. 'Still no permit?', he says. 'I would try the shopkeeper. He usually has some. His store is in the forest.' ";
           setGameState({ ...gameState, storyString: varStoryString });
+          updateStoryLog ()
         }
         return;
       case true:
@@ -250,6 +252,7 @@ function Player(props) {
           guardButtons: "show",
           storyString: varStoryString,
         });
+        updateStoryLog ()
         return;
       default:
         break;
@@ -264,6 +267,7 @@ function Player(props) {
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
       setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney});
+      updateStoryLog ()
       // return;
     }
     if (firstOrcTalk === true) {
@@ -274,6 +278,7 @@ function Player(props) {
         userName +
         " decides to speak to Orc Vinne. 'YOU ALREADY HAVE FULL HEALTH BUTTHEAD! GET OUT OF HERE!' he says. ";
         setGameState({ ...gameState, storyString: varStoryString });
+        updateStoryLog ()
       } else{
 
         varStoryString +=
@@ -297,6 +302,7 @@ function Player(props) {
               stateLives: newLives,
               stateLivesImg: varLivesImg
             });
+            updateStoryLog ()
           
           });
         });
@@ -397,6 +403,8 @@ function Player(props) {
           console.log("updated GuardTalk");
           firstGuardTalk = false;
         });
+
+        updateStoryLog ()
       }
     }
     if (btnType === "guardNo") {
@@ -413,6 +421,7 @@ function Player(props) {
         guardButtons: "hide",
         storyString: varStoryString,
       });
+      updateStoryLog ()
     }
     if (btnType === "jaceYes") {
       varStoryString += " " + userName + " says 'Math? Money? You bet!' ";
@@ -432,6 +441,7 @@ function Player(props) {
         jaceButtons: "hide",
         storyString: varStoryString,
       });
+      updateStoryLog()
     }
     if (btnType === "thiefYes") {
       varStoryString +=
@@ -452,10 +462,10 @@ function Player(props) {
               stateMoney: 0,
             });
             varMoney = 0;
+            updateStoryLog ()
           });
         });
-      //player loses all money
-      //api money to 0
+     
     }
     if (btnType === "thiefNo") {
       varStoryString +=
@@ -537,7 +547,10 @@ function Player(props) {
         stateMoney: newMoney,
       });
       varMoney = newMoney;
+      updateStoryLog ()
     });
+
+    
   }
 
   function handleHangButtonClick(event) {
@@ -549,7 +562,6 @@ function Player(props) {
       if (firstThiefTalk === true) {
         varStoryString +=
           " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone! I won't block your way if you come this way again.' ";
-        // setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
         API.UpdateSpriteFirstThiefTalk(false, id)
           .then(() => {
             console.log("updated thiefTalk");
@@ -567,6 +579,7 @@ function Player(props) {
                 stateMoney: newMoney,
               });
               varMoney = newMoney;
+              updateStoryLog ()
             });
           });
       }
@@ -586,6 +599,7 @@ function Player(props) {
             stateMoney: newMoney,
           });
           varMoney = newMoney;
+          updateStoryLog ()
         });
       }
     }
@@ -633,15 +647,24 @@ function Player(props) {
               stateLivesImg: varLivesImg
             });
             
-            
+            updateStoryLog ()
           });
         });
     }
 
-    //update api money, heart api
-    //update variable
-    //Need to do all done here if/ for how much money for points, need to have points show up here
+    
   }
+
+  function updateStoryLog () {
+    API.getUserStory(id).then(user => {
+      const { text } = user.data[0].story[0]
+      let newText = text + varStoryString
+      API.UpdateStory(newText, id).then(() => {
+        console.log("story updated")
+      })
+    })    
+  }
+
 
   if (!props.avatar) {
     return <h1>Loading...</h1>;

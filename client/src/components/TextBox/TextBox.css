@@ -46,6 +46,11 @@
   right: 250px;
 }
 
+.scroll-log {
+  overflow: scroll;
+  height: 200px;
+}
+
 
 
 .show {
