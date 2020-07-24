@@ -1,3 +1,16 @@
+#lose-cover {
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index: 7;
+    height: 500px;
+    width: 700px;
+    top: 5%;
+    left: 14% !important;
+    text-align: center;
+}
+
+/* Snake css */
 #equation {
     position: absolute;
     top: 46%;
@@ -22,10 +35,15 @@
 #instruction-list {
     text-align: left;
 }
+
+/* hangman CSS */
+
+/* so the images we use to reference don't show */
  #required-images {
     display: none;
 }
 
+/* Type game CSS */
 .form-style {
     position: absolute;
     top: 49%;
@@ -39,23 +57,3 @@
     top: 33%;
 }
 
-
-/* .show {
-    display: block;
-}
-
-.hide {
-    display: none;
-} */
-
-#lose-cover {
-    background-color: black;
-    color: white;
-    position: absolute;
-    z-index: 7;
-    height: 500px;
-    width: 700px;
-    top: 5%;
-    left: 14% !important;
-    text-align: center;
-}

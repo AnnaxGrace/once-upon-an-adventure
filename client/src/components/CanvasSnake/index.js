@@ -1,7 +1,7 @@
 import React from "react";
 import "./snake.css"
 
-    // The direction at with our snake moves
+    // The direction at which our snake moves
     var xv = 0;
     var yv = 0;
 
@@ -64,14 +64,10 @@ class CanvasSnake extends React.Component {
         
     }
 
+    //When the done button is clicked, hide the game screen and then reset the game
     hideScreen = () => {
-        console.log("this hide screen works?");
         this.setState({gameScreen: "hide"})
         this.reset()
-        clearInterval(this.game, 2000/15)
-        this.reset()
-        setInterval(this.game, 2000/5)
-        // setInterval(this.game, 2000/15)
 
     }
     
@@ -128,6 +124,7 @@ class CanvasSnake extends React.Component {
            
             ctx.clearRect(0, 0, 1000, 1000)
 
+            //Fills our tail to the length of trail
             ctx.fillStyle="pink";
             for (var i=0; i < trail.length; i++) {
                 ctx.fillRect(trail[i].x*gs, trail[i].y*gs, gs-2, gs-2);
@@ -200,13 +197,12 @@ class CanvasSnake extends React.Component {
         
     }
 
-    lose = (points) => {
+    //Shows the end gameScreen
+    lose = () => {
         this.setState({ gameScreen: "show"})
-        //api call w/ points (points will be this.state.statePoints)
-
     }
 
-    //Defines our movement direction by arrow key
+    //Defines our movement direction by WASD key
      keyPush = event =>  {
         switch(event.keyCode) {
             case 65:

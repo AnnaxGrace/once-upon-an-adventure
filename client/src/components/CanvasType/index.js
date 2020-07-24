@@ -1,5 +1,4 @@
 import React from "react";
-import "./type.css"
 import SearchForm from "./SearchForm"
 
 //global variables necessary to have gameplay
@@ -21,6 +20,8 @@ class Type extends React.Component {
  
     //when our page loads
     componentDidMount() {
+
+      //This makes sure you can't submit the form by pressing enter
       window.addEventListener("keydown", (event)=> {
         if(event.keyCode == 13) {
           event.preventDefault();
@@ -37,21 +38,19 @@ class Type extends React.Component {
         
     }
 
+    //Start button to start the timer/game
     handleStartButtonClick = () => {
       this.setState({startScreen: "hide"})
       this.game()
     }
 
-    // handleDoneButtonClick() {
-        //this will display: none snake canvas
-        //pushes points back to CliffText
-        //run function game done??
-
-    // }
-    //Grabs a random word from our word array
+    
     game = () => {
-        console.log("game running?")
+      //sets a timer for 30 seconds
         setTimeout(this.gameScreenAppears, 30000);
+
+        //Grabs a random word from our word array
+        //and displays it on screen
         let indexNum = Math.floor(Math.random() * 16);
         word = wordArray[indexNum]
         ctx.fillStyle ="white";
@@ -61,8 +60,12 @@ class Type extends React.Component {
         
     }
 
+    //Function that checks if you win or lose
     gameScreenAppears = () => {
-      if (points >= 13 ) {
+      if (points = 13 ) {
+        this.setState({gameScreen: "show"})
+      }
+      if (points > 13 ) {
         this.setState({gameScreen: "show"})
       }
       if (points < 13) {
@@ -72,26 +75,30 @@ class Type extends React.Component {
     }
     
 
+    //this checks to see if the word was typed correctly
       handleInputChange = event => {
         event.preventDefault();
 
-        console.log(event.target.value)
-        console.log(word)
+        //If the word is typed correctly
         if (event.target.value === word) {
+
+          //add to points
             points++
-            console.log(points)
             this.setState({points: points})
+
+            //grab another random word from the array
+            //and displays it
             let indexNum = Math.floor(Math.random() * 16);
             word = wordArray[indexNum]
-            console.log(word)
             ctx.fillStyle ="white";
             ctx.font="30px arial";
             ctx.clearRect(0, 0, 1000, 1000)
             ctx.fillText(word, 170 , 200)
+
+            //clears the form for easier typing
             event.target.value = ""
         }
-        // let result = this.state.result.filter(item => item.name.first.includes(event.target.value));
-        // this.setState({ result })
+        
       };
 
     
@@ -100,6 +107,8 @@ class Type extends React.Component {
         return(
           <div>
             <canvas ref="canvas" width={500} height={400} />
+
+            {/* component for our form that our user types into */}
             <SearchForm
             passWord={this.state.displayWord}
             handleInputChange={this.handleInputChange}
@@ -108,6 +117,7 @@ class Type extends React.Component {
             
             <div className={this.state.gameScreen} id="lose-cover">
                     <p>You win!</p>
+                    <p>You got {this.state.points} points!</p>
                     <button className="btn btn-primary" onClick={this.props.handleDoneButtonClick}>
                         done
                     </button>

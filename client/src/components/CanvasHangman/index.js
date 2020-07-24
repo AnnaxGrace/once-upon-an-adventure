@@ -15,7 +15,6 @@ let varWin;
 class Hangman extends React.Component {
 
     state = {
-        letter: "",
         gameScreen: "hide",
         win: "",
         endWord: ""
@@ -30,12 +29,6 @@ class Hangman extends React.Component {
 
         this.game()
     }
-
-    // wrapperFunction () {
-    //     {props.handleHangButtonClick()}
-    //     this.hideScreen()
-    // }
-
     
     //Grabs a random word from our word array
     game = () => {
@@ -54,7 +47,6 @@ class Hangman extends React.Component {
         ctx.drawImage(space, 130, 300)
         ctx.drawImage(space, 240, 300)
         ctx.drawImage(space, 350, 300)
-        // this.setState({gameScreen: "hide"})
         let indexNum = Math.floor(Math.random() * 16);
         word = wordArray[indexNum]
 
@@ -63,17 +55,18 @@ class Hangman extends React.Component {
         
     }
 
+    //This hides the you win/lose page
     hideScreen = () => {
-        console.log("this hide screen works?");
         this.setState({gameScreen: "hide"})
 
     }
 
 
-
+    //When you click on a letter
     handleBtnClick = event => {
         event.preventDefault();
     
+        //get the data value of the button - which will be a letter value
         const btnType = event.target.attributes.getNamedItem("data-value").value;
 
         
@@ -83,9 +76,9 @@ class Hangman extends React.Component {
         for (var i = 0; i < word.length; i++){
             //if the word's letter matches the letter given
             if (word[i] === btnType) {
-                //notes the position of the word the letter is in
                 miniWrong = 0
                 
+                //notes the position of the word the letter is in
                 let position = i
                 ctx.fillStyle ="black";
                 ctx.font="30px arial";
@@ -115,6 +108,7 @@ class Hangman extends React.Component {
                     default:
                         break;
                 }
+                //if you get four letters right, you win and then the game resets to be able to play again
                 if (right === 4) {
                     this.setState({win: "You win"})
                     this.setState({gameScreen: "show"})
@@ -123,6 +117,7 @@ class Hangman extends React.Component {
                     varWin = "yes"
                 }
             }
+            //Each time it's wrong it adds to variable miniWrong, which keeps track of if it's not in the word
             else {
                 
                 miniWrong++
@@ -132,7 +127,8 @@ class Hangman extends React.Component {
                     ctx.fillStyle ="white";
                     ctx.font="30px arial";
 
-                    //wrongSpacing increasing the spacing everytime you get an answer wrong so that numbers are not written on top of each other
+                    //Write the wrong letter next to the tree
+                    //wrongSpacing increases the spacing everytime you get an answer wrong so that numbers are not written on top of each other
                     ctx.fillText(btnType, 240 + wrongSpacing, 50)
                     wrongSpacing += 25
                     
@@ -165,6 +161,7 @@ class Hangman extends React.Component {
                             ctx.drawImage(image6, 80, 50);
                             break;
                         case 6: 
+                        //If you lose, we show the lose screen and reset the game
                             ctx.drawImage(image7, 80, 50);
                             this.setState({win: "You Lose - You will lose one heart and 10 gold!"})
                             this.setState({gameScreen: "show"})
@@ -204,17 +201,6 @@ class Hangman extends React.Component {
                 handleBtnClick={this.handleBtnClick}
                 />
             </div>
-            
-            {/* <form className="form form-style">
-                <input
-                    value={this.state.letter}
-                    name="letter"
-                    onChange={this.handleInputChange}
-                    type="text"
-                />
-          
-                <button onClick={this.handleFormSubmit}>Submit</button>
-            </form> */}
 
             <div className={this.state.gameScreen} id="lose-cover">
                 <div className="gamescreen-words">
@@ -233,4 +219,5 @@ class Hangman extends React.Component {
         )
       }
     }
+
     export default Hangman
