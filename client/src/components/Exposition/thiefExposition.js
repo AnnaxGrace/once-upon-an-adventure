@@ -1,6 +1,8 @@
 import React from "react";
 import ExpoBtn from "../ExpoBtn";
 
+
+//our exposition buttons for our thief when we first talk to them
 function ThiefExposition(props) {
     return (
         <div>
@@ -8,7 +10,6 @@ function ThiefExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "thiefNo"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="thiefNo"
             name="No"
@@ -16,7 +17,6 @@ function ThiefExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "thiefYes"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="thiefYes"
             name="Yes"

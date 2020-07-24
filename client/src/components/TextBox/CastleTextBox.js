@@ -9,8 +9,8 @@ import InnerCastleInventory from "../Inventory/innerCastleInventory"
 
 let userName = "You";
 
-
-class StoreTextBox extends React.Component {
+//The text box for the inner castle, the throne room
+class CastleTextBox extends React.Component {
 
 
     state = {
@@ -22,7 +22,8 @@ class StoreTextBox extends React.Component {
         typeMinigame: "hide",
         lives: "",
         money: 0,
-        livesImg: require("../../images/threeHearts.png")
+        livesImg: require("../../images/threeHearts.png"),
+        heartClass: "heart"
     }
 
 
@@ -82,10 +83,13 @@ class StoreTextBox extends React.Component {
     heart = () => {
         if (this.state.lives === 3) {
             this.setState({ livesImg: require("../../images/threeHearts.png") })
+            this.setState({ heartClass: "heart-three"})
         } else if (this.state.lives === 2) {
             this.setState({ livesImg: require("../../images/twoHearts.png") })
+            this.setState({ heartClass: "heart-two"})
         } else if (this.state.lives === 1) {
             this.setState({ livesImg: require("../../images/oneHeart.png") })
+            this.setState({ heartClass: "heart-one"})
         }
     }
 
@@ -172,6 +176,7 @@ class StoreTextBox extends React.Component {
                 < InnerCastleInventory
                     money={this.state.money}
                     livesImg={this.state.livesImg}
+                    heartClass={this.state.heartClass}
                 />
 
                 <div className="kingBtns">
@@ -193,5 +198,5 @@ class StoreTextBox extends React.Component {
 
 }
 
-export default withRouter(StoreTextBox);
+export default withRouter(CastleTextBox);
 

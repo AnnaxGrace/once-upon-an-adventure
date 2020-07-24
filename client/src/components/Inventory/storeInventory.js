@@ -3,42 +3,25 @@ import "./Inventory.css";
 import { Container } from "../Grid"
 import API from "../../utils/API"
 import { useParams } from "react-router-dom";
-import { PromiseProvider } from "mongoose";
 
 //inventory for continue.js
 function StoreInventory(props) {
+
+    //grabs our id from our URL for our database
     const { id } = useParams();
 
-    const [userMoney, setUserMoney] = useState(null)
     const [userLives, setUserLives] = useState(null)
-    const [userPermit, setUserPermit] = useState(null)
     
     useEffect(()=> {
+       
+        //grabs lives data from our user's sprite database
         API.getUserSprite(id).then(user => {
-            const {money} = user.data[0].sprite[0]
-            console.log("MONEY")
-            console.log(props.money)
-        
-            return setUserMoney(money)
-        }).then(()=>{
-            API.getUserSprite(id).then(user => {
-                const {lives} = user.data[0].sprite[0]
+            const {lives} = user.data[0].sprite[0]
             
-                return setUserLives(lives)
-            }, [])
-        }
+            return setUserLives(lives)
+        }, [])
         
-        ).then(()=>{
-            API.getUserSprite(id).then(user => {
-                const {permit} = user.data[0].sprite[0]
-            
-                return setUserPermit(permit)
-            })
-        }
-        
-        )
-
-    },[userMoney]
+    },[userLives]
         
 
 );
@@ -46,25 +29,16 @@ function StoreInventory(props) {
 function heart() {
     
     if (userLives === 3){
-      return <img src={require("../../images/threeHearts.png")} className="heart" alt="Full Heart" />
+      return <img src={require("../../images/threeHearts.png")} className="heart-three" alt="Full Heart" />
   } else if(userLives === 2) {
-          return <img src={require("../../images/twoHearts.png")} className="heart" alt="Full Heart" />
+          return <img src={require("../../images/twoHearts.png")} className="heart-two" alt="Full Heart" />
   } else if (userLives === 1) {
-      return<img src={require("../../images/oneHeart.png")} className="heart" alt="Full Heart" />
+      return<img src={require("../../images/oneHeart.png")} className="heart-one" alt="Full Heart" />
   } 
-//   else if (userLives < 1) {
-//       return window.location.replace("gameover")
-//   }
+
 }
 
-function permit( ){
-console.log(userPermit)
-    if (props.permit === true){
-        return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
-    } else {
-        return <img src={require("../../images/empty.png")} className="invtImg" alt="Empty" />
-    }
-}
+
 
     
 
@@ -72,26 +46,20 @@ console.log(userPermit)
         <Container>
             <div className="inventoryStoreBG special row">
                 <div className="col-md-4">
-                    {/* Hearts -- hard coded for now but will later be determined by the User's data */}
+                    {/* Runs function to return image depending on lives in our database */}
                     HEALTH: 
                     {heart()}
-                        {/* <img src={require("../../images/full-heart.png")} className="heart" alt="Full Heart" />
-                        <img src={require("../../images/full-heart.png")} className="heart" alt="Full Heart" />
-                        <img src={require("../../images/empty-heart.png")} className="heart" alt="Empty Heart" /> */}
-
                 </div>
 
                 <div className="col-md-4">
-                    {/* Hard coded for now, will later be determined by user data */}
+                    {/* Determined by our state in player index.js so it updates in page */}     
                     INVENTORY:
-                    <img src={props.permitImg} className="invtImg" alt="Castle Pass" />
-                    {/* // {permit()} */}
-                        {/* <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
-                        <img src={require("../../images/health-potion.png")} className="invtImg" alt="Health Potion" /> */}
+                    <img src={props.permitImg} className="invtImg" alt="Inventory Permit" />
+                    
                 </div>
 
                 <div className="col-md-4">
-                    {/* Hard coded for now, will later be determined by user data */}
+                    {/* Grabs our money amt from player index.js so it updates in page */}
                     COINS:
                         <img src={require("../../images/coins.png")} className="invtImg" alt="Coins" />
                         x {props.money}

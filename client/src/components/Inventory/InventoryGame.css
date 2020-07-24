@@ -13,7 +13,17 @@
     z-index: 2;
 }
 
-.heart {
+.heart-three {
+    width: 30px;
+    margin: 2px;
+}
+
+.heart-two {
+    width: 30px;
+    margin: 2px;
+}
+
+.heart-one {
     width: 30px;
     margin: 2px;
 }

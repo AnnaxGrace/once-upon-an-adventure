@@ -1,6 +1,6 @@
 import React from "react";
-// import "./style.css";
 
+//The skeleton for each exposition button we use
 function ExpoBtn(props) {
   return (
     <button onClick={props.onClick} className={`expo-btn ${props["data-value"]}`} {...props} >
