@@ -62,13 +62,13 @@ class Type extends React.Component {
 
     //Function that checks if you win or lose
     gameScreenAppears = () => {
-      if (points = 13 ) {
+      if (points === 13 ) {
         this.setState({gameScreen: "show"})
       }
-      if (points > 13 ) {
+     else if(points > 13 ) {
         this.setState({gameScreen: "show"})
       }
-      if (points < 13) {
+      else if(points < 13) {
         this.setState({gameScreenLose: "show"})
       }
       

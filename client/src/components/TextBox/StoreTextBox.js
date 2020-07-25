@@ -85,7 +85,7 @@ class StoreTextBox extends React.Component {
         .then(() => {
           console.log("updated permit");
           varString +=
-            " Shopkeeper Erik smiles and says 'Thank you for the Sale, Kupo! " +
+            " Shopkeeper Erik smiles and says 'Thank you for the Sale, Kupo!' " +
             userName +
             " has added a permit to their inventory! ";
           this.setState({ storyString: varString });

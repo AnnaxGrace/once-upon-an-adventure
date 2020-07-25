@@ -36,6 +36,7 @@ let varStoryString = "";
 let varMoney = 0;
 let varLives = 3;
 let varLivesImg = "";
+let varHeartClass = "";
 
 function Player(props) {
   // console.log(props.avatar)
@@ -51,7 +52,8 @@ function Player(props) {
     storyString: "",
     stateMoney: "",
     stateLives: "",
-    stateLivesImg: require("../../images/threeHearts.png")
+    stateLivesImg: require("../../images/threeHearts.png"),
+    stateHeartClass: "heart-three"
   });
 
   useEffect(() => {
@@ -133,7 +135,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
         if (firstGuardTalk === false) {
@@ -143,7 +146,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
       }
@@ -162,7 +166,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
         if (firstThiefTalk === false) {
@@ -176,7 +181,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
       }
@@ -193,7 +199,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
         if (firstJaceTalk === false) {
@@ -205,7 +212,8 @@ function Player(props) {
             storyString: varStoryString,
             stateMoney: varMoney,
             stateLives: varLives,
-            stateLivesImg: varLivesImg
+            stateLivesImg: varLivesImg,
+            stateHeartClass: varHeartClass
           });
         }
       }
@@ -215,10 +223,14 @@ function Player(props) {
   function heart() {
     if (varLives === 3) {
       varLivesImg = require("../../images/threeHearts.png")
+      varHeartClass = "heart-three"
+
     } else if (varLives === 2) {
       varLivesImg = require("../../images/twoHearts.png")
+      varHeartClass = "heart-two"
     } else if (varLives === 1) {
       varLivesImg = require("../../images/oneHeart.png")
+      varHeartClass = "heart-one"
     }
   }
 
@@ -266,7 +278,7 @@ function Player(props) {
         " " +
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
-      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney });
+      setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney, stateHeartClass: varHeartClass });
       updateStoryLog()
       // return;
     }
@@ -300,7 +312,8 @@ function Player(props) {
               ...gameState,
               storyString: varStoryString,
               stateLives: newLives,
-              stateLivesImg: varLivesImg
+              stateLivesImg: varLivesImg, 
+              stateHeartClass: varHeartClass
             });
             updateStoryLog()
 
@@ -640,14 +653,14 @@ function Player(props) {
               window.location.replace("/youlose/" + id)
             } else {
               heart()
-              console.log(varLivesImg)
               setGameState({
                 ...gameState,
                 storyString: varStoryString,
                 hangmanMinigame: "hide",
                 stateMoney: newMoney,
                 stateLives: newLives,
-                stateLivesImg: varLivesImg
+                stateLivesImg: varLivesImg,
+                stateHeartClass: varHeartClass
               });
               updateStoryLog()
             }
@@ -697,6 +710,7 @@ function Player(props) {
       <InventoryGame
         playerMoney={gameState.stateMoney}
         stateLivesImg={gameState.stateLivesImg}
+        stateHeartClass={gameState.stateHeartClass}
       />
 
       <div className="guardBtns">

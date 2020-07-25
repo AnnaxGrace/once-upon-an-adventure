@@ -1,6 +1,8 @@
 import React from "react";
 import ExpoBtn from "../ExpoBtn";
 
+
+//our exposition buttons for our Wizard
 function WizardExposition(props) {
     return (
         <div>
@@ -8,7 +10,6 @@ function WizardExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "jaceNo"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="jaceNo"
             name="No"
@@ -16,7 +17,6 @@ function WizardExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "jaceYes"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="jaceYes"
             name="Yes"

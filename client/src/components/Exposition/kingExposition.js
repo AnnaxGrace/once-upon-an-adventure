@@ -1,6 +1,7 @@
 import React from "react";
 import ExpoBtn from "../ExpoBtn";
 
+//our exposition buttons for our king
 function KingExposition(props) {
     return (
         <div>
@@ -8,7 +9,6 @@ function KingExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "kingNo"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="kingNo"
             name="No"
@@ -16,7 +16,6 @@ function KingExposition(props) {
           <ExpoBtn
             className={props.hideState}
             id = "kingYes"
-            // style={{ opacity: props.image ? 1 : 0 }}
             onClick={props.handleBtnClick}
             data-value="kingYes"
             name="Yes"

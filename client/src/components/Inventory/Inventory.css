@@ -27,7 +27,17 @@
     
 }
 
-.heart {
+.heart-three {
+    width: 70px;
+    margin: 2px;
+}
+
+.heart-two {
+    width: 50px;
+    margin: 2px;
+}
+
+.heart-one {
     width: 30px;
     margin: 2px;
 }
