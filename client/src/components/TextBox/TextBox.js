@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 
 let userName = "You";
+
+//our story elements that don't require a userName
 const storyObj = {
     home: {
         start: {
@@ -17,6 +19,7 @@ const storyObj = {
 }
 }
  
+//The text box for continue.js
 class TextBox extends React.Component {
 
 
@@ -25,45 +28,41 @@ class TextBox extends React.Component {
         image: "placeholder.gif",
         name: "Misterman",
         poofShow: "hide",
-        links: "hide",
         homeFirst: true,
         lives: "",
         money: 0,
         gameLog: "",
-
         wilsonShow: "hide",
     }
 
-   
+    //when the page loads
     componentDidMount() {
-        console.log("pre API", userName)
+
+        // get the id from the parameters
         const id = this.props.match.params.id;
+
+        //set our username for our story
         API.getUserSprite(id).then(user => {
             const { name } = user.data[0].sprite[0]
        
-            userName = user.data[0].sprite[0].name
+            userName = name
            
         }).then(()=>{
             API.getUserSprite(id).then(user => {
-                console.log(user.data[0].sprite[0])
                 const { sprite, homeFirst, lives, money } = user.data[0].sprite[0]
            
-                console.log("../../assets/sprites/", sprite)
-                console.log(lives)
                 this.setState({ image: sprite})
                 this.setState({ homeFirst: homeFirst})
                 this.setState({lives: lives})
                 this.setState({money: money})
 
+                //If it's the first time the user is on this page, run the wilson exposition
                if ( homeFirst === true ) {
-                console.log("variable Change: ", userName)
                 
-                this.setState({links: "show", storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
+                this.setState({storyString:  userName + " awakens in a strange land. " + userName + " looks around. There's a beautiful field and there are paths that seem to lead in different directions. There seems to be a path that leads to a forest, and one that leads to a cliff. In the distance, " + userName+ " can see a beautiful castle - it looks like it would be hard to take in battle! "})
                 setTimeout(this.poofAppears, 9000);
-                // this.scrollToBottom();
                 }
                 if ( homeFirst === false ) {
-                    console.log("variable Change: ", userName)
                     
                     this.setState({storyString: userName + " enters where they first came into the land. " + userName + " looks around and decides what to do. "})
                     
@@ -75,24 +74,27 @@ class TextBox extends React.Component {
     }
       
 
+    //Shows the Poof gif and then runs the next function
     poofAppears = () => {
         this.setState({poofShow: "show"})
         this.updateStory("As " + userName + " looks around suddenly - POOF. ")
         setTimeout(this.wilsonAppears, 3000)
     }
 
+    //Shows the image of wilson and he starts to talk and then runs the next function
     wilsonAppears = () => {
         
         this.updateStory(storyObj.home.start.p3)
-        this.setState({poofShow: "hide"})
-        this.setState({wilsonShow: "show"})
+        this.setState({poofShow: "hide", wilsonShow: "show"})
         setTimeout(this.wilsonTalks, 5000)
     }
 
+    //Wilson talks and gives you money and then runs the next function
     wilsonTalks = () => {
         const id = this.props.match.params.id;
 
         this.updateStory(storyObj.home.start.p4)
+        //updates our money database to 10
         API.UpdateSpriteMoney(10, id).then(()=> {
             console.log("updated money")
             this.setState({money: 10})
@@ -102,12 +104,12 @@ class TextBox extends React.Component {
         setTimeout(this.wilsonGoes, 6000)
     }
 
+    //Wilson image goes, and he poof shows. Updates homefirst so this sequence doesn't run again. And then runs the next functions
     wilsonGoes = () => {
 
         const id = this.props.match.params.id;
         this.setState({wilsonShow: "hide"})
         this.setState({poofShow: "show"})
-        this.setState({links: "hide"})
 
         API.UpdateSpriteHomeFirst(false, id).then(()=> {
             console.log("updated homeFirst")            
@@ -116,37 +118,20 @@ class TextBox extends React.Component {
         setTimeout(this.poofGoes, 3000)
     }
 
+    //Hides the poof image and then runs the function that updates the story database
     poofGoes = () => {
-        console.log("step 4")
         this.setState({poofShow: "hide"})
         this.updateStory("And then, in another POOF, he was gone! " + userName+ " looked around again and thought about what to do... ")
         this.createStory()
-        ///This needs to be update boolean value in API
     }
 
-    handleBtnClick = event => {
-        // Get the data-value of the clicked button
-        const btnType = event.target.attributes.getNamedItem("data-value").value;
-        
-    
-        if (btnType === "yes") {
-            console.log("yes")
-            // let storyContainer = this.refs.scroll
-            // storyContainer.scrollTop = storyContainer.scrollHeight - storyContainer.clientHeight;
-          this.updateStory(storyObj.home.start.p2)
-        } 
-        if (btnType === "no") {
-            console.log("no")
-          this.updateStory(storyObj.home.start.p3)
-        }
-        
-      };
-
+    //function to set the state with the string given in the parameter
     updateStory = storyObjectPath => {
        
         this.setState({storyString: this.state.storyString + " " + storyObjectPath })
     }
 
+    //Our function that creates our story for our user so that we can update it in the future
     createStory = () => {
         const id = this.props.match.params.id;
         let postObj = {
@@ -154,9 +139,9 @@ class TextBox extends React.Component {
         }
         API.createStory(postObj, id).then(res => 
             console.log("story created")).catch(err => console.log(err));
-            // this.setState({gameLog: this.state.storyString})
     }
 
+    //Gets the full story when you click on the button
     findGameLog = () => {
         const id = this.props.match.params.id;
         API.getUserStory(id).then(user => {
@@ -165,20 +150,12 @@ class TextBox extends React.Component {
         })
     }
 
-    // updateStoryLog = () => {
-    //     const id = this.props.match.params.id;
-    //     console.log("checking") 
-    //     let newText = "hi"
-    //     API.UpdateStory(newText, id).then(() => {
-    //         console.log("story updated")
-    //     })
-    // }
-
 
     render () {
     return(
             <div>
                
+                {/* Our textbox for this page */}
                 <div className="mapBG">
                     <div ref = "scroll">
                     
@@ -186,22 +163,25 @@ class TextBox extends React.Component {
                     </div>
                     
                 </div>
+
+                {/* Pass our props to our inventory so they change in page */}
                 < Inventory 
                 money={this.state.money}
                 />
 
+            {/* Our menu buttons */}
             <div className="card-body text-center">
                 <p></p>
                 <h5>Menu</h5>
 
-                {/* Saves Your Game */}
+                {/* Logs you out of the game */}
                 <Link to ="/">
                     <button type="button" className="btn" >
                         Log Out!
                     </button>
                 </Link>
 
-                {/* Pulls up GameTextModal */}
+                {/* Pulls up GameLog */}
                 <button type="button" className="btn btn-primary" onClick={this.findGameLog} data-toggle="modal" data-target="#game-log">
                     Game Log!
                     </button>
@@ -212,11 +192,6 @@ class TextBox extends React.Component {
                     <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
                 </div>
 
-                <div className={this.state.links}>
-                        <p id="castle"></p>
-                        
-                </div>
-
                 <div className={this.state.wilsonShow}>
                     <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} />
                 </div>
@@ -224,6 +199,7 @@ class TextBox extends React.Component {
                     <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} />
                 </div>
 
+                {/* Our game log modal */}
                 <div className="modal fade" id="game-log" data-backdrop="static" tabIndex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

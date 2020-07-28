@@ -84,8 +84,6 @@
     width: 100%;
     position: absolute;
     top: 0;
-    /* display: none; */
-    /* display: block; */
     z-index: 3;
     opacity: 3;
   }

@@ -1,5 +1,4 @@
 import React, { useState ,useEffect } from "react";
-// import GameTextBox from "../components/TextBox/GameTextBox"
 // import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
 import CastleWorld from '../features/world/CastleWorld';
@@ -56,7 +55,6 @@ function CastleGame() {
                         {renderCastle()}
                     <div>
                         {/* Dynamically rendered game text appears in text-box */}
-                        {/* <GameTextBox avatarName={userAvatarName}/> */}
                     </div>
                 </div>
                 <MenuBtns />

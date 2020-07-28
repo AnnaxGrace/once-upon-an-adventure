@@ -1,5 +1,4 @@
 import React, { useState ,useEffect } from "react";
-import GameTextBox from "../components/TextBox/GameTextBox"
 import { Container } from "../components/Grid"
 import InventoryGame from "../components/Inventory/inventoryGame"
 import CliffWorld from '../features/world/CliffWorld';
@@ -41,10 +40,6 @@ function CliffGame() {
                 <div>
                     {/* Game Board */}
                         <CliffWorld avatar={userAvatar} avatarName={userAvatarName}/>
-                    <div>
-                        {/* Dynamically rendered game text appears in text-box */}
-                        <GameTextBox avatarName={userAvatarName}/>
-                    </div>
                 </div>
                 <MenuBtns />
         </div>

@@ -26,6 +26,9 @@ function StoreInventory(props) {
 
 );
 
+
+{/* Runs function to return image depending on lives in our database */}
+
 function heart() {
     
     if (userLives === 3){
