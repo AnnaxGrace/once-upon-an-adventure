@@ -76,8 +76,6 @@
   width: 100%;
   position: absolute;
   top: 0;
-  /* display: none; */
-  /* display: block; */
   z-index: 3;
   opacity: 3;
 }
@@ -145,13 +143,6 @@
   right: 450px;
 }
 
-/* .avatar-back-image {
-  height: 80px;
-  position: absolute;
-  top: 600px;
-  right: 450px;
-} */
-
 .poof-image {
   height: 400px;
     position: absolute;
@@ -177,19 +168,6 @@ div::-webkit-scrollbar-thumb {
   }
 
 
-/* #snake{
-    background-color:rgba(0,0,0,0.4);
-    border-radius: 0px 0px 10px 10px;
-    height: 1000px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    /* display: none; */
-    /* display: block;
-    z-index: 3;
-    opacity: 3;
-} */ */
-
 #hangman{
   background-color:rgba(0,0,0,0.4);
   border-radius: 0px 0px 10px 10px;
@@ -197,8 +175,6 @@ div::-webkit-scrollbar-thumb {
   width: 100%;
   position: absolute;
   top: 0;
-  /* display: none; */
-  display: block;
   z-index: 3;
   opacity: 3;
 }

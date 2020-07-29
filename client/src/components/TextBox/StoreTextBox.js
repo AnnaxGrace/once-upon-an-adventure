@@ -8,50 +8,43 @@ import Store from "../Store/Store";
 let userName = "You";
 let varString = "";
 
+//The text box for the store
 class StoreTextBox extends React.Component {
   state = {
     storyString: "",
     money: 0,
-    id: "",
     permit: false,
     permitImg: require("../../images/empty.png"),
   };
 
-  //we could also do if storyString === ""
-  //so this.state.storyString === ""
+      //when the page loads
+
   componentDidMount() {
-    console.log("pre API", userName);
+
+    // get the id from the parameters
     const id = this.props.match.params.id;
 
+    //set our username for our story
     API.getUserSprite(id)
       .then((user) => {
-        console.log(user.data[0].sprite[0]);
         const { name } = user.data[0].sprite[0];
-
-        console.log("post API: ", name);
-        userName = user.data[0].sprite[0].name;
+        userName = name
       })
       .then(() => {
         API.getUserSprite(id).then((user) => {
-          console.log(user.data[0].sprite[0]);
           const {
             sprite,
-            homeFirst,
             lives,
             money,
             permit,
           } = user.data[0].sprite[0];
 
-          console.log("../../assets/sprites/", sprite);
-          console.log(lives);
           this.setState({ image: sprite });
-          this.setState({ homeFirst: true });
           this.setState({ lives: lives });
           this.setState({ money: money });
-          this.setState({ id: id });
           this.setState({ permit: permit });
-          console.log("this is money");
-          console.log(this.state.money);
+         
+          //sets our permit image depending on our database
           if (permit === true) {
             this.setState({
               permitImg: require("../../images/castle-pass.png"),
@@ -60,8 +53,6 @@ class StoreTextBox extends React.Component {
           if (permit === false) {
             this.setState({ permitImg: require("../../images/empty.png") });
           }
-
-          userName = user.data[0].sprite[0].name;
 
           this.setState({
             storyString:
@@ -79,9 +70,14 @@ class StoreTextBox extends React.Component {
       });
   }
 
+  //when you press the buy permit button
   handleStoreBtn = () => {
+    const id = this.props.match.params.id;
+
+    //if you have the money to buy it
     if (this.state.money >= 50) {
-      API.UpdateSpritePermit(true, this.state.id)
+      //update the database to say the permit is owned
+      API.UpdateSpritePermit(true, id)
         .then(() => {
           console.log("updated permit");
           varString +=
@@ -92,8 +88,9 @@ class StoreTextBox extends React.Component {
           this.setState({ permitImg: require("../../images/castle-pass.png") });
           this.setState({ permit: true });
         })
+        //and remove the money needed to purchase the permit
+        //and update the database
         .then(() => {
-          const id = this.props.match.params.id;
           let newMoney = this.state.money - 50;
 
           API.UpdateSpriteMoney(newMoney, id).then(() => {
@@ -101,6 +98,7 @@ class StoreTextBox extends React.Component {
             this.setState({money: newMoney})
           });
         });
+        //if you don't have the money, shopkeeper says you can't buy it
     } else {
       varString +=
         " Shopkeeper Erik frowns and says 'Sorry, not enough money, Kupo!";
@@ -108,26 +106,21 @@ class StoreTextBox extends React.Component {
     }
   };
 
-  // permit =() => {
-
-  //         if (props.permit === true){
-  //             return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
-  //         } else {
-  //             return <img src={require("../../images/empty.png")} className="invtImg" alt="Empty" />
-  //         }
-  //     }
-
   render() {
     return (
       <div>
+        {/* Our textbox for this page */}
         <div className="textStore">
           <div ref="scroll">{this.state.storyString}</div>
         </div>
 
+        {/* Pass our props to our inventory so they change in page */}
         <StoreInventory
           money={this.state.money}
           permitImg={this.state.permitImg}
         />
+
+        {/* Pass our button function to the store page */}
         <Store handleStoreBtn={this.handleStoreBtn} />
       </div>
     );
