@@ -3,21 +3,13 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
-
-
-import { Cliffside, Castle, Forest } from '../../data/maps/1'
+import { Forest } from '../../data/maps/1'
 import store from '../../config/store'
 
-// var userName = "You";
+//THIS MAP IS NOT IN USE 
 function World(props) {
   let tiles = Forest
-    // const [gameState, setGameState] = useState({
-    //     firstGuardTalk: true,
-    //     firstCastle: false,
-    //     permit: false,
-    //     guardButtons: "hide",
-    //     storyString: ""
-    // });
+  
 
     const { id } = useParams();
     store.dispatch({

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-// import walkSprite from '../../assets/sprites/gladiator-4row.png'
-// import x from "../../assets/sprites/option2-4row.png"
 import { handleKeyDown, observeImpassable } from "./movement";
-
 import "../../components/TextBox/TextBox.css";
 import API from "../../utils/API";
 import Exposition from "../../components/Exposition";
@@ -12,20 +9,14 @@ import WizardExposition from "../../components/Exposition/wizardExposition";
 import "./gamePlay.css";
 import CanvasSnake from "../../components/CanvasSnake";
 import ThiefExposition from "../../components/Exposition/thiefExposition";
-// import MusicBtn from "../../components/SoundBtns/MusicBtn"
 import ThiefExposition2 from "../../components/Exposition/thiefExposition2";
 import InventoryGame from "../../components/Inventory/inventoryGame";
-
 import CanvasHangman from "../../components/CanvasHangman";
-
-// console.log(x)
-console.log("this is gamestate");
-// console.log(gameState)
 
 const handleMovement = (player) => {
   return player;
 };
-
+//variables related to the players game progress
 let userName = "You";
 let firstGuardTalk = "true";
 let firstOrcTalk = "true";
@@ -39,9 +30,9 @@ let varLivesImg = "";
 let varHeartClass = "";
 
 function Player(props) {
-  // console.log(props.avatar)
   const { id } = useParams();
 
+  //creates a state object for player
   const [gameState, setGameState] = useState({
     guardButtons: "hide",
     jaceButtons: "hide",
@@ -56,6 +47,7 @@ function Player(props) {
     stateHeartClass: "heart-three"
   });
 
+//applies event listener when compenent mounts
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
       handleKeyDown(
@@ -71,30 +63,8 @@ function Player(props) {
     });
   }, []);
 
-  // function listenerCheck(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
-  //     console.log("e in listenercheck 1st stop", e)
-  //     if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
-  //         addListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle)
-  //     } else {
-  //         console.log("else", e)
-  //         removeListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle)
-  //     }
 
-  // }
-
-  // function addListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
-  //     console.log("e in addListener 2nd stop", e)
-  //     console.log("adding event listener")
-  //     window.addEventListener("keydown", e => { handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) })
-
-  // }
-
-  // function removeListener(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
-  //     console.log("e in removeListener 3rd stop", e)
-  //     console.log("removing event listener")
-  //     document.removeEventListener("keydown", handleKeyDown(e, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle))
-  // }
-
+  //api call to retreive user data from the database
   useEffect(() => {
     API.getUserSprite(id).then((user) => {
       console.log(user.data[0].sprite[0].sprite);
@@ -121,6 +91,7 @@ function Player(props) {
       console.log(money);
       heart()
 
+      //following logic determines how NPC's will behave when interacted with based on location & game progress
       if (place === "castle") {
         if (firstGuardTalk === true) {
           varStoryString =
@@ -220,6 +191,8 @@ function Player(props) {
     });
   }, []);
 
+
+  //sets the image with correct amount of hearts to inventory bar
   function heart() {
     if (varLives === 3) {
       varLivesImg = require("../../images/threeHearts.png")
@@ -234,6 +207,7 @@ function Player(props) {
     }
   }
 
+  //the following functions handle the logic for NPC interactions based on game progress
   function guardTalking() {
     switch (firstGuardTalk) {
       case false:
@@ -361,10 +335,6 @@ function Player(props) {
         storyString: varStoryString,
         thiefButtons: "show",
       });
-      // API.UpdateSpriteFirstThiefTalk(false, id).then(()=> {
-      //     console.log("updated thiefTalk")
-      //     firstThiefTalk = false;
-      // })
     }
     if (firstThiefTalk === false) {
       varStoryString += " Thief Anna says 'What do you want?' ";
@@ -516,6 +486,7 @@ function Player(props) {
     }
   }
 
+  //following three functions handle page changes
   function returnToWorldMap() {
     window.location.replace("/continue/" + id);
   }
