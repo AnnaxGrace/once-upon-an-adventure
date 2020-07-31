@@ -28,7 +28,7 @@ function ForestWorldTheifMoved(props) {
             console.log(sprite)
             return setUserAvatar(sprite)
         })
-    }, []);
+    });
 
     console.log(userAvatar);
 

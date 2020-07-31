@@ -189,14 +189,14 @@ class TextBox extends React.Component {
 
 
                 <div className= {this.state.poofShow}>
-                    <img className ="poof-image" src={require("../../images/prettypoof.gif")} />
+                    <img className ="poof-image" src={require("../../images/prettypoof.gif")} alt="Poof cloud with colorful stars" />
                 </div>
 
                 <div className={this.state.wilsonShow}>
-                    <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} />
+                    <img className="appear-image" src={require("../../assets/sprites/wilson.gif")} alt="Avatar of Wilson" />
                 </div>
                 <div >
-                    <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} />
+                    <img className="avatar-image" src={require("../../assets/sprites/1-" + this.state.image)} alt="Avatar of User"/>
                 </div>
 
                 {/* Our game log modal */}

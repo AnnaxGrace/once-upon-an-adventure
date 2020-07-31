@@ -1,6 +1,4 @@
 import React, { useState ,useEffect } from "react";
-import { Container } from "../components/Grid"
-import InventoryGame from "../components/Inventory/inventoryGame"
 import CliffWorld from '../features/world/CliffWorld';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
@@ -30,7 +28,7 @@ function CliffGame() {
         })
             
         })
-    }, []);
+    });
 
     return(
         <div>

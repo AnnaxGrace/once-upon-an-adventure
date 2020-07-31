@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 // import { Container } from "../components/Grid"
-import InventoryGame from "../components/Inventory/inventoryGame"
 import ForestWorld from '../features/world/ForestWorld';
 import ForestWorldThiefMoved from '../features/world/ForestWorldThiefMoved';
 // import Player from '../features/player';
@@ -36,7 +35,7 @@ function ForestGame() {
                
             })
         })
-    }, []);
+    });
 
     function renderForest() {
         switch (thiefTalk) {
@@ -44,6 +43,8 @@ function ForestGame() {
                 return <ForestWorld avatar={userAvatar} avatarName={userAvatarName} />
             case false:
                 return <ForestWorldThiefMoved avatar={userAvatar} avatarName={userAvatarName} />
+            default:
+                return;
         }
     }
     return (

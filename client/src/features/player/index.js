@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { handleKeyDown, observeImpassable } from "./movement";
+import { handleKeyDown } from "./movement";
 import "../../components/TextBox/TextBox.css";
 import API from "../../utils/API";
 import Exposition from "../../components/Exposition";
@@ -61,13 +61,12 @@ function Player(props) {
         enterCastle
       );
     });
-  }, []);
+  });
 
 
   //api call to retreive user data from the database
   useEffect(() => {
     API.getUserSprite(id).then((user) => {
-      console.log(user.data[0].sprite[0].sprite);
       const {
         name,
         place,
@@ -87,8 +86,6 @@ function Player(props) {
       hasPermit = permit;
       varMoney = money;
       varLives = lives;
-      // setGameState({...gameState, stateMoney: varMoney})
-      console.log(money);
       heart()
 
       //following logic determines how NPC's will behave when interacted with based on location & game progress
@@ -189,7 +186,7 @@ function Player(props) {
         }
       }
     });
-  }, []);
+  });
 
 
   //sets the image with correct amount of hearts to inventory bar
@@ -247,17 +244,14 @@ function Player(props) {
 
   function orcTalking() {
     if (firstOrcTalk === false) {
-      console.log("step 1")
       varStoryString +=
         " " +
         userName +
         " decides to speak to Orc Vinne. 'ALREADY GAVE HEARTS, KICK ROCKS KID!' he says. ";
       setGameState({ ...gameState, storyString: varStoryString, stateLivesImg: varLivesImg, stateMoney: varMoney, stateHeartClass: varHeartClass });
       updateStoryLog()
-      // return;
     }
     if (firstOrcTalk === true) {
-      console.log("step 2")
       if (varLives === 3) {
         varStoryString +=
           " " +
@@ -271,7 +265,6 @@ function Player(props) {
           " " +
           userName +
           " decides to speak to Orc Vinnie. 'HI' says Orc Vinnie. 'IMMA GIVE YOU A HEART' ";
-        //   setGameState({ ...gameState, storyString: varStoryString });
         API.UpdateSpriteFirstOrcTalk(false, id).then(() => {
           console.log("updated OrcTalk");
           firstOrcTalk = false;
@@ -352,9 +345,7 @@ function Player(props) {
     const btnType = event.target.attributes.getNamedItem("data-value").value;
 
     if (btnType === "guardYes") {
-      console.log("button clicks");
       if (hasPermit === true) {
-        console.log("reads if true");
         varStoryString +=
           " " +
           userName +
@@ -372,7 +363,6 @@ function Player(props) {
         });
       }
       if (hasPermit === false) {
-        console.log("reads if false");
         varStoryString +=
           " " +
           userName +
@@ -429,7 +419,6 @@ function Player(props) {
     if (btnType === "thiefYes") {
       varStoryString +=
         " " + userName + " says 'okay!' and hands over all their money.";
-      // setGameState({...gameState, thiefButtons: "hide", storyString: varStoryString })
       API.UpdateSpriteFirstThiefTalk(false, id)
         .then(() => {
           console.log("updated thiefTalk");
@@ -499,15 +488,13 @@ function Player(props) {
     window.location.replace("/throne/" + id);
   }
 
-  //done button for the wizard/snake
+  //done button for the wizard/snake minigame
   function handleDoneButtonClick(event) {
-    console.log("no running?");
+    //btnValue is the amount of points the user got during snake
     const btnValue = parseInt(
       event.target.attributes.getNamedItem("data-value").value
     );
     let newMoney = btnValue + varMoney;
-    //this is points to convert to money
-    console.log(btnValue);
     varStoryString +=
       " " +
       "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " +
@@ -515,10 +502,6 @@ function Player(props) {
       "! You won " +
       btnValue +
       " gold! Come see me if you want to play again!' ";
-    // setGameState({...gameState, storyString: varStoryString, snakeMinigame: "hide", guardButtons: "hide", jaceButtons: "hide"})
-    //update api (btnValue, id)
-    //update variable
-    //Need to do all done here if/ for how much money for points, need to have points show up here
 
     API.UpdateSpriteMoney(newMoney, id).then(() => {
       console.log("updated NewMoney", newMoney);
@@ -537,11 +520,11 @@ function Player(props) {
 
   }
 
+  // done button for the thief's hangman game
   function handleHangButtonClick(event) {
-    console.log("this handle hang click works?");
 
     const btnWin = event.target.attributes.getNamedItem("data-value").value;
-    console.log(btnWin);
+
     if (btnWin === "yes") {
       if (firstThiefTalk === true) {
         varStoryString +=
@@ -570,8 +553,7 @@ function Player(props) {
       if (firstThiefTalk === false) {
         varStoryString +=
           " Thief Anna says 'I can't believe you beat me... here's 10 gold, leave me alone!' ";
-        // setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
-        //gain 10 gold
+      
         let newMoney = varMoney + 10;
 
         API.UpdateSpriteMoney(newMoney, id).then(() => {
@@ -598,20 +580,12 @@ function Player(props) {
         "'s face 'HA. You LOSE. Gimmie your money! ...But you know what? You put up a good fight. I won't take all of your money - just 10 gold.' " +
         userName +
         " tries to hide their anger and sadness while handing over ten gold.";
-      // setGameState({...gameState, storyString: varStoryString, hangmanMinigame: "hide"})
-      //lose 10 gold, lose one heart
 
       let newMoney = varMoney - 10;
 
       API.UpdateSpriteMoney(newMoney, id)
         .then(() => {
           console.log("updated NewMoney", newMoney);
-          //   setGameState({
-          //     ...gameState,
-          //     storyString: varStoryString,
-          //     hangmanMinigame: "hide",
-          //     stateMoney: newMoney,
-          //   });
           varMoney = newMoney;
         })
         .then(() => {
@@ -642,6 +616,7 @@ function Player(props) {
 
   }
 
+  // updates the story collection to include what has happened in this page
   function updateStoryLog() {
     API.getUserStory(id).then(user => {
       const { text } = user.data[0].story[0]
@@ -659,7 +634,6 @@ function Player(props) {
 
   return (
     <div>
-      {/* <MusicBtn /> */}
       <div
         className="row"
         style={{
@@ -673,6 +647,8 @@ function Player(props) {
           height: "64px",
         }}
       />
+
+      {/* TextBox for the story */}
       <div className="textBG">
         <div>{gameState.storyString}</div>
       </div>
@@ -684,6 +660,7 @@ function Player(props) {
         stateHeartClass={gameState.stateHeartClass}
       />
 
+      {/* Following are our exposition buttons */}
       <div className="guardBtns">
         <Exposition
           handleBtnClick={handleBtnClick}
@@ -712,6 +689,7 @@ function Player(props) {
         />
       </div>
 
+      {/* Our two minigames that show based on state */}
       <div className={gameState.snakeMinigame} id="snake">
         <CanvasSnake handleDoneButtonClick={handleDoneButtonClick} />
       </div>

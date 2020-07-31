@@ -17,7 +17,7 @@ function MusicBtn(props) {
             const { place } = user.data[0].sprite[0]
             return setMusicPlace(place)
         })
-    }, [])
+    })
     
     switch (musicPlace) {
         case "forest":
@@ -31,6 +31,8 @@ function MusicBtn(props) {
             break;
         case "home":
             currentMusic= gameMusic2
+        default:
+            return;
     }
 
     switch (music) {

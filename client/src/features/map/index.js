@@ -357,6 +357,8 @@ function getTileSprite(type) {
             return 'background67 sky'
         case 140:
             return 'cliffEdge'
+        default:
+            return;
 
     }
 }

@@ -40,7 +40,8 @@ function ThroneRoom(props) {
                 {/* Chacter Sprite here */}
                 {/* Currently the img that shows up is hard coded to option 1. need to make it dynamic */}
 
-                <img className="avatar-back-image" src={require("../../images/2-" + userImage)} />
+                <img className="avatar-back-image" alt="A view of your avatar from the back"
+                src={require("../../images/2-" + userImage)} />
             </div>
         </div>
     )

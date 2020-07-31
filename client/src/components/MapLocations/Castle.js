@@ -6,9 +6,9 @@ import { Link, useParams } from "react-router-dom"
 function Castle(props) {
     const {id} = useParams()
 
-    const castle = ()=> {
-        window.location.replace("/castle/" + id)
-    }
+    // const castle = ()=> {
+    //     window.location.replace("/castle/" + id)
+    // }
     
     return(
         <div className="text-center special castleDiv">

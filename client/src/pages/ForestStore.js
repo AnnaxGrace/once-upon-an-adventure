@@ -1,13 +1,8 @@
 import React, { useState ,useEffect } from "react";
 import StoreTextBox from "../components/TextBox/StoreTextBox"
-import { Container } from "../components/Grid"
-import InventoryGame from "../components/Inventory/inventoryGame"
-import World from '../features/world/index';
 import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import MenuBtns from "../components/MenuBtns/MenuBtns";
-import ComingSoon from "../components/ComingSoon/ComingSoon";
-import Store from "../components/Store/Store";
 import MusicBtn from "../components/SoundBtns/MusicBtn";
 
 function ForestGame() {
@@ -40,18 +35,8 @@ function ForestGame() {
                 return setUserMoney(money)
             })
         })
-    }, []);
+    });
 
-    // const handleStoreBtn = () => {
-    //    if(userMoney >= 50){
-    //        API.UpdateSpritePermit(true, id).then(()=> {
-    //            console.log("updated permit")            
-    //        })
-    //        alert("Thank you for the Sale, Kupo!")
-    //    } else{
-    //        alert("Sorry, Not enough money, Kupo!")
-    //    }
-    //   };
 
     return(
         <div>

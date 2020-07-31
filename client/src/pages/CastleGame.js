@@ -1,6 +1,5 @@
 import React, { useState ,useEffect } from "react";
 // import { Container } from "../components/Grid"
-import InventoryGame from "../components/Inventory/inventoryGame"
 import CastleWorld from '../features/world/CastleWorld';
 import CastleWorldGuardMoved from '../features/world/CastleWorldGuardMoved';
 // import Player from '../features/player';
@@ -17,7 +16,6 @@ function CastleGame() {
     const [guardTalk, setGuardTalk] = useState(null)
 
     useEffect(() => {
-        console.log(id)
         API.getUserSprite(id).then(user => {
             console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
@@ -25,17 +23,14 @@ function CastleGame() {
             // console.log(sprite, name)
                 return setUserAvatar(sprite)
         }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { name, permit } = user.data[0].sprite[0]
        
-            console.log(name)
             setUserAvatarName(name)
             setGuardTalk(permit)
-            console.log("userAvatar: ",userAvatar)
         })
             
         })
-    }, []);
+    });
 
     function renderCastle() {
         switch (guardTalk) {
@@ -43,6 +38,8 @@ function CastleGame() {
                 return <CastleWorld avatar={userAvatar} avatarName={userAvatarName}/>
             case true:
                 return <CastleWorldGuardMoved avatar={userAvatar} avatarName={userAvatarName}/>
+            default:
+                return;
         }
     }
 
@@ -53,9 +50,7 @@ function CastleGame() {
                 <div>
                     {/* Game Board */}
                         {renderCastle()}
-                    <div>
-                        {/* Dynamically rendered game text appears in text-box */}
-                    </div>
+                    
                 </div>
                 <MenuBtns />
         </div>

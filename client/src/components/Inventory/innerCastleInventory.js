@@ -1,8 +1,7 @@
-import React, {  useState , useEffect } from "react";
+import React from "react";
 import "./Inventory.css";
 import { Container } from "../Grid"
-import API from "../../utils/API"
-import { useParams } from "react-router-dom";
+
 
 //inventory for Inner Castle
 function InnerCastleInventory(props) {

@@ -23,7 +23,7 @@ class Type extends React.Component {
 
       //This makes sure you can't submit the form by pressing enter
       window.addEventListener("keydown", (event)=> {
-        if(event.keyCode == 13) {
+        if(event.keyCode === 13) {
           event.preventDefault();
           return false;
         }

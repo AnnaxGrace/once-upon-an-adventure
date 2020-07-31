@@ -22,7 +22,7 @@ function InventoryGame(props) {
         return setUserPermit(permit)
     })
 
-    }, [userPermit]);
+    });
 
 //returns permit image depending on whether or not the user has a permit
   function permit( ){

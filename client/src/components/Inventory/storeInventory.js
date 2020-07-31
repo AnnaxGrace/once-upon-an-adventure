@@ -19,15 +19,12 @@ function StoreInventory(props) {
             const {lives} = user.data[0].sprite[0]
             
             return setUserLives(lives)
-        }, [])
+        })
         
-    },[userLives]
-        
-
-);
+    });
 
 
-{/* Runs function to return image depending on lives in our database */}
+// Runs function to return image depending on lives in our database
 
 function heart() {
     

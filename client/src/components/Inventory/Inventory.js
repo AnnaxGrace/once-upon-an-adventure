@@ -30,10 +30,7 @@ function Inventory(props) {
         
         )
 
-    },[userLives]
-        
-
-);
+    });
 
 //Returns image depending on our many lives our user has
 function heart() {
