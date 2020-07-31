@@ -3,11 +3,11 @@ import Player from '../player';
 import Map from '../map'
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
-
 import { ForestThiefMoved } from '../../data/maps/1'
 import store from '../../config/store'
 import MusicBtn from '../../components/SoundBtns/MusicBtn';
 
+//creates a game map for the forest map after the thief moves
 function ForestWorldTheifMoved(props) {
     let tiles = ForestThiefMoved;
    
