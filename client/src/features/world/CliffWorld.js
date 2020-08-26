@@ -9,6 +9,7 @@ import { Cliffside } from '../../data/maps/1'
 import store from '../../config/store'
 import MusicBtn from '../../components/SoundBtns/MusicBtn';
 
+//creates the cliff map
 function CliffWorld(props) {
     let tiles = Cliffside
     

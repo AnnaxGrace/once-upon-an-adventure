@@ -1,3 +1,4 @@
+//Grids are all 15x15 each nubmber represents a sprite image
 export const Cliffside = [
     [ 3,  3,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3],
     [ 3, 44,  45,  46,  47,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3],

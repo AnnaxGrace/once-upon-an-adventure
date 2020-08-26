@@ -1,5 +1,6 @@
 import { Howl } from 'howler';
 
+// this file uses howler to create a library of functions that can be used to play specific sounds and music
 export const walkingStone = new Howl({
   src: require('./soundEffects/footstep.mp3'),
   html5: true,

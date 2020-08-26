@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { SPRITE_SIZE } from '../../config/constants'
 
 import './styles.css'
-
+//returns a string that is used as a class name to apply css background images to tiles
+//based on the numerical value of the tile
 function getTileSprite(type) {
     switch (type) {
         // Passable Tiles
@@ -361,7 +362,7 @@ function getTileSprite(type) {
 }
 
 
-
+//returns a div that represents one tile (64 x 64px) on the map, uses getTileSprite to return class name
 function MapTile(props) {
     return <div
         className={`tile ${getTileSprite(props.tile)}`}
@@ -372,6 +373,7 @@ function MapTile(props) {
     />
 }
 
+//maps through tiles and creates rows 
 function MapRow(props) {
     return <div className="row"
         style={{
@@ -382,7 +384,7 @@ function MapRow(props) {
         }
     </div>
 }
-
+//returns the div containing the map
 function Map(props) {
     return (
         <div
@@ -402,6 +404,7 @@ function Map(props) {
     )
 }
 
+//uses state to set the value of tiles
 function mapStateToProps(state) {
     return {
         tiles: state.map.tiles

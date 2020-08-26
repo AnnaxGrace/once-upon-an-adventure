@@ -1,16 +1,13 @@
+//sets the initial state of the player
 const initialState = {
-    // CastleLevel
     position: [0, 448],
-    // ForestLevel
-    // position: [64, 384],
-    // CliffLevel
-    // position: [64, 384],
     spriteLocation: '0px 128px',
     direction: 'south',
     walkIndex: 0,
 
 }
 
+//handles any state change related to player movement
 const playerReducer = (state=initialState, action) => {
     switch(action.type) {
         case 'MOVE_PLAYER':

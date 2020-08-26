@@ -7,6 +7,7 @@ import MusicBtn from "../../components/SoundBtns/MusicBtn"
 import { CastleGuardMoved } from '../../data/maps/1'
 import store from '../../config/store'
 
+//creates a game map for the castle map after the guard moves
 function CastleWorldGuardMoved(props) {
     let tiles = CastleGuardMoved;
    
