@@ -13,9 +13,12 @@ function MusicBtn(props) {
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log("My API Log", user.data[0].sprite[0].place)
-            const { place } = user.data[0].sprite[0]
-            return setMusicPlace(place)
+            if (!user.data[0].sprite[0]){
+                setMusicPlace("forest")
+            }else{
+                const { place } = user.data[0].sprite[0].place
+                setMusicPlace(place)
+            }
         })
     }, [])
     
