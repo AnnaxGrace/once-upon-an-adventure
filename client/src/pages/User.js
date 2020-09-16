@@ -14,7 +14,6 @@ const styles={
 function User() {
     const handleClick = event => console.log(event);
     let { id } = useParams();
-    // console.log(id)
     
     return(
         <Container>

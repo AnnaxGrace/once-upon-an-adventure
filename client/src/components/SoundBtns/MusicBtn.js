@@ -13,7 +13,10 @@ function MusicBtn(props) {
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log("My API Log", user.data[0].sprite[0].place)
+            // const { place } = user.data[0].sprite[0]
+            if (!user.data[0].sprite[0]) {
+                return;
+            }
             const { place } = user.data[0].sprite[0]
             return setMusicPlace(place)
         })
