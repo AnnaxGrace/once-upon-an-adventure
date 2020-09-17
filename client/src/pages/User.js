@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react"
 import { Container } from "../components/Grid";
 import { Link, useParams } from "react-router-dom";
+import API from "../utils/API";
 import UserSplash from "../components/UserSplash/UserSplash";
-import MusicBtn from "../components/SoundBtns/MusicBtn"
+import MusicBtn from "../components/SoundBtns/MusicBtn";
+import DisabledContinueButton from "../components/UserContinueButtons/DisabledContinueButton";
+import ContinueButton from "../components/UserContinueButtons/ContinueButton";
 
 const styles={
     bookImg: {
@@ -11,13 +14,32 @@ const styles={
     }
 }
 
+
 function User() {
     const handleClick = event => console.log(event);
     let { id } = useParams();
-    // console.log(id)
+
+    const [useContinueButton, setContinueButton] = useState(null)
+    
+
+   async function continueCheck()  {
+        await API.getUserSprite(id).then(user => {
+            if (!user.data[0].sprite[0]){
+                setContinueButton(false);
+            } else if(user.data[0].sprite[0]) {
+                setContinueButton(true)
+            }
+        })
+    };
+
+    useEffect(() => {
+       continueCheck(); 
+    
+    }, []);
+
     
     return(
-        <Container>
+        <Container >
             <MusicBtn />
                 <h1 className="text-center">Welcome to Your Realm</h1>
 
@@ -41,9 +63,10 @@ function User() {
                                 </p>
 
                                 <Link to={"/continue/" + id}>
-                                    <button className="btn">
-                                        Continue your Adventure!
-                                    </button>
+                                    {useContinueButton
+                                        ? <ContinueButton onClick = {handleClick}/> 
+                                        : <DisabledContinueButton />
+                                    }
                                 </Link>
                                 <br />
 
