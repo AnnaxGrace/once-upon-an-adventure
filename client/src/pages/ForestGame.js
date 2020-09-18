@@ -17,22 +17,16 @@ function ForestGame() {
     const [thiefTalk, setThiefTalk] = useState(null)
 
     useEffect(() => {
-        console.log(id)
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
 
-            // console.log(sprite, name)
             return setUserAvatar(sprite)
         }).then(() => {
             API.getUserSprite(id).then(user => {
-                console.log("USER", user)
-                console.log(user.data[0].sprite[0])
+               
                 const { name, apiFirstThiefTalk } = user.data[0].sprite[0]
-                console.log(name)
                 setUserAvatarName(name)
                 setThiefTalk(apiFirstThiefTalk)
-                console.log("userAvatar: ", userAvatar)
                
             })
         })

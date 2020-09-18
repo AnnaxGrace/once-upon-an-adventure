@@ -22,23 +22,14 @@ function CliffWorld(props) {
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
         API.UpdateSpritePlace("cliff", id).then(()=> {
-            console.log("we're at the cliffs")          
         })
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0].sprite)
             const { sprite } = user.data[0].sprite[0]
-            console.log(sprite)
             return setUserAvatar(sprite)
         })
     }, []);
 
-    // function handleKeyboard(e){
-    //     console.log("handleKeyboard Firing");
-    //     console.log(e)
-    //     handleKeyDown(e)
-    // }
-
-    console.log(userAvatar);
+    
 
     return (
         <div

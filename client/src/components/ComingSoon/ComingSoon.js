@@ -15,7 +15,6 @@ const styles = {
 function ComingSoon() {
 
     const { id } = useParams();
-console.log(id)
     const handleClick = event => console.log(event);
 
     return (

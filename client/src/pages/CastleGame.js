@@ -17,21 +17,15 @@ function CastleGame() {
     const [guardTalk, setGuardTalk] = useState(null)
 
     useEffect(() => {
-        console.log(id)
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
        
-            // console.log(sprite, name)
                 return setUserAvatar(sprite)
         }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { name, permit } = user.data[0].sprite[0]
        
-            console.log(name)
             setUserAvatarName(name)
             setGuardTalk(permit)
-            console.log("userAvatar: ",userAvatar)
         })
             
         })

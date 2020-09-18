@@ -14,7 +14,6 @@ class Home extends Component {
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    // console.log(value);
     this.setState({
       [name]: value,
     });
@@ -23,14 +22,11 @@ class Home extends Component {
   HandleLoginSubmit = event => {
     event.preventDefault();
     const user = this.state;
-    console.log("working")
     API.findUser({
       email: user.email,
       password: user.password
     }).then(function (user) {
-      console.log(user)
       const id = user.data[0]._id
-      console.log(id)
 
       window.location.replace("/user/" + id);
       // If there's an error, log the error
@@ -44,7 +40,6 @@ class Home extends Component {
   handleSignUpSubmit = (event) => {
     event.preventDefault();
     const user = this.state;
-    // console.log(user);
 
     API.saveUser({
       email: user.email,

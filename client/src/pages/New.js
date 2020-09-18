@@ -94,11 +94,9 @@ function New() {
         
         postObj.sprite = char;
         const nameData = document.querySelector("#character-name").value;
-        console.log("******spriteData",nameData);
         postObj.name = nameData;
         //post to route
         API.saveSprite(postObj, id).then((res) => { 
-            console.log("save sprite res:", res);
             window.location.replace("/continue/" + id)  
         })
        

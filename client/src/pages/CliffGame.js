@@ -15,18 +15,13 @@ function CliffGame() {
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
        
-            // console.log(sprite, name)
                 return setUserAvatar(sprite)
         }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { name } = user.data[0].sprite[0]
        
-            console.log(name)
             setUserAvatarName(name)
-            console.log("userAvatar: ",userAvatar)
         })
             
         })

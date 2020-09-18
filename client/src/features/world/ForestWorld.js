@@ -20,17 +20,13 @@ function ForestWorld(props) {
     const [userAvatar, setUserAvatar] = useState(null)
     useEffect(() => {
         API.UpdateSpritePlace("forest", id).then(()=> {
-            console.log("we're at the forest")          
         })
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0].sprite)
             const { sprite } = user.data[0].sprite[0]
-            console.log(sprite)
             return setUserAvatar(sprite)
         })
     }, []);
 
-    console.log(userAvatar);
 
     return (
         <div
