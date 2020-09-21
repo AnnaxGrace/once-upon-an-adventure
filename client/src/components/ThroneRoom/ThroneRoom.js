@@ -23,10 +23,7 @@ function ThroneRoom(props) {
 
 
     API.getUserSprite(id).then(user => {
-        console.log(user.data[0].sprite[0])
         const { sprite } = user.data[0].sprite[0]
-        console.log("this is userImage ")
-        console.log( sprite )
         setUserImage(sprite)
         
     });

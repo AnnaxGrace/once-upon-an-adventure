@@ -29,20 +29,15 @@ function Continue() {
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            // console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
 
-            // console.log(sprite, name)
             return setUserAvatar(sprite)
         }).then(() => {
 
             API.getUserSprite(id).then(user => {
-                // console.log(user.data[0].sprite[0])
                 const { name } = user.data[0].sprite[0]
 
-                // console.log(name)
                 setUserAvatarName(name)
-                // console.log("userAvatar: ",userAvatar)
             })
         })
     }, []);
@@ -52,13 +47,11 @@ function Continue() {
             <MusicBtn />
             <h1 className="text-center">World Map</h1>
 
-            {/* Inventory Bar */}
-            {/* <Inventory /> */}
+            
 
             <div>
                 {/* Game Board */}
                 <img src={require("../images/open-book-board.png")} style={styles.bookImg} alt="World Map" />
-                {/* <World avatar={userAvatar} avatarName={userAvatarName}/> */}
                 <Cliffs />
                 <Forest />
                 <Village />

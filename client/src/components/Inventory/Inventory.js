@@ -50,7 +50,6 @@ function heart() {
 
 //returns permit image depending on whether or not the user has a permit
 function permit( ){
-console.log(userPermit)
     if (userPermit === true){
         return <img src={require("../../images/castle-pass.png")} className="invtImg" alt="Castle Pass" />
     } else {

@@ -8,7 +8,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("this is req.body")
     const { id } = req.params
     db.Story.create(req.body)
     .then(({_id}) => db.User.findOneAndUpdate({_id: id}, { $set: {story: _id}}, {new: true}))

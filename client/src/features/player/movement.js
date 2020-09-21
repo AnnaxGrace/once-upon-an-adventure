@@ -195,8 +195,6 @@ function dispatchMove(direction, newPos) {
 function attemptMove(direction, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle) {
     const oldPos = store.getState().player.position
     const newPos = getNewPosition(oldPos, direction)
-    console.log(observeBoundaries(oldPos, newPos))
-    console.log(oldPos, newPos)
     if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos, guardTalking, orcTalking, jaceTalking, thiefTalking, returnToWorldMap, enterShop, enterCastle))
         dispatchMove(direction, newPos)
 }

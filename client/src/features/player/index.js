@@ -67,7 +67,6 @@ function Player(props) {
   //api call to retreive user data from the database
   useEffect(() => {
     API.getUserSprite(id).then((user) => {
-      console.log(user.data[0].sprite[0].sprite);
       const {
         name,
         place,
@@ -87,8 +86,6 @@ function Player(props) {
       hasPermit = permit;
       varMoney = money;
       varLives = lives;
-      // setGameState({...gameState, stateMoney: varMoney})
-      console.log(money);
       heart()
 
       //following logic determines how NPC's will behave when interacted with based on location & game progress
@@ -247,7 +244,6 @@ function Player(props) {
 
   function orcTalking() {
     if (firstOrcTalk === false) {
-      console.log("step 1")
       varStoryString +=
         " " +
         userName +
@@ -257,7 +253,6 @@ function Player(props) {
       // return;
     }
     if (firstOrcTalk === true) {
-      console.log("step 2")
       if (varLives === 3) {
         varStoryString +=
           " " +
@@ -352,9 +347,7 @@ function Player(props) {
     const btnType = event.target.attributes.getNamedItem("data-value").value;
 
     if (btnType === "guardYes") {
-      console.log("button clicks");
       if (hasPermit === true) {
-        console.log("reads if true");
         varStoryString +=
           " " +
           userName +
@@ -372,7 +365,6 @@ function Player(props) {
         });
       }
       if (hasPermit === false) {
-        console.log("reads if false");
         varStoryString +=
           " " +
           userName +
@@ -501,13 +493,12 @@ function Player(props) {
 
   //done button for the wizard/snake
   function handleDoneButtonClick(event) {
-    console.log("no running?");
+      //this is points to convert to money
+
     const btnValue = parseInt(
       event.target.attributes.getNamedItem("data-value").value
     );
     let newMoney = btnValue + varMoney;
-    //this is points to convert to money
-    console.log(btnValue);
     varStoryString +=
       " " +
       "After finishing the Magic Math Game, Wizard Jace says... 'Congrats " +
@@ -538,10 +529,8 @@ function Player(props) {
   }
 
   function handleHangButtonClick(event) {
-    console.log("this handle hang click works?");
 
     const btnWin = event.target.attributes.getNamedItem("data-value").value;
-    console.log(btnWin);
     if (btnWin === "yes") {
       if (firstThiefTalk === true) {
         varStoryString +=

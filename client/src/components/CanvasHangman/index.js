@@ -22,8 +22,6 @@ class Hangman extends React.Component {
  
     //when our page loads
     componentDidMount() {
-        console.log(this.props)
-        //get/setup our canvas
         let canvas = this.refs.canvas
         ctx = canvas.getContext("2d")
 

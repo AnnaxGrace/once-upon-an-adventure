@@ -20,18 +20,13 @@ function ForestGame() {
 
     useEffect(() => {
         API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { sprite } = user.data[0].sprite[0]
        
-            // console.log(sprite, name)
                 return setUserAvatar(sprite)
         }).then(() => {API.getUserSprite(id).then(user => {
-            console.log(user.data[0].sprite[0])
             const { name } = user.data[0].sprite[0]
        
-            console.log(name)
             setUserAvatarName(name)
-            console.log("userAvatar: ",userAvatar)
         })
             
         }).then(()=>{
@@ -42,16 +37,6 @@ function ForestGame() {
         })
     }, []);
 
-    // const handleStoreBtn = () => {
-    //    if(userMoney >= 50){
-    //        API.UpdateSpritePermit(true, id).then(()=> {
-    //            console.log("updated permit")            
-    //        })
-    //        alert("Thank you for the Sale, Kupo!")
-    //    } else{
-    //        alert("Sorry, Not enough money, Kupo!")
-    //    }
-    //   };
 
     return(
         <div>
